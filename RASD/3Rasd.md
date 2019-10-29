@@ -7,8 +7,8 @@
 ## 3.2. Functional Requirements 
 ### 3.2.1. Scenarios
 ### 3.2.2. User Case Diagrams 
-### 3.2.3. User Cases
-### 3.2.4. Sequence Diagrams
+### 3.2.3. User Cases 
+### 3.2.4. Sequence Diagrams 
 ### 3.2.5. Mapping Requirements
 ## 3.3. Performance Requirements
 ## 3.4. Design Constraints
