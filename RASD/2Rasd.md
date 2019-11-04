@@ -25,13 +25,15 @@ There are three kind of users that will employ this product:
 1. User: the normal, every day citizen that has subscribed to SafeStreets and recognized as RU. The RU is able to compile and send reports, see the chronology of his reports and search for violations in a selected area.
    Other functions will not be accessible by the user to protect privacy of other people, not necessary others RU, and to avoid providing excessive useless data to RU.   
     
-2. Municipal Employee: the ME is someone hired from the municipality to which the task of accessing informations, on behalf of the authorities, will be given. To such kind of individuals, a unique username and password will be provided, already linked to an account able to utilize these functions:
+2. Municipal Employee: the ME is someone hired from the municipality to which the task of accessing informations, on behalf of the authorities, will be given. To such kind of individuals, a unique username and password will be provided, already linked to an account able to utilize all functions dedicated to the retrieval of data.
+A ME is unable to add or modify the status of any reports, but is able to change the status of an improvement from "not completed" to "completed". 
     
     
-3. Local Officer: The LO is part of the law enforcement of the municipality. As the ME, the LO receives his own account informations from the municipality that will permit him/her to utilize
+3. Local Officer: The LO is part of the law enforcement of the municipality. As the ME, the LO receives his own account informations from the municipality that will permit him/her to utilize all the functions to retrive data.
+    Unlike the ME the LO is able to modify the state of a report but is unable to do so with an improvement. An LO may, or may not, utilize the data stored by SafeStreet to write tickets for the cars that committed a violation
    
 ## 2.4. Assumptions, dependencies and constraints
-To assure the correct formulations of the requirements, and avoid unforeseen events, a certain amount of the world phenomena is considered as fixed. These constraints are as follows.
+To assure the correct formulations of the requirements, and avoid unforeseen events, a certain amount of the world phenomena is considered as follows.
 * [D1] The number of possible violations is finite and is aligned to the current traffic rules
 * [D2] The number of possible interventions is finite and there exists an already established correlation between violations and possible interventions
 * [D3] When using the S2B, the user’s device is always connected to internet 
