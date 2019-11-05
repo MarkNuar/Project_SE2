@@ -125,7 +125,7 @@ NOTIFY IMPROVEMENTS
 | | 1. The ME choose a position, providing the address or choosing it from the map, provided by the MS. |
 | | 1. The ME choose one or more types of improvements that have been applied to that position. |
 | | 1. The data are sent to the system, which stores them. |
-| | 1. The ME is able to add another executed impovement or end the operation. !
+| | 1. The ME is able to add another executed improvement or end the operation. !
 !Exit Conditions |The ME has correctly added an executed improvement to the system. !
 !Exceptions | * There are no exceptions under the given domain assumptions. !
 
@@ -183,7 +183,7 @@ MINE REPORTS BY TIME
 
 | | |
 |-|-|
-!Name | Mine Reports By Date!
+!Name | Mine Reports By Time!
 !Actors | Municipal Employee, Local Officer, Map Service!
 !Entry Conditions | The ME/LO has logged in and is in the home page. !
 !Event Flow | 1. The ME/LO clicks on the "Mine Reports" function. |
@@ -201,7 +201,7 @@ MINE REPORTS BY AREA
 
 | | |
 |-|-|
-!Name | Mine Reports By Date!
+!Name | Mine Reports By Area!
 !Actors | Municipal Employee, Local Officer, Map Service!
 !Entry Conditions | The ME/LO has logged in and is in the home page. !
 !Event Flow | 1. The ME/LO clicks on the "Mine Reports" function. |
@@ -218,11 +218,11 @@ VALIDATE REPORT
 
 | | |
 |-|-|
-!Name | Mine Reports By Date!
+!Name | Validate Report!
 !Actors | Local Officer, Ticket Service!
 !Entry Conditions | The LO has logged in and is in the home page. !
 !Event Flow | 1. The LO clicks on the "Validate Report" function. |
-| | 1. The system provides the LO with all the reports of his/her municipality. |
+| | 1. The system provides the LO with all the reports of his/her municipality still not verified. |
 | | 1. The reports are shown starting from the newest one.|
 | | 1. The LO clicks on one report and is able to validate or invalidate it. |
 | | 1. Eventually the LO uses the report data to create a new ticket and add it to the TS. !
