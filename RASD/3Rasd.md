@@ -24,7 +24,25 @@ The following mockups give an approximate idea of how the application’s interf
     ![Report3ChooseViolation](./images/Mockup/User/Report3ChooseViolation.png)
     * Add Report, confirmation
     ![Report4Confirm](./images/Mockup/User/Report4Confirm.png)
-* 
+* Authority
+    * Log-In
+    ![AuthorityLogIn](./images/Mockup/Authority/AuthorityLogin.png)
+* Municipal Employee
+    * See Statistics 
+    ![SeeStatistics](./images/Mockup/Authority/MunicipalEmployee/SeeStatistics.png)
+    * Get Improvements
+    ![GetImprovements](./images/Mockup/Authority/MunicipalEmployee/Improvements.png)
+    * Mine Reports By *
+    ![MineReportsBy*](./images/Mockup/Authority/MunicipalEmployee/MineReports.png)
+* Local Officer
+    * See Statistics 
+    ![SeeStatistics](./images/Mockup/Authority/LocalOfficer/SeeStatistics.png)
+    * Validate Reports, compact view
+    ![ValidateReports](./images/Mockup/Authority/LocalOfficer/ValidateReport.png)
+    * Validate Reports, expanded view
+    ![ValidateReports](./images/Mockup/Authority/LocalOfficer/ValidateReportExpanded.png)
+    * Mine Reports By *
+    ![MineReportsBy*](./images/Mockup/Authority/LocalOfficer/MineReports.png)
 ### 3.1.2. Hardware Interfaces
 The system has no hardware interface.
 ### 3.1.3. Software Interfaces
@@ -152,20 +170,7 @@ A local officer in patrol is tasked to give fines during his work shift but usua
 !Exit Conditions |The ME can browse through all the possible improvements in his/her municipality. !
 !Exceptions | * 1 There are no possible improvements. |
 | | * In the case 1 an error message is displayed, saying "There is not enough data to generate improvements", and the ME/LO is taken back to the home page.!
-#### 3.2.3.8. Notify Improvements
-| | |
-|-|-|
-!Name |Notify Improvements !
-!Actors |Municipal Employee!
-!Entry Conditions |The ME has logged in and is in the home page. !
-!Event Flow | 1. The ME clicks on the "Notify Improvements" function. |
-| | 1. The ME choose a position, providing the address or choosing it from the map, provided by the MS. |
-| | 1. The ME choose one or more types of improvements that have been applied to that position. |
-| | 1. The data are sent to the system, which stores them. |
-| | 1. The ME is able to add another executed improvement or end the operation. !
-!Exit Conditions |The ME has correctly added an executed improvement to the system. !
-!Exceptions | * There are no exceptions under the given domain assumptions. !
-#### 3.2.3.9. See Statistics
+#### 3.2.3.8. See Statistics
 | | |
 |-|-|
 !Name | See Statistics !
@@ -178,7 +183,7 @@ A local officer in patrol is tasked to give fines during his work shift but usua
 !Exit Conditions | The ME/LO successfully receives the statistics provided by the system. !
 !Exceptions | 1. The system has no data to build statistics on. |
 | | * In the case 1 an error message is displayed, saying "There is not enough data to create statistics", and the ME is taken back to the home page. !
-#### 3.2.3.10. Mine Reports By Type
+#### 3.2.3.9. Mine Reports By Type
 | | |
 |-|-|
 !Name | Mine Reports By Type!
@@ -192,7 +197,7 @@ A local officer in patrol is tasked to give fines during his work shift but usua
 !Exit Conditions | The ME/LO is able to search through the violations and see where and when they happened. !
 !Exceptions | 1. There are no reports with at least one of the given violation type. |
 | | * In the case 1 an error message is displayed, saying "There are no Violations to be displayed", and the ME/LO is taken back to the home page. !
-#### 3.2.3.11. Mine Reports By Date
+#### 3.2.3.10. Mine Reports By Date
 | | |
 |-|-|
 !Name | Mine Reports By Date!
@@ -206,7 +211,7 @@ A local officer in patrol is tasked to give fines during his work shift but usua
 !Exit Conditions | The ME/LO is able to search through the violations and see where they happened. !
 !Exceptions | 1. There are no reports issued in the specific date. |
 | | * In the case 1 an error message is displayed, saying "There are no Violations to be displayed", and the ME/LO is taken back to the home page. !
-#### 3.2.3.12. Mine Reports By Time
+#### 3.2.3.11. Mine Reports By Time
 | | |
 |-|-|
 !Name | Mine Reports By Time!
@@ -220,7 +225,7 @@ A local officer in patrol is tasked to give fines during his work shift but usua
 !Exit Conditions | The ME/LO is able to search through the violations and see where they happened !
 !Exceptions | 1. There are no reports issued at the specific time.|
 | | * In the case 1 an error message is displayed, saying "There are no Violations to be displayed", and the ME/LO is taken back to the home page. !
-#### 3.2.3.13. Mine Reports By Area
+#### 3.2.3.12. Mine Reports By Area
 | | |
 |-|-|
 !Name | Mine Reports By Area!
@@ -234,7 +239,7 @@ A local officer in patrol is tasked to give fines during his work shift but usua
 !Exit Conditions | The ME/LO is able to search through the violations and see when they happened !
 !Exceptions | 1. There are no reports issued in the specific area. |
 | | * In the case 1 an error message is displayed, saying "There are no Violations to be displayed", and the ME/LO is taken back to the home page. !
-#### 3.2.3.14. Validate Report
+#### 3.2.3.13. Validate Report
 | | |
 |-|-|
 !Name | Validate Report!
