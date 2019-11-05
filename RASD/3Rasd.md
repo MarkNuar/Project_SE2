@@ -270,7 +270,9 @@ A local officer in patrol is tasked to give fines during his work shift but usua
 
 
 ### 3.2.5. Mapping Requirements
+
 ## 3.3. Performance Requirements
+The system does not have any particular performance requirements. Obviously it will be able to handle multiple request from multiple clients (users and authorities).
 ## 3.4. Design Constraints
 ### 3.4.1. Standards Compliance 
 ### 3.4.2. Hardware Limitations

@@ -1,13 +1,10 @@
 Sign-up
-
 [R1] A user must be able to sign up to the system with a unique personal username and password
 Log-in
 [R2] The system must allow a municipality to create account for its employees and local officers
 [R3] The system must allow only registered users, municipal employee and officers to login with their username and password
 [R4] A users, municipal employee or local officer must be uniquely identified by his/her username
-
 Add Report
-
 [R5] When composing the report, the system must be able to access the user’s device camera and GPS sensor
 [R6] When composing the report, a user must take a picture from the device’s camera and highlight the license plate
 [R7] When composing the report, time and date get automatically retrieved from the internet
@@ -18,35 +15,22 @@ Add Report
 [R12] When composing the report, a user can abort the creation of the report at any time, before sending it
 [R13] Once a report has been sent, it can’t be aborted or reverted
 [R14] When receiving a report, the system must store it, recognize the car plate, if possible, and marked as unchecked
-
 GetMyReports
-
-[R15] When a user asks for his/her reports, the system must provide the saved reports
-sent by that user
-
+[R15] When a user asks for his/her reports, the system must provide the saved reports sent by that user
 GetReportsTypeByArea
-
 [R16] When getting the valid reports by area, a user can choose a position, or automatically get his/her from the GPS
-[R17] When getting the valid reports by area, the system must provide all the valid
-reports near the position given by the user and display their violation type through the MS (map service)
-
+[R17]When getting the valid reports by area, the system must provide all the valid reports near the position given by the user and display their violation type through the MS
 MineReports
-
-[R18] When mining the information, a municipal employee or a local officer can access only to reports of violations occurred in his/her municipality (da riscrivere)
-[R19] When mining the information, a municipal employee or a local officer can filter
-reports by area, date, time, type of violation and status of the report (valid or not valid)
+[R18] When mining the information, a municipal employee or a local officer can access only to violations type of reports occurred in his/her municipality
+[R19] When mining the information, a municipal employee or a local officer can filter reports by area, date, time or type of violation
 RetrieveStatistics
 [R20] When a ticket is issued through the TS, the system receives and store it
-[R21] When retrieving statistics, a municipal employee or a local officer can access only to reports of violations and issued tickets that occurred in his/her municipality (da riscrivere)
+[R21] When retrieving statistics, a municipal employee or a local officer can access only to reports of violations that occurred in his/her municipality
 [R22] The system must be able to calculate statistics from the reports of violations and issued tickets of the municipal employee or local officer’s municipality
-
 GetImprovements
-
-[R??] //TODO When getting improvements, a municipal employee can access only to reports of violations occurred in his/her municipality 
-[R23] The system must be able to retrieve information about accidents from the MAS (municipal accident system)
-[R24] The system must be able to identify the possible unsafe areas of the municipal employee or local officer’s municipality
-[R25] The system must be able to suggest possible interventions on a specific unsafe area
-
+[R23] When getting improvements, a municipal employee can access only to data of reports occurred in his/her municipality
+[R24] The system must be able to retrieve information about accidents from the MAS (municipal accident system)
+[R25] The system must be able to identify the possible unsafe areas of the municipal employee or local officer’s municipality
+[R26] The system must be able to suggest possible interventions on a specific unsafe area
 ValidateReports
-
-[R26] A municipal officer must be able to mark a report as valid or not valid
+[R27] A municipal officer must be able to mark a report as valid or not valid
