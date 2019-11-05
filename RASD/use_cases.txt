@@ -225,7 +225,7 @@ VALIDATE REPORT
 | | 1. The system provides the LO with all the reports of his/her municipality. |
 | | 1. The reports are shown starting from the newest one.|
 | | 1. The LO clicks on one report and is able to validate or invalidate it. |
-| | 1. Eventually the LO uses the report data to create a new ticket and add it to the Ticket Service
+| | 1. Eventually the LO uses the report data to create a new ticket and add it to the Ticket Service. !
 !Exit Conditions | The LO is able to browse through the reports and validate or invalidate them!
 !Exceptions | 1. There are no reports in LO's municipality. |
 | | * In the case 1 an error message is displayed, saying "There are no Reports to be displayed", and the LO is taken back to the home page. !

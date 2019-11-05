@@ -1,8 +1,11 @@
 # 3. Specific Requirements
 ## 3.1. External Interface Requirements
 ### 3.1.1. User Interfaces
+//mokup here
 ### 3.1.2. Hardware Interfaces
+The system has no hardware interface.
 ### 3.1.3. Software Interfaces
+The system does not 
 ### 3.1.4. Communication Interfaces
 ## 3.2. Functional Requirements 
 ### 3.2.1. Scenarios
