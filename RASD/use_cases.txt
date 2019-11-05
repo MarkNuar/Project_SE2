@@ -1,0 +1,231 @@
+
+SIGN UP
+
+| | |
+|-|-|
+!Name |Sign-Up !
+!Actors |Unregistered User !
+!Entry Conditions |The UU is already on the Log-In page. !
+!Event Flow | 1. The UU clicks on the "Sign-Up" field to start the registration process. |
+| | 1. The UU provides his/her email address. |
+| | 1. The UU provides a username. |
+| | 1. The UU provides a password and writes it again for confirmation. |
+| | 1. The UU clicks on the confirmation button. |
+| | 1. The system saves the data. !
+!Exit Conditions |The UU becomes now a RU. <br>From now on he/she can Log-In into the application and use SafeStreets service. !
+!Exceptions | 1. The UU is already an user. |
+| | 1. The UU provides a username already used. |
+| | * In the case 1 an error message is displayed, saying "Credentials already in use, please Log-In", and the UU is taken back to the Log-In page. |
+| | * In the case 2 an error message is displayed, saying "Username already in use, please choose a different one", and the UU is taken back to the point 2. | 
+
+
+USER LOG IN
+
+| | |
+|-|-|
+!Name |Log-In !
+!Actors |Registered User !
+!Entry Conditions |The RU is already on the Log-In page. !
+!Event Flow | 1. The RU provides his/her username or email. |
+| | 1. The RU provides his/her password. |
+| | 1. The RU clicks on the confirmation button.  |
+| | 1. The system redirects the RU to the corresponding home page. !
+!Exit Conditions |The RU is successfully redirected to the corresponding home page. !
+!Exceptions | 1. The RU provides an incorrect username, email or password. |
+| | * In the case 1 an error message is displayed, saying "Wrong Credentials", and the RU is taken back to the point 1. !
+
+
+ADD REPORT
+
+| | |
+|-|-|
+!Name |Add Report !
+!Actors |Registered User !
+!Entry Conditions |The RU has logged in and is in the home page, which is the "Get My Reports" page !
+!Event Flow | 1. The RU clicks on the "Add Report" button. |
+| | 1. The RU takes a photo of the car through his/her device's camera and goes to the next phase. |
+| | 1. The RU highlight the plate of the reported car and goes to the next phase. |
+| | 1. The RU adds one or more type of violations and confirms. |
+| | 1. The system receives the report and stores it. !
+!Exit Conditions |The RU successfully uploads a new report into the system. Then he/she is taken back to the home page. !
+!Exceptions | * There are no exceptions under the given domain assumptions. !
+
+
+GET MY REPORTS
+
+| | |
+|-|-|
+!Name | Get My Reports !
+!Actors | Registered User, Map Service !
+!Entry Conditions | The RU has logged in and is in the home page, which is "Get My Reports" page. !
+!Event Flow | 1. The system automatically provides the RU with the reports he/she has sent, sorted in chronological order, starting from the newest one. |
+| | 1. Eventually the RU is able to open a report, see all its information, with the position provided by the MS, and see its status. !
+!Exit Conditions | The RU successfully gets his/her reports and is able to navigate through them. !
+!Exceptions | 1. The RU has never uploaded any report.|
+| | * The case 1 is handled by showing only the "Add Report" button. !
+
+
+GET VIOLATIONS TYPE BY AREA
+
+| | |
+|-|-|
+!Name |Get Violations Type By Area !
+!Actors |Registered user, Map Service !
+!Entry Conditions |The RU has logged in and is in the home page, which is the "Get My Reports" page. !
+!Event Flow | 1. The RU has to swipe to the "Get violations Type By Area" page. |
+| | 1. Once in the correct page, the RU has to provide an address or use his/her current GPS location. |
+| | 1. A map with the violations, shown as points, is displayed. The map is provided by the MS. !
+!Exit Conditions |The RU now is able to browse on the map between violations and see their type. !
+!Exceptions | 1. The RU provides an invalid address. |
+| | * In the case 1 an error message is displayed, saying "Invalid address", and the RU is taken back to the point 2. !
+
+
+AUTHORITY LOG-IN
+
+| | |
+|-|-|
+!Name | Log-In !
+!Actors |Municipal Employee, Local Officer !
+!Entry Conditions |The ME/LO is already on the Log-In page. !
+!Event Flow | 1. The ME/LO provides his/her username or email. |
+| | 1. The ME/LO provides his/her password. |
+| | 1. The ME/LO chooses his/her type: "Municipal Employee" or "Local Officer". |
+| | 1. The ME/LO clicks on the confirmation button.  |
+| | 1. The system redirects the ME/LO to the corresponding home page. !
+!Exit Conditions |The ME/LO is successfully redirected to the home page. !
+!Exceptions | 1. The ME/LO provides an incorrect username, email or password. |
+| | * In the case 1 an error message is displayed, saying "Invalid credentials", and the ME/LO is taken back to the point 1. !
+
+
+GET IMPROVEMENTS
+
+| | |
+|-|-|
+!Name |Get Improvements !
+!Actors |Municipal Employee, Municipal Accident System, Map Service  !
+!Entry Conditions |The ME has logged in and is in the home page. !
+!Event Flow | 1. The ME clicks on the "Get Improvements" function. |
+| | 1. The system cross its information with the MAS and finds all the possible improvements in the ME's municipality. |
+| | 1. The system sends the information to the ME.|
+| | 1. The possible improvements are shown in a descendant list on the left, starting from the most urgent one. <br>A map with the possible improvements, shown as points, is displayed on the right, thanks to the MS. |
+| | 1. The ME can click on a improvements and see it highlighted on the map. !
+!Exit Conditions |The ME can browse through all the possible improvements in his/her municipality. !
+!Exceptions | * 1 There are no possible improvements. |
+| | * In the case 1 an error message is displayed, saying "There is not enough data to generate improvements", and the ME/LO is taken back to the home page.!
+
+
+NOTIFY IMPROVEMENTS
+
+| | |
+|-|-|
+!Name |Notify Improvements !
+!Actors |Municipal Employee!
+!Entry Conditions |The ME has logged in and is in the home page. !
+!Event Flow | 1. The ME clicks on the "Notify Improvements" function. |
+| | 1. The ME choose a position, providing the address or choosing it from the map, provided by the MS. |
+| | 1. The ME choose one or more types of improvements that have been applied to that position. |
+| | 1. The data are sent to the system, which stores them. |
+| | 1. The ME is able to add another executed impovement or end the operation. !
+!Exit Conditions |The ME has correctly added an executed improvement to the system. !
+!Exceptions | * There are no exceptions under the given domain assumptions. !
+
+
+SEE STATISTICS
+
+| | |
+|-|-|
+!Name | See Statistics !
+!Actors | Municipal Employee, Local Officer, Ticket Service !
+!Entry Conditions | The ME/LO has logged in and is in the home page. !
+!Event Flow | 1. The ME/LO clicks on the "See Statistics" function. |
+| | 1. The system creates statistics based on the reports it has stored and the tickets issued through the Ticket Service. |
+| | 1. The system sends the statistics to the ME/LO. |
+| | 1. The ME/LO can see and download the received statistics. !
+!Exit Conditions | The ME/LO successfully receives the statistics provided by the system. !
+!Exceptions | 1. The system has no data to build statistics on. |
+| | * In the case 1 an error message is displayed, saying "There is not enough data to create statistics", and the ME is taken back to the home page. !
+
+
+MINE REPORTS BY TYPE
+
+| | |
+|-|-|
+!Name | Mine Reports By Type!
+!Actors | Municipal Employee, Local Officer, Map Service!
+!Entry Conditions | The ME/LO has logged in and is in the home page. !
+!Event Flow | 1. The ME/LO clicks on the "Mine Reports" function. |
+| | 1. The ME/LO chooses the "Mine By Type" option. |
+| | 1. The ME/LO decides one or more types of violations to retrieve. |
+| | 1. The system provides the ME/LO with all the violations in his/her municipality, with at least one of the given types. |
+| | 1. Only the violation types are shown, in a list on the left, starting from the newest one. <br>A map with violation types, shown as points, is displayed on the right, thanks to the MS.!
+!Exit Conditions | The ME/LO is able to search through the violations and see where and when they happened. !
+!Exceptions | 1. There are no reports with at least one of the given violation type. |
+| | * In the case 1 an error message is displayed, saying "There are no Violations to be displayed", and the ME/LO is taken back to the home page. !
+
+MINE REPORTS BY DATE
+
+| | |
+|-|-|
+!Name | Mine Reports By Date!
+!Actors | Municipal Employee, Local Officer, Map Service!
+!Entry Conditions | The ME/LO has logged in and is in the home page. !
+!Event Flow | 1. The ME/LO clicks on the "Mine Reports" function. |
+| | 1. The ME/LO chooses the "Mine By Date" option. |
+| | 1. The ME/LO decides the specific date of the violations to retrieve. |
+| | 1. The system provides the ME/LO with all the violations in his/her municipality that were issued in the specific day. |
+| | 1. Only the violation types are shown, in a list on the left. <br>A map with violation types, shown as points, is displayed on the right, thanks to the MS.!
+!Exit Conditions | The ME/LO is able to search through the violations and see where they happened. !
+!Exceptions | 1. There are no reports issued in the specific date. |
+| | * In the case 1 an error message is displayed, saying "There are no Violations to be displayed", and the ME/LO is taken back to the home page. !
+
+
+MINE REPORTS BY TIME
+
+| | |
+|-|-|
+!Name | Mine Reports By Date!
+!Actors | Municipal Employee, Local Officer, Map Service!
+!Entry Conditions | The ME/LO has logged in and is in the home page. !
+!Event Flow | 1. The ME/LO clicks on the "Mine Reports" function. |
+| | 1. The ME/LO chooses the "Mine By Time" option. |
+| | 1. The ME/LO decides the time (expressed in hours, i.e. 8 pm) for the violations he/she wants to retrieve. |
+| | 1. The system provides the ME/LO with all the violations in his/her municipality that were issued at the specific time. |
+| | 1. Only the violation types are shown, in a list on the left. <br>A map with violation types, shown as points, is displayed on the right, thanks to the MS.!
+!Exit Conditions | The ME/LO is able to search through the violations and see where they happened !
+!Exceptions | 1. There are no reports issued at the specific time.|
+| | * In the case 1 an error message is displayed, saying "There are no Violations to be displayed", and the ME/LO is taken back to the home page. !
+
+
+
+MINE REPORTS BY AREA
+
+| | |
+|-|-|
+!Name | Mine Reports By Date!
+!Actors | Municipal Employee, Local Officer, Map Service!
+!Entry Conditions | The ME/LO has logged in and is in the home page. !
+!Event Flow | 1. The ME/LO clicks on the "Mine Reports" function. |
+| | 1. The ME/LO chooses the "Mine By Area" option. |
+| | 1. The ME/LO decides the address, or selects a point on a map provided by the MS, of the violations to retrieve and select the radius of the search. |
+| | 1. The system provides the ME/LO with all the violations in his/her municipality that were issued within the specified radius. |
+| |1. Only the violation types are shown, in a list on the left, starting from the newest one. <br>A map with violation types, shown as points, is displayed on the right, thanks to the MS.!
+!Exit Conditions | The ME/LO is able to search through the violations and see when they happened !
+!Exceptions | 1. There are no reports issued in the specific area. |
+| | * In the case 1 an error message is displayed, saying "There are no Violations to be displayed", and the ME/LO is taken back to the home page. !
+
+
+VALIDATE REPORT
+
+| | |
+|-|-|
+!Name | Mine Reports By Date!
+!Actors | Local Officer, Ticket Service!
+!Entry Conditions | The LO has logged in and is in the home page. !
+!Event Flow | 1. The LO clicks on the "Validate Report" function. |
+| | 1. The system provides the LO with all the reports of his/her municipality. |
+| | 1. The reports are shown starting from the newest one.|
+| | 1. The LO clicks on one report and is able to validate or invalidate it. |
+| | 1. Eventually the LO uses the report data to create a new ticket and add it to the Ticket Service
+!Exit Conditions | The LO is able to browse through the reports and validate or invalidate them!
+!Exceptions | 1. There are no reports in LO's municipality. |
+| | * In the case 1 an error message is displayed, saying "There are no Reports to be displayed", and the LO is taken back to the home page. !
