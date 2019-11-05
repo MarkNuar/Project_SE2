@@ -90,9 +90,7 @@ A local officer in patrol is tasked to give fines during his work shift but usua
 | | 1. The system saves the data. !
 !Exit Conditions |The UU becomes now a RU. <br>From now on he/she can Log-In into the application and use SafeStreets service. !
 !Exceptions | 1. The UU is already an user. |
-| | 1. The UU provides a username already used. |
-| | * In the case 1 an error message is displayed, saying "Credentials already in use, please Log-In", and the UU is taken back to the Log-In page. |
-| | * In the case 2 an error message is displayed, saying "Username already in use, please choose a different one", and the UU is taken back to the point 2. ! 
+| | 1. The UU provides a username already used. <br> In the case 1 an error message is displayed, saying "Credentials already in use, please Log-In", and the UU is taken back to the Log-In page. <br> In the case 2 an error message is displayed, saying "Username already in use, please choose a different one", and the UU is taken back to the point 2. ! 
 #### 3.2.3.2. Registered User Log-In
 | | |
 |-|-|
@@ -104,9 +102,8 @@ A local officer in patrol is tasked to give fines during his work shift but usua
 | | 1. The RU clicks on the confirmation button.  |
 | | 1. The system redirects the RU to the corresponding home page. !
 !Exit Conditions |The RU is successfully redirected to the corresponding home page. !
-!Exceptions | 1. The RU provides an incorrect username, email or password. |
-| | * In the case 1 an error message is displayed, saying "Wrong Credentials", and the RU is taken back to the point 1. !
-#### 3.2.3.3. Add Report
+!Exceptions | 1. The RU provides an incorrect username, email or password. <br> In the case 1 an error message is displayed, saying "Wrong Credentials", and the RU is taken back to the point 1. !
+#### 3.2.3.3. Add Report                                                                             
 | | |
 |-|-|
 !Name |Add Report !
@@ -118,7 +115,7 @@ A local officer in patrol is tasked to give fines during his work shift but usua
 | | 1. The RU adds one or more type of violations and confirms. |
 | | 1. The system receives the report and stores it. !
 !Exit Conditions |The RU successfully uploads a new report into the system. Then he/she is taken back to the home page. !
-!Exceptions | * There are no exceptions under the given domain assumptions. !
+!Exceptions |There are no exceptions under the given domain assumptions. !
 #### 3.2.3.4. Get My Reports
 | | |
 |-|-|
@@ -128,8 +125,7 @@ A local officer in patrol is tasked to give fines during his work shift but usua
 !Event Flow | 1. The system automatically provides the RU with the reports he/she has sent, sorted in chronological order, starting from the newest one. |
 | | 1. Eventually the RU is able to open a report, see all its information, with the position provided by the MS, and see its status. !
 !Exit Conditions | The RU successfully gets his/her reports and is able to navigate through them. !
-!Exceptions | 1. The RU has never uploaded any report.|
-| | * The case 1 is handled by showing only the "Add Report" button. !
+!Exceptions | 1. The RU has never uploaded any report. <br> The case 1 is handled by showing only the "Add Report" button. !
 #### 3.2.3.5. Get Violations Type By Area
 | | |
 |-|-|
@@ -140,8 +136,7 @@ A local officer in patrol is tasked to give fines during his work shift but usua
 | | 1. Once in the correct page, the RU has to provide an address or use his/her current GPS location. |
 | | 1. A map with the violations, shown as points, is displayed. The map is provided by the MS. !
 !Exit Conditions |The RU now is able to browse on the map between violations and see their type. !
-!Exceptions | 1. The RU provides an invalid address. |
-| | * In the case 1 an error message is displayed, saying "Invalid address", and the RU is taken back to the point 2. !
+!Exceptions | 1. The RU provides an invalid address. <br> In the case 1 an error message is displayed, saying "Invalid address", and the RU is taken back to the point 2. !
 #### 3.2.3.6. Authority Log-In
 | | |
 |-|-|
@@ -154,8 +149,7 @@ A local officer in patrol is tasked to give fines during his work shift but usua
 | | 1. The ME/LO clicks on the confirmation button.  |
 | | 1. The system redirects the ME/LO to the corresponding home page. !
 !Exit Conditions |The ME/LO is successfully redirected to the home page. !
-!Exceptions | 1. The ME/LO provides an incorrect username, email or password. |
-| | * In the case 1 an error message is displayed, saying "Invalid credentials", and the ME/LO is taken back to the point 1. !
+!Exceptions | 1. The ME/LO provides an incorrect username, email or password. <br> In the case 1 an error message is displayed, saying "Invalid credentials", and the ME/LO is taken back to the point 1. !
 #### 3.2.3.7. Get Improvements
 | | |
 |-|-|
@@ -168,8 +162,7 @@ A local officer in patrol is tasked to give fines during his work shift but usua
 | | 1. The possible improvements are shown in a descendant list on the left, starting from the most urgent one. <br>A map with the possible improvements, shown as points, is displayed on the right, thanks to the MS. |
 | | 1. The ME can click on a improvements and see it highlighted on the map. !
 !Exit Conditions |The ME can browse through all the possible improvements in his/her municipality. !
-!Exceptions | * 1 There are no possible improvements. |
-| | * In the case 1 an error message is displayed, saying "There is not enough data to generate improvements", and the ME/LO is taken back to the home page.!
+!Exceptions | * 1 There are no possible improvements. <br> In the case 1 an error message is displayed, saying "There is not enough data to generate improvements", and the ME/LO is taken back to the home page.!
 #### 3.2.3.8. See Statistics
 | | |
 |-|-|
@@ -181,8 +174,7 @@ A local officer in patrol is tasked to give fines during his work shift but usua
 | | 1. The system sends the statistics to the ME/LO. |
 | | 1. The ME/LO can see and download the received statistics. !
 !Exit Conditions | The ME/LO successfully receives the statistics provided by the system. !
-!Exceptions | 1. The system has no data to build statistics on. |
-| | * In the case 1 an error message is displayed, saying "There is not enough data to create statistics", and the ME is taken back to the home page. !
+!Exceptions | 1. The system has no data to build statistics on. <br> In the case 1 an error message is displayed, saying "There is not enough data to create statistics", and the ME is taken back to the home page. !
 #### 3.2.3.9. Mine Reports By Type
 | | |
 |-|-|
@@ -195,8 +187,7 @@ A local officer in patrol is tasked to give fines during his work shift but usua
 | | 1. The system provides the ME/LO with all the violations in his/her municipality, with at least one of the given types. |
 | | 1. Only the violation types are shown, in a list on the left, starting from the newest one. <br>A map with violation types, shown as points, is displayed on the right, thanks to the MS.!
 !Exit Conditions | The ME/LO is able to search through the violations and see where and when they happened. !
-!Exceptions | 1. There are no reports with at least one of the given violation type. |
-| | * In the case 1 an error message is displayed, saying "There are no Violations to be displayed", and the ME/LO is taken back to the home page. !
+!Exceptions | 1. There are no reports with at least one of the given violation type. <br> In the case 1 an error message is displayed, saying "There are no Violations to be displayed", and the ME/LO is taken back to the home page. !
 #### 3.2.3.10. Mine Reports By Date
 | | |
 |-|-|
@@ -209,8 +200,7 @@ A local officer in patrol is tasked to give fines during his work shift but usua
 | | 1. The system provides the ME/LO with all the violations in his/her municipality that were issued in the specific day. |
 | | 1. Only the violation types are shown, in a list on the left. <br>A map with violation types, shown as points, is displayed on the right, thanks to the MS.!
 !Exit Conditions | The ME/LO is able to search through the violations and see where they happened. !
-!Exceptions | 1. There are no reports issued in the specific date. |
-| | * In the case 1 an error message is displayed, saying "There are no Violations to be displayed", and the ME/LO is taken back to the home page. !
+!Exceptions | 1. There are no reports issued in the specific date. <br> In the case 1 an error message is displayed, saying "There are no Violations to be displayed", and the ME/LO is taken back to the home page. !
 #### 3.2.3.11. Mine Reports By Time
 | | |
 |-|-|
@@ -223,8 +213,7 @@ A local officer in patrol is tasked to give fines during his work shift but usua
 | | 1. The system provides the ME/LO with all the violations in his/her municipality that were issued at the specific time. |
 | | 1. Only the violation types are shown, in a list on the left. <br>A map with violation types, shown as points, is displayed on the right, thanks to the MS.!
 !Exit Conditions | The ME/LO is able to search through the violations and see where they happened !
-!Exceptions | 1. There are no reports issued at the specific time.|
-| | * In the case 1 an error message is displayed, saying "There are no Violations to be displayed", and the ME/LO is taken back to the home page. !
+!Exceptions | 1. There are no reports issued at the specific time. <br> In the case 1 an error message is displayed, saying "There are no Violations to be displayed", and the ME/LO is taken back to the home page. !
 #### 3.2.3.12. Mine Reports By Area
 | | |
 |-|-|
@@ -237,12 +226,11 @@ A local officer in patrol is tasked to give fines during his work shift but usua
 | | 1. The system provides the ME/LO with all the violations in his/her municipality that were issued within the specified radius. |
 | |1. Only the violation types are shown, in a list on the left, starting from the newest one. <br>A map with violation types, shown as points, is displayed on the right, thanks to the MS.!
 !Exit Conditions | The ME/LO is able to search through the violations and see when they happened !
-!Exceptions | 1. There are no reports issued in the specific area. |
-| | * In the case 1 an error message is displayed, saying "There are no Violations to be displayed", and the ME/LO is taken back to the home page. !
-#### 3.2.3.13. Validate Report
+!Exceptions | 1. There are no reports issued in the specific area. <br> In the case 1 an error message is displayed, saying "There are no Violations to be displayed", and the ME/LO is taken back to the home page. !
+#### 3.2.3.13. Validate Reports
 | | |
 |-|-|
-!Name | Validate Report!
+!Name | Validate Reports!
 !Actors | Local Officer, Ticket Service!
 !Entry Conditions | The LO has logged in and is in the home page. !
 !Event Flow | 1. The LO clicks on the "Validate Report" function. |
@@ -251,9 +239,36 @@ A local officer in patrol is tasked to give fines during his work shift but usua
 | | 1. The LO clicks on one report and is able to validate or invalidate it. |
 | | 1. Eventually the LO uses the report data to create a new ticket and add it to the TS. !
 !Exit Conditions | The LO is able to browse through the reports and validate or invalidate them!
-!Exceptions | 1. There are no reports in LO's municipality. |
-| | * In the case 1 an error message is displayed, saying "There are no Reports to be displayed", and the LO is taken back to the home page. !
+!Exceptions | 1. There are no reports in LO's municipality. <br> In the case 1 an error message is displayed, saying "There are no Reports to be displayed", and the LO is taken back to the home page. !
 ### 3.2.4. Sequence Diagrams 
+
+* Unregistered User
+    * Sign-Up
+    ![SignUp](./images/sequence_diagrams/SignUp.svg)
+* Registered User
+    * Log-In
+    ![UserLogIn](./images/sequence_diagrams/RU/UserLogIn.svg)
+    * Get My Reports
+    ![GetMyReports](./images/sequence_diagrams/RU/GetMyReports.svg)
+    * Get Unsafe Areas
+    ![GetViolationsTypeByArea](./images/sequence_diagrams/RU/GetViolationsTypeByArea.svg)
+    * Add Report
+    ![UserLogIn](./images/sequence_diagrams/RU/UserLogIn.svg)
+* Authority
+    * Log-In
+    ![AuthorityLogIn](./images/sequence_diagrams/MELO/AuthorityLogIn.svg)
+    * Mine Reports By *
+    ![MineReportsBy*](./images/sequence_diagrams/MELO/MineReportsBy.svg) 
+    * See Statistics
+    ![SeeStatistics](./images/sequence_diagrams/MELO/SeeStatistics.svg)        
+* Municipal Employee
+    * Get Improvements
+    ![GetImprovements](./images/sequence_diagrams/MELO/ME/GetImprovements.svg)
+* Local Officer
+    * Validate Reports
+    ![ValidateReport](./images/sequence_diagrams/MELO/LO/ValidateReport.svg)
+
+
 ### 3.2.5. Mapping Requirements
 ## 3.3. Performance Requirements
 ## 3.4. Design Constraints

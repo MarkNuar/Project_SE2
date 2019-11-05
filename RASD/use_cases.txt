@@ -198,7 +198,7 @@ MINE REPORTS BY AREA
 | | * In the case 1 an error message is displayed, saying "There are no Violations to be displayed", and the ME/LO is taken back to the home page. !
 
 
-VALIDATE REPORT
+VALIDATE REPORTS
 
 | | |
 |-|-|
