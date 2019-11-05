@@ -2,27 +2,29 @@
 ## 3.1. External Interface Requirements
 ### 3.1.1. User Interfaces
 The following mockups give an approximate idea of how the application’s interfaces should appear.
-* Unregistered User: Sign-Up
-![SignUp](./images/Mockup/User/SignUp.png)
-* Registered User: Log-In
-![UserLogIn](./images/Mockup/User/UserLogin.png)
-* Registered User: Get My Reports, all Reports
-![MyReports](./images/Mockup/User/MyReports.png)
-* Registered User: Get My Reports, information of a single report
-![MyReportExpanded](./images/Mockup/User/MyReportExpanded.png)
-* Registered User: Get Unsafe Areas
-![UnsafeAreas](./images/Mockup/User/UnsafeAreas.png)
-* Registered User: Add Report, taking photo from camera
-![Report0Camera](./images/Mockup/User/Report0Camera.png)
-* Registered User: Add Report, confirmation of the taken photo
-![Report1ConfirmPhoto](./images/Mockup/User/Report1ConfirmPhoto.png)
-* Registered User: Add Report, highlighting of the car's plate
-![Report2HighlightPlate](./images/Mockup/User/Report2HighlightPlate.png)
-* Registered User: Add Report, choosing of the violation's types
-![Report3ChooseViolation](./images/Mockup/User/Report3ChooseViolation.png)
-* Registered User: Add Report, confirmation
-![Report4Confirm](./images/Mockup/User/Report4Confirm.png)
-
+* Unregistered User
+    * Sign-Up
+    ![SignUp](./images/Mockup/User/SignUp.png)
+* Registered User
+    * Log-In
+    ![UserLogIn](./images/Mockup/User/UserLogin.png)
+    * Get My Reports, all Reports
+    ![MyReports](./images/Mockup/User/MyReports.png)
+    * Get My Reports, information of a single report
+    ![MyReportExpanded](./images/Mockup/User/MyReportExpanded.png)
+    * Get Unsafe Areas
+    ![UnsafeAreas](./images/Mockup/User/UnsafeAreas.png)
+    * Add Report, taking photo from camera
+    ![Report0Camera](./images/Mockup/User/Report0Camera.png)
+    * Add Report, confirmation of the taken photo
+    ![Report1ConfirmPhoto](./images/Mockup/User/Report1ConfirmPhoto.png)
+    * Add Report, highlighting of the car's plate
+    ![Report2HighlightPlate](./images/Mockup/User/Report2HighlightPlate.png)
+    * Add Report, choosing of the violation's types
+    ![Report3ChooseViolation](./images/Mockup/User/Report3ChooseViolation.png)
+    * Add Report, confirmation
+    ![Report4Confirm](./images/Mockup/User/Report4Confirm.png)
+* 
 ### 3.1.2. Hardware Interfaces
 The system has no hardware interface.
 ### 3.1.3. Software Interfaces
@@ -48,9 +50,13 @@ A group of citizens is concerned with the street security of their neighborhood 
 A local officer in patrol is tasked to give fines during his work shift but usually this isn’t such an easy task. Normally he would spend a lot of time searching the usual street but, using SafeStreets, he can now retrieve reports about positions of parking violations using  “Mine Report” function. With these information the local officer starts the search. Luckily for him, he finds a lot of violations in the streets specified by SafeStreet, so he can proceed and charge the owners of those cars for their sins (violations).
 ### 3.2.2. User Case Diagrams 
 * Unregistered User
+![UU](./images/use_cases_diagrams/UU.svg)
 * Registered User
+![RU](./images/use_cases_diagrams/RU.svg)
 * Municipal Employee
+![ME](./images/use_cases_diagrams/ME.svg)
 * Local Officer
+![LO](./images/use_cases_diagrams/LO.svg)
 ### 3.2.3. User Cases 
 #### 3.2.3.1. Sign-Up
 | | |

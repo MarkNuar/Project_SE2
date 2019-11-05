@@ -108,26 +108,10 @@ GET IMPROVEMENTS
 | | 1. The system cross its information with the MAS and finds all the possible improvements in the ME's municipality. |
 | | 1. The system sends the information to the ME.|
 | | 1. The possible improvements are shown in a descendant list on the left, starting from the most urgent one. <br>A map with the possible improvements, shown as points, is displayed on the right, thanks to the MS. |
-| | 1. The ME can click on a improvements and see it highlighted on the map. !
+| | 1. The ME can click on a improvements, see it highlighted on the map and eventually marks it as completed. !
 !Exit Conditions |The ME can browse through all the possible improvements in his/her municipality. !
 !Exceptions | * 1 There are no possible improvements. |
 | | * In the case 1 an error message is displayed, saying "There is not enough data to generate improvements", and the ME/LO is taken back to the home page.!
-
-
-NOTIFY IMPROVEMENTS
-
-| | |
-|-|-|
-!Name |Notify Improvements !
-!Actors |Municipal Employee!
-!Entry Conditions |The ME has logged in and is in the home page. !
-!Event Flow | 1. The ME clicks on the "Notify Improvements" function. |
-| | 1. The ME choose a position, providing the address or choosing it from the map, provided by the MS. |
-| | 1. The ME choose one or more types of improvements that have been applied to that position. |
-| | 1. The data are sent to the system, which stores them. |
-| | 1. The ME is able to add another executed improvement or end the operation. !
-!Exit Conditions |The ME has correctly added an executed improvement to the system. !
-!Exceptions | * There are no exceptions under the given domain assumptions. !
 
 
 SEE STATISTICS
