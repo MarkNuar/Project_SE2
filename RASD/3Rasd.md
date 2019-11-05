@@ -66,7 +66,7 @@ The mayor, to promote his image before the next elections, wants to publish a re
 A group of citizens is concerned with the street security of their neighborhood but they don’t have much real data that can be used to support their concerns. They go to the municipality to ask for more information and possibly an interventions of the authorities. The municipality can quickly for search for data regarding their area and forward it higher authorities that will hopefully do something.
 #### 3.2.1.7. Scenario 7 
 A local officer in patrol is tasked to give fines during his work shift but usually this isn’t such an easy task. Normally he would spend a lot of time searching the usual street but, using SafeStreets, he can now retrieve reports about positions of parking violations using  “Mine Report” function. With these information the local officer starts the search. Luckily for him, he finds a lot of violations in the streets specified by SafeStreet, so he can proceed and charge the owners of those cars for their sins (violations).
-### 3.2.2. User Case Diagrams 
+### 3.2.2. Use Case Diagrams 
 * Unregistered User
 ![UU](./images/use_cases_diagrams/UU.svg)
 * Registered User
@@ -75,7 +75,7 @@ A local officer in patrol is tasked to give fines during his work shift but usua
 ![ME](./images/use_cases_diagrams/ME.svg)
 * Local Officer
 ![LO](./images/use_cases_diagrams/LO.svg)
-### 3.2.3. User Cases 
+### 3.2.3. Use Cases 
 #### 3.2.3.1. Sign-Up
 | | |
 |-|-|
@@ -92,7 +92,7 @@ A local officer in patrol is tasked to give fines during his work shift but usua
 !Exceptions | 1. The UU is already an user. |
 | | 1. The UU provides a username already used. |
 | | * In the case 1 an error message is displayed, saying "Credentials already in use, please Log-In", and the UU is taken back to the Log-In page. |
-| | * In the case 2 an error message is displayed, saying "Username already in use, please choose a different one", and the UU is taken back to the point 2. | 
+| | * In the case 2 an error message is displayed, saying "Username already in use, please choose a different one", and the UU is taken back to the point 2. ! 
 #### 3.2.3.2. Registered User Log-In
 | | |
 |-|-|
