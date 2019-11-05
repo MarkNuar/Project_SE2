@@ -3,35 +3,25 @@
 ### 3.1.1. User Interfaces
 The following mockups give an approximate idea of how the application’s interfaces should appear.
 * Unregistered User: Sign-Up
-![Alt text](./images/Mockup/User/SignUp.png)
-<img src="./images/Mockup/User/SignUp.png">
+![SignUp](./images/Mockup/User/SignUp.png)
 * Registered User: Log-In
-![Alt text](./images/Mockup/User/UserLogin.png)
-<img src="./images/Mockup/User/UserLogin.png">
+![UserLogIn](./images/Mockup/User/UserLogin.png)
 * Registered User: Get My Reports, all Reports
-![Alt text](./images/Mockup/User/MyReports.png)
-<img src="./images/Mockup/User/MyReports.png">
+![MyReports](./images/Mockup/User/MyReports.png)
 * Registered User: Get My Reports, information of a single report
-![Alt text](./images/Mockup/User/MyReportExpanded.png)
-<img src="./images/Mockup/User/MyReportExpanded.png">
+![MyReportExpanded](./images/Mockup/User/MyReportExpanded.png)
 * Registered User: Get Unsafe Areas
-![Alt text](./images/Mockup/User/UnsafeAreas.png)
-<img src="./images/Mockup/User/UnsafeAreas.png">
+![UnsafeAreas](./images/Mockup/User/UnsafeAreas.png)
 * Registered User: Add Report, taking photo from camera
-![Alt text](./images/Mockup/User/Report0Camera.png)
-<img src="./images/Mockup/User/Report0Camera.png">
+![Report0Camera](./images/Mockup/User/Report0Camera.png)
 * Registered User: Add Report, confirmation of the taken photo
-![Alt text](./images/Mockup/User/Report1ConfirmPhoto.png)
-<img src="./images/Mockup/User/Report1ConfirmPhoto.png">
+![Report1ConfirmPhoto](./images/Mockup/User/Report1ConfirmPhoto.png)
 * Registered User: Add Report, highlighting of the car's plate
-![Alt text](./images/Mockup/User/Report2HighlightPlate.png)
-<img src="./images/Mockup/User/Report2HighlightPlate.png">
+![Report2HighlightPlate](./images/Mockup/User/Report2HighlightPlate.png)
 * Registered User: Add Report, choosing of the violation's types
-![Alt text](./images/Mockup/User/Report3ChooseViolation.png)
-<img src="./images/Mockup/User/Report3ChooseViolation.png">
+![Report3ChooseViolation](./images/Mockup/User/Report3ChooseViolation.png)
 * Registered User: Add Report, confirmation
-![Alt text](./images/Mockup/User/Report4Confirm.png)
-<img src="./images/Mockup/User/Report4Confirm.png">
+![Report4Confirm](./images/Mockup/User/Report4Confirm.png)
 
 ### 3.1.2. Hardware Interfaces
 The system has no hardware interface.
