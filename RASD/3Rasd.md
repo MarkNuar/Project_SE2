@@ -361,7 +361,7 @@ In this section we show that the requirements ensure the satisfaction of the goa
     * [R3] The system must allow only registered users, municipal employee and officers to login with their username and password
     * [R4] A users, municipal employee or local officer must be uniquely identified by his/her username        
     * [R27] A municipal officer must be able to mark a report as valid or not valid
-* [G8] The system must ensure that the chain of custody of the information coming from the user to the municipality is never broken, and the information is never altered (?)
+* [G8] The system must ensure that the chain of custody of the information coming from the user to the municipality is never broken, and the information is never altered
     * [D5] The internet connection works properly without failure
        
 ### 3.2.6. Traceability Matrix
