@@ -1,27 +1,51 @@
 # 2. Overall Description
 ## 2.1. Product perspective
-The product will be organized in two different entities, one dedicated to the normal user, the other dedicated to the authority.
-The two parts are differentiated to satisfy the different needs of all parties that will employ SafeStreets
+The product will be developed from scratch and will be organized in two different macro-entities, one dedicated to the normal user, the other dedicated to the authorities, that may be MEs or LOs (for more information on the users see section 2.3). 
+The two parts will be differentiated to satisfy different needs of different parties that will employ SafeStreets. Their form, along with the one of some other parts of the system, is represented with the following high level class diagram. 
 
-//class diagram
+Class diagram
 
-//state diagram
+
+![Class diagram](./images/Class_diagram/SafeStreetsUML.svg)
+
+
+
+
+State diagrams
+
+Some of the entities of the class diagram can be found assuming different states. The following diagrams show those states that will be found.
+
+User state diagram, assumed by all users (authorities and normal users) 
+![Class diagram](./images/State_diagrams/UserStateDiagram.svg)
+
+Report construction state diagram
+![Class diagram](./images/State_diagrams/ReportCreationToolStateDiagram.svg)
+
+Report state diagram (also see section 2.2.1)
+![Class diagram](./images/State_diagrams/ReportStateDiagram.svg)
+
+
+Improvement state diagram (also see section 2.2.2)
+![Class diagram](./images/State_diagrams/ImprovementStateDiagram.svg)
+
+
+
 
 
 ## 2.2. Product functions
 In this section the most important functions of the system are reported.
-### 2.2.1 Report functions
+### 2.2.1 Report
 The core of the system revolves around the management of the reports. Reports, that are structures that contains information about a violation, are created and then saved in the system with an "add" function. 
 The "add" function builds the report, assembling the picture of the car that has committed a violation, with its license plate, date and time, GPS location, and violation type, sending it to SafeStreets at the end of the procedure.
 When a report is received, the system checks if the license plate is readable, if not the report is discarded as "not valid", otherwise a set of possible operations becomes available. These operations are the "validate" and "mine"  functions.
 The "validate" function shows every stored report, which status is set as "to be verified", with all the information listed above, and permits to change their status to "valid", if the report is considered legit, or "not valid", in the opposite case.
 The "mine" functions finds the report type, of existing valid reports, searching in the system using type, date, time or area as parameters for the query. 
-###2.2.2 Improvement function
+###2.2.2 Improvement
 Using both data provided by the authorities and the data owned by SafeStreet is possible to identify the unsafe areas of a Municipality. 
 Using the improvement function makes it possible to determine feasible solutions that can be used to improve the safety of such areas, i.e. add a barrier	
 between	the bike lane and the part of the road for motorized vehicles to prevent unsafe parking.
-###2.2.3 Statistics function
-With the information, about issued tickets, retrievable from the Authorities by SafeStreets, and its own data, is possible to build statistic about the violations and the perpetrators who cause them.
+###2.2.3 Statistics
+With the information, about issued tickets and accidents that happened on the street, retrievable from the Authorities, and SafeStreets' own data, is possible to build statistic about the violations and the perpetrators who cause them.
 Some examples of these statistics can be seen in section 3.3.1 in the Local Officer paragraph. 
 ## 2.3. User characteristics
 There are three kind of users that will employ this product:
@@ -50,29 +74,3 @@ To assure the correct formulations of the requirements, and avoid unforeseen eve
 * [D12] Each local officer receives his official credentials from the municipality (different from those used for report violations)
 * [D13] The municipality voids credentials of its employees or local officers at the end of their service
 * [D14] When using the S2B, the authority's device is always connected to internet
-
-//Maybe something to add
-
-
-
-//
-
-//
-
-//
-
-//
-
-
-
-
- * AddReport: when the users finds a vehicle which is commiting some kind of violation, he/she can take a picture and send a report to SafeStreets. The report will be made accessible to the authorities.
-    * GetMyReports: if there are any, the user will be able to see the chronology of his reports.
-   * GetViolationTypesByArea: the user can search for recurrent violations in an area, receiving only the type of violations committed. Other data on the violations, such as the photo of the car, will be omitted.
-   
-   *   SeeStatistics: is possible to the ME 
-        * GetImprovements: the ME is able to retrieve a list of possible improvements to apply on the street to achieve a safer environment for all the road users. All recommended improvements are applicable and have not been made yet.  
-       * NotifyImprovements: the ME is able to modify the state of the improvement from "not completed" to "completed". A completed improvement will never be shown again with the GetImprovement function.
- * SeeStatistics:
-           * ValidateReports:
-           * MineReports:
