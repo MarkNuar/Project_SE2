@@ -49,6 +49,7 @@ To assure the correct formulations of the requirements, and avoid unforeseen eve
 * [D11] Each municipal employee receives his official credentials from the municipality (different from those used for report violations)
 * [D12] Each local officer receives his official credentials from the municipality (different from those used for report violations)
 * [D13] The municipality voids credentials of its employees or local officers at the end of their service
+* [D14] When using the S2B, the authority's device is always connected to internet
 
 //Maybe something to add
 

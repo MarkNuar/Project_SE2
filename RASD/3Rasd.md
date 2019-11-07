@@ -270,7 +270,102 @@ A local officer in patrol is tasked to give fines during his work shift but usua
 
 
 ### 3.2.5. Mapping Requirements
-
+In this section we show that the requirements ensure the satisfaction of the goals in the context of the domain assumptions: the list of requirements and domain assumptions under each goal have this purpose.
+* [G1] The system must allow logged-in users to send a report of the violation
+    * [D1] The number of possible violations is finite and is aligned to the current traffic rules
+    * [D3] When using the S2B, the user’s device is always connected to internet 
+    * [D4] When using the S2B, the user’s device has a valid GPS signal
+    * [D5] The internet connection works properly without failure
+    * [D6] The user device has a camera and is able to take pictures 
+    * [D7] The user does not fake his position 
+    * [R1] A user must be able to sign up to the system with a unique personal username and password
+    * [R3] The system must allow only registered users, municipal employee and officers to login with their username and password
+    * [R4] A users, municipal employee or local officer must be uniquely identified by his/her username
+    * [R5] When composing the report, the system must be able to access the user’s device camera and GPS sensor
+    * [R6] When composing the report, a user must take a picture from the device’s camera and highlight the license plate
+    * [R7] When composing the report, time and date get automatically retrieved from the internet
+    * [R8] When composing the report, position gets automatically retrieved from the device’s GPS
+    * [R9] When composing the report, a user can choose at least one type of violation
+    * [R10] When composing the report, a user can’t add the same violation type two times in the same report
+    * [R11] When composing the report, a user can revert each phase of the creation of the report at any time, before sending it
+    * [R12] When composing the report, a user can abort the creation of the report at any time, before sending it
+    * [R13] Once a report has been sent, it can’t be aborted or reverted
+    * [R14] When receiving a report, the system must store it, recognize the car plate, if possible, and marked as unchecked
+* [G2] The System must allow logged-in users to see their past reports
+    * [D3] When using the S2B, the user’s device is always connected to internet 
+    * [D5] The internet connection works properly without failure
+    * [R1] A user must be able to sign up to the system with a unique personal username and password
+    * [R3] The system must allow only registered users, municipal employee and officers to login with their username and password
+    * [R4] A users, municipal employee or local officer must be uniquely identified by his/her username    
+    * [R15] When a user asks for his/her reports, the system must provide the saved reports sent by that user
+* [G3] The system must allow logged-in users to retrieve information about the position and types of valid reports
+    * [D3] When using the S2B, the user’s device is always connected to internet 
+    * [D4] When using the S2B, the user’s device has a valid GPS signal
+    * [D5] The internet connection works properly without failure
+    * [D7] The user does not fake his position 
+    * [R1] A user must be able to sign up to the system with a unique personal username and password
+    * [R3] The system must allow only registered users, municipal employee and officers to login with their username and password
+    * [R4] A users, municipal employee or local officer must be uniquely identified by his/her username     
+    * [R16] When getting the valid reports by area, a user can choose a position, or automatically get his/her from the GPS
+    * [R17]When getting the valid reports by area, the system must provide all the valid reports near the position given by the user and display their violation type through the MS
+* [G4] The system must allow verified authorities to mine information about date, time, position and type of valid reports
+    * [D5] The internet connection works properly without failure
+    * [D8] Every location has one and only one municipality
+    * [D10] Each municipality has its own account, certified and authorized by a state authority
+    * [D11] Each municipal employee receives his official credentials from the municipality (different from those used for report violations)
+    * [D12] Each local officer receives his official credentials from the municipality (different from those used for report violations)
+    * [D13] The municipality voids credentials of its employees or local officers at the end of their service
+    * [D14] When using the S2B, the authority's device is always connected to internet
+    * [R2] The system must allow a municipality to create account for its employees and local officers
+    * [R3] The system must allow only registered users, municipal employee and officers to login with their username and password
+    * [R4] A users, municipal employee or local officer must be uniquely identified by his/her username
+    * [R18] When mining the information, a municipal employee or a local officer can access only to violations type of reports occurred in his/her municipality
+    * [R19] When mining the information, a municipal employee or a local officer can filter reports by area, date, time or type of violation
+* [G5] The system must allow verified authorities to retrieve statistics about valid reports
+    * [D5] The internet connection works properly without failure
+    * [D8] Every location has one and only one municipality
+    * [D10] Each municipality has its own account, certified and authorized by a state authority
+    * [D11] Each municipal employee receives his official credentials from the municipality (different from those used for report violations)
+    * [D12] Each local officer receives his official credentials from the municipality (different from those used for report violations)
+    * [D13] The municipality voids credentials of its employees or local officers at the end of their service
+    * [D14] When using the S2B, the authority's device is always connected to internet
+    * [R2] The system must allow a municipality to create account for its employees and local officers
+    * [R3] The system must allow only registered users, municipal employee and officers to login with their username and password
+    * [R4] A users, municipal employee or local officer must be uniquely identified by his/her username
+    * [R20] When a ticket is issued through the TS, the system receives and store it
+    * [R21] When retrieving statistics, a municipal employee or a local officer can access only to reports of violations that occurred in his/her municipality
+    * [R22] The system must be able to calculate statistics from the reports of violations and issued tickets of the municipal employee or local officer’s municipality
+* [G6] The system must be able to cross the data retrieved from the municipality with its own, in order to identify unsafe areas and suggest possible interventions and suggest them to municipal employee
+    * [D5] The internet connection works properly without failure
+    * [D8] Every location has one and only one municipality
+    * [D10] Each municipality has its own account, certified and authorized by a state authority
+    * [D11] Each municipal employee receives his official credentials from the municipality (different from those used for report violations)
+    * [D13] The municipality voids credentials of its employees or local officers at the end of their service
+    * [D14] When using the S2B, the authority's device is always connected to internet    
+    * [D2] The number of possible interventions is finite and there exists an already established correlation between violations and possible interventions
+    * [R2] The system must allow a municipality to create account for its employees and local officers
+    * [R3] The system must allow only registered users, municipal employee and officers to login with their username and password
+    * [R4] A users, municipal employee or local officer must be uniquely identified by his/her username    
+    * [R23] When getting improvements, a municipal employee can access only to data of reports occurred in his/her municipality
+    * [R24] The system must be able to retrieve information about accidents from the MAS (municipal accident system)
+    * [R25] The system must be able to identify the possible unsafe areas of the municipal employee or local officer’s municipality
+    * [R26] The system must be able to suggest possible interventions on a specific unsafe area
+* [G7] The system must allow local officer to set the validity of a report sent by the user
+    * [D5] The internet connection works properly without failure
+    * [D8] Every location has one and only one municipality
+    * [D10] Each municipality has its own account, certified and authorized by a state authority
+    * [D12] Each local officer receives his official credentials from the municipality (different from those used for report violations)
+    * [D13] The municipality voids credentials of its employees or local officers at the end of their service
+    * [D14] When using the S2B, the authority's device is always connected to internet    
+    * [R2] The system must allow a municipality to create account for its employees and local officers
+    * [R3] The system must allow only registered users, municipal employee and officers to login with their username and password
+    * [R4] A users, municipal employee or local officer must be uniquely identified by his/her username        
+    * [R27] A municipal officer must be able to mark a report as valid or not valid
+* [G8] The system must ensure that the chain of custody of the information coming from the user to the municipality is never broken, and the information is never altered (?)
+    * [D5] The internet connection works properly without failure
+       
+### 3.2.6. Traceability Matrix
+here relation between use cases and requirements
 ## 3.3. Performance Requirements
 The system does not have any particular performance requirements. Obviously it will be able to handle multiple request from multiple clients (users and authorities).
 ## 3.4. Design Constraints

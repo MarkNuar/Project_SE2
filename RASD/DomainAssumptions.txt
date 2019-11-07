@@ -1,13 +1,14 @@
-[D1] The number of possible violations is finite and is aligned to the current traffic rules
-[D2] The number of possible interventions is finite and there exists an already established correlation between violations and possible interventions
-[D3] When using the S2B, the user’s device is always connected to internet 
-[D4] When using the S2B, the user’s device has a valid GPS signal
-[D5] The internet connection works properly without failure
-[D6] The user device has a camera and is able to take pictures 
-[D7] The user does not fake his position 
-[D8] Every location has one and only one municipality
-[D9] Car plates are unique
-[D10] Each municipality has its own account, certified and authorized by a state authority
-[D11] Each municipal employee receives his official credentials from the municipality (different from those used for report violations)
-[D12] Each local officer receives his official credentials from the municipality (different from those used for report violations)
-[D13] The municipality voids credentials of its employees or local officers at the end of their service
+* [D1] The number of possible violations is finite and is aligned to the current traffic rules
+* [D2] The number of possible interventions is finite and there exists an already established correlation between violations and possible interventions
+* [D3] When using the S2B, the user’s device is always connected to internet
+* [D4] When using the S2B, the user’s device has a valid GPS signal
+* [D5] The internet connection works properly without failure
+* [D6] The user device has a camera and is able to take pictures
+* [D7] The user does not fake his position
+* [D8] Every location has one and only one municipality
+* [D9] Car plates are unique
+* [D10] Each municipality has its own account, certified and authorized by a state authority
+* [D11] Each municipal employee receives his official credentials from the municipality (different from those used for report violations)
+* [D12] Each local officer receives his official credentials from the municipality (different from those used for report violations)
+* [D13] The municipality voids credentials of its employees or local officers at the end of their service
+* [D14] When using the S2B, the authority's device is always connected to internet
