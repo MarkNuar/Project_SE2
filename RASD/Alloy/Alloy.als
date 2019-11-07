@@ -34,8 +34,7 @@ abstract sig Authority extends RegisteredEntity {
 	municipality: one Municipality
 }
 
-sig User extends RegisteredEntity {
-}
+sig User extends RegisteredEntity {}
 
 sig LocalOfficer extends Authority {}
 
@@ -86,11 +85,6 @@ fact UniqueMunicipalityName {
 	no disj m1, m2: Municipality | m1.name = m2.name
 }
 
-fact CenterInMunicipality
-{
-	all m: Municipality	| m.center.municipality = m
-}
-
 fact SamePositionSameMunicipality {
 	no disj p1, p2: Position | 
 		p1.latitude = p2.latitude && 
@@ -98,7 +92,12 @@ fact SamePositionSameMunicipality {
 		p1.municipality != p1.municipality
 }
 
-fact EveryPictureBelongsToOnlyOneReport
+fact CenterInMunicipality
+{
+	all m: Municipality	| m.center.municipality = m
+}
+
+fact PictureBelongsToOnlyOneReport
 {
 	no disj r1, r2: Report | r1.picture = r2.picture
 }
@@ -156,8 +155,38 @@ fact NoDuplicatedAccident
 		(a1.vehicles = a2.vehicles || a1.vehicles & a2.vehicles != none)
 }
 
+fact NoDuplicatedImprovement
+{
+	no disj i1, i2: Improvement |
+		i1.position = i2.position &&
+		i1.type = i2.type
+}
+
+fact NoImprovementWithoutProblem
+{
+	no i: Improvement |
+	((no a: Accident | i.position = a.position) &&
+		(no r: Report | r.position = i.position && r.status = Valid))
+}	
+
+fact NoProblematicPositionWithoutImprovement
+{
+	no p: Position | 
+		(((some a: Accident | a.position = p) ||
+		(some r: Report | r.position = p && r.status = Valid)) && 
+		no i: Improvement | i.position = p)
+}
+
+-----------------------------------------------------
+
+assert NoOverlapMunicipality
+{
+	no disj m1, m2: Municipality | m1.center = m2.center
+}
+
+check NoOverlapMunicipality
+
 pred show{
 }
-run show for 3 but exactly 6 String
---ogni picture appartiene ad un solo report
+run show for 3 but exactly 6 String, exactly 7 Position
 
