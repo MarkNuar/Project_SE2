@@ -40,10 +40,12 @@ The "add" function builds the report, assembling the picture of the car that has
 When a report is received, the system checks if the license plate is readable, if not the report is discarded as "not valid", otherwise a set of possible operations becomes available. These operations are the "validate" and "mine"  functions.
 The "validate" function shows every stored report, which status is set as "to be verified", with all the information listed above, and permits to change their status to "valid", if the report is considered legit, or "not valid", in the opposite case.
 The "mine" functions finds the report type, of existing valid reports, searching in the system using type, date, time or area as parameters for the query. 
+
 ###2.2.2 Improvement
 Using both data provided by the authorities and the data owned by SafeStreet is possible to identify the unsafe areas of a Municipality. 
 Using the improvement function makes it possible to determine feasible solutions that can be used to improve the safety of such areas, i.e. add a barrier	
 between	the bike lane and the part of the road for motorized vehicles to prevent unsafe parking.
+
 ###2.2.3 Statistics
 With the information, about issued tickets and accidents that happened on the street, retrievable from the Authorities, and SafeStreets' own data, is possible to build statistic about the violations and the perpetrators who cause them.
 Some examples of these statistics can be seen in section 3.3.1 in the Local Officer paragraph. 
