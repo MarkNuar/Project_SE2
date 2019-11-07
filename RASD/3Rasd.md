@@ -107,13 +107,13 @@ A local officer in patrol is tasked to give fines during his work shift but usua
 | | |
 |-|-|
 !Name |Add Report !
-!Actors |Registered User !
+!Actors |Registered User, OCR Service !
 !Entry Conditions |The RU has logged in and is in the home page, which is the "Get My Reports" page !
 !Event Flow | 1. The RU clicks on the "Add Report" button. |
 | | 1. The RU takes a photo of the car through his/her device's camera and goes to the next phase. |
 | | 1. The RU highlight the plate of the reported car and goes to the next phase. |
 | | 1. The RU adds one or more type of violations and confirms. |
-| | 1. The system receives the report and stores it. !
+| | 1. The system receives the report and store it, with the plate recognized thanks to the OCRS. !
 !Exit Conditions |The RU successfully uploads a new report into the system. Then he/she is taken back to the home page. !
 !Exceptions |There are no exceptions under the given domain assumptions. !
 #### 3.2.3.4. Get My Reports

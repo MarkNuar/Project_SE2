@@ -20,10 +20,9 @@
 * OCRS = OCR Service;
 * VT = Violation type;
 ### 1.3.3 Abbreviations
-
 * [Gn] : n-goal.  
 * [Dn] : n-domain assumption. 
- * [Rn] : n-functional requirement. 
+* [Rn] : n-functional requirement. 
 ## 1.4. Revision history
 ## 1.5. Reference Documents
 ## 1.6. Document Structure
