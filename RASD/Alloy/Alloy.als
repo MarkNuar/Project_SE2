@@ -1,6 +1,6 @@
 sig Position {
-	latitude: one String,
-	longitude: one String,
+	latitude: one Int,
+	longitude: one Int,
 	municipality: one Municipality
 }
 
@@ -22,33 +22,22 @@ sig Date {}
 sig Time {}
 
 sig Vehicle {
-	licensePlate: one String,
-	model: String,
-	color: String
+	licensePlate: one String
 }
-
 
 abstract sig RegisteredEntity {
-	username: one String,
-	password: one String,
-	type: one UserType
+	username: one String
 }
 
-abstract sig UserType{}
-one sig USER, LO, ME extends UserType {}
 
 abstract sig Authority extends RegisteredEntity {
 	municipality: one Municipality
 }
-{ type in LO || type in ME	 }
 
 sig User extends RegisteredEntity {
-	pastReports: set Report
 }
-{	type in USER	}
 
 sig LocalOfficer extends Authority {}
-{	type in LO	}
 
 sig MunicipalEmployee extends Authority {}
 
@@ -78,7 +67,12 @@ sig Improvement {
 	state: one ImprovementState
 }
 
-
+sig Accident {
+	position: one Position,
+	date: one Date,
+	time: one Time,
+	vehicles: some Vehicle
+}
 ----------------------------------------------------------------
 fact UniqueUsername {
 	no disj u1,u2: RegisteredEntity | u1.username = u2.username
@@ -103,4 +97,67 @@ fact SamePositionSameMunicipality {
 		p1.longitude = p2.longitude &&
 		p1.municipality != p1.municipality
 }
+
+fact EveryPictureBelongsToOnlyOneReport
+{
+	no disj r1, r2: Report | r1.picture = r2.picture
+}
+
+fact NoVehicleUbiquityInReport
+{
+	no disj r1, r2: Report	|
+		r1.date = r2.date &&
+		r1.time = r2.time &&
+		r1.vehicle = r2.vehicle &&
+		r1.position != r2.position
+}
+
+fact NoUserUbiquity
+{
+	no disj r1, r2: Report |
+		r1.date = r2.date &&
+		r1.time = r2.time &&
+		r1.segnalatingUser = r2.segnalatingUser &&
+		r1.position != r2.position
+}
+
+fact OneReportPerTimeForUser
+{
+	no disj r1, r2: Report |
+		r1.segnalatingUser = r2.segnalatingUser &&
+		r1.date = r2.date &&
+		r1.time = r2.time
+}
+
+fact NoUbiquityReportAccident
+{	
+	no r: Report, a: Accident |
+		r.vehicle in a.vehicles &&
+		r.date = a.date &&
+		r.time = a.time &&
+		r.position != a.position
+}
+
+fact NoVehicleUbiquityInAccident
+{
+	no disj a1, a2: Accident	|
+		a1.date = a2.date &&
+		a1.time = a2.time &&
+		a1.position != a2.position &&
+		a1.vehicles & a2.vehicles != none
+}
+
+fact NoDuplicatedAccident
+{
+	no disj a1, a2: Accident	|
+		a1.date = a2.date &&
+		a1.time = a2.time &&
+		a1.position = a2.position &&
+		(a1.vehicles = a2.vehicles || a1.vehicles & a2.vehicles != none)
+}
+
+pred show{
+}
+run show for 3 but exactly 6 String
+--ogni picture appartiene ad un solo report
 
