@@ -382,19 +382,19 @@ The following table keeps track of the relation between Use Cases and Requiremen
 |Mine Reports By Area|[R18],[R19]|
 |Validate Reports|[R27]|
 ## 3.3. Performance Requirements
-The system does not have any particular performance requirements. Obviously it will be able to handle multiple request from multiple clients (users and authorities).
+The system does not have any particular performance requirements. Obviously it will have to be able to handle multiple operation from multiple clients (users and authorities) at same time.
 ## 3.4. Design Constraints
 ### 3.4.1. Standards Compliance 
-The system adopts the current traffic rules in order to provide all the possible violations types.
+The system adopts the current traffic rules in order to provide all the possible VTs.
 ### 3.4.2. Hardware Limitations
-The system presents hardware requirements only on the user's side. As a matter of fact the user is required to have a smartphone with a camera and internet connection (wifi or cellular).
+The system presents hardware requirements only on the user's side. As a matter of fact the user is required to have a smartphone with a camera and internet connection (wifi or mobile). Authorities need at least a device capable of connecting to the net.
 ## 3.5. Software Systems Attributes
 ### 3.5.1. Reliability
-In order to provide reliability, the system must be resilient to faults. The solution is to replicate the system's server. In particular it will be fault tolerant against Byzantine faults, so the number of replicas of the system's server must be, at least, _(3*number of failing replicas)+1_ , with the _number of failing replicas_ decided during the design and implementation.
+In order to provide reliability, the system must be resilient to faults. The solution is to replicate the system's server. In particular it will be fault tolerant against Byzantine faults (faults where a disconnected system has unforeseeable behaviours) , so the number of replicas of the system's server must be, at least, _(3*number of failing replicas)+1_ , with the _number of failing replicas_ decided during the design and implementation.
 ### 3.5.2. Availability
 In order to provide availability, as mentioned in the reliability section, the system's server must be replicated. In this way it is possible to obtain a 24/7 service. Obviously little deviations from this requirements will be accepted.
 ### 3.5.3. Security
-In order to provide security, both users and authorities data will be always transferred trough encrypted channels. In particular every report, sent by the user, is provided with a digital signature, in order to maintain the chain of custody from the user up to the local officer.
+In order to provide security, both users and authorities data will be always transferred trough encrypted channels. In particular every report, sent by the user, is provided with a digital signature, in order to maintain the chain of custody from the user up to the authorities.
 ### 3.5.4. Maintainability
 In order to provide maintainability, the development of the system have to be done so that will be easy and cheap to fix and modify it in the future. In order to achieve these properties, appropriate design patterns will be used. More of this in the design document.
 ### 3.5.5. Portability
