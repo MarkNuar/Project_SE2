@@ -14,8 +14,13 @@ In particular, these are the goals of the S2B:
 * [G6] The system must be able to cross the data retrieved from the municipality with its own, in order to identify unsafe areas and suggest possible interventions and suggest them to municipal employee
 * [G7] The system must allow local officer to set the validity of a report sent by the user
 * [G8] The system must ensure that the chain of custody of the information coming from the user to the municipality is never broken, and the information is never altered
+
 ### 1.1.2. Document purpose
 
+This document represents the Requirement Analysis and Specification Document (RASD). Goals of this document are to completely describe the system in terms of functional and non-functional requirements, 
+analyze the real needs of the users in order to model the system, show the constraints and the limit of the software 
+and indicate the typical use cases that will occur after the release. This document is addressed to the developers who 
+have to implement the requirements and could be used as a contractual basis.
 
 ## 1.2. Scope
 This service is born from the idea that social responsibility on the street can be achieved with the help of everyday citizens. 
@@ -61,9 +66,9 @@ For a precise description of RU, ME and LO see paragraph 2.3.
 * Specification document: “Mandatory Project Assignment AY 2019‐2020”
 ## 1.6. Document structure
 The RASD document is composed by six chapters, as outlined below: 
-* **Chapter 1** describes the purpose of the system informally and the list of goals which the application has to reach. Moreover, it defines the scope, where the aim of the project is defined and the application domain with the shared phenomena are shown. 
-* **Chapter 2** offers an overall description of the project. Here the actors involved in the application’s usage lifecycle are identified and the boundaries of the project are defined, listing all the necessary assumptions. Furthermore, a class diagram is provided, aid to better understanding the general structure of the project, with all the related entities. Then some state diagrams are listed to make9the evolution of the crucial objects clear. Finally, the functions offered by the system are here more clearly specified, with respect to the previously listed goals. 
-* **Chapter 3** represents the body of the document. It contains the interface requirements, which are: user interfaces, hardware interfaces and software interfaces. It then lists some scenarios to show how the system acts in real world situations, followed by the description of the functional requirements, using use cases and sequence diagrams. All the requirements necessary in order to reach the goals are given, linked with the related domain assumptions. Lastly, the non-­‐functional requirements are defined through performance requirements, design constraints and software system attributes. 
+* **Chapter 1** describes the purpose of the system and the list of goals which the application has to reach. Moreover, it defines the scope, where the aim of the project is defined and the application domain with the shared phenomena are shown. 
+* **Chapter 2** offers an overall description of the project. Here the actors, involved in the application’s usage, are identified and the boundaries of the project are defined, listing all the necessary assumptions. Moreover, a class diagram is provided, in order to better understand the general structure of the project. Then some state diagrams are listed to make the evolution of the crucial objects and actors clear. Finally, the functions offered by the system are here more clearly specified, with respect to the previously listed goals. 
+* **Chapter 3** represents the body of the document. It contains the interface requirements, which are: user interfaces, hardware interfaces and software interfaces. It then lists some scenarios to show how the system acts in real world situations, followed by the description of the functional requirements, using use cases and sequence diagrams. All the requirements necessary in order to reach the goals are given, linked with the related domain assumptions. Lastly, the non-functional requirements are defined through performance requirements, design constraints and software system attributes. 
 * **Chapter 4** contains the Alloy model of some critical aspects with all the related comments and documentation in order to show how the project has been modeled and represented through the language. 
 * **Chapter 5** shows the effort which each member of the group spent working on the project.
 * **Chapter 6** contains eventual references used during the writing of the document.
