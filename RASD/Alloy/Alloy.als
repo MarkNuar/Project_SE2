@@ -114,7 +114,8 @@ fact AllPictureBelongToOneReport
 	all p: Picture | one r: Report | r.picture = p
 }
 
--- A vehicle can not be reported simultaneously in different reports with different positions
+-- A vehicle can not be reported simultaneously in different reports with different positions,
+-- but it can be reported in the same position, for example from different users
 fact NoVehicleUbiquityInReport
 {
 	no disj r1, r2: Report	|
@@ -134,6 +135,7 @@ fact OneReportPerTimeForUser
 }
 
 -- A vehicle can not be involved in an accident and simultaneously be reported in a different position
+
 fact NoVehicleUbiquityBetweenReportAccident
 {	
 	no r: Report, a: Accident |
@@ -211,12 +213,9 @@ fact ValidReportsRelatedToAVehicle
 fact NoRandomString
 {
 	all s: String |
-	(((one e: RegisteredEntity | e.username = s) && 
-				(no m: Municipality, v: Vehicle | (m.name = s || v.licensePlate = s))) ||
-	 ((one m: Municipality | m.name = s) && 
-				(no e: RegisteredEntity, v: Vehicle | (e.username = s || v.licensePlate = s))) ||
-	 ((one v: Vehicle | v.licensePlate = s) && 
-				(no m: Municipality, e: RegisteredEntity | (m.name = s || e.username = s))))
+	((one e: RegisteredEntity | e.username = s) ||
+	 (one m: Municipality | m.name = s) ||
+	 (one v: Vehicle | v.licensePlate = s))
 }
 		
 
