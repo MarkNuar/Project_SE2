@@ -1,6 +1,6 @@
 # 3. Specific Requirements
-## 3.1. External Interface Requirements
-### 3.1.1. User Interfaces
+## 3.1. External interface requirements
+### 3.1.1. User interfaces
 The following mockups give an approximate idea of how the application’s interfaces should appear.
 * Unregistered User
     * Sign-Up
@@ -43,13 +43,13 @@ The following mockups give an approximate idea of how the application’s interf
     ![ValidateReports](./images/Mockup/Authority/LocalOfficer/ValidateReportExpanded.png)
     * Mine Reports By *
     ![MineReportsBy*](./images/Mockup/Authority/LocalOfficer/MineReports.png)
-### 3.1.2. Hardware Interfaces
+### 3.1.2. Hardware interfaces
 The system has no hardware interface.
-### 3.1.3. Software Interfaces
+### 3.1.3. Software interfaces
 The system does not offer any APIs to external applications for its usage.
-### 3.1.4. Communication Interfaces
+### 3.1.4. Communication interfaces
 The system does not offer any APIs to external applications for communication.
-## 3.2. Functional Requirements 
+## 3.2. Functional requirements 
 ### 3.2.1. Scenarios
 #### 3.2.1.1. Scenario 1
 Cat has a disabled child. Tired from everybody that leave their car in the disable’s parking lot, Cat decides to download and install SafeStreets app. After subscribing to the service, she starts to take pictures of all the perpetrator’s cars. Sometime after, Cat notices that her reports are getting validated and along with that the number of times that she founds cars in the disabled parking lot start to diminish, that may be because the local police intervened and ticketed them. 
@@ -66,7 +66,7 @@ The mayor, to promote his image before the next elections, wants to publish a re
 A group of citizens is concerned with the street security of their neighborhood but they don’t have much real data that can be used to support their concerns. They go to the municipality to ask for more information and possibly an interventions of the authorities. The municipality can quickly for search for data regarding their area and forward it higher authorities that will hopefully do something.
 #### 3.2.1.7. Scenario 7 
 A local officer in patrol is tasked to give fines during his work shift but usually this isn’t such an easy task. Normally he would spend a lot of time searching the usual street but, using SafeStreets, he can now retrieve reports about positions of parking violations using  “Mine Report” function. With these information the local officer starts the search. Luckily for him, he finds a lot of violations in the streets specified by SafeStreet, so he can proceed and charge the owners of those cars for their sins (violations).
-### 3.2.2. Use Case Diagrams 
+### 3.2.2. Use case diagrams 
 * Unregistered User
 ![UU](./images/use_cases_diagrams/UU.svg)
 * Registered User
@@ -75,7 +75,7 @@ A local officer in patrol is tasked to give fines during his work shift but usua
 ![ME](./images/use_cases_diagrams/ME.svg)
 * Local Officer
 ![LO](./images/use_cases_diagrams/LO.svg)
-### 3.2.3. Use Cases 
+### 3.2.3. Use cases 
 #### 3.2.3.1. Sign-Up
 | | |
 |-|-|
@@ -240,7 +240,7 @@ A local officer in patrol is tasked to give fines during his work shift but usua
 | | 1. Eventually the LO uses the report data to create a new ticket and add it to the TS. !
 !Exit Conditions | The LO is able to browse through the reports and validate or invalidate them!
 !Exceptions | 1. There are no reports in LO's municipality. <br> In the case 1 an error message is displayed, saying "There are no Reports to be displayed", and the LO is taken back to the home page. !
-### 3.2.4. Sequence Diagrams 
+### 3.2.4. Sequence diagrams 
 
 * Unregistered User
     * Sign-Up
@@ -269,7 +269,7 @@ A local officer in patrol is tasked to give fines during his work shift but usua
     ![ValidateReport](./images/sequence_diagrams/MELO/LO/ValidateReport.svg)
 
 
-### 3.2.5. Mapping Requirements
+### 3.2.5. Mapping requirements
 In this section we show that the requirements ensure the satisfaction of the goals in the context of the domain assumptions: the list of requirements and domain assumptions under each goal have this purpose.
 * [G1] The system must allow logged-in users to send a report of the violation
     * [D1] The number of possible violations is finite and is aligned to the current traffic rules
@@ -364,7 +364,7 @@ In this section we show that the requirements ensure the satisfaction of the goa
 * [G8] The system must ensure that the chain of custody of the information coming from the user to the municipality is never broken, and the information is never altered
     * [D5] The internet connection works properly without failure
        
-### 3.2.6. Traceability Matrix
+### 3.2.6. Traceability matrix
 The following table keeps track of the relation between Use Cases and Requirements
 |Use Cases|Requirements| 
 |---|---|
@@ -381,14 +381,14 @@ The following table keeps track of the relation between Use Cases and Requiremen
 |Mine Reports By Time|[R18],[R19]|
 |Mine Reports By Area|[R18],[R19]|
 |Validate Reports|[R27]|
-## 3.3. Performance Requirements
+## 3.3. Performance requirements
 The system does not have any particular performance requirements. Obviously it will have to be able to handle multiple operation from multiple clients (users and authorities) at same time.
-## 3.4. Design Constraints
-### 3.4.1. Standards Compliance 
+## 3.4. Design constraints
+### 3.4.1. Standards compliance 
 The system adopts the current traffic rules in order to provide all the possible VTs.
-### 3.4.2. Hardware Limitations
+### 3.4.2. Hardware limitations
 The system presents hardware requirements only on the user's side. As a matter of fact the user is required to have a smartphone with a camera and internet connection (wifi or mobile). Authorities need at least a device capable of connecting to the net.
-## 3.5. Software Systems Attributes
+## 3.5. Software systems attributes
 ### 3.5.1. Reliability
 In order to provide reliability, the system must be resilient to faults. The solution is to replicate the system's server. In particular it will be fault tolerant against Byzantine faults (faults where a disconnected system has unforeseeable behaviours) , so the number of replicas of the system's server must be, at least, _(3*number of failing replicas)+1_ , with the _number of failing replicas_ decided during the design and implementation.
 ### 3.5.2. Availability

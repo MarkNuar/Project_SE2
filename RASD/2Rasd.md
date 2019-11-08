@@ -30,6 +30,44 @@ Improvement state diagram (also see section 2.2.2)
 
 
 
+World and Phenomena
+
+| Phenomenon | Shared | Who Controls It
+| ---- | ---- | ---- |
+| UU inserts its credentials | Y | W |
+| S2B checks UU credentials | N | M |
+| RU/ME/LO logs in | Y | W |
+| S2B checks RU/ME/LO credentials | N | M |
+| RU wants to add a report | N | W |
+| RU takes a picture of the violation | Y | W |
+| RU choose the type of violations | Y | W |
+| RU sends a report | Y | W |
+| S2B registers a report | N | M |
+| RU wants to request its reports | N | W |
+| RU requests its reports | Y | W |
+| RU asks the S2B for seeing reports by area | Y | W | 
+| S2B selects the reports for the RU | N | M | 
+| S2B provides RU with requested reports | N | M |
+| ME/LO wants to mine reports | N | W |
+| ME/LO chooses the way of mining reports | Y | W |
+| ME/LO asks the S2B for the mining | Y | W |
+| S2B selects the reports for the ME/LO | N | M |
+| S2B provides ME/LO with requested reports | Y | M |
+| ME/LO wants to retrieve statistics | N | W |
+| ME/LO asks the S2B for statistics | Y | W |
+| S2B crunches statistics for the ME/LO | N | M |
+| S2B provides ME/LO with statistics | Y | M |
+| ME wants go get the possible improvements | N | W |
+| ME asks the S2B for possible improvements | Y | W |
+| S2B finds possible improvements for the ME's municipality | N | M |
+| S2B provides ME with the possible improvements | Y | M |
+| ME marks an improvement as done or not done | Y | W |
+| S2B changes the status of the improvement as done or not note | N | M |
+| LO wants to validate one or more reports | N | W |
+| LO asks the S2B for validating reports | Y | W |
+| S2B provides LO with the reports the reports to be verified | Y | M |
+| LO marks a report as valid or not valid | Y | W |
+| S2B changes the status of the report as valid or not valid | N | M |
 
 
 ## 2.2. Product functions

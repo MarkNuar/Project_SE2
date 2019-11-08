@@ -1,6 +1,9 @@
 # 1. Introduction 
 ## 1.1. Purpose
-SafeStreets is a crowd-sourced application that wants to provide users with the possibility to notify authorities when parking violations occurs. The application will allow users to send pictures of violations, including their date, time, and position. Then authorities will be able to check, validate and eventually use those data for issuing tickets. 
+### 1.1.1. General purpose
+SafeStreets is a crowd-sourced application that wants to provide users with the possibility to notify authorities when parking violations occurs. 
+The application will allow users to send pictures of violations, including their date, time, and position. Then authorities will be able to check, 
+validate and eventually use those data for issuing tickets. 
 
 In particular, these are the goals of the S2B:
 * [G1] The system must allow logged-in users to send a report of the violation
@@ -12,21 +15,33 @@ In particular, these are the goals of the S2B:
 * [G7] The system must allow local officer to set the validity of a report sent by the user
 * [G8] The system must ensure that the chain of custody of the information coming from the user to the municipality is never broken, and the information is never altered
 
+### 1.1.2. Document purpose
+
+This document represents the Requirement Analysis and Specification Document (RASD). Goals of this document are to completely describe the system in terms of functional and non-functional requirements, 
+analyze the real needs of the users in order to model the system, show the constraints and the limit of the software 
+and indicate the typical use cases that will occur after the release. This document is addressed to the developers who 
+have to implement the requirements and could be used as a contractual basis.
+
 ## 1.2. Scope
 This service is born from the idea that social responsibility on the street can be achieved with the help of everyday citizens. 
 Such objective is achievable by giving good-willed people the possibility to record parking violations that they spot on the street, and making them visible to the authorities later.
-This kind of people will be able to compile and send reports of the parking violations, and search for violations in a selected area. They will also be able
+To this kind of people, regarded as unregistered users before their subscription to the service, the choice of signing up is given. When an unregistered user signs up, he/she will become a 
+registered user, able to login whenever desired. A logged in registered user, to employ the functionalities of the system, must have at least a mobile phone with camera and a GPS localization system, otherwise he/she won't be able to use the product.
+With the minimum requirements satisfied the user will be able to compile and send reports of the parking violations and to search for violations in a selected area. Registered users will also be able
 to see their past reports that, if the authority has already judged them as genuine, will be recognized as valid.
-The authorities will be embodied by the municipal employees and local officers. Both of them will be able to extract the reports sent by the users, choosing time, date, area or type of violation. 
-Furthermore they will be able to retrieve statistics derived from the collected data. Moreover the municipal employee is able to change the status of an improvement from "not done" to "done". The local officer is able to check the validity of a report and eventually utilize the stored data to write tickets for the cars that committed a violation.
+The authorities, embodied by the municipal employees and local officers, will be able to retrieve data from the system using any available device
+in particular both the municipal employees and the local officers will be able to extract the reports sent by the users, choosing time, date, area or type of violation. 
+Furthermore they will be able to retrieve statistics derived from the collected data. Moreover the municipal employee is able to change the status of an improvement from "not done" to "done". 
+The local officer is able to check the validity of a report and eventually utilize the stored data to write tickets for the cars that committed a violation.
  
 ## 1.3. Definitions, Acronyms, Abbreviations
 ### 1.3.1 Definitions
 * Report = Collection of Data that represents a Violation, in particular:
-    * Picture
-    * Date
-    * Time
-    * Position
+    * Picture, a photo of the car that has been found committing a violation. 
+    * Date, the date when the picture has been taken.
+    * Time, the hour when the picture has been taken.
+    * Position, the place, formatted using GPS location, of the vehicle that has been found committing a violation.
+* Improvement = a possible road intervention finalized to the development of the road and to achieve a safer environment. 
 ### 1.3.2 Acronyms 
 * UU = Unregistered User;
 * RU = Registered User;
@@ -38,6 +53,8 @@ Furthermore they will be able to retrieve statistics derived from the collected 
 * MAS = Municipal Accident Service;
 * OCRS = OCR Service;
 * VT = Violation type;
+
+For a precise description of RU, ME and LO see paragraph 2.3.
 ### 1.3.3 Abbreviations
 * [Gn] : n-goal.  
 * [Dn] : n-domain assumption. 
@@ -45,13 +62,13 @@ Furthermore they will be able to retrieve statistics derived from the collected 
 ## 1.4. Revision history
 * Version 1.0: 
     * Initial release
-## 1.5. Reference Documents
+## 1.5. Reference documents
 * Specification document: “Mandatory Project Assignment AY 2019‐2020”
-## 1.6. Document Structure
+## 1.6. Document structure
 The RASD document is composed by six chapters, as outlined below: 
-* **Chapter 1** describes the purpose of the system informally and the list of goals which the application has to reach. Moreover, it defines the scope, where the aim of the project is defined and the application domain with the shared phenomena are shown. 
-* **Chapter 2** offers an overall description of the project. Here the actors involved in the application’s usage lifecycle are identified and the boundaries of the project are defined, listing all the necessary assumptions. Furthermore, a class diagram is provided, aid to better understanding the general structure of the project, with all the related entities. Then some state diagrams are listed to make9the evolution of the crucial objects clear. Finally, the functions offered by the system are here more clearly specified, with respect to the previously listed goals. 
-* **Chapter 3** represents the body of the document. It contains the interface requirements, which are: user interfaces, hardware interfaces and software interfaces. It then lists some scenarios to show how the system acts in real world situations, followed by the description of the functional requirements, using use cases and sequence diagrams. All the requirements necessary in order to reach the goals are given, linked with the related domain assumptions. Lastly, the non-­‐functional requirements are defined through performance requirements, design constraints and software system attributes. 
+* **Chapter 1** describes the purpose of the system and the list of goals which the application has to reach. Moreover, it defines the scope, where the aim of the project is defined and the application domain with the shared phenomena are shown. 
+* **Chapter 2** offers an overall description of the project. Here the actors, involved in the application’s usage, are identified and the boundaries of the project are defined, listing all the necessary assumptions. Moreover, a class diagram is provided, in order to better understand the general structure of the project. Then some state diagrams are listed to make the evolution of the crucial objects and actors clear. Finally, the functions offered by the system are here more clearly specified, with respect to the previously listed goals. 
+* **Chapter 3** represents the body of the document. It contains the interface requirements, which are: user interfaces, hardware interfaces and software interfaces. It then lists some scenarios to show how the system acts in real world situations, followed by the description of the functional requirements, using use cases and sequence diagrams. All the requirements necessary in order to reach the goals are given, linked with the related domain assumptions. Lastly, the non-functional requirements are defined through performance requirements, design constraints and software system attributes. 
 * **Chapter 4** contains the Alloy model of some critical aspects with all the related comments and documentation in order to show how the project has been modeled and represented through the language. 
 * **Chapter 5** shows the effort which each member of the group spent working on the project.
-* **Chapter 6** contains eventual new 
+* **Chapter 6** contains eventual references used during the writing of the document.
