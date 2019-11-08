@@ -27,12 +27,15 @@ This service is born from the idea that social responsibility on the street can 
 Such objective is achievable by giving good-willed people the possibility to record parking violations that they spot on the street, and making them visible to the authorities later.
 To this kind of people, regarded as unregistered users before their subscription to the service, the choice of signing up is given. When an unregistered user signs up, he/she will become a 
 registered user, able to login whenever desired. A logged in registered user, to employ the functionalities of the system, must have at least a mobile phone with camera and a GPS localization system, otherwise he/she won't be able to use the product.
-With the minimum requirements satisfied the user will be able to compile and send reports of the parking violations and to search for violations in a selected area. Registered users will also be able
-to see their past reports that, if the authority has already judged them as genuine, will be recognized as valid.
-The authorities, embodied by the municipal employees and local officers, will be able to retrieve data from the system using any available device
-in particular both the municipal employees and the local officers will be able to extract the reports sent by the users, choosing time, date, area or type of violation. 
-Furthermore they will be able to retrieve statistics derived from the collected data. Moreover the municipal employee is able to change the status of an improvement from "not done" to "done". 
-The local officer is able to check the validity of a report and eventually utilize the stored data to write tickets for the cars that committed a violation.
+With the minimum requirements satisfied the user will be able to compile and send reports of the parking violations and to search for violations in a selected area.
+Each report will be composed by the type of the violation, i.e. "vehicle parked in a forbidden area", by a picture of the vehicle with its license plate highlighted, that will be later recognized and added to the report with an OCR service, by the date, hour and position where the picture has been taken. 
+Registered users will also be able to see their past reports that, if the authority has already judged them as genuine, will be recognized as valid.
+The authorities, embodied by the municipal employees and local officers, will be able to retrieve data from the system using any available device capable of connecting to the internet and running a browser.
+In particular both the municipal employees and the local officers will be able to extract the reports sent by the users as one or a more reports, choosing time, date, area or type of violation. If a group of reports has been chosen they will be showed as dots on an interactive map provided by the map service.
+Furthermore both the municipal employees and the local officers will be able to retrieve statistics, derived from data collected by the system. The system data is collected with the registered users's reports, along the ticket and accident information possessed by the municipality. 
+If the authority possesses such data, it will be retrieved via a ticket service, that will fetch date, time, position and violation type, and a municipal accident service, that will recover information about road accidents. 
+Moreover the municipal employee, by typing the name of a street, is able to search for possible its advised road improvements, to see what kind of interventions should be made, and, if some of them have already been completed, he/she can change the status of an improvement from "not done" to "done" so that improvement will never be shown again. 
+The local officer, after having withdrawn a report, is able to check the its validity, and eventually utilize its data to write tickets for the car that committed the violation.
  
 ## 1.3. Definitions, Acronyms, Abbreviations
 ### 1.3.1 Definitions
