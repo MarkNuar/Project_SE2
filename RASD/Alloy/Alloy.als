@@ -26,14 +26,18 @@ sig Vehicle {
 }
 
 abstract sig RegisteredEntity {
-	username: one String
+	username: one String,
+	password: one String
 }
 
 abstract sig Authority extends RegisteredEntity {
 	municipality: one Municipality
 }
 
-sig User extends RegisteredEntity {}
+sig User extends RegisteredEntity 
+{
+	email: one String
+}
 
 sig LocalOfficer extends Authority {}
 
@@ -74,6 +78,32 @@ sig Accident {
 	time: one Time,
 	vehicles: some Vehicle
 }
+
+abstract sig Gender {}
+one sig Male extends Gender {}
+one sig Female extends Gender {}
+
+sig Ticket
+{
+	vehicle: one Vehicle,
+	violation: one Violation,
+	position: one Position,
+	date: one Date,
+	time: one Time,
+	offenderGender: one Gender,
+	offenderAge: one Int,
+	report: lone Report
+}
+{	
+	-- Offender must be adult (age >= 18), but here used scaled value for simplicity
+	offenderAge >= 3
+	-- if a ticket is related to a report, this must be valid
+	report.status = Valid	
+}
+
+--sig Statistic {
+--	type: one StatisticType,
+--	value
 ----------------------------------------------------------------
 -- Each username is unique
 fact UniqueUsername 
@@ -91,6 +121,12 @@ fact UniqueVehiclePlate
 fact UniqueMunicipalityName 
 {
 	no disj m1, m2: Municipality | m1.name = m2.name
+}
+
+-- Email used for registration must not be associated to multiple users
+fact UniqueEmail
+{
+	no disj u1, u2: User | u1.email = u2.email
 }
 
 -- There must not be positions with same coordinates belonging to different municipalities
@@ -135,7 +171,6 @@ fact OneReportPerTimeForUser
 }
 
 -- A vehicle can not be involved in an accident and simultaneously be reported in a different position
-
 fact NoVehicleUbiquityBetweenReportAccident
 {	
 	no r: Report, a: Accident |
@@ -209,7 +244,7 @@ fact ValidReportsRelatedToAVehicle
 		r.status != NotValid implies r.vehicle != none
 }
 
--- All strings must be associated to a username or a municipality name or a license plate
+-- All strings must be associated to a username, to a municipality name or to a license plate
 fact NoRandomString
 {
 	all s: String |
@@ -217,21 +252,61 @@ fact NoRandomString
 	 (one m: Municipality | m.name = s) ||
 	 (one v: Vehicle | v.licensePlate = s))
 }
-		
 
+-- If a ticket is related to a valid report, they must be consistent
+fact TicketReportConsistency
+{
+	all t: Ticket |
+	(t.report != none implies 
+		(t.position = t.report.position &&
+			t.vehicle = t.report.vehicle &&
+			t.date = t.report.date &&
+			t.time = t.report.time &&
+			t.violation.violations & t.report.violation.violations != none))
+}
+
+-- There must be a unique issued ticket for a vehicle on a specific date and time
+fact UniqueTicket
+{
+	no disj t1, t2: Ticket |
+		t1.vehicle = t2.vehicle &&
+		t1.date = t2.date &&
+		t1.time = t2.time
+}
+
+-- A vehicle can not be issued in a ticket and simultaneously be reported in a different position
+fact NoVehicleUbiquityBetweenReportTicket
+{	
+	no r: Report, t: Ticket |
+		r.vehicle in t.vehicle &&
+		r.date = t.date &&
+		r.time = t.time &&
+		r.position != t.position
+}
+
+-- A vehicle can not be involved in an accident and simultaneously be issued in a different position
+fact NoVehicleUbiquityBetweenTicketAccident
+{	
+	no t: Ticket, a: Accident |
+		t.vehicle in a.vehicles &&
+		t.date = a.date &&
+		t.time = a.time &&
+		t.position != a.position
+}
+		
 -----------------------------------------------------
 
 -- There are no municipalities with centers in the same position
-assert NoOverlapMunicipality
+assert NoOverlapMunicipalityCenter
 {
 	no disj m1, m2: Municipality | m1.center = m2.center
 }
 
-check NoOverlapMunicipality
+check NoOverlapMunicipalityCenter
 
 -----------------------------------------------------
 
 
 
-pred show{}
-run show for 3 but exactly 3 String
+pred show{one t: Ticket | t.report != none}
+run show for 3 but exactly 7 String
