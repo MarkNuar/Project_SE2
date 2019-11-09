@@ -312,8 +312,8 @@ In this section we show that the requirements ensure the satisfaction of the goa
     * [D5] The internet connection works properly without failure
     * [D8] Every location has one and only one municipality
     * [D10] Each municipality has its own account, certified and authorized by a state authority
-    * [D11] Each municipal employee receives his official credentials from the municipality (different from those used for report violations)
-    * [D12] Each local officer receives his official credentials from the municipality (different from those used for report violations)
+    * [D11] Each municipal employee receives his/her official credentials from the municipality (different from those used for report violations)
+    * [D12] Each local officer receives his/her official credentials from the municipality (different from those used for report violations)
     * [D13] The municipality voids credentials of its employees or local officers at the end of their service
     * [D14] When using the S2B, the authority's device is always connected to internet
     * [R2] The system must allow a municipality to create account for its employees and local officers
@@ -325,8 +325,8 @@ In this section we show that the requirements ensure the satisfaction of the goa
     * [D5] The internet connection works properly without failure
     * [D8] Every location has one and only one municipality
     * [D10] Each municipality has its own account, certified and authorized by a state authority
-    * [D11] Each municipal employee receives his official credentials from the municipality (different from those used for report violations)
-    * [D12] Each local officer receives his official credentials from the municipality (different from those used for report violations)
+    * [D11] Each municipal employee receives his/her official credentials from the municipality (different from those used for report violations)
+    * [D12] Each local officer receives his/her official credentials from the municipality (different from those used for report violations)
     * [D13] The municipality voids credentials of its employees or local officers at the end of their service
     * [D14] When using the S2B, the authority's device is always connected to internet
     * [R2] The system must allow a municipality to create account for its employees and local officers
@@ -339,7 +339,7 @@ In this section we show that the requirements ensure the satisfaction of the goa
     * [D5] The internet connection works properly without failure
     * [D8] Every location has one and only one municipality
     * [D10] Each municipality has its own account, certified and authorized by a state authority
-    * [D11] Each municipal employee receives his official credentials from the municipality (different from those used for report violations)
+    * [D11] Each municipal employee receives his/her official credentials from the municipality (different from those used for report violations)
     * [D13] The municipality voids credentials of its employees or local officers at the end of their service
     * [D14] When using the S2B, the authority's device is always connected to internet    
     * [D2] The number of possible interventions is finite and there exists an already established correlation between violations and possible interventions
@@ -354,7 +354,7 @@ In this section we show that the requirements ensure the satisfaction of the goa
     * [D5] The internet connection works properly without failure
     * [D8] Every location has one and only one municipality
     * [D10] Each municipality has its own account, certified and authorized by a state authority
-    * [D12] Each local officer receives his official credentials from the municipality (different from those used for report violations)
+    * [D12] Each local officer receives his/her official credentials from the municipality (different from those used for report violations)
     * [D13] The municipality voids credentials of its employees or local officers at the end of their service
     * [D14] When using the S2B, the authority's device is always connected to internet    
     * [R2] The system must allow a municipality to create account for its employees and local officers
@@ -366,6 +366,7 @@ In this section we show that the requirements ensure the satisfaction of the goa
        
 ### 3.2.6. Traceability matrix
 The following table keeps track of the relation between Use Cases and Requirements
+
 |Use Cases|Requirements| 
 |---|---|
 |Sign-Up|[R1]| 
