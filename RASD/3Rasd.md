@@ -2,9 +2,11 @@
 ## 3.1. External interface requirements
 ### 3.1.1. User interfaces
 The following mockups give an approximate idea of how the application’s interfaces should appear.
+
 * Unregistered User
     * Sign-Up
     ![SignUp](./images/Mockup/User/SignUp.png)
+
 * Registered User
     * Log-In
     ![UserLogIn](./images/Mockup/User/UserLogin.png)
@@ -19,7 +21,7 @@ The following mockups give an approximate idea of how the application’s interf
     * Add Report, confirmation of the taken photo
     ![Report1ConfirmPhoto](./images/Mockup/User/Report1ConfirmPhoto.png)
     * Add Report, highlighting of the car's plate
-    ![Report2HighlightPlate](./images/Mockup/User/Report2HighlightPlate.png)
+    ![Report2HighlightPlate (./images/Mockup/User/Report2HighlightPlate.png)
     * Add Report, choosing of the violation's types
     ![Report3ChooseViolation](./images/Mockup/User/Report3ChooseViolation.png)
     * Add Report, confirmation
@@ -90,7 +92,8 @@ A local officer in patrol is tasked to give fines during his work shift but usua
 | | 1. The system saves the data. !
 !Exit Conditions |The UU becomes now a RU. <br>From now on he/she can Log-In into the application and use SafeStreets service. !
 !Exceptions | 1. The UU is already an user. |
-| | 1. The UU provides a username already used. <br> In the case 1 an error message is displayed, saying "Credentials already in use, please Log-In", and the UU is taken back to the Log-In page. <br> In the case 2 an error message is displayed, saying "Username already in use, please choose a different one", and the UU is taken back to the point 2. ! 
+| | 1. The UU provides a username already used. <br> In the case 1 an error message is displayed, saying "Credentials already in use, please Log-In", and the UU is taken back to the Log-In page. <br> In the case 2 an error message is displayed, saying "Username already in use, please choose a different one", and the UU is taken back to the point 2. !
+
 #### 3.2.3.2. Registered User Log-In
 | | |
 |-|-|
@@ -162,7 +165,7 @@ A local officer in patrol is tasked to give fines during his work shift but usua
 | | 1. The possible improvements are shown in a descendant list on the left, starting from the most urgent one. <br>A map with the possible improvements, shown as points, is displayed on the right, thanks to the MS. |
 | | 1. The ME can click on a improvements and see it highlighted on the map. !
 !Exit Conditions |The ME can browse through all the possible improvements in his/her municipality. !
-!Exceptions | * 1 There are no possible improvements. <br> In the case 1 an error message is displayed, saying "There is not enough data to generate improvements", and the ME/LO is taken back to the home page.!
+!Exceptions | 1. There are no possible improvements. <br> In the case 1 an error message is displayed, saying "There is not enough data to generate improvements", and the ME/LO is taken back to the home page.!
 #### 3.2.3.8. See Statistics
 | | |
 |-|-|
@@ -271,6 +274,7 @@ A local officer in patrol is tasked to give fines during his work shift but usua
 
 ### 3.2.5. Mapping requirements
 In this section we show that the requirements ensure the satisfaction of the goals in the context of the domain assumptions: the list of requirements and domain assumptions under each goal have this purpose.
+
 * [G1] The system must allow logged-in users to send a report of the violation
     * [D1] The number of possible violations is finite and is aligned to the current traffic rules
     * [D3] When using the S2B, the user’s device is always connected to internet 
@@ -367,14 +371,14 @@ In this section we show that the requirements ensure the satisfaction of the goa
 ### 3.2.6. Traceability matrix
 The following table keeps track of the relation between Use Cases and Requirements
 
-|Use Cases|Requirements| 
-|---|---|
-|Sign-Up|[R1]| 
-|Registered User Log-In|[R4]| 
+| Use Cases | Requirements |
+| ---- | ---- |
+| Sign-Up | [R1] |
+|Registered User Log-In|[R4]|
 |Add Report |[R5],[R6],[R7],[R8],[R9],[R10],[R11],[R12],[R13],[R14]|
 |Get My Reports |[R15]|
 |Get Violations Type By Area|[R16],[R17]|
-|Authority Log-In|[R2],[R3]| 
+|Authority Log-In|[R2],[R3]|
 |Get Improvements|[R23],[R24],[R25],[R26]|
 |See Statistics|[R20],[R21],[R22]|
 |Mine Reports By Type|[R18],[R19]|
@@ -382,6 +386,7 @@ The following table keeps track of the relation between Use Cases and Requiremen
 |Mine Reports By Time|[R18],[R19]|
 |Mine Reports By Area|[R18],[R19]|
 |Validate Reports|[R27]|
+
 ## 3.3. Performance requirements
 The system does not have any particular performance requirements. Obviously it will have to be able to handle multiple operation from multiple clients (users and authorities) at same time.
 ## 3.4. Design constraints
