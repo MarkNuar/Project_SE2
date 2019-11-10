@@ -1,3 +1,5 @@
+-------------- SIGNATURE ------------------
+
 sig Position {
 	latitude: one Int,
 	longitude: one Int,
@@ -6,13 +8,19 @@ sig Position {
 
 sig Municipality	{
 	name: one String,
-	center: one Position
+	center: one Position,
+	reports: set Report,
+	accidents: set Accident,
+	tickets: set Ticket
 }
 
 sig Picture {}
 
+-- It represents the violation type that can be associated to a report
 abstract sig ViolationType {}
 
+-- It represents the set of violation associated to a report 
+-- In each report there must be at least one type of violation
 sig Violation {
 	violations: some ViolationType
 }
@@ -22,7 +30,7 @@ sig Date {}
 sig Time {}
 
 sig Vehicle {
-	licensePlate: one String,
+	licensePlate: one String
 }
 
 abstract sig RegisteredEntity {
@@ -36,7 +44,8 @@ abstract sig Authority extends RegisteredEntity {
 
 sig User extends RegisteredEntity 
 {
-	email: one String
+	email: one String, 
+	reports: set Report
 }
 
 sig LocalOfficer extends Authority {}
@@ -101,10 +110,8 @@ sig Ticket
 	report.status = Valid	
 }
 
---sig Statistic {
---	type: one StatisticType,
---	value
-----------------------------------------------------------------
+-------------------- FACT -----------------------------
+
 -- Each username is unique
 fact UniqueUsername 
 {
@@ -217,7 +224,7 @@ fact NoImprovementWithoutProblem
 		(no r: Report | r.position = i.position && r.status = Valid))
 }	
 
--- If on one position there occured an least a minimum number of accidents or valid reports, 
+-- If on one position there occurred at least a minimum number of accidents or valid reports, 
 -- there must be a suggested improvement for that position
 -- For simplicity, the minimum number of "problems" occurred on a position in order to have a suggested improvement is set to one
 fact NoProblematicPositionWithoutImprovement
@@ -293,8 +300,67 @@ fact NoVehicleUbiquityBetweenTicketAccident
 		t.time = a.time &&
 		t.position != a.position
 }
-		
------------------------------------------------------
+
+-- Each municipality must have only reports occurred in a position belonging to that municipality
+fact MunicipalityOwnsOnlyItsReports
+{
+	all m: Municipality |
+	(m.reports != none implies
+		(all r: m.reports | r.position.municipality = m))
+}
+
+-- All reports must be associated to a municipality
+fact AllReportsRelatedToMunicipality
+{
+	all r: Report |
+		(one m: Municipality | r in m.reports)
+}
+
+-- Each user must have only his/her reports
+fact UserOwnsOnlyItsReports
+{
+	all u: User |
+	(u.reports != none implies
+		(all r: u.reports | r.segnalatingUser = u))
+}
+
+-- All reports must be associated to a the segnalating user
+fact AllReportsRelatedToUser
+{
+	all r: Report |
+		(one u: User | r in u.reports)
+}
+	
+-- Each municipality must have only accidents occurred in a position belonging to that municipality
+fact MunicipalityOwnsOnlyItsAccidents
+{
+	all m: Municipality |
+	(m.accidents != none implies
+		(all a: m.accidents | a.position.municipality = m))
+}
+
+-- All accidents must be associated to a municipality
+fact AllAccidentsRelatedToMunicipality
+{
+	all a: Accident |
+		(one m: Municipality | a in m.accidents)
+}
+
+-- Each municipality must have only accidents occurred in a position belonging to that municipality
+fact MunicipalityOwnsOnlyItsTickets
+{
+	all m: Municipality |
+	(m.tickets != none implies
+		(all t: m.tickets | t.position.municipality = m))
+}
+
+-- All tickets must be associated to a municipality
+fact AllAccidentsRelatedToMunicipality
+{
+	all t: Ticket |
+		(one m: Municipality | t in m.tickets)
+}	
+----------------------- ASSERTION ------------------------------
 
 -- There are no municipalities with centers in the same position
 assert NoOverlapMunicipalityCenter
@@ -304,9 +370,46 @@ assert NoOverlapMunicipalityCenter
 
 check NoOverlapMunicipalityCenter
 
------------------------------------------------------
+---------------------- PREDICATE --------------------------------
+
+pred addReport [m, m': Municipality, u, u': User, r: Report]
+{
+	//precondition
+	r.segnalatingUser = u
+	r.position.municipality = m
+	//postcondition
+	u'.reports = u.reports + r
+	m'.reports = m.reports + r
+}
+
+-- Generic world
+pred GenericWorld
+{}
 
 
 
-pred show{one t: Ticket | t.report != none}
-run show for 3 but exactly 7 String
+-- World to highlight municipality
+pred MunicipalWorld
+{
+	#Municipality = 3
+}
+
+
+
+-- World to highlight reports 
+pred UserWorld
+{
+	#User = 4
+	#Report = 5
+	#Position = 3
+	one r: Report | r.status = Valid
+	one r: Report | r.status = NotValid 
+}
+
+
+run GenericWorld for 3 but exactly 3 String
+run MunicipalWorld for 5 but exactly 9 String, 3 Municipality
+run UserWorld for 6 but exactly 10 String, 0 Accident
+run addReport for 3 but exactly 5 String
+
+
