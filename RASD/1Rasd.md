@@ -7,6 +7,7 @@ validate and eventually use those data for issuing tickets.
 To achieve this objective a number of goals have been identified, this vital aims will have to be met before the release of the product. 
 
 In short the S2B will satisfy the following goals:
+
 * [G1] The system must allow logged-in users to send a report of the violation
 * [G2] The System must allow logged-in users to see their past reports
 * [G3] The system must allow logged-in users to retrieve information about the position and types of valid reports
@@ -24,7 +25,7 @@ and indicate the typical use cases that will occur after the release. This docum
 have to implement the requirements and could be used as a contractual basis.
 
 ## 1.2. Scope
-This service is born from the idea that social responsibility on the street can be achieved with the help of everyday citizens. 
+This service is born from the idea that social responsibility on the street can be achieved with the help of everyday citizens.
 Such objective is achievable by giving good-willed people the possibility to record parking violations that they spot on the street, and making them visible to the authorities later.
 To this kind of people, regarded as unregistered users before their subscription to the service, the choice of signing up is given. When an unregistered user signs up, he/she will become a 
 registered user, able to login whenever desired. A logged in registered user, to employ the functionalities of the system, must have at least a mobile phone with camera and a GPS localization system, otherwise the product won't be available for use.
@@ -60,16 +61,17 @@ The last functionality is dedicated to the local officers: after having withdraw
 
 For a precise description of RU, ME and LO see paragraph 2.3.
 ### 1.3.3 Abbreviations
-* [Gn] : n-goal.  
-* [Dn] : n-domain assumption. 
-* [Rn] : n-functional requirement. 
+* [Gn] : n-th goal.  
+* [Dn] : n-th domain assumption. 
+* [Rn] : n-th functional requirement. 
 ## 1.4. Revision history
 * Version 1.0: 
     * Initial release
 ## 1.5. Reference documents
 * Specification document: “Mandatory Project Assignment AY 2019‐2020”
 ## 1.6. Document structure
-The RASD document is composed by six chapters, as outlined below: 
+The RASD document is composed by six chapters, as outlined below:
+ 
 * **Chapter 1** describes the purpose of the system and the list of goals which the application has to reach. Moreover, it defines the scope, where the aim of the project is defined and the application domain with the shared phenomena are shown. 
 * **Chapter 2** offers an overall description of the project. Here the actors, involved in the application’s usage, are identified and the boundaries of the project are defined, listing all the necessary assumptions. Moreover, a class diagram is provided, in order to better understand the general structure of the project. Then some state diagrams are listed to make the evolution of the crucial objects and actors clear. Finally, the functions offered by the system are here more clearly specified, with respect to the previously listed goals. 
 * **Chapter 3** represents the body of the document. It contains the interface requirements, which are: user interfaces, hardware interfaces and software interfaces. It then lists some scenarios to show how the system acts in real world situations, followed by the description of the functional requirements, using use cases and sequence diagrams. All the requirements necessary in order to reach the goals are given, linked with the related domain assumptions. Lastly, the non-functional requirements are defined through performance requirements, design constraints and software system attributes. 

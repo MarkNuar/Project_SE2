@@ -5,31 +5,29 @@ The two parts will be differentiated to satisfy different needs of different par
 
 Class diagram
 
-
 ![Class diagram](./images/Class_diagram/SafeStreetsUML.svg)
-
-
-
 
 State diagrams
 
 Some of the entities of the class diagram evolve, assuming different states, while the system is being used. The following diagrams show those states that will be found.
 
-
 User state diagram, assumed by all users (authorities and normal users). 
 
 This diagram does not have an end state because, once a user has been correctly registered in the system, its presence in the system will ideally never disappear.
+
 ![Class diagram](./images/State_diagrams/UserStateDiagram.svg)
 
 Report construction state diagram. 
 
 This diagram contains all the states that the system will assume while a user creates a report. Not all of the transitions are caused by the user, in fact in the "Impending GPS localization" state the system will independently retrieve the location, is possible also to notice that in this state, unlike all the others, both the abort and go back transitions are missing.
 Thanks to the domain assumptions (see paragraph 2.4) the system will never be stuck on the "Impending GPS localization" state, giving only to the user the choice of reaching one of the two final states.
+
 ![Class diagram](./images/State_diagrams/ReportCreationToolStateDiagram.svg)
 
 Report state diagram (also see section 2.2.1)
 
 This diagram represents the state of a report from when it is received by the system to the evaluation of a LO. When a report arrives to the system, the license plate, that has been already highlighted by the user, will be run through the OCRS, if the plate is regarded as illegible the report will be automatically regarded as not valid, otherwise the choice of the final state of the report will be taken by the LO.  
+
 ![Class diagram](./images/State_diagrams/ReportStateDiagram.svg)
 
 
@@ -39,11 +37,9 @@ This diagram contains the states of an improvement from when is framed to when i
 
 ![Class diagram](./images/State_diagrams/ImprovementStateDiagram.svg)
 
-
-
 World and Phenomena
 
-| Phenomenon | Shared | Who Controls It
+| Phenomenon | Shared | Who Controls It |
 | ---- | ---- | ---- |
 | UU inserts its credentials | Y | W |
 | S2B checks UU credentials | N | M |
@@ -56,8 +52,8 @@ World and Phenomena
 | S2B registers a report | N | M |
 | RU wants to request its reports | N | W |
 | RU requests its reports | Y | W |
-| RU asks the S2B for seeing reports by area | Y | W | 
-| S2B selects the reports for the RU | N | M | 
+| RU asks the S2B for seeing reports by area | Y | W |
+| S2B selects the reports for the RU | N | M |
 | S2B provides RU with requested reports | N | M |
 | ME/LO wants to mine reports | N | W |
 | ME/LO chooses the way of mining reports | Y | W |
@@ -100,6 +96,7 @@ With the information, about issued tickets and accidents that happened on the st
 Some examples of these statistics can be seen in section 3.3.1 in the Local Officer paragraph. 
 ## 2.3. User characteristics
 There are three kind of users that will employ this product:
+
 1. User: the normal, every day citizen that has subscribed to SafeStreets and recognized as RU. The RU is able to compile and send reports, see the chronology of his reports and search for violations in a selected area.
    Other functions will not be accessible by the user to protect privacy of other people, not necessary others RU, and to avoid providing excessive useless data to RU.   
     
@@ -111,6 +108,7 @@ A ME is unable to add or modify the status of any reports, but is able to change
    
 ## 2.4. Assumptions, dependencies and constraints
 To assure the correct formulations of the requirements, and avoid unforeseen events, a certain amount of the world phenomena is considered as follows.
+
 * [D1] The number of possible violations is finite and is aligned to the current traffic rules
 * [D2] The number of possible interventions is finite and there exists an already established correlation between violations and possible interventions
 * [D3] When using the S2B, the user’s device is always connected to internet 
