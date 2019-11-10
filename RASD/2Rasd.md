@@ -13,19 +13,30 @@ Class diagram
 
 State diagrams
 
-Some of the entities of the class diagram can be found assuming different states. The following diagrams show those states that will be found.
+Some of the entities of the class diagram evolve, assuming different states, while the system is being used. The following diagrams show those states that will be found.
 
-User state diagram, assumed by all users (authorities and normal users) 
+
+User state diagram, assumed by all users (authorities and normal users). 
+
+This diagram does not have an end state because, once a user has been correctly registered in the system, its presence inn the system will ideally never disappear.
 ![Class diagram](./images/State_diagrams/UserStateDiagram.svg)
 
-Report construction state diagram
+Report construction state diagram. 
+
+This diagram contains all the states that the system will assume while a user creates a report. Not all of the transitions are caused by the user, in fact in the "Impending GPS localization" state the system will independently retrieve the location, is possible also to notice that in this state, unlike all the others, both the abort and go back transitions are missing.
+Thanks to the domain assumptions (see paragraph 2.4) the system will never be stuck on the "Impending GPS localization" state, giving only to the user the choice of reaching one of the two final states.
 ![Class diagram](./images/State_diagrams/ReportCreationToolStateDiagram.svg)
 
 Report state diagram (also see section 2.2.1)
+
+This diagram represents the state of a report from when it is received by the system to the evaluation of a LO. When a report arrives to the system, the license plate, that has been already highlighted by the user, will be run through the OCRS, if the plate is regarded as illegible the report will be automatically regarded as not valid, otherwise the choice of the final state of the report will be taken by the LO.  
 ![Class diagram](./images/State_diagrams/ReportStateDiagram.svg)
 
 
 Improvement state diagram (also see section 2.2.2)
+
+This diagram contains the states of an improvement from when is framed to when it is completed. Is possible that some of the improvements will never be completed, remaining forever in the not done state, but if one is indeed finished, and set as done by a ME, it will be discarded and never shown again (only on the street where it was proposed).  
+
 ![Class diagram](./images/State_diagrams/ImprovementStateDiagram.svg)
 
 
