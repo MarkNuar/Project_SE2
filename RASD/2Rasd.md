@@ -18,7 +18,7 @@ Some of the entities of the class diagram evolve, assuming different states, whi
 
 User state diagram, assumed by all users (authorities and normal users). 
 
-This diagram does not have an end state because, once a user has been correctly registered in the system, its presence inn the system will ideally never disappear.
+This diagram does not have an end state because, once a user has been correctly registered in the system, its presence in the system will ideally never disappear.
 ![Class diagram](./images/State_diagrams/UserStateDiagram.svg)
 
 Report construction state diagram. 
