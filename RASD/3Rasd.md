@@ -75,6 +75,7 @@ The system does not offer any APIs to external applications for communication.
 ### Scenarios
 #### Scenario 1
 Cat has a disabled child. Tired from everybody that leave their car in the disable’s parking lot, Cat decides to download and install SafeStreets app. After subscribing to the service, she starts to take pictures of all the perpetrator’s cars. Sometime after, Cat notices that her reports are getting validated and along with that the number of times that she founds cars in the disabled parking lot start to diminish, that may be because the local police intervened and ticketed them. 
+<br /><br />
 #### Scenario 2 
 Ned is looking for a house in the city, he has always lived in the countryside and  he’s scared of the possibility to live in areas with difficulty in finding car parks. He opens SafeStreets and using “Get Reports By Area” he can find the worst areas in the city and he can avoid them, looking for a house with confidence.
 #### Scenario 3
@@ -88,14 +89,21 @@ The mayor, to promote his image before the next elections, wants to publish a re
 A group of citizens is concerned with the street security of their neighborhood but they don’t have much real data that can be used to support their concerns. They go to the municipality to ask for more information and possibly an interventions of the authorities. The municipality can quickly for search for data regarding their area and forward it higher authorities that will hopefully do something.
 #### Scenario 7 
 A local officer in patrol is tasked to give fines during his work shift but usually this isn’t such an easy task. Normally he would spend a lot of time searching the usual street but, using SafeStreets, he can now retrieve reports about positions of parking violations using  “Mine Report” function. With these information the local officer starts the search. Luckily for him, he finds a lot of violations in the streets specified by SafeStreet, so he can proceed and charge the owners of those cars for their sins (violations).
+<br /> <br /><br /><br /><br /><br />
 ### Use case diagrams 
-* Unregistered User
+#### Unregistered User
+
 ![UU](./images/use_cases_diagrams/UU.svg)
-* Registered User
+#### Registered User
+
 ![RU](./images/use_cases_diagrams/RU.svg)
-* Municipal Employee
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+#### Municipal Employee
+
 ![ME](./images/use_cases_diagrams/ME.svg)
-* Local Officer
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+#### Local Officer
+
 ![LO](./images/use_cases_diagrams/LO.svg)
 ### Use cases 
 #### Sign-Up
@@ -265,31 +273,41 @@ A local officer in patrol is tasked to give fines during his work shift but usua
 !Exceptions | 1. There are no reports in LO's municipality. <br> In the case 1 an error message is displayed, saying "There are no Reports to be displayed", and the LO is taken back to the home page. !
 ### Sequence diagrams 
 
-* Unregistered User
-    * Sign-Up
-    ![SignUp](./images/sequence_diagrams/SignUp.svg)
-* Registered User
-    * Log-In
-    ![UserLogIn](./images/sequence_diagrams/RU/UserLogIn.svg)
-    * Get My Reports
-    ![GetMyReports](./images/sequence_diagrams/RU/GetMyReports.svg)
-    * Get Unsafe Areas
-    ![GetViolationsTypeByArea](./images/sequence_diagrams/RU/GetViolationsTypeByArea.svg)
-    * Add Report
-    ![UserLogIn](./images/sequence_diagrams/RU/UserLogIn.svg)
-* Authority
-    * Log-In
-    ![AuthorityLogIn](./images/sequence_diagrams/MELO/AuthorityLogIn.svg)
-    * Mine Reports By *
-    ![MineReportsBy*](./images/sequence_diagrams/MELO/MineReportsBy.svg) 
-    * See Statistics
-    ![SeeStatistics](./images/sequence_diagrams/MELO/SeeStatistics.svg)        
-* Municipal Employee
-    * Get Improvements
-    ![GetImprovements](./images/sequence_diagrams/MELO/ME/GetImprovements.svg)
-* Local Officer
-    * Validate Reports
-    ![ValidateReport](./images/sequence_diagrams/MELO/LO/ValidateReport.svg)
+#### Unregistered User
+##### Sign-Up
+
+![SignUp](./images/sequence_diagrams/SignUp.svg) {.sequence2}  
+#### Registered User
+##### Log-In
+
+![UserLogIn](./images/sequence_diagrams/RU/UserLogIn.svg) {.sequence2}  
+##### Get My Reports
+
+![GetMyReports](./images/sequence_diagrams/RU/GetMyReports.svg) {.sequence}  
+##### Get Unsafe Areas
+
+![GetViolationsTypeByArea](./images/sequence_diagrams/RU/GetViolationsTypeByArea.svg) {.sequence}  
+##### Add Report
+
+![AddReport](./images/sequence_diagrams/RU/AddReport.svg) {.sequence}  
+#### Authority
+##### Log-In
+    
+![AuthorityLogIn](./images/sequence_diagrams/MELO/AuthorityLogIn.svg) {.sequence2}  
+##### Mine Reports By *
+    
+![MineReportsBy*](./images/sequence_diagrams/MELO/MineReportsBy.svg) {.sequence}  
+##### See Statistics
+    
+![SeeStatistics](./images/sequence_diagrams/MELO/SeeStatistics.svg) {.sequence}       
+#### Municipal Employee
+##### Get Improvements
+    
+![GetImprovements](./images/sequence_diagrams/MELO/ME/GetImprovements.svg) {.sequence2}  
+#### Local Officer
+##### Validate Reports
+    
+![ValidateReport](./images/sequence_diagrams/MELO/LO/ValidateReport.svg) {.sequence2}  
 
 
 ### Mapping requirements

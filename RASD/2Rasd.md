@@ -76,7 +76,9 @@ This diagram contains the states of an improvement from when is framed to when i
 | LO marks a report as valid or not valid | Y | W |
 | S2B changes the status of the report as valid or not valid | N | M |
 
-
+<br />
+<br />
+<br />
 ## Product functions
 In this section the most important functions of the system are reported.
 ### Report

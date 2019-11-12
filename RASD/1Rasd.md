@@ -64,6 +64,10 @@ The last functionality is dedicated to the local officers: after having withdraw
 * VT = Violation type;
 
 For a precise description of RU, ME and LO see paragraph 2.3.
+<br />
+<br />
+<br />
+<br />
 ### Abbreviations
 * [Gn] : n-th goal.  
 * [Dn] : n-th domain assumption. 
