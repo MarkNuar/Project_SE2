@@ -120,8 +120,8 @@ To assure the correct formulations of the requirements, and avoid unforeseen eve
 * [D7] The user does not fake his position 
 * [D8] Every location has one and only one municipality
 * [D9] Car plates are unique
-* [D10] Each municipality has its own account, certified and authorized by a state authority
-* [D11] Each municipal employee receives his/her official credentials from the municipality (different from those used for report violations)
-* [D12] Each local officer receives his/her official credentials from the municipality (different from those used for report violations)
-* [D13] The municipality voids credentials of its employees or local officers at the end of their service
+* [D10] Each authority has its own account, certified and authorized by a state authority, and linked with the municipality which he/she works for 
+* [D11] The official credentials of each municipal employee are different from those used for report violations (if he/she has registered as a normal user)
+* [D12] The official credentials of each local officer are different from those used for report violations (if he/she has registered as a normal user)
+* [D13] The state authority voids credentials of municipal employees or local officers at the end of their service
 * [D14] When using the S2B, the authority's device is always connected to internet

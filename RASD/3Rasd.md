@@ -353,10 +353,10 @@ In this section we show that the requirements ensure the satisfaction of the goa
 * [G4] The system must allow verified authorities to mine information about date, time, position and type of valid reports
     * [D5] The internet connection works properly without failure
     * [D8] Every location has one and only one municipality
-    * [D10] Each municipality has its own account, certified and authorized by a state authority
-    * [D11] Each municipal employee receives his/her official credentials from the municipality (different from those used for report violations)
-    * [D12] Each local officer receives his/her official credentials from the municipality (different from those used for report violations)
-    * [D13] The municipality voids credentials of its employees or local officers at the end of their service
+    * [D10] Each authority has its own account, certified and authorized by a state authority, and linked with the municipality which he/she works for 
+    * [D11] The official credentials of each municipal employee are different from those used for report violations (if he/she has registered as a normal user)
+    * [D12] The official credentials of each local officer are different from those used for report violations (if he/she has registered as a normal user)
+    * [D13] The state authority voids credentials of municipal employees or local officers at the end of their service
     * [D14] When using the S2B, the authority's device is always connected to internet
     * [R2] The system must allow a municipality to create account for its employees and local officers
     * [R3] The system must allow only registered users, municipal employee and officers to login with their username and password
@@ -366,10 +366,10 @@ In this section we show that the requirements ensure the satisfaction of the goa
 * [G5] The system must allow verified authorities to retrieve statistics about valid reports
     * [D5] The internet connection works properly without failure
     * [D8] Every location has one and only one municipality
-    * [D10] Each municipality has its own account, certified and authorized by a state authority
-    * [D11] Each municipal employee receives his/her official credentials from the municipality (different from those used for report violations)
-    * [D12] Each local officer receives his/her official credentials from the municipality (different from those used for report violations)
-    * [D13] The municipality voids credentials of its employees or local officers at the end of their service
+    * [D10] Each authority has its own account, certified and authorized by a state authority, and linked with the municipality which he/she works for 
+    * [D11] The official credentials of each municipal employee are different from those used for report violations (if he/she has registered as a normal user)
+    * [D12] The official credentials of each local officer are different from those used for report violations (if he/she has registered as a normal user)
+    * [D13] The state authority voids credentials of municipal employees or local officers at the end of their service
     * [D14] When using the S2B, the authority's device is always connected to internet
     * [R2] The system must allow a municipality to create account for its employees and local officers
     * [R3] The system must allow only registered users, municipal employee and officers to login with their username and password
@@ -380,9 +380,9 @@ In this section we show that the requirements ensure the satisfaction of the goa
 * [G6] The system must be able to cross the data retrieved from the municipality with its own, in order to identify unsafe areas and suggest possible interventions and suggest them to municipal employee
     * [D5] The internet connection works properly without failure
     * [D8] Every location has one and only one municipality
-    * [D10] Each municipality has its own account, certified and authorized by a state authority
-    * [D11] Each municipal employee receives his/her official credentials from the municipality (different from those used for report violations)
-    * [D13] The municipality voids credentials of its employees or local officers at the end of their service
+    * [D10] Each authority has its own account, certified and authorized by a state authority, and linked with the municipality which he/she works for 
+    * [D11] The official credentials of each municipal employee are different from those used for report violations (if he/she has registered as a normal user)
+    * [D13] The state authority voids credentials of municipal employees or local officers at the end of their service
     * [D14] When using the S2B, the authority's device is always connected to internet    
     * [D2] The number of possible interventions is finite and there exists an already established correlation between violations and possible interventions
     * [R2] The system must allow a municipality to create account for its employees and local officers
@@ -395,9 +395,9 @@ In this section we show that the requirements ensure the satisfaction of the goa
 * [G7] The system must allow local officer to set the validity of a report sent by the user
     * [D5] The internet connection works properly without failure
     * [D8] Every location has one and only one municipality
-    * [D10] Each municipality has its own account, certified and authorized by a state authority
-    * [D12] Each local officer receives his/her official credentials from the municipality (different from those used for report violations)
-    * [D13] The municipality voids credentials of its employees or local officers at the end of their service
+    * [D10] Each authority has its own account, certified and authorized by a state authority, and linked with the municipality which he/she works for 
+    * [D12] The official credentials of each local officer are different from those used for report violations (if he/she has registered as a normal user)
+    * [D13] The state authority voids credentials of municipal employees or local officers at the end of their service
     * [D14] When using the S2B, the authority's device is always connected to internet    
     * [R2] The system must allow a municipality to create account for its employees and local officers
     * [R3] The system must allow only registered users, municipal employee and officers to login with their username and password
