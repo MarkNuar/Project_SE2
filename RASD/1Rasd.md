@@ -77,6 +77,7 @@ For a precise description of RU, ME and LO see paragraph 2.3.
     * Initial release
 * Version 1.1:
     * Partial revision of the domain assumptions w.r.t. the authorities' credentials
+    * Expansion of the security performance chapter
 ## Reference documents
 * Specification document: “Mandatory Project Assignment AY 2019‐2020”
 ## Document structure

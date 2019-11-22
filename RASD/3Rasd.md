@@ -438,7 +438,7 @@ In order to provide reliability, the system must be resilient to faults. The sol
 ### Availability
 In order to provide availability, as mentioned in the reliability section, the system's server must be replicated. In this way it is possible to obtain a 24/7 service. Obviously little deviations from this requirements will be accepted.
 ### Security
-In order to provide security, both users and authorities data will be always transferred trough encrypted channels. In particular every report, sent by the user, is provided with a digital signature, in order to maintain the chain of custody from the user up to the authorities.
+In order to provide security, both end users and authorities' data will be always transferred trough encrypted channels. The encryption will be achieved through the usage of public and private keys, each message will be encoded first with the private key of the sender, secondly the public key of the receiver will be used. Moreover every report, sent by the user, is provided with a digital signature, which will make the server able to realize if unauthorized data manipulation has been performed during the data transfer. Thanks to these techniques the purpose of maintaining the chain of custody from the user up to the authorities will be fulfilled.
 ### Maintainability
 In order to provide maintainability, the development of the system have to be done so that will be easy and cheap to fix and modify it in the future. In order to achieve these properties, appropriate design patterns will be used. More of this in the design document.
 ### Portability
