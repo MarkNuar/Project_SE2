@@ -13,9 +13,11 @@ In short the S2B will satisfy the following goals:
 * [G3] The system must allow logged-in users to retrieve information about the position and types of valid reports
 * [G4] The system must allow verified authorities to mine information about date, time, position and type of valid reports
 * [G5] The system must allow verified authorities to retrieve statistics about valid reports
-* [G6] The system must be able to cross the data retrieved from the municipality with its own, in order to identify unsafe areas and suggest possible interventions and suggest them to municipal employee
+* [G6] The system must be able to cross the data retrieved from the municipality with its own, in order to identify unsafe areas and suggest possible interventions to the municipal employee
 * [G7] The system must allow local officer to set the validity of a report sent by the user
 * [G8] The system must ensure that the chain of custody of the information coming from the user to the municipality is never broken, and the information is never altered
+
+W.r.t. [G6] an area is considered "unsafe" if and only if a minimum number of possible interventions proposed is met. 
 
 ### Document purpose
 
@@ -79,6 +81,8 @@ For a precise description of RU, ME and LO see paragraph 2.3.
     * Partial revision of the domain assumptions w.r.t. the authorities' credentials
     * Expansion of the security performance chapter
     * Correction of loops in sequence diagrams
+    * Correction of typos in G6
+    * Correction of use case and sequence diagram for "GetImprovements"
 ## Reference documents
 * Specification document: “Mandatory Project Assignment AY 2019‐2020”
 ## Document structure

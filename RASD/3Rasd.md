@@ -191,7 +191,8 @@ A local officer in patrol is tasked to give fines during his work shift but usua
 | | 1. The system cross its information with the MAS and finds all the possible improvements in the ME's municipality. |
 | | 1. The system sends the information to the ME.|
 | | 1. The possible improvements are shown in a descendant list on the left, starting from the most urgent one. <br>A map with the possible improvements, shown as points, is displayed on the right, thanks to the MS. |
-| | 1. The ME can click on a improvements and see it highlighted on the map. !
+| | 1. The ME can click on a improvements and see it highlighted on the map. |
+| | 1. Eventually the ME can mark as done one or more improvements between the received ones. !
 !Exit Conditions |The ME can browse through all the possible improvements in his/her municipality. !
 !Exceptions | 1. There are no possible improvements. <br> In the case 1 an error message is displayed, saying "There is not enough data to generate improvements", and the ME/LO is taken back to the home page.!
 #### See Statistics
@@ -377,7 +378,7 @@ In this section we show that the requirements ensure the satisfaction of the goa
     * [R20] When a ticket is issued through the TS, the system receives and store it
     * [R21] When retrieving statistics, a municipal employee or a local officer can access only to reports of violations that occurred in his/her municipality
     * [R22] The system must be able to calculate statistics from the reports of violations and issued tickets of the municipal employee or local officer’s municipality
-* [G6] The system must be able to cross the data retrieved from the municipality with its own, in order to identify unsafe areas and suggest possible interventions and suggest them to municipal employee
+* [G6] The system must be able to cross the data retrieved from the municipality with its own, in order to identify unsafe areas and suggest possible interventions to the municipal employee
     * [D5] The internet connection works properly without failure
     * [D8] Every location has one and only one municipality
     * [D10] Each authority has its own account, certified and authorized by a state authority, and linked with the municipality which he/she works for 
