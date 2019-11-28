@@ -1,0 +1,33 @@
+<style>
+	.mockup {
+		display: block;
+		margin: 0 auto;
+		max-height: 430px;
+		}
+</style>
+<style>
+	.sequence {
+		display: block;
+		margin: 0 auto;
+		max-height: 420px;
+		}
+	.sequence2 {
+		display: block;
+		margin: 0 auto;
+		}
+</style>
+<style>
+	body {
+		font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+		line-height: 20px;
+		}
+</style>
+<style>
+	.effort
+	{
+		display: block;
+		margin: 0 auto;
+		width: 50%;
+	}
+</style>
+<link rel="stylesheet" type="text/css" href="./alloy.css" />

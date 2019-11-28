@@ -1,0 +1,3710 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Index</title>
+                    <style>
+                /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
+
+/**
+ * 1. Change the default font family in all browsers (opinionated).
+ * 2. Correct the line height in all browsers.
+ * 3. Prevent adjustments of font size after orientation changes in
+ *    IE on Windows Phone and in iOS.
+ */
+
+/* Document
+   ========================================================================== */
+
+html {
+  font-family: sans-serif; /* 1 */
+  line-height: 1.15; /* 2 */
+  -ms-text-size-adjust: 100%; /* 3 */
+  -webkit-text-size-adjust: 100%; /* 3 */
+}
+
+/* Sections
+   ========================================================================== */
+
+/**
+ * Remove the margin in all browsers (opinionated).
+ */
+
+body {
+  margin: 0;
+}
+
+/**
+ * Add the correct display in IE 9-.
+ */
+
+article,
+aside,
+footer,
+header,
+nav,
+section {
+  display: block;
+}
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/* Grouping content
+   ========================================================================== */
+
+/**
+ * Add the correct display in IE 9-.
+ * 1. Add the correct display in IE.
+ */
+
+figcaption,
+figure,
+main { /* 1 */
+  display: block;
+}
+
+/**
+ * Add the correct margin in IE 8.
+ */
+
+figure {
+  margin: 1em 40px;
+}
+
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+
+hr {
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+pre {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/* Text-level semantics
+   ========================================================================== */
+
+/**
+ * 1. Remove the gray background on active links in IE 10.
+ * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.
+ */
+
+a {
+  background-color: transparent; /* 1 */
+  -webkit-text-decoration-skip: objects; /* 2 */
+}
+
+/**
+ * Remove the outline on focused links when they are also active or hovered
+ * in all browsers (opinionated).
+ */
+
+a:active,
+a:hover {
+  outline-width: 0;
+}
+
+/**
+ * 1. Remove the bottom border in Firefox 39-.
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+
+abbr[title] {
+  border-bottom: none; /* 1 */
+  text-decoration: underline; /* 2 */
+  text-decoration: underline dotted; /* 2 */
+}
+
+/**
+ * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
+ */
+
+b,
+strong {
+  font-weight: inherit;
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+code,
+kbd,
+samp {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/**
+ * Add the correct font style in Android 4.3-.
+ */
+
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Add the correct background and color in IE 9-.
+ */
+
+mark {
+  background-color: #ff0;
+  color: #000;
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* Embedded content
+   ========================================================================== */
+
+/**
+ * Add the correct display in IE 9-.
+ */
+
+audio,
+video {
+  display: inline-block;
+}
+
+/**
+ * Add the correct display in iOS 4-7.
+ */
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Remove the border on images inside links in IE 10-.
+ */
+
+img {
+  border-style: none;
+}
+
+/**
+ * Hide the overflow in IE.
+ */
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Forms
+   ========================================================================== */
+
+/**
+ * 1. Change the font styles in all browsers (opinionated).
+ * 2. Remove the margin in Firefox and Safari.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: sans-serif; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+
+button,
+input { /* 1 */
+  overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+
+button,
+select { /* 1 */
+  text-transform: none;
+}
+
+/**
+ * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
+ *    controls in Android 4.
+ * 2. Correct the inability to style clickable types in iOS and Safari.
+ */
+
+button,
+html [type="button"], /* 1 */
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button; /* 2 */
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+ * Change the border, margin, and padding in all browsers (opinionated).
+ */
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+
+legend {
+  box-sizing: border-box; /* 1 */
+  color: inherit; /* 2 */
+  display: table; /* 1 */
+  max-width: 100%; /* 1 */
+  padding: 0; /* 3 */
+  white-space: normal; /* 1 */
+}
+
+/**
+ * 1. Add the correct display in IE 9-.
+ * 2. Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+
+progress {
+  display: inline-block; /* 1 */
+  vertical-align: baseline; /* 2 */
+}
+
+/**
+ * Remove the default vertical scrollbar in IE.
+ */
+
+textarea {
+  overflow: auto;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10-.
+ * 2. Remove the padding in IE 10-.
+ */
+
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+
+[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/**
+ * Remove the inner padding and cancel buttons in Chrome and Safari on macOS.
+ */
+
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/* Interactive
+   ========================================================================== */
+
+/*
+ * Add the correct display in IE 9-.
+ * 1. Add the correct display in Edge, IE, and Firefox.
+ */
+
+details, /* 1 */
+menu {
+  display: block;
+}
+
+/*
+ * Add the correct display in all browsers.
+ */
+
+summary {
+  display: list-item;
+}
+
+/* Scripting
+   ========================================================================== */
+
+/**
+ * Add the correct display in IE 9-.
+ */
+
+canvas {
+  display: inline-block;
+}
+
+/**
+ * Add the correct display in IE.
+ */
+
+template {
+  display: none;
+}
+
+/* Hidden
+   ========================================================================== */
+
+/**
+ * Add the correct display in IE 10-.
+ */
+
+[hidden] {
+  display: none;
+}            </style>
+                    <style>
+                                /*
+	Reserved class starts always with a book- prefix
+	IT IS FORBIDDEN TO have selectors that matches a span element with tagSelector or with a pseudo-class and alter:
+		- display
+		- padding-*
+		- margin-*
+		- font-*
+		- overflow-*
+
+	In particular:
+		- .book-no-index: 			it tells that an element of heading do not want a section number prefixed
+		- .book-no-toc:				it tells that an element of heading do not want a section number nor be present in the TOC
+		- .book-toc:				it represents the TOC element
+		- .book-toc-title:			it is the text written in the toc after the section number and before leaders or page number
+		- .book-toc-index:			it is the section number for a single toc entry
+		- .book-toc-page:			it is the page number for a single toc entry
+		- .book-leaders:			it is the leaders (series of dots)
+		- .book-break-always:		it is an element for which a page break is always inserted after it
+		- .book-break-avoid:		it is an element for which a page break cannot happen inside
+		- .book-page				it is a single page of a book
+		- .book-splitted-copy		it is a part of an element that was cloned
+		- .book-splitted-reference 	it is a part of an element that was cloned, this is the starting of this element
+*/
+
+
+body {
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 11pt;
+}
+p {
+	text-indent: -1em;
+	padding-left: 1em;
+}
+p.book-splitted-copy {
+	text-indent: 0px;
+}
+a {
+	text-decoration: none;
+	color: inherit;
+}
+figure {
+	page-break-inside: avoid;
+}
+pre table {
+	page-break-inside: auto;
+}
+.book-leaders {
+	font-family: monospace;
+	float: right;
+	opacity:0.6;
+}
+h1:not(.book-no-index), h2:not(.book-no-index), h3:not(.book-no-index), h4:not(.book-no-index), h5:not(.book-no-index), h6:not(.book-no-index) {
+	page-break-after: avoid;
+	page-break-inside: avoid;
+}
+h1:not(.book-no-index) {
+	page-break-before: always;
+}
+li.book-splitted-copy {
+	list-style-type: none;
+}
+.book-toc {
+	page-break-after: always;
+	page-break-inside: auto;
+}
+.book-toc > table {
+	page-break-inside: : auto;
+	width: 100%;
+	border-collapse: collapse;
+}
+.book-toc td {
+	padding: 0px;
+}
+.book-toc .book-toc-title {
+	white-space: nowrap;
+}
+.book-toc td>a{
+	display:block;
+}
+.book-toc-index {
+	padding-right:0.3cm;
+}
+.book-toc .book-toc-title{
+	padding-right: 0.3cm;
+}
+.book-toc .book-toc-page{
+	padding-left: 0.3cm;
+}
+.book-break-always {
+	page-break-after: always;
+}
+.book-break-avoid {
+	page-break-inside: avoid;
+}
+.book-page {
+	page-break-inside: avoid;
+	page-break-after: always;
+	overflow: hidden;
+	position: relative;
+}
+.book-page>.book-page-heading {
+	position:absolute;
+	top:0px;
+	left:0px;
+	right:0px;
+}
+.book-page>.book-page-footer {
+	position:absolute;
+	bottom:0px;
+	left:0px;
+	right:0px;
+}
+img {
+	max-width: 100%;
+}            </style>
+                <style>
+            table:not(.avoid-default-style) {
+                page-break-inside: avoid;
+                border-collapse: collapse;
+                margin-bottom: 0.75cm;
+            }
+            table:not(.avoid-default-style) tr:nth-child(odd)>td, table:not(.avoid-default-style) tr:nth-child(odd)>th {
+                border: 1px solid #E0E0E0;
+                padding: 2px 8px;
+            }
+            table:not(.avoid-default-style) tr:nth-child(even)>td, table:not(.avoid-default-style) tr:nth-child(even)>th {
+                border: 1px solid #E0E0E0;
+                background-color: #F5F5F5;
+                padding: 2px 8px;
+            }
+        </style>
+		<style>
+			.mockup {
+				display: block;
+				margin: 0 auto;
+				max-height: 430px;
+				}
+		</style>
+		<style>
+			.sequence {
+				display: block;
+				margin: 0 auto;
+				max-height: 420px;
+				}
+			.sequence2 {
+				display: block;
+				margin: 0 auto;
+				}
+		</style>
+		<style>
+			body {
+				font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+				line-height: 20px;
+				}
+		</style>
+		<style>
+			.effort
+			{
+				display: block;
+				margin: 0 auto;
+				width: 50%;
+			}
+			
+		</style>
+		<link rel="stylesheet" type="text/css" href="./alloy.css" />
+                    <script type="text/javascript" src="http://gc.kis.v2.scr.kaspersky-labs.com/B05FD3BC-5064-9F49-82F4-002C2EEFE3A0/main.js" charset="UTF-8"></script><script>
+                var pageinfo = {
+	size: 'A4',
+	margin: {
+		left: '0.19685in',
+		right: '0.19685in',
+		top: '0.393701in',
+		bottom: '0.393701in'
+	},
+	footer: function(page, cumulativeIndex, totalPages){
+		return cumulativeIndex+1;
+	}
+};
+function convertToPixel(s){
+	var m = s.match(/^([0-9]*(?:\.[0-9]*)?)(px|cm|mm|in)$/);
+	if(!m){
+		return null;
+	}
+	var v = parseFloat(m[1]);
+	switch(m[2]){
+		case 'px':
+			return v;
+		case 'cm':
+			v *= 10;
+		case 'mm':
+			v *= 0.0393700787;
+		case 'in':
+			return v*96;
+
+	}
+}
+function computePageInfo(pi){
+	var sizes = {
+		'A4': {
+			width: '8.26in',
+			height: '11.69in'
+		}
+	};
+	var pageinfo = {
+		size: {
+			width: 0,
+			height: 0,
+		},
+		margin: {
+			left:0,
+			right:0,
+			top:0,
+			bottom:0
+		},
+		footer: function(page, cumulativeIndex, totalPages){},
+		heading: function(page, cumulativeIndex, totalPages){}
+	};
+	if(typeof(pi.size) === 'string'){
+		var s = sizes[pi.size];
+		pageinfo.size.width = convertToPixel(s.width);
+		pageinfo.size.height = convertToPixel(s.height);
+	}
+	else {
+		pageinfo.size.width = convertToPixel(pi.size.width);
+		pageinfo.size.height = convertToPixel(pi.size.height);
+	}
+	if(pi.hasOwnProperty('margin')){
+		if(typeof(pi.margin) === 'string'){
+			var s = convertToPixel(pi.margin);
+			pageinfo.margin.left = s;
+			pageinfo.margin.right = s;
+			pageinfo.margin.top = s;
+			pageinfo.margin.bottom = s;
+		}
+		else {
+			pageinfo.margin.left = convertToPixel(pi.margin.left);
+			pageinfo.margin.right = convertToPixel(pi.margin.right);
+			pageinfo.margin.top = convertToPixel(pi.margin.top);
+			pageinfo.margin.bottom = convertToPixel(pi.margin.bottom);
+		}
+	}
+	if(pi.hasOwnProperty('footer')){
+		pageinfo.footer = pi.footer;
+	}
+	if(pi.hasOwnProperty('heading')){
+		pageinfo.heading = pi.heading;
+	}
+	//prepare page info
+	pageinfo.size.width = pageinfo.size.width - pageinfo.margin.left - pageinfo.margin.right;
+	pageinfo.size.height = pageinfo.size.height - pageinfo.margin.top - pageinfo.margin.bottom;
+
+	return pageinfo;
+}
+
+function layoutAll(){
+	pageinfo = computePageInfo(pageinfo);
+	document.body.style.width = pageinfo.size.width + 'px';
+
+	generateToc();
+	while(true){
+		var pages = document.createElement('div');
+		pages.style.position = 'absolute';//no layout interfering
+
+		fixMediaSize();
+
+		var mapping;
+		var reference;
+		{
+			let temp = copyContent();
+			mapping = temp.mapping;
+			reference = temp.reference;
+		}
+
+		var stack = new Stack();
+
+		normalizeDocument();
+		preNormalization();
+
+		stack.pushAll(Array.from(document.body.childNodes).reverse());
+		document.body.appendChild(pages);//used only to do some measurements;
+
+		var previousPage = null;
+		while(!stack.isEmpty()){
+			previousPage = layoutPage(pages, previousPage, stack);
+		}
+
+		setupPages(pages);
+		while(pages.firstChild){
+			document.body.appendChild(pages.firstChild);
+		}
+
+		postNormalization(stack);
+		document.body.removeChild(pages);
+		//mappings can be updated
+		for(let orig of Array.from(mapping.keys())){
+			let mapTo = mapping.get(orig);
+			mapping.set(orig, stack.getSplittedElement(mapTo)[0]);
+		}
+
+		//pages can be updated
+		if(updatePageNumbers(reference, mapping)){
+			//an update happened, this means pages must be rebuilt
+			while(document.body.firstChild){
+				document.body.firstChild.remove();
+			}
+			document.body.appendChild(reference);
+		}
+		else {
+			break;
+		}
+	}
+	setLeaders();
+	setHeadingAndFooter();
+	setPagesHeight();
+}
+function setHeadingAndFooter(){
+	var pages = document.body.children;
+	for(var i=0;i<pages.length; ++i){
+		var t = pageinfo.heading(pages[i], i, pages.length);
+		if(t!==undefined && t!==null){
+			var h = document.createElement('div');
+			h.classList.add('book-page-heading');
+			if(!(t instanceof Node)){
+				t = document.createTextNode(t + '');
+			}
+			h.appendChild(t);
+			pages[i].insertBefore(h, pages[i].firstChild);
+		}
+		t = pageinfo.footer(pages[i], i, pages.length);
+		if(t!==undefined && t!==null){
+			var h = document.createElement('div');
+			h.classList.add('book-page-footer');
+			if(!(t instanceof Node)){
+				t = document.createTextNode(t + '');
+			}
+			h.appendChild(t);
+			pages[i].appendChild(h);
+		}
+	}
+}
+function setPagesHeight(){
+	var pages = document.body.children;
+	for(var i=0;i<pages.length; ++i){
+		pages[i].style.setProperty('height', pageinfo.size.height+'px','important');
+	}
+}
+function copyContent(){
+	var docCopy = document.createDocumentFragment();
+	var mapping = new Map();
+
+	var children = Array.from(document.body.childNodes);
+	for(var i=0;i<children.length;++i){
+		var copy = children[i].cloneNode(true);
+		mapping.set(children[i], copy);
+
+		if(copy.nodeType === 1){
+			var allChild = children[i].getElementsByTagName('*');
+			var allCopyChild = copy.getElementsByTagName('*');
+			for(var j=0;j<allChild.length;++j){
+				mapping.set(allChild[j], allCopyChild[j]);
+			}
+		}
+
+		docCopy.appendChild(children[i]);
+		document.body.appendChild(copy);
+	}
+	return {
+		mapping: mapping,
+		reference: docCopy
+	};
+}
+function normalizeDocument(){
+	document.normalize();
+	//now get any textNode from the document
+	var nodes = Array.from(document.body.childNodes);
+	while(nodes.length){
+		var node = nodes.pop();
+		if(node.nodeType === 3){
+			var parent = node.parentNode;
+			var wrapper = document.createElement('span');
+			parent.insertBefore(wrapper, node);
+			wrapper.appendChild(node);
+			var rect = wrapper.getBoundingClientRect();
+			if(rect.width !== 0 || rect.height !== 0){
+				parent.insertBefore(node, wrapper);
+			}
+			parent.removeChild(wrapper);
+		}
+		else {
+			var nnodes = Array.from(node.childNodes);
+			for(let x of nnodes){
+				nodes.push(x);
+			}
+		}
+	}
+}
+function layoutPage(pages, previousPage, stack){
+	var page = createPage(pages, stack);
+	removePageBreakAlways(page, stack);
+	removePageBreakAlways(page, stack);
+
+	while(true){
+		switch(removePageBreakAvoid(previousPage, page, stack)){
+			case 0:
+				//TODO is this really necessary?
+				if(!page.firstChild){
+					pages.removeChild(page);
+				}
+				return;
+			case 1://need to redo this step
+			break;
+			case -1:
+				page = createPage(pages, stack);
+				removePageBreakAlways(page, stack);
+				removePageBreakAlways(page, stack);
+				break;
+		}
+	}
+	return page;
+}
+function Stack(){
+	var self = this;
+	var splitContext = new Map();
+	var splitMain = new Map();
+	var mergedNodes = new Set();
+	var nodes = [];
+	var allNodes = [nodes];
+	var fragment = document.createDocumentFragment();
+
+	function addSplit(prev, next){
+		var ctxKey = splitMain.get(next);
+		if(!ctxKey){
+			ctxKey = next;
+			splitMain.set(ctxKey, next);
+			splitContext.set(ctxKey, [next]);
+		}
+		splitMain.set(prev, ctxKey);
+		var arr = splitContext.get(ctxKey);
+		arr.splice(arr.indexOf(next), 0, prev);
+	}
+
+	this.splitTextNode = function(textNode, originalParent){
+		//first wrap that node into a span, so that it can be measured
+		var wrapper = document.createElement('span');
+		var parent = textNode.parentNode;
+		wrapper.appendChild(textNode);
+		parent.appendChild(wrapper);
+		var expectedRect = wrapper.getClientRects()[0];
+		var allText = textNode.textContent;
+		var index = 0;
+		wrapper.removeChild(textNode);
+		while(true){
+			++index;
+			wrapper.textContent = allText.substring(0, index);
+			var newRect = wrapper.getClientRects()[0];
+			//0.01 is an epsilon consant, changing it makes it more precise...
+			if(Math.abs(newRect.width - expectedRect.width)<0.01){
+				break;
+			}
+		}
+		//now we know the point to split the text
+		var otherText = document.createTextNode(wrapper.textContent);
+		parent.insertBefore(otherText, wrapper);
+		parent.removeChild(wrapper);
+		//replace node with the new value
+		textNode.textContent = allText.substring(index);
+
+		originalParent.insertBefore(textNode, originalParent.firstChild);
+
+		addSplit(otherText, textNode);
+		return otherText;
+	};
+
+	this.removeClone = function(node){
+		var main = splitMain.get(node);
+		if(main && main !== node){
+			var arr = splitContext.get(main);
+			if(node.nodeType === 3){
+				//text node need a special treatment, textContent must be joint
+				var index = arr.indexOf(node);
+				if(index !== arr.length - 1){
+					arr[index + 1].textContent = node.textContent + arr[index + 1].textContent;
+				}
+				else if(index !== 0) {
+					arr[index - 1].textContent += node.textContent;
+				}
+			}
+			if(arr.length === 2){
+				if(main.nodeType === 1) main.classList.remove('book-splitted-copy','book-splitted-reference');
+				splitContext.delete(main);
+				splitMain.delete(main);
+			}
+			else {
+				arr.splice(arr.indexOf(node), 1);
+				if(main.nodeType === 1){
+					arr[0].classList.add('book-splitted-reference');
+					arr[0].classList.remove('book-splitted-copy');
+				}
+			}
+			splitMain.delete(node);
+		}
+	};
+	this.cloneNode = function(node){
+		var copy = node.cloneNode(false);
+		if(copy.tagName.toLowerCase() === 'table'){
+			var els = node.children;
+			for(var i=0;i<els.length;++i){
+				if(els[i].tagName.toLowerCase() === 'colgroup'){
+					copy.appendChild(els[i].cloneNode(true));
+				}
+			}
+		}
+		if(copy.hasAttribute('id')){
+			copy.removeAttribute('id');
+		}
+		if(!node.classList.contains('book-splitted-copy')){
+			node.classList.remove('book-splitted-reference');
+			node.classList.add('book-splitted-copy');
+			copy.classList.add('book-splitted-reference');
+		}
+		addSplit(copy, node);
+		return copy;
+	};
+	this.mergeAll = function(){
+		//merge subrutine, it will merge node with the same parent node recursively, until a fixed point is meet
+		var changed = true;
+		while(changed){
+			changed = false;
+			var cleanable = [];
+			for(let entry of splitContext.entries()){
+				var node = entry[0];
+				var pieces = entry[1];
+				var prevParent = (pieces[0]||{parentNode:null}).parentNode;
+				var isTable = node.nodeType === 1 && node.tagName.toLowerCase() === 'table';
+				for(var i=1;i<pieces.length; ++i){
+					//if can be merged
+					if(prevParent === pieces[i].parentNode){
+						changed = true;
+						if(pieces[i - 1] !== node){
+							mergedNodes.add(pieces[i-1]);
+							if(node.nodeType === 3){
+								pieces[i].textContent = pieces[i-1].textContent + pieces[i].textContent;
+							}
+							else {
+								//transfer all childnodes of prev to this
+								var refNode = pieces[i].firstChild;
+								var iterNode = refNode;
+								while(iterNode) {
+									if(iterNode.nodeType === 1 && iterNode.tagName.toLowerCase() === 'colgroup'){
+										refNode = iterNode.nextSibling;
+									}
+									iterNode = iterNode.nextSibling;
+								}
+								while(pieces[i - 1].lastChild){
+									var c = pieces[i-1].lastChild;
+									if(isTable && c.nodeType === 1 && c.tagName.toLowerCase() === 'colgroup'){
+										pieces[i-1].removeChild(c);
+									}
+									else {
+										pieces[i].insertBefore(c, refNode);
+										refNode = c;
+									}
+								}
+								if(!pieces[i - 1].classList.contains('book-splitted-copy')){
+									pieces[i].classList.remove('book-splitted-copy');
+									pieces[i].classList.add('book-splitted-reference');
+								}
+							}
+							//prev is not used anymore
+							splitMain.delete(pieces[i - 1]);
+							pieces[i - 1].remove();
+							pieces.splice(i - 1, 1);
+							--i;
+						}
+						else {
+							mergedNodes.add(pieces[i]);
+							if(node.nodeType === 3){
+								pieces[i - 1].textContent = pieces[i - 1].textContent + pieces[i].textContent;
+							}
+							else {
+								//transfer all childnodes of this to prev
+								while(pieces[i].firstChild){
+									var c = pieces[i].firstChild;
+									if(isTable && c.nodeType === 1 && c.tagName.toLowerCase() === 'colgroup'){
+										pieces[i].removeChild(c);
+									}
+									else {
+										pieces[i - 1].appendChild(c);
+									}
+								}
+								if(!pieces[i].classList.contains('book-splitted-copy')){
+									pieces[i - 1].classList.remove('book-splitted-copy');
+									pieces[i - 1].classList.add('book-splitted-reference');
+								}
+							}
+							//next is not used anymore!
+							splitMain.delete(pieces[i]);
+							pieces[i].remove();
+							pieces.splice(i, 1);
+							--i;
+						}
+					}
+					else {
+						prevParent = pieces[i].parentNode;
+					}
+				}
+
+				if(pieces.length === 1){
+					cleanable.push(node);
+				}
+			}
+			for(let node of cleanable){
+				if(node.nodeType === 1){
+					node.classList.remove('book-splitted-copy', 'book-splitted-reference');
+				}
+				splitMain.delete(node);
+				splitContext.delete(node);
+			}
+		}
+	};
+	this.push = function(value){
+		nodes.push(value);
+		if(allNodes.length===1) fragment.appendChild(value);
+		return self;
+	};
+	this.pop = function(){
+		var result;
+		do {
+			result = nodes.pop();
+		} while(result && mergedNodes.has(result));
+		return result;
+	};
+	this.peek = function(){
+		var item = self.pop();
+		if(item){
+			self.push(item);
+		}
+		return item;
+	}
+	this.isEmpty = function(){
+		return !self.peek();
+	}
+	this.clear = function(){
+		nodes.splice(0, nodes.length);
+		return self;
+	}
+	this.pushAll = function(x){
+		for(let i of x){
+			nodes.push(i);
+			if(allNodes.length===1) fragment.appendChild(i);
+		}
+		return self;
+	}
+	this.newLevel = function(){
+		var x = [];
+		allNodes.push(x);
+		nodes = x;
+		return self;
+	}
+	this.rebase = function(){
+		var x = allNodes[0];
+		allNodes = [x];
+		nodes = x;
+		return self;
+	}
+	this.getSplittedElements = function(){
+		var result = [];
+		for(let x of splitContext.values()){
+			if(x.length > 1){
+				result.push(x);
+			}
+		}
+		return result;
+	}
+	this.getSplittedElement = function(x){
+		var main = splitMain.get(x);
+		if(!main){
+			return [x];
+		}
+		return splitContext.get(main);
+	}
+}
+function fixMediaSize(){
+	var els = document.querySelectorAll('img, audio, video');
+	for(var i=0;i<els.length;++i){
+		els[i].style.setProperty('height', els[i].offsetHeight+'px', 'important');
+		els[i].style.setProperty('width', els[i].offsetWidth+'px', 'important');
+	}
+}
+function createPage(pages, stack){
+	var page = document.createElement('div');
+	page.style.width = pageinfo.size.width+'px';
+	page.classList.add('book-page');
+	pages.appendChild(page);
+
+	var insertionParent = page;
+
+	while(!stack.isEmpty()){
+		var node = stack.peek();
+		var parent = node.parentNode;
+		insertionParent.appendChild(node);
+		if(isTooLarge(page)){
+			if(canBeSplitted(node)){
+				var copy;
+				if(node.nodeType === 3){
+					copy = stack.splitTextNode(node, parent);
+				}
+				else {
+					copy = stack.cloneNode(node);
+					insertionParent.removeChild(node);
+					parent.insertBefore(node, parent.firstChild);
+					insertionParent.appendChild(copy);
+				}
+				if(isTooLarge(page)){
+					insertionParent.removeChild(copy);
+					stack.removeClone(copy);
+					//remove empty hierarchy of cloned nodes
+					while(!insertionParent.firstChild && insertionParent !== page){
+						var oldParent = insertionParent;
+						insertionParent = insertionParent.parentNode;
+						insertionParent.removeChild(oldParent);
+						stack.removeClone(oldParent);
+					}
+					stack.rebase();
+					return page;
+				}
+				if(node.nodeType !== 3)
+				{
+					stack.newLevel();
+					stack.pushAll(Array.from(node.childNodes).reverse());
+					insertionParent = copy;
+				}
+			}
+			else {
+				if(node.tagName.toLowerCase() === 'img'){
+					//image can be resized if needed
+					var maxSpace = pageinfo.size.height - (page.getBoundingClientRect().height - node.getBoundingClientRect().height);
+					if(maxSpace > 0.75*pageinfo.size.height){
+						node.style.setProperty('height', (maxSpace-5)+'px', 'important');
+						stack.pop();
+						stack.rebase();
+						while(true){
+							if(stack.peek()){
+								stack.pop();
+							}
+							if(!stack.peek()){ stack.rebase(); }
+							else { break; }
+						}
+						return page;
+					}
+				}
+				//must be inserted in the next page...
+				//unless it is a single element
+				if(isSingleElement(page, insertionParent)){
+					stack.pop();
+					stack.rebase();
+					while(true){
+						if(stack.peek()){
+							stack.pop();
+						}
+						if(!stack.peek()){ stack.rebase(); }
+						else { break; }
+					}
+					return page;
+				}
+				else {
+					insertionParent.removeChild(node);
+					parent.insertBefore(node, parent.firstChild);
+					while(insertionParent !== page && insertionParent.childNodes.length === 0){
+						var temp = insertionParent.parentNode;
+						temp.removeChild(insertionParent);
+						stack.removeClone(insertionParent);
+						insertionParent = temp;
+					}
+					stack.rebase();
+					return page;
+				}
+			}
+		}
+		else {
+			stack.pop();
+		}
+	}
+	stack.rebase();
+	return page;
+}
+
+function removePageBreakAlways(page, stack){
+	var beforeNode = null;
+	var afterNode = null;
+	var others = Array.from(page.childNodes).reverse();
+	while(others.length){
+		var current = others.pop();
+		var pageBreakType = getPageBreakType(current);
+		switch(pageBreakType){
+			case 'before':
+				if(!beforeNode) { beforeNode = current; }
+				others = [ ];
+				break;
+			case 'after':
+				afterNode = current;
+				others = [ ];
+				//intended fall to default
+			default:
+				var cnode = current.childNodes;
+				for(var i = cnode.length - 1; i >= 0; --i){
+					others.push(cnode[i]);
+				}
+				break;
+		}
+	}
+	var current = beforeNode || afterNode;
+	if(!current){
+		return;
+	}
+	//There is a page-break!
+	var pageBreakType = beforeNode? 'before': 'after';
+	//We get all the parent chain until page is found
+	var parentList = [ current, current.parentNode ];
+	var isSingle = true;
+	var hasPrevious = current.previousSibling;
+	var hasNext = current.nextSibling;
+	while(parentList[parentList.length - 1]!==page){
+		if(!hasPrevious){
+			hasPrevious = parentList[parentList.length - 1].previousSibling;
+		}
+		if(!hasNext){
+			hasNext = parentList[parentList.length - 1].nextSibling;
+		}
+		if(parentList[parentList.length - 1].childNodes.length>1){
+			isSingle = false;
+		}
+		parentList.push(parentList[parentList.length - 1].parentNode);
+	}
+	parentList.pop();//remove page
+
+	if((pageBreakType === 'before' && !hasPrevious)||(pageBreakType==='after' && !hasNext)){
+		current.style.setProperty('page-break-'+pageBreakType, 'auto', 'important');
+		return;
+	}
+
+	//We need to remove the next elements because they are not part of this page
+	var node = parentList[parentList.length - 1];
+	while(page.lastChild !== node){
+		let t = page.lastChild;
+		page.removeChild(t);
+		stack.push(t);
+	}
+	if(isSingle && pageBreakType === 'before'){
+		page.removeChild(node);
+		stack.push(node);
+	}
+
+	if(!isSingle) {
+		//Now we must clone the elements
+		var cloned = [];
+		for(var i=1; i<parentList.length; ++i){
+			cloned.push(stack.cloneNode(parentList[i]));
+			while(parentList[i].firstChild !== parentList[i - 1]){
+					cloned[i - 1].appendChild(parentList[i].firstChild);
+			}
+			if(i===1 && pageBreakType !== 'before'){
+				cloned[i - 1].appendChild(current);
+			}
+			if(i > 1){
+				cloned[i - 1].appendChild(cloned[i - 2]);
+			}
+		}
+		//now add the cloned and remove the originals
+		page.insertBefore(cloned[cloned.length - 1], parentList[parentList.length - 1]);
+		stack.push(parentList[parentList.length - 1]);
+	}
+	current.style.setProperty('page-break-'+pageBreakType, 'auto', 'important');
+	stack.mergeAll();
+}
+
+function removePageBreakAvoid(previousPage, page, stack){
+	var beforeNode = null;
+	var afterNode = null;
+	var others = Array.from(page.childNodes).reverse();
+	while(others.length){
+		var current = others.pop();
+		var pageBreakType = getPageNoBreakType(current);
+		switch(pageBreakType){
+			case 'before':
+				if(!beforeNode) { beforeNode = current; }
+				break;
+			case 'after':
+				afterNode = current;
+				break;
+			default:
+				var cnode = current.childNodes;
+				for(var i = cnode.length - 1; i >= 0; --i){
+					others.push(cnode[i]);
+				}
+				break;
+		}
+	}
+	var current = beforeNode || afterNode;
+	if(!current){
+		return 0;
+	}
+	var pageBreakType = beforeNode ? 'before': 'after';
+	//after avoid means that the element after this needs to exist, unless a forced break has occurred...
+	//before avoid means that the element before this needs to exist, unless a forced break has occurred...
+
+	//if there is no page before this one, 'before avoid' is meet with no extra check	
+	if(pageBreakType === 'before' && !previousPage){
+		current.style.setProperty('page-break-before', 'auto', 'important');
+		return 1;
+	}
+	var needsRemoval = false;
+	if(pageBreakType === 'after'){
+		//check for next elements, if no one is found, then remove this element from the page
+		var iter = current;
+		while(!iter.nextSibling && iter !== page){
+			iter = iter.parentNode;
+		}
+		needsRemoval = iter === page;
+	}
+	if(pageBreakType === 'before'){
+		//check for prev elements, if no one is found, then remove this element from the page
+		var iter = current;
+		while(!iter.previousSibling && iter !== page){
+			iter = iter.parentNode;
+		}
+		needsRemoval = iter === page;
+	}
+	current.style.setProperty('page-break-'+pageBreakType, 'auto', 'important');
+	if(!needsRemoval) {
+		return 1;
+	}
+	if(pageBreakType === 'after'){
+		current.style.setProperty('page-break-before', 'always', 'important');
+		removePageBreakAlways(page, stack);
+		return 1;
+	}
+	else if(pageBreakType === 'before'){
+		//previous element must page-break-before forced
+		var lastElement = previousPage;
+		while(lastElement.lastElementChild){
+			lastElement = lastElement.lastElementChild;
+		}
+		lastElement.style.setProperty('page-break-before', 'always', 'important');
+		current.style.setProperty('page-break-before', 'auto', 'important');
+
+		while(page.lastChild){
+			stack.push(page.lastChild);
+		}
+		//page is discarted
+		page.parentNode.removeChild(page);
+		//merge stack and rebuild previous page
+		stack.mergeAll();
+		removePageBreakAlways(previousPage, stack);
+		return -1;
+	}
+}
+
+function setupPages(pages){
+	var c = pages.children;
+	for(var i=0;i<c.length;++i){
+		c[i].setAttribute('data-book-page-number', i+1);
+		c[i].style.paddingLeft = pageinfo.margin.left+'px';
+		c[i].style.paddingRight = pageinfo.margin.right+'px';
+		c[i].style.paddingTop = pageinfo.margin.top+'px';
+		c[i].style.paddingBottom = pageinfo.margin.bottom+'px';
+	}
+}
+
+function getPageBreakType(node){
+	if(node.nodeType !== 1){ return null; }
+	var style = document.defaultView.getComputedStyle(node, null);
+	if(style.pageBreakBefore === 'always'){ return 'before'; }
+	if(style.pageBreakAfter === 'always'){ return 'after'; }
+	return null;
+}
+function getPageNoBreakType(node){
+	if(node.nodeType !== 1){ return null; }
+	var style = document.defaultView.getComputedStyle(node, null);
+	if(style.pageBreakBefore === 'avoid'){ return 'before'; }
+	if(style.pageBreakAfter === 'avoid'){ return 'after'; }
+	return null;
+}
+function isSingleElement(page, currentNode){
+	while(currentNode !== page){
+		if(currentNode.childNodes.length > 1){
+			return false;
+		}
+		currentNode = currentNode.parentNode;
+	}
+	return currentNode.childNodes.length <= 1;
+}
+function canBeSplitted(node){
+	if(node.nodeType !== 1){
+		return true;
+	}
+	var name = node.tagName.toLowerCase();
+	//table rows, cells cannot be splitted
+	if(name === 'tr' || name === 'td' || name === 'th') {
+		return false;
+	}
+	//multimedia element cannot be splitted
+	if(name === 'img' || name === 'audio' || name === 'video' || name === 'embed' || name === 'object' || name === 'canvas' || name === 'area'){
+		return false;
+	}
+	//frames cannot be split
+	if(name === 'frame' || name === 'iframe'){
+		return false;
+	}
+	//form inputs cannot be split
+	if(name === 'input' || name === 'select' || name === 'progress' || name === 'button'){
+		return false;
+	}
+	if(name === 'br' || name === 'hr'){
+		return false;
+	}
+	//cannot split a block with page-break-inside: avoid
+	return document.defaultView.getComputedStyle(node, null).pageBreakInside !== 'avoid';
+}
+function preNormalization(){
+	var nodes = Array.from(document.getElementsByTagName('*'));
+	var groups = new Map();
+	for(let node of nodes){
+		var name = node.tagName.toLowerCase();
+		var group = groups.get(name);
+		if(!group){
+			group = [];
+			groups.set(name, group);
+		}
+		group.push([node]);
+	}
+	for(let normalTuple of normalizations){
+		var normalizer = normalTuple[normalTuple.length - 1];
+		for(var i=0;i<normalTuple.length - 1; ++i){
+			var group = groups.get(normalTuple[0]);
+			if(group){
+				for(let tuple of group){
+					normalizer(tuple, true);
+				}
+			}
+		}
+	}
+}
+function postNormalization(stack){
+	var groups = new Map();
+	for(let tuple of stack.getSplittedElements()){
+		if(tuple[0].nodeType !== 1){
+			continue;
+		}
+		var name = tuple[0].tagName.toLowerCase();
+		var group = groups.get(name);
+		if(!group){
+			group = [];
+			groups.set(name, group);
+		}
+		group.push(tuple);
+	}
+	for(let normalTuple of normalizations){
+		var normalizer = normalTuple[normalTuple.length - 1];
+		for(var i=0;i<normalTuple.length - 1; ++i){
+			var group = groups.get(normalTuple[i]);
+			if(group){
+				for(let tuple of group){
+					normalizer(tuple, false);
+				}
+			}
+		}
+	}
+}
+var normalizations = [
+	['ul', 'ol', function(tuple, isPrenormalization){
+		if(isPrenormalization){
+			return;
+		}
+		var items = [];
+		var main = tuple[0];
+
+		var value = main.hasAttribute('start') ? (main.getAttribute('start')|0) : 1;
+		var increment = main.hasAttribute('reversed') ? -1 : 1;
+
+		for(var i=0;i<tuple.length;++i){
+			var child = tuple[i].children;
+			for(var j=0;j<child.length;++j){
+				if(!child[j].classList.contains('book-splitted-copy')){
+					items.push(child[j]);
+				}
+			}
+			tuple[i].removeAttribute('start');
+			tuple[i].removeAttribute('reversed');
+		}
+debugger;
+		//items contains all the li elements unique, so that number can be assigned easily
+		for(var i=0;i<items.length;++i){
+			if(items[i].hasAttribute('value')){
+				value = items[i].getAttribute('value')|0;
+			}
+			else {
+				items[i].setAttribute('value', value);
+			}
+			value += increment;
+		}
+	}],
+	['table', function(tuple, isPrenormalization){
+		if(!isPrenormalization){
+			return;
+		}
+		//tuple is an array of 1 element
+		//compute the columns width, so that we do normalization without redoing page-creation
+		var items = [];
+		var child = tuple[0].children;
+		var originalGroup = null;
+		for(var i=0;i<child.length;++i){
+			switch(child[i].tagName.toLowerCase()){
+				case 'tr':
+					items.push(child[i]);
+					break;
+				case 'thead':
+				case 'tbody':
+				case 'tfoot':
+					var child2 = child[i].children;
+					for(var j=0;j<child2.length;++j){
+						if(child2[j].tagName.toLowerCase() === 'tr'){
+							items.push(child2[j]);
+						}
+					}
+					break;
+				case 'colgroup':
+					originalGroup = child[i];
+					break;
+			}
+		}
+		//now we have all the rows we need
+		//and we can compute the columns width
+		var columnCount = 0;
+		for(var i=0;i<items.length; ++i){
+			var cells = items[i].children;
+			var tempCount = 0;
+			for(var j=0;j<cells.length;++j){
+				var cell = cells[j];
+				if(cell.hasAttribute('colspan')){
+					tempCount += cell.getAttribute('colspan')|0;
+				}
+				else {
+					++tempCount;
+				}
+			}
+			if(tempCount>columnCount){
+				columnCount = tempCount;
+			}
+		}
+		if(originalGroup && originalGroup.children.length === columnCount){
+			return;
+		}
+
+		//now we need to measure the columns
+		var row = document.createElement('tr');
+		var colgroup = document.createElement('colgroup');
+
+		for(var i=0;i<columnCount;++i){
+			row.appendChild(document.createElement('td'));
+		}
+		tuple[0].appendChild(row);
+		for(var i=0;i<columnCount;++i){
+			var col = document.createElement('col');
+			col.style.setProperty('width', row.children[i].getBoundingClientRect().width + 'px', 'important');
+			colgroup.appendChild(col);
+		}
+		tuple[0].removeChild(row);
+		if(originalGroup){
+			originalGroup.remove();
+		}
+		tuple[0].insertBefore(colgroup, tuple[0].firstChild);
+	}],
+];
+function isTooLarge(page){
+	var box = page.getBoundingClientRect();
+	return box.height > pageinfo.size.height;
+}
+
+function setLeaders(){
+	var els = document.getElementsByClassName('book-leaders');
+	for(var i=0;i<els.length; ++i){
+		var e = els[i];
+		var parent = e.parentNode;
+		var f = e.style.float;
+		e.style.setProperty('float', 'none', 'important');
+		var w = e.style.wordBreak;
+		e.style.setProperty('word-break', 'break-word', 'important');
+		while(true){
+			var t = e.textContent;
+			e.textContent = t + '.';
+			if(e.getClientRects().length > 1){
+				e.textContent = t;
+				break;
+			}
+		}
+		e.style.wordBreak = w;
+		e.style.float = f;
+	}
+}
+
+function generateToc(){
+	var els = document.querySelectorAll('h1:not(.book-no-toc),h2:not(.book-no-toc),h3:not(.book-no-toc),h4:not(.book-no-toc),h5:not(.book-no-toc),h6:not(.book-no-toc)');
+	var result = document.querySelector('.book-toc');
+	var table = document.createElement('table');
+	result.appendChild(table);
+    table.classList.add('avoid-default-style');
+	var level = 0;
+	var levels = [0, 0, 0, 0, 0, 0];
+	var levelSizes = [0, 0, 0, 0, 0, 0, 0, 0];
+	var maxTextSize = 0;
+
+	for(var i=0;i<els.length;++i){
+		var e = els[i];
+		var newLevel = e.tagName.charAt(1) - '1';
+		var link = extractLink(e);
+		if(newLevel > level+1) throw 'Wrong document structure';
+		var row = document.createElement('tr');
+		
+		++levels[newLevel];
+		for(var j = newLevel + 1; j < levels.length; ++j) {
+			levels[j] = 0;
+		}
+		level = newLevel;
+
+		if(level != 0){
+			var spacer = document.createElement('td');
+			spacer.setAttribute('colspan', level);
+			row.appendChild(spacer);
+		}
+		
+		var indexNumber = makeIndexString(levels, level);
+		var indexSpan = document.createElement('span');
+		indexSpan.classList.add('book-toc-index');
+		indexSpan.textContent = indexNumber;
+		row.appendChild(makeLink(link, indexSpan));
+		var titleContent = document.createElement('span');
+		titleContent.classList.add('book-toc-title');
+		titleContent.appendChild(document.createTextNode(e.textContent));
+		var leaders = document.createElement('span');
+		leaders.classList.add('book-leaders');
+		var partialContent = document.createDocumentFragment();
+		partialContent.appendChild(titleContent);
+		partialContent.appendChild(leaders);
+		var title = makeLink(link, partialContent);
+		title.setAttribute('colspan', levels.length - level);
+		row.appendChild(title);
+
+		var pageSpan = document.createElement('span');
+		pageSpan.classList.add('book-toc-page');
+		var page = makeLink(link, pageSpan);
+		row.appendChild(page);
+
+		if(!e.classList.contains('book-no-index')){
+			insertNumber(e, indexNumber);
+		}
+		table.appendChild(row);
+		/*taking measures to compute columns widths*/
+		var t = indexSpan.getBoundingClientRect().width + 2;
+		if(t > levelSizes[level]){
+			levelSizes[level] = t;
+		}
+	}
+	var group = document.createElement('colgroup');
+	var totalSize = table.offsetWidth;
+	for(var i=0;i<levelSizes.length; ++i){
+		var col = document.createElement('col');
+		totalSize -= levelSizes[i];
+		if(i === levelSizes.length -2){
+			levelSizes[i] = totalSize;
+		}
+		col.style.width = levelSizes[i]+'px';
+		group.appendChild(col);
+	}
+	table.insertBefore(group, table.firstChild);
+}
+
+function extractLink(e){
+	if(!e.hasAttribute('id')){
+		throw 'Found an heading supposed to be inside the toc, but has no id';
+	}
+	return '#' + e.getAttribute('id');
+}
+function insertNumber(e, number){
+	var span = document.createElement('span');
+	span.classList.add('book-toc-index');
+	span.appendChild(document.createTextNode(number));
+	e.insertBefore(span, e.firstChild);
+}
+function makeLink(link, content){
+	var l = document.createElement('a');
+	l.setAttribute('href', link);
+	if(content) l.appendChild(content);
+
+	var cell = document.createElement('td');
+	cell.appendChild(l);
+	return cell;
+}
+function makeIndexString(levels, level){
+	var result = '';
+	for(var i=0;i<level;++i){
+		result += levels[i] + '.';
+	}
+	return result + levels[level];
+}
+function updatePageNumbers(fragment, mapping){
+	var items = fragment.querySelectorAll('.book-toc a[href]>.book-toc-page');
+	var changed = false;
+	var newSize = 0;
+	for(var i=0; i<items.length; ++i){
+		var link = items[i].parentNode;
+		var dest = fragment.getElementById(link.getAttribute('href').substring(1));
+		var span = items[i];
+		if(dest){
+			dest = mapping.get(dest);
+			var newPageNum = getPageNumber(dest);
+			if(span.textContent != newPageNum){
+				changed = true;
+				span.textContent = newPageNum;
+				mapping.get(span).textContent = newPageNum;
+			}
+			var t = mapping.get(span).getBoundingClientRect().width + 2;
+			if(t>newSize){
+				newSize = t;
+			}
+		}
+	}
+	if(changed){
+		var cols = fragment.querySelector('.book-toc>table>colgroup').children;
+		var textCol = cols[cols.length - 2];
+		var pageCol = cols[cols.length - 1];
+		var pageSize = parseFloat(pageCol.style.width);
+		var textSize = parseFloat(textCol.style.width);
+		if(Math.abs(newSize - pageSize) > 0.01){
+			pageCol.style.width = newSize + 'px';
+			textCol.style.width = (textSize + pageSize - newSize) + 'px';
+		}
+
+	}
+	return changed;
+}
+function getPageNumber(e){
+	while(!e.classList.contains('book-page')){
+		e = e.parentNode;
+	}
+	return e.getAttribute('data-book-page-number')|0;
+}
+
+window.addEventListener('load', layoutAll);            </script>
+            </head>
+    <body>
+		<div class="book-toc"></div>
+
+<h1 id="book-heading-1">Introduction</h1>
+
+<h2 id="book-heading-2">Purpose</h2>
+
+<h3 id="book-heading-3">General purpose</h3>
+
+<p>SafeStreets is a crowd-sourced application that wants to provide users with the possibility to notify authorities when parking violations occurs. 
+The application will allow users to send pictures of violations, including their date, time, and position. Then authorities will be able to check, 
+validate and eventually use those data for issuing tickets. 
+To achieve this objective a number of goals have been identified, this vital aims will have to be met before the release of the product.</p>
+
+<p>In short the S2B will satisfy the following goals:</p>
+
+<ul>
+<li>[G1] The system must allow logged-in users to send a report of the violation</li>
+<li>[G2] The System must allow logged-in users to see their past reports</li>
+<li>[G3] The system must allow logged-in users to retrieve information about the position and types of valid reports</li>
+<li>[G4] The system must allow verified authorities to mine information about date, time, position and type of valid reports</li>
+<li>[G5] The system must allow verified authorities to retrieve statistics about valid reports</li>
+<li>[G6] The system must be able to cross the data retrieved from the municipality with its own, in order to identify unsafe areas and suggest possible interventions and suggest them to municipal employee</li>
+<li>[G7] The system must allow local officer to set the validity of a report sent by the user</li>
+<li>[G8] The system must ensure that the chain of custody of the information coming from the user to the municipality is never broken, and the information is never altered</li>
+</ul>
+
+<h3 id="book-heading-4">Document purpose</h3>
+
+<p>This document represents the Requirement Analysis and Specification Document (RASD). The aim of this document is to completely describe the system in terms of functional and non-functional requirements, 
+analyze the real needs of the users in order to model the system, show the constraints and the limit of the software 
+and indicate the typical use cases that will occur after the release. This document is addressed to the developers who 
+have to implement the requirements and could be used as a contractual basis.</p>
+
+<h2 id="book-heading-5">Scope</h2>
+
+<p>This service is born from the idea that social responsibility on the street can be achieved with the help of everyday citizens.
+Such objective is achievable by giving good-willed people the possibility to record parking violations that they spot on the street, and making them visible to the authorities later.
+To this kind of people, regarded as unregistered users before their subscription to the service, the choice of signing up is given.</p>
+
+<p>When an unregistered user signs up, he/she will become a 
+registered user, able to login whenever desired. A logged in registered user, to employ the functionalities of the system, must have at least a mobile phone with camera and a GPS localization system, otherwise the product won't be available for use.
+With the minimum requirements satisfied the user will be able to compile and send reports of the parking violations and, if interested, search in a selected area for violations that will be showed as dots on an interactive map provided by the map service.
+Each report will be composed by the type of the violation, i.e. "vehicle parked in a forbidden area", by a picture of the vehicle with its license plate highlighted, that will be later recognized and added to the report with an OCR service, by the date, hour and position where the picture has been taken. 
+Registered users will also be able to see their past reports that, if the authority has already judged them as genuine, will be recognized as valid and highlighted with a green check. Invalid reports will be recognizable by a red cross and reports which evaluation is still pending will be represented by a yellow clock.</p>
+
+<p>The authorities, embodied by the municipal employees and local officers, will be able to retrieve data from the system using any available device capable of connecting to the internet and running a browser.
+In particular both the municipal employees and the local officers will be able to extract the reports sent by the users as one or more reports, choosing time, date, area or type of violation. If a group of reports has been chosen they will be showed in the same kind of way as a user, as dots on a map, but a higher number of information will be made available.
+Furthermore both the municipal employees and the local officers will be able to retrieve statistics, derived from data collected by the system. The system data is collected with the registered users's reports, along the ticket and accident information possessed by the municipality. 
+If the authority possesses such data, it will be retrieved via a ticket service, that will fetch date, time, position and violation type of the vehicle found committing the infraction, and a municipal accident service, that will recover information about road accidents, such as the date, time and the vehicles involved in the accident. 
+Moreover the municipal employee, by selecting a position, will be able to search for possible improvements on such position, to see what kind of interventions should be made, and, if some of them have already been completed, he/she can change their status from "not done" to "done", a "done" improvement won't be shown again.</p>
+
+<p>The last functionality is dedicated to the local officers: after having withdrawn a report, the local officer is able to check the its validity, and eventually utilize its data to fine the vehicle that committed the violation.</p>
+
+<h2 id="book-heading-6">Definitions, Acronyms, Abbreviations</h2>
+
+<h3 id="book-heading-7">Definitions</h3>
+
+<ul>
+<li>Report = Collection of Data that represents a Violation, in particular:
+
+<ul>
+<li>Picture, a photo of the car that has been found committing a violation.</li>
+<li>Date, the date when the picture has been taken.</li>
+<li>Time, the hour when the picture has been taken.</li>
+<li>Position, the place, formatted using GPS location, of the vehicle that has been found committing a violation.</li>
+</ul></li>
+<li>Improvement = a possible road intervention finalized to the development of the road and to achieve a safer environment.</li>
+</ul>
+
+<h3 id="book-heading-8">Acronyms</h3>
+
+<ul>
+<li>UU = Unregistered User;</li>
+<li>RU = Registered User;</li>
+<li>ME = Municipal Employee;</li>
+<li>LO = Local Officer;</li>
+<li>S2B = Software to Be;</li>
+<li>TS = Ticket Service;</li>
+<li>MS = Map Service;</li>
+<li>MAS = Municipal Accident Service;</li>
+<li>OCRS = OCR Service;</li>
+<li>VT = Violation type;</li>
+</ul>
+
+<p>For a precise description of RU, ME and LO see paragraph 2.3.</p>
+<br />
+<br />
+<br />
+<br />
+<h3 id="book-heading-9">Abbreviations</h3>
+
+<ul>
+<li>[Gn] : n-th goal.</li>
+<li>[Dn] : n-th domain assumption.</li>
+<li>[Rn] : n-th functional requirement.</li>
+</ul>
+
+<h2 id="book-heading-10">Revision history</h2>
+
+<ul>
+<li>Version 1.0:
+
+<ul>
+<li>Initial release</li>
+</ul></li>
+</ul>
+
+<h2 id="book-heading-11">Reference documents</h2>
+
+<ul>
+<li>Specification document: “Mandatory Project Assignment AY 2019‐2020”</li>
+</ul>
+
+<h2 id="book-heading-12">Document structure</h2>
+
+<p>The RASD document is composed by six chapters, as outlined below:</p>
+
+<ul>
+<li><strong>Chapter 1</strong> describes the purpose of the system and the list of goals which the application has to reach. Moreover, it defines the scope, where the aim of the project is defined and the application domain with the shared phenomena are shown.</li>
+<li><strong>Chapter 2</strong> offers an overall description of the project. Here the actors, involved in the application’s usage, are identified and the boundaries of the project are defined, listing all the necessary assumptions. Moreover, a class diagram is provided, in order to better understand the general structure of the project. Then some state diagrams are listed to make the evolution of the crucial objects and actors clear. Finally, the functions offered by the system are here more clearly specified, with respect to the previously listed goals.</li>
+<li><strong>Chapter 3</strong> represents the body of the document. It contains the interface requirements, which are: user interfaces, hardware interfaces and software interfaces. It then lists some scenarios to show how the system acts in real world situations, followed by the description of the functional requirements, using use cases and sequence diagrams. All the requirements necessary in order to reach the goals are given, linked with the related domain assumptions. Lastly, the non-functional requirements are defined through performance requirements, design constraints and software system attributes.</li>
+<li><strong>Chapter 4</strong> contains the Alloy model of some primary aspects with all the related comments and documentation in order to show how the project has been modeled and represented through the language.</li>
+<li><strong>Chapter 5</strong> shows the effort which each member of the group has spent working on the project.</li>
+<li><strong>Chapter 6</strong> contains eventual references used during the writing of the document.</li>
+</ul>
+
+<h1 id="book-heading-13">Overall Description</h1>
+
+<h2 id="book-heading-14">Product perspective</h2>
+
+<p>The product will be developed from scratch and will be organized in two different macro-entities, one dedicated to the normal user, the other dedicated to the authorities, that may be MEs or LOs (for more information on the users see section 2.3). 
+The two parts will be differentiated to satisfy different needs of different parties that will employ SafeStreets. Their form, along with the one of some other parts of the system, is represented with the following high level class diagram.</p>
+
+<h3 id="book-heading-15">Class diagram</h3>
+
+<p><img src="./images/Class_diagram/SafeStreetsUML.svg" alt="Class diagram" /></p>
+
+<h3 id="book-heading-16">State diagrams</h3>
+
+<p>Some of the entities of the class diagram evolve, assuming different states, while the system is being used. The following diagrams show those states that will be found.</p>
+
+<h4 id="book-heading-17">User state diagram, assumed by all users (authorities and normal users).</h4>
+
+<p>This diagram does not have an end state because, once a user has been correctly registered in the system, its presence in the system will ideally never disappear.</p>
+
+<p><img src="./images/State_diagrams/UserStateDiagram.svg" alt="Class diagram" /></p>
+
+<h4 id="book-heading-18">Report construction state diagram.</h4>
+
+<p>This diagram contains all the states that the system will assume while a user creates a report. Not all of the transitions are caused by the user, in fact in the "Impending GPS localization" state the system will independently retrieve the location, is possible also to notice that in this state, unlike all the others, both the abort and go back transitions are missing.
+Thanks to the domain assumptions (see paragraph 2.4) the system will never be stuck on the "Impending GPS localization" state, giving only to the user the choice of reaching one of the two final states.</p>
+
+<p><img src="./images/State_diagrams/ReportCreationToolStateDiagram.svg" alt="Class diagram" /></p>
+
+<h4 id="book-heading-19">Report state diagram (also see section 2.2.1)</h4>
+
+<p>This diagram represents the state of a report from when it is received by the system to the evaluation of a LO. When a report arrives to the system, the license plate, that has been already highlighted by the user, will be run through the OCRS, if the plate is regarded as illegible the report will be automatically regarded as not valid, otherwise the choice of the final state of the report will be taken by the LO.</p>
+
+<p><img src="./images/State_diagrams/ReportStateDiagram.svg" alt="Class diagram" /></p>
+
+<h4 id="book-heading-20">Improvement state diagram (also see section 2.2.2)</h4>
+
+<p>This diagram contains the states of an improvement from when is framed to when it is completed. Is possible that some of the improvements will never be completed, remaining forever in the not done state, but if one is indeed finished, and set as done by a ME, it will be discarded and never shown again (only on the street where it was proposed).</p>
+
+<p><img src="./images/State_diagrams/ImprovementStateDiagram.svg" alt="Class diagram" /></p>
+
+<h3 id="book-heading-21">World and Phenomena</h3>
+
+<table>
+<thead>
+<tr>
+  <th>Phenomenon</th>
+  <th>Shared</th>
+  <th>Who Controls It</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>UU inserts its credentials</td>
+  <td>Y</td>
+  <td>W</td>
+</tr>
+<tr>
+  <td>S2B checks UU credentials</td>
+  <td>N</td>
+  <td>M</td>
+</tr>
+<tr>
+  <td>RU/ME/LO logs in</td>
+  <td>Y</td>
+  <td>W</td>
+</tr>
+<tr>
+  <td>S2B checks RU/ME/LO credentials</td>
+  <td>N</td>
+  <td>M</td>
+</tr>
+<tr>
+  <td>RU wants to add a report</td>
+  <td>N</td>
+  <td>W</td>
+</tr>
+<tr>
+  <td>RU takes a picture of the violation</td>
+  <td>Y</td>
+  <td>W</td>
+</tr>
+<tr>
+  <td>RU choose the type of violations</td>
+  <td>Y</td>
+  <td>W</td>
+</tr>
+<tr>
+  <td>RU sends a report</td>
+  <td>Y</td>
+  <td>W</td>
+</tr>
+<tr>
+  <td>S2B registers a report</td>
+  <td>N</td>
+  <td>M</td>
+</tr>
+<tr>
+  <td>RU wants to request its reports</td>
+  <td>N</td>
+  <td>W</td>
+</tr>
+<tr>
+  <td>RU requests its reports</td>
+  <td>Y</td>
+  <td>W</td>
+</tr>
+<tr>
+  <td>RU asks the S2B for seeing reports by area</td>
+  <td>Y</td>
+  <td>W</td>
+</tr>
+<tr>
+  <td>S2B selects the reports for the RU</td>
+  <td>N</td>
+  <td>M</td>
+</tr>
+<tr>
+  <td>S2B provides RU with requested reports</td>
+  <td>N</td>
+  <td>M</td>
+</tr>
+<tr>
+  <td>ME/LO wants to mine reports</td>
+  <td>N</td>
+  <td>W</td>
+</tr>
+<tr>
+  <td>ME/LO chooses the way of mining reports</td>
+  <td>Y</td>
+  <td>W</td>
+</tr>
+<tr>
+  <td>ME/LO asks the S2B for the mining</td>
+  <td>Y</td>
+  <td>W</td>
+</tr>
+<tr>
+  <td>S2B selects the reports for the ME/LO</td>
+  <td>N</td>
+  <td>M</td>
+</tr>
+<tr>
+  <td>S2B provides ME/LO with requested reports</td>
+  <td>Y</td>
+  <td>M</td>
+</tr>
+<tr>
+  <td>ME/LO wants to retrieve statistics</td>
+  <td>N</td>
+  <td>W</td>
+</tr>
+<tr>
+  <td>ME/LO asks the S2B for statistics</td>
+  <td>Y</td>
+  <td>W</td>
+</tr>
+<tr>
+  <td>S2B crunches statistics for the ME/LO</td>
+  <td>N</td>
+  <td>M</td>
+</tr>
+<tr>
+  <td>S2B provides ME/LO with statistics</td>
+  <td>Y</td>
+  <td>M</td>
+</tr>
+<tr>
+  <td>ME wants go get the possible improvements</td>
+  <td>N</td>
+  <td>W</td>
+</tr>
+<tr>
+  <td>ME asks the S2B for possible improvements</td>
+  <td>Y</td>
+  <td>W</td>
+</tr>
+<tr>
+  <td>S2B finds possible improvements for the ME's municipality</td>
+  <td>N</td>
+  <td>M</td>
+</tr>
+<tr>
+  <td>S2B provides ME with the possible improvements</td>
+  <td>Y</td>
+  <td>M</td>
+</tr>
+<tr>
+  <td>ME marks an improvement as done or not done</td>
+  <td>Y</td>
+  <td>W</td>
+</tr>
+<tr>
+  <td>S2B changes the status of the improvement as done or not note</td>
+  <td>N</td>
+  <td>M</td>
+</tr>
+<tr>
+  <td>LO wants to validate one or more reports</td>
+  <td>N</td>
+  <td>W</td>
+</tr>
+<tr>
+  <td>LO asks the S2B for validating reports</td>
+  <td>Y</td>
+  <td>W</td>
+</tr>
+<tr>
+  <td>S2B provides LO with the reports the reports to be verified</td>
+  <td>Y</td>
+  <td>M</td>
+</tr>
+<tr>
+  <td>LO marks a report as valid or not valid</td>
+  <td>Y</td>
+  <td>W</td>
+</tr>
+<tr>
+  <td>S2B changes the status of the report as valid or not valid</td>
+  <td>N</td>
+  <td>M</td>
+</tr>
+</tbody>
+</table>
+
+<br />
+<br />
+<br />
+<h2 id="book-heading-22">Product functions</h2>
+
+<p>In this section the most important functions of the system are reported.</p>
+
+<h3 id="book-heading-23">Report</h3>
+
+<p>The core of the system revolves around the management of the reports. Reports, that are structures that contains information about a violation, are created and then saved in the system with an "add" function. 
+The "add" function builds the report, assembling the picture of the car that has committed a violation, with its license plate, date and time, GPS location, and violation type, sending it to SafeStreets at the end of the procedure.
+When a report is received, the system checks if the license plate is readable, if not the report is discarded as "not valid", otherwise a set of possible operations becomes available. These operations are the "validate" and "mine"  functions.
+The "validate" function shows every stored report, which status is set as "to be verified", with all the information listed above, and permits to change their status to "valid", if the report is considered legit, or "not valid", in the opposite case.
+The "mine" functions finds the report type, of existing valid reports, searching in the system using type, date, time or area as parameters for the query.</p>
+
+<h3 id="book-heading-24">Improvement</h3>
+
+<p>Using both data provided by the authorities and the data owned by SafeStreet is possible to identify the unsafe areas of a Municipality. 
+Using the improvement function makes it possible to determine feasible solutions that can be used to improve the safety of such areas, i.e. add a barrier<br />
+between the bike lane and the part of the road for motorized vehicles to prevent unsafe parking.</p>
+
+<h3 id="book-heading-25">Statistics</h3>
+
+<p>With the information, about issued tickets and accidents that happened on the street, retrievable from the Authorities, and SafeStreets' own data, is possible to build statistic about the violations and the perpetrators who cause them.
+Some examples of these statistics can be seen in section 3.3.1 in the Local Officer paragraph.</p>
+
+<h2 id="book-heading-26">User characteristics</h2>
+
+<p>There are three kind of users that will employ this product:</p>
+
+<ol>
+<li><p>User: the normal, every day citizen that has subscribed to SafeStreets and recognized as RU. The RU is able to compile and send reports, see the chronology of his reports and search for violations in a selected area.
+Other functions will not be accessible by the user to protect privacy of other people, not necessary others RU, and to avoid providing excessive useless data to RU.</p></li>
+<li><p>Municipal Employee: the ME is someone hired from the municipality to which the task of accessing information,on behalf of the authorities, will be given. To such kind of individuals, a unique username and password will be provided, already linked to an account able to utilize all functions dedicated to the retrieval of data.
+A ME is unable to add or modify the status of any reports, but is able to change the status of an improvement from "not done" to "done".</p></li>
+<li><p>Local Officer: The LO is part of the law enforcement of the municipality. As the ME, the LO receives his own account information from the municipality that will permit him/her to utilize all the functions to retrieve data.
+Unlike the ME, the LO is able to modify the state of a report but is unable to do so with an improvement. An LO may, or may not, utilize the data stored by SafeStreet to write tickets for the cars that committed a violation</p></li>
+</ol>
+
+<h2 id="book-heading-27">Assumptions, dependencies and constraints</h2>
+
+<p>To assure the correct formulations of the requirements, and avoid unforeseen events, a certain amount of the world phenomena is considered as follows.</p>
+
+<ul>
+<li>[D1] The number of possible violations is finite and is aligned to the current traffic rules</li>
+<li>[D2] The number of possible interventions is finite and there exists an already established correlation between violations and possible interventions</li>
+<li>[D3] When using the S2B, the user’s device is always connected to internet</li>
+<li>[D4] When using the S2B, the user’s device has a valid GPS signal</li>
+<li>[D5] The internet connection works properly without failure</li>
+<li>[D6] The user device has a camera and is able to take pictures</li>
+<li>[D7] The user does not fake his position</li>
+<li>[D8] Every location has one and only one municipality</li>
+<li>[D9] Car plates are unique</li>
+<li>[D10] Each municipality has its own account, certified and authorized by a state authority</li>
+<li>[D11] Each municipal employee receives his/her official credentials from the municipality (different from those used for report violations)</li>
+<li>[D12] Each local officer receives his/her official credentials from the municipality (different from those used for report violations)</li>
+<li>[D13] The municipality voids credentials of its employees or local officers at the end of their service</li>
+<li>[D14] When using the S2B, the authority's device is always connected to internet</li>
+</ul>
+
+<h1 id="book-heading-28">Specific Requirements</h1>
+
+<h2 id="book-heading-29">External interface requirements</h2>
+
+<h3 id="book-heading-30">User interfaces</h3>
+
+<p>The following mockups give an approximate idea of how the application’s interfaces should appear.</p>
+
+<h4 id="book-heading-31">Unregistered User</h4>
+
+<h5 id="book-heading-32">Sign-Up</h5>
+
+<p><img src="./images/Mockup/User/SignUp.png" alt="SignUp" title="" class="mockup" /></p>
+
+<h4 id="book-heading-33">Registered User</h4>
+
+<h5 id="book-heading-34">Log-In</h5>
+
+<p><img src="./images/Mockup/User/UserLogin.png" alt="UserLogIn" title="" class="mockup" /></p>
+
+<h5 id="book-heading-35">Get My Reports, all Reports</h5>
+
+<p><img src="./images/Mockup/User/MyReports.png" alt="MyReports" title="" class="mockup" /></p>
+
+<h5 id="book-heading-36">Get My Reports, information of a single report</h5>
+
+<p><img src="./images/Mockup/User/MyReportExpanded.png" alt="MyReportExpanded" title="" class="mockup" /></p>
+
+<h5 id="book-heading-37">Get Unsafe Areas</h5>
+
+<p><img src="./images/Mockup/User/UnsafeAreas.png" alt="UnsafeAreas" title="" class="mockup" /></p>
+
+<h5 id="book-heading-38">Add Report, taking photo from camera</h5>
+
+<p><img src="./images/Mockup/User/Report0Camera.png" alt="Report0Camera" title="" class="mockup" /></p>
+
+<h5 id="book-heading-39">Add Report, confirmation of the taken photo</h5>
+
+<p><img src="./images/Mockup/User/Report1ConfirmPhoto.png" alt="Report1ConfirmPhoto" title="" class="mockup" /></p>
+
+<h5 id="book-heading-40">Add Report, highlighting of the vehicle's plate</h5>
+
+<p><img src="./images/Mockup/User/Report2HighlightPlate.png" alt="Report2HighlightPlate" title="" class="mockup" /></p>
+
+<h5 id="book-heading-41">Add Report, choosing of the violation's types</h5>
+
+<p><img src="./images/Mockup/User/Report3ChooseViolation.png" alt="Report3ChooseViolation" title="" class="mockup" /></p>
+
+<h5 id="book-heading-42">Add Report, confirmation</h5>
+
+<p><img src="./images/Mockup/User/Report4Confirm.png" alt="Report4Confirm" title="" class="mockup" /></p>
+
+<h4 id="book-heading-43">Authority</h4>
+
+<h5 id="book-heading-44">Log-In</h5>
+
+<p><img src="./images/Mockup/Authority/AuthorityLogin.png" alt="AuthorityLogIn" title="" class="mockup" /></p>
+
+<h4 id="book-heading-45">Municipal Employee</h4>
+
+<h5 id="book-heading-46">See Statistics</h5>
+
+<p><img src="./images/Mockup/Authority/MunicipalEmployee/SeeStatistics.png" alt="SeeStatistics" title="" class="mockup" /></p>
+
+<h5 id="book-heading-47">Get Improvements</h5>
+
+<p><img src="./images/Mockup/Authority/MunicipalEmployee/Improvements.png" alt="GetImprovements" title="" class="mockup" /></p>
+
+<h5 id="book-heading-48">Mine Reports By *</h5>
+
+<p><img src="./images/Mockup/Authority/MunicipalEmployee/MineReports.png" alt="MineReportsBy*" title="" class="mockup" /></p>
+
+<h4 id="book-heading-49">Local Officer</h4>
+
+<h5 id="book-heading-50">See Statistics</h5>
+
+<p><img src="./images/Mockup/Authority/LocalOfficer/SeeStatistics.png" alt="SeeStatistics" title="" class="mockup" /></p>
+
+<h5 id="book-heading-51">Validate Reports, compact view</h5>
+
+<p><img src="./images/Mockup/Authority/LocalOfficer/ValidateReport.png" alt="ValidateReports" title="" class="mockup" /></p>
+
+<h5 id="book-heading-52">Validate Reports, expanded view</h5>
+
+<p><img src="./images/Mockup/Authority/LocalOfficer/ValidateReportExpanded.png" alt="ValidateReports" title="" class="mockup" /></p>
+
+<h5 id="book-heading-53">Mine Reports By *</h5>
+
+<p><img src="./images/Mockup/Authority/LocalOfficer/MineReports.png" alt="MineReportsBy*" title="" class="mockup" /></p>
+
+<h3 id="book-heading-54">Hardware interfaces</h3>
+
+<p>The system has no hardware interface.</p>
+
+<h3 id="book-heading-55">Software interfaces</h3>
+
+<p>The system does not offer any APIs to external applications for its usage.</p>
+
+<h3 id="book-heading-56">Communication interfaces</h3>
+
+<p>The system does not offer any APIs to external applications for communication.</p>
+
+<h2 id="book-heading-57">Functional requirements</h2>
+
+<h3 id="book-heading-58">Scenarios</h3>
+
+<h4 id="book-heading-59">Scenario 1</h4>
+
+<p>Cat has a disabled child. Tired from everybody that leave their car in the disable’s parking lot, Cat decides to download and install SafeStreets app. After subscribing to the service, she starts to take pictures of all the perpetrator’s cars. Sometime after, Cat notices that her reports are getting validated and along with that the number of times that she founds cars in the disabled parking lot start to diminish, that may be because the local police intervened and ticketed them.</p>
+<br /><br />
+<h4 id="book-heading-60">Scenario 2</h4>
+
+<p>Ned is looking for a house in the city, he has always lived in the countryside and  he’s scared of the possibility to live in areas with difficulty in finding car parks. He opens SafeStreets and using “Get Reports By Area” he can find the worst areas in the city and he can avoid them, looking for a house with confidence.</p>
+
+<h4 id="book-heading-61">Scenario 3</h4>
+
+<p>Jon has the reputation of not being a trustworthy guy. When he decides to use SafeStreets, Jon starts to report every car that he does not like, hoping that the owners of those car will receive a ticket. Luckily for the owners, those report won’t incur in any fine because the local police is able to validate the received reports and does not issue the cars in order, ignoring Jon’s report.</p>
+
+<h4 id="book-heading-62">Scenario 4</h4>
+
+<p>Martha works as a municipal employee. The mayor asks her to make a list all possible investment to develop the streets of the city, in order to increase the street security.
+Luckily for Martha, SafeStreets with its function "Get Improvements", highlights the most unsafe areas and suggests possible interventions. Reading these recommendations, Martha realizes that some of them have already been done so she diligently set them as completed with the “Notify Improvement”. Martha can now finish her assignment quickly and can dedicate more of her time to do nothing, she works for the municipality after all.</p>
+
+<h4 id="book-heading-63">Scenario 5</h4>
+
+<p>The mayor, to promote his image before the next elections, wants to publish a report with the statistics regarding public security. With SafeStreets his secretary can easily retrieve such information, and prepare a detailed report with all the areas where public street security has improved during the mayor’s mandate.</p>
+
+<h4 id="book-heading-64">Scenario 6</h4>
+
+<p>A group of citizens is concerned with the street security of their neighborhood but they don’t have much real data that can be used to support their concerns. They go to the municipality to ask for more information and possibly an interventions of the authorities. The municipality can quickly for search for data regarding their area and forward it higher authorities that will hopefully do something.</p>
+
+<h4 id="book-heading-65">Scenario 7</h4>
+
+<p>A local officer in patrol is tasked to give fines during his work shift but usually this isn’t such an easy task. Normally he would spend a lot of time searching the usual street but, using SafeStreets, he can now retrieve reports about positions of parking violations using  “Mine Report” function. With these information the local officer starts the search. Luckily for him, he finds a lot of violations in the streets specified by SafeStreet, so he can proceed and charge the owners of those cars for their sins (violations).</p>
+<br /> <br /><br /><br /><br /><br />
+
+<h3 id="book-heading-66">Use case diagrams</h3>
+
+<h4 id="book-heading-67">Unregistered User</h4>
+<img src="./images/use_cases_diagrams/UU.svg" alt="UU" />
+<h4 id="book-heading-68">Registered User</h4>
+<img src="./images/use_cases_diagrams/RU.svg" alt="RU" />
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<h4 id="book-heading-69">Municipal Employee</h4>
+<img src="./images/use_cases_diagrams/ME.svg" alt="ME" />
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<h4 id="book-heading-70">Local Officer</h4>
+<img src="./images/use_cases_diagrams/LO.svg" alt="LO" />
+
+<h3 id="book-heading-71">Use cases</h3>
+
+<h4 id="book-heading-72">Sign-Up</h4>
+
+<table>
+<tbody>
+<tr>
+  <td><p>Name</p></td>
+  <td><p>Sign-Up</p></td>
+</tr>
+<tr>
+  <td><p>Actors</p></td>
+  <td><p>Unregistered User</p></td>
+</tr>
+<tr>
+  <td><p>Entry Conditions</p></td>
+  <td><p>The UU is already on the Log-In page.</p></td>
+</tr>
+<tr>
+  <td><p>Event Flow</p>
+</td>
+  <td><ol>
+<li>The UU clicks on the "Sign-Up" field to start the registration process.</li>
+<li>The UU provides his/her email address.</li>
+<li>The UU provides a username.</li>
+<li>The UU provides a password and writes it again for confirmation.</li>
+<li>The UU clicks on the confirmation button.</li>
+<li>The system saves the data.</li>
+</ol>
+</td>
+</tr>
+<tr>
+  <td><p>Exit Conditions</p></td>
+  <td><p>The UU becomes now a RU. From now on he/she can Log-In into the application and use SafeStreets service.</p></td>
+</tr>
+<tr>
+  <td><p>Exceptions</p>
+</td>
+  <td><ol>
+<li>The UU is already an user.</li>
+<li>The UU provides a username already used. </li>
+</ol>
+<p>In the case 1 an error message is displayed, saying "Credentials already in use, please Log-In", and the UU is taken back to the Log-In page. <br /> In the case 2 an error message is displayed, saying "Username already in use, please choose a different one", and the UU is taken back to the point 2.</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="book-heading-73">Registered User Log-In</h4>
+
+<table>
+<tbody>
+<tr>
+  <td><p>Name</p></td>
+  <td><p>Registered User Log-In</p></td>
+</tr>
+<tr>
+  <td><p>Actors</p></td>
+  <td><p>Registered User</p></td>
+</tr>
+<tr>
+  <td><p>Entry Conditions</p></td>
+  <td><p>The RU is already on the Log-In page.</p></td>
+</tr>
+<tr>
+  <td><p>Event Flow</p>
+</td>
+  <td><ol>
+<li>The RU provides his/her username or email.</li>
+<li>The RU provides his/her password.</li>
+<li>The RU clicks on the confirmation button.</li>
+<li>The system redirects the RU to the corresponding home page.</li>
+</ol>
+</td>
+</tr>
+<tr>
+  <td><p>Exit Conditions</p></td>
+  <td><p>The RU is successfully redirected to the corresponding home page.</p></td>
+</tr>
+<tr>
+  <td><p>Exceptions</p></td>
+  <td><ol>
+<li>The RU provides an incorrect username, email or password. </li>
+</ol>
+<p> In the case 1 an error message is displayed, saying "Wrong Credentials", and the RU is taken back to the point 1.</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="book-heading-74">Add Report</h4>
+
+<table>
+<tbody>
+<tr>
+  <td><p>Name</p></td>
+  <td><p>Add Report</p></td>
+</tr>
+<tr>
+  <td><p>Actors</p></td>
+  <td><p>Registered User, OCR Service</p></td>
+</tr>
+<tr>
+  <td><p>Entry Conditions</p></td>
+  <td><p>The RU has logged in and is in the home page, which is the "Get My Reports" page</p></td>
+</tr>
+<tr>
+  <td><p>Event Flow</p>
+</td>
+  <td><ol>
+<li>The RU clicks on the "Add Report" button.</li>
+<li>The RU takes a photo of the car through his/her device's camera and goes to the next phase.</li>
+<li>The RU highlight the plate of the reported car and goes to the next phase.</li>
+<li>The RU adds one or more type of violations and confirms.</li>
+<li>The system receives the report and store it, with the plate recognized thanks to the OCRS.</li>
+</ol>
+</td>
+</tr>
+<tr>
+  <td><p>Exit Conditions</p></td>
+  <td><p>The RU successfully uploads a new report into the system. Then he/she is taken back to the home page.</p></td>
+</tr>
+<tr>
+  <td><p>Exceptions</p></td>
+  <td><p>There are no exceptions under the given domain assumptions.</p></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="book-heading-75">Get My Reports</h4>
+
+<table>
+<tbody>
+<tr>
+  <td><p>Name</p></td>
+  <td><p>Get My Reports</p></td>
+</tr>
+<tr>
+  <td><p>Actors</p></td>
+  <td><p>Registered User, Map Service</p></td>
+</tr>
+<tr>
+  <td><p>Entry Conditions</p></td>
+  <td><p>The RU has logged in and is in the home page, which is "Get My Reports" page.</p></td>
+</tr>
+<tr>
+  <td><p>Event Flow</p>
+</td>
+  <td><ol>
+<li>The system automatically provides the RU with the reports he/she has sent, sorted in chronological order, starting from the newest one.</li>
+<li>Eventually the RU is able to open a report, see all its information, with the position provided by the MS, and see its status.</li>
+</ol>
+</td>
+</tr>
+<tr>
+  <td><p>Exit Conditions</p></td>
+  <td><p>The RU successfully gets his/her reports and is able to navigate through them.</p></td>
+</tr>
+<tr>
+  <td><p>Exceptions</p></td>
+  <td><ol>
+<li>The RU has never uploaded any report. </li>
+</ol>
+<p> The case 1 is handled by showing only the "Add Report" button.</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="book-heading-76">Get Violations Type By Area</h4>
+
+<table>
+<tbody>
+<tr>
+  <td><p>Name</p></td>
+  <td><p>Get Violations Type By Area</p></td>
+</tr>
+<tr>
+  <td><p>Actors</p></td>
+  <td><p>Registered user, Map Service</p></td>
+</tr>
+<tr>
+  <td><p>Entry Conditions</p></td>
+  <td><p>The RU has logged in and is in the home page, which is the "Get My Reports" page.</p></td>
+</tr>
+<tr>
+  <td><p>Event Flow</p>
+</td>
+  <td><ol>
+<li>The RU has to swipe to the "Get violations Type By Area" page.</li>
+<li>Once in the correct page, the RU has to provide an address or use his/her current GPS location.</li>
+<li>A map with the violations, shown as points, is displayed. The map is provided by the MS.</li>
+</ol>
+</td>
+</tr>
+<tr>
+  <td><p>Exit Conditions</p></td>
+  <td><p>The RU now is able to browse on the map between violations and see their type.</p></td>
+</tr>
+<tr>
+  <td><p>Exceptions</p></td>
+  <td><ol>
+<li>The RU provides an invalid address. </li>
+</ol>
+<p>In the case 1 an error message is displayed, saying "Invalid address", and the RU is taken back to the point 2.</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="book-heading-77">Authority Log-In</h4>
+
+<table>
+<tbody>
+<tr>
+  <td><p>Name</p></td>
+  <td><p>Authority Log-In</p></td>
+</tr>
+<tr>
+  <td><p>Actors</p></td>
+  <td><p>Municipal Employee, Local Officer</p></td>
+</tr>
+<tr>
+  <td><p>Entry Conditions</p></td>
+  <td><p>The ME/LO is already on the Log-In page.</p></td>
+</tr>
+<tr>
+  <td><p>Event Flow</p>
+</td>
+  <td><ol>
+<li>The ME/LO provides his/her username or email.</li>
+<li>The ME/LO provides his/her password.</li>
+<li>The ME/LO chooses his/her type: "Municipal Employee" or "Local Officer".</li>
+<li>The ME/LO clicks on the confirmation button.</li>
+<li>The system redirects the ME/LO to the corresponding home page.</li>
+</ol>
+</td>
+</tr>
+<tr>
+  <td><p>Exit Conditions</p></td>
+  <td><p>The ME/LO is successfully redirected to the home page.</p></td>
+</tr>
+<tr>
+  <td><p>Exceptions</p></td>
+  <td><ol>
+<li>The ME/LO provides an incorrect username, email or password. </li>
+</ol>
+<p> In the case 1 an error message is displayed, saying "Invalid credentials", and the ME/LO is taken back to the point 1.</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="book-heading-78">Get Improvements</h4>
+
+<table>
+<tbody>
+<tr>
+  <td><p>Name</p></td>
+  <td><p>Get Improvements</p></td>
+</tr>
+<tr>
+  <td><p>Actors</p></td>
+  <td><p>Municipal Employee, Municipal Accident System, Map Service</p></td>
+</tr>
+<tr>
+  <td><p>Entry Conditions</p></td>
+  <td><p>The ME has logged in and is in the home page.</p></td>
+</tr>
+<tr>
+  <td><p>Event Flow</p>
+</td>
+  <td><ol>
+<li>The ME clicks on the "Get Improvements" function.</li>
+<li>The system cross its information with the MAS and finds all the possible improvements in the ME's municipality.</li>
+<li>The system sends the information to the ME.</li>
+<li>The possible improvements are shown in a descendant list on the left, starting from the most urgent one. A map with the possible improvements, shown as points, is displayed on the right, thanks to the MS.</li>
+<li>The ME can click on a improvements and see it highlighted on the map.</li>
+</ol>
+</td>
+</tr>
+<tr>
+  <td><p>Exit Conditions</p></td>
+  <td><p>The ME can browse through all the possible improvements in his/her municipality.</p></td>
+</tr>
+<tr>
+  <td><p>Exceptions</p></td>
+  <td><ol>
+<li>There are no possible improvements. </li>
+</ol>
+<p> In the case 1 an error message is displayed, saying "There is not enough data to generate improvements", and the ME/LO is taken back to the home page.</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="book-heading-79">See Statistics</h4>
+
+<table>
+<tbody>
+<tr>
+  <td><p>Name</p></td>
+  <td><p>See Statistics</p></td>
+</tr>
+<tr>
+  <td><p>Actors</p></td>
+  <td><p>Municipal Employee, Local Officer, Ticket Service</p></td>
+</tr>
+<tr>
+  <td><p>Entry Conditions</p></td>
+  <td><p>The ME/LO has logged in and is in the home page.</p></td>
+</tr>
+<tr>
+  <td><p>Event Flow</p>
+</td>
+  <td><ol>
+<li>The ME/LO clicks on the "See Statistics" function.</li>
+<li>The system creates statistics based on the reports it has stored and the tickets issued through the Ticket Service.</li>
+<li>The system sends the statistics to the ME/LO.</li>
+<li>The ME/LO can see and download the received statistics.</li>
+</ol>
+</td>
+</tr>
+<tr>
+  <td><p>Exit Conditions</p></td>
+  <td><p>The ME/LO successfully receives the statistics provided by the system.</p></td>
+</tr>
+<tr>
+  <td><p>Exceptions</p></td>
+  <td><ol>
+<li>The system has no data to build statistics on.</li>
+</ol>
+<p> In the case 1 an error message is displayed, saying "There is not enough data to create statistics", and the ME is taken back to the home page.</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="book-heading-80">Mine Reports By Type</h4>
+
+<table>
+<tbody>
+<tr>
+  <td><p>Name</p></td>
+  <td><p>Mine Reports By Type</p></td>
+</tr>
+<tr>
+  <td><p>Actors</p></td>
+  <td><p>Municipal Employee, Local Officer, Map Service</p></td>
+</tr>
+<tr>
+  <td><p>Entry Conditions</p></td>
+  <td><p>The ME/LO has logged in and is in the home page.</p></td>
+</tr>
+<tr>
+  <td><p>Event Flow</p>
+</td>
+  <td><ol>
+<li>The ME/LO clicks on the "Mine Reports" function.</li>
+<li>The ME/LO chooses the "Mine By Type" option.</li>
+<li>The ME/LO decides one or more types of violations to retrieve.</li>
+<li>The system provides the ME/LO with all the violations in his/her municipality, with at least one of the given types.</li>
+<li>Only the violation types are shown, in a list on the left, starting from the newest one. A map with violation types, shown as points, is displayed on the right, thanks to the MS.</li>
+</ol>
+</td>
+</tr>
+<tr>
+  <td><p>Exit Conditions</p></td>
+  <td><p>The ME/LO is able to search through the violations and see where and when they happened.</p></td>
+</tr>
+<tr>
+  <td><p>Exceptions</p></td>
+  <td><ol>
+<li>There are no reports with at least one of the given violation type. </li>
+</ol>
+<p> In the case 1 an error message is displayed, saying "There are no Violations to be displayed", and the ME/LO is taken back to the home page.</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="book-heading-81">Mine Reports By Date</h4>
+
+<table>
+<tbody>
+<tr>
+  <td><p>Name</p></td>
+  <td><p>Mine Reports By Date</p></td>
+</tr>
+<tr>
+  <td><p>Actors</p></td>
+  <td><p>Municipal Employee, Local Officer, Map Service</p></td>
+</tr>
+<tr>
+  <td><p>Entry Conditions</p></td>
+  <td><p>The ME/LO has logged in and is in the home page.</p></td>
+</tr>
+<tr>
+  <td><p>Event Flow</p>
+</td>
+  <td><ol>
+<li>The ME/LO clicks on the "Mine Reports" function.</li>
+<li>The ME/LO chooses the "Mine By Date" option.</li>
+<li>The ME/LO decides the specific date of the violations to retrieve.</li>
+<li>The system provides the ME/LO with all the violations in his/her municipality that were issued in the specific day.</li>
+<li>Only the violation types are shown, in a list on the left. A map with violation types, shown as points, is displayed on the right, thanks to the MS.</li>
+</ol>
+</td>
+</tr>
+<tr>
+  <td><p>Exit Conditions</p></td>
+  <td><p>The ME/LO is able to search through the violations and see where they happened.</p></td>
+</tr>
+<tr>
+  <td><p>Exceptions</p></td>
+  <td><ol>
+<li>There are no reports issued in the specific date. </li>
+</ol>
+<p> In the case 1 an error message is displayed, saying "There are no Violations to be displayed", and the ME/LO is taken back to the home page.</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="book-heading-82">Mine Reports By Time</h4>
+
+<table>
+<tbody>
+<tr>
+  <td><p>Name</p></td>
+  <td><p>Mine Reports By Time</p></td>
+</tr>
+<tr>
+  <td><p>Actors</p></td>
+  <td><p>Municipal Employee, Local Officer, Map Service</p></td>
+</tr>
+<tr>
+  <td><p>Entry Conditions</p></td>
+  <td><p>The ME/LO has logged in and is in the home page.</p></td>
+</tr>
+<tr>
+  <td><p>Event Flow</p>
+</td>
+  <td><ol>
+<li>The ME/LO clicks on the "Mine Reports" function.</li>
+<li>The ME/LO chooses the "Mine By Time" option.</li>
+<li>The ME/LO decides the time (expressed in hours, i.e. 8 pm) for the violations he/she wants to retrieve.</li>
+<li>The system provides the ME/LO with all the violations in his/her municipality that were issued at the specific time.</li>
+<li>Only the violation types are shown, in a list on the left. A map with violation types, shown as points, is displayed on the right, thanks to the MS.</li>
+</ol>
+</td>
+</tr>
+<tr>
+  <td><p>Exit Conditions</p></td>
+  <td><p>The ME/LO is able to search through the violations and see where they happened</p></td>
+</tr>
+<tr>
+  <td><p>Exceptions</p></td>
+  <td><ol>
+<li>There are no reports issued at the specific time. </li>
+</ol>
+<p> In the case 1 an error message is displayed, saying "There are no Violations to be displayed", and the ME/LO is taken back to the home page.</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="book-heading-83">Mine Reports By Area</h4>
+
+<table>
+<tbody>
+<tr>
+  <td><p>Name</p></td>
+  <td><p>Mine Reports By Area</p></td>
+</tr>
+<tr>
+  <td><p>Actors</p></td>
+  <td><p>Municipal Employee, Local Officer, Map Service</p></td>
+</tr>
+<tr>
+  <td><p>Entry Conditions</p></td>
+  <td><p>The ME/LO has logged in and is in the home page.</p></td>
+</tr>
+<tr>
+  <td><p>Event Flow</p>
+</td>
+  <td><ol>
+<li>The ME/LO clicks on the "Mine Reports" function.</li>
+<li>The ME/LO chooses the "Mine By Area" option.</li>
+<li>The ME/LO decides the address, or selects a point on a map provided by the MS, of the violations to retrieve and select the radius of the search.</li>
+<li>The system provides the ME/LO with all the violations in his/her municipality that were issued within the specified radius.</li>
+<li>Only the violation types are shown, in a list on the left, starting from the newest one. A map with violation types, shown as points, is displayed on the right, thanks to the MS.</li>
+</ol>
+</td>
+</tr>
+<tr>
+  <td><p>Exit Conditions</p></td>
+  <td><p>The ME/LO is able to search through the violations and see when they happened</p></td>
+</tr>
+<tr>
+  <td><p>Exceptions</p></td>
+  <td><ol>
+<li>There are no reports issued in the specific area. </li>
+</ol>
+<p> In the case 1 an error message is displayed, saying "There are no Violations to be displayed", and the ME/LO is taken back to the home page.</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="book-heading-84">Validate Reports</h4>
+
+<table>
+<tbody>
+<tr>
+  <td><p>Name</p></td>
+  <td><p>Validate Reports</p></td>
+</tr>
+<tr>
+  <td><p>Actors</p></td>
+  <td><p>Local Officer, Ticket Service</p></td>
+</tr>
+<tr>
+  <td><p>Entry Conditions</p></td>
+  <td><p>The LO has logged in and is in the home page.</p></td>
+</tr>
+<tr>
+  <td><p>Event Flow</p>
+</td>
+  <td><ol>
+<li>The LO clicks on the "Validate Report" function.</li>
+<li>The system provides the LO with all the reports of his/her municipality still not verified.</li>
+<li>The reports are shown starting from the newest one.</li>
+<li>The LO clicks on one report and is able to validate or invalidate it.</li>
+<li>Eventually the LO uses the report data to create a new ticket and add it to the TS.</li>
+</ol>
+</td>
+</tr>
+<tr>
+  <td><p>Exit Conditions</p></td>
+  <td><p>The LO is able to browse through the reports and validate or invalidate them</p></td>
+</tr>
+<tr>
+  <td><p>Exceptions</p></td>
+  <td><ol>
+<li>There are no reports in LO's municipality. </li>
+</ol>
+<p>In the case 1 an error message is displayed, saying "There are no Reports to be displayed", and the LO is taken back to the home page.</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="book-heading-85">Sequence diagrams</h3>
+
+<h4 id="book-heading-86">Unregistered User</h4>
+
+<h5 id="book-heading-87">Sign-Up</h5>
+
+<p><img src="./images/sequence_diagrams/SignUp.svg" alt="SignUp" title="" class="sequence2"/></p>
+
+<h4 id="book-heading-88">Registered User</h4>
+
+<h5 id="book-heading-89">Log-In</h5>
+
+<p><img src="./images/sequence_diagrams/RU/UserLogIn.svg" alt="UserLogIn" title="" class="sequence2"/></p>
+
+<h5 id="book-heading-90">Get My Reports</h5>
+
+<p><img src="./images/sequence_diagrams/RU/GetMyReports.svg" alt="GetMyReports" title="" class="sequence" /></p>
+
+<h5 id="book-heading-91">Get Unsafe Areas</h5>
+
+<p><img src="./images/sequence_diagrams/RU/GetViolationsTypeByArea.svg" alt="GetViolationsTypeByArea" title="" class="sequence" /></p>
+
+<h5 id="book-heading-92">Add Report</h5>
+
+<p><img src="./images/sequence_diagrams/RU/AddReport.svg" alt="AddReport" title="" class="sequence" /></p>
+
+<h4 id="book-heading-93">Authority</h4>
+
+<h5 id="book-heading-94">Log-In</h5>
+
+<p><img src="./images/sequence_diagrams/MELO/AuthorityLogIn.svg" alt="AuthorityLogIn" title="" class="sequence2" /></p>
+
+<h5 id="book-heading-95">Mine Reports By *</h5>
+
+<p><img src="./images/sequence_diagrams/MELO/MineReportsBy.svg" alt="MineReportsBy*" title="" class="sequence" /></p>
+
+<h5 id="book-heading-96">See Statistics</h5>
+
+<p><img src="./images/sequence_diagrams/MELO/SeeStatistics.svg" alt="SeeStatistics" title="" class="sequence" /></p>
+
+<h4 id="book-heading-97">Municipal Employee</h4>
+
+<h5 id="book-heading-98">Get Improvements</h5>
+
+<p><img src="./images/sequence_diagrams/MELO/ME/GetImprovements.svg" alt="GetImprovements" title="" class="sequence2"/></p>
+
+<h4 id="book-heading-99">Local Officer</h4>
+
+<h5 id="book-heading-100">Validate Reports</h5>
+
+<p><img src="./images/sequence_diagrams/MELO/LO/ValidateReport.svg" alt="ValidateReport" title="" class="sequence2" /></p>
+
+<h3 id="book-heading-101">Mapping requirements</h3>
+
+<p>In this section we show that the requirements ensure the satisfaction of the goals in the context of the domain assumptions: the list of requirements and domain assumptions under each goal have this purpose.</p>
+
+<ul>
+<li>[G1] The system must allow logged-in users to send a report of the violation
+
+<ul>
+<li>[D1] The number of possible violations is finite and is aligned to the current traffic rules</li>
+<li>[D3] When using the S2B, the user’s device is always connected to internet</li>
+<li>[D4] When using the S2B, the user’s device has a valid GPS signal</li>
+<li>[D5] The internet connection works properly without failure</li>
+<li>[D6] The user device has a camera and is able to take pictures</li>
+<li>[D7] The user does not fake his position</li>
+<li>[R1] A user must be able to sign up to the system with a unique personal username and password</li>
+<li>[R3] The system must allow only registered users, municipal employee and officers to login with their username and password</li>
+<li>[R4] A users, municipal employee or local officer must be uniquely identified by his/her username</li>
+<li>[R5] When composing the report, the system must be able to access the user’s device camera and GPS sensor</li>
+<li>[R6] When composing the report, a user must take a picture from the device’s camera and highlight the license plate</li>
+<li>[R7] When composing the report, time and date get automatically retrieved from the internet</li>
+<li>[R8] When composing the report, position gets automatically retrieved from the device’s GPS</li>
+<li>[R9] When composing the report, a user can choose at least one type of violation</li>
+<li>[R10] When composing the report, a user can’t add the same violation type two times in the same report</li>
+<li>[R11] When composing the report, a user can revert each phase of the creation of the report at any time, before sending it</li>
+<li>[R12] When composing the report, a user can abort the creation of the report at any time, before sending it</li>
+<li>[R13] Once a report has been sent, it can’t be aborted or reverted</li>
+<li>[R14] When receiving a report, the system must store it, recognize the car plate, if possible, and marked as unchecked</li>
+</ul></li>
+<li>[G2] The System must allow logged-in users to see their past reports
+
+<ul>
+<li>[D3] When using the S2B, the user’s device is always connected to internet</li>
+<li>[D5] The internet connection works properly without failure</li>
+<li>[R1] A user must be able to sign up to the system with a unique personal username and password</li>
+<li>[R3] The system must allow only registered users, municipal employee and officers to login with their username and password</li>
+<li>[R4] A users, municipal employee or local officer must be uniquely identified by his/her username</li>
+<li>[R15] When a user asks for his/her reports, the system must provide the saved reports sent by that user</li>
+</ul></li>
+<li>[G3] The system must allow logged-in users to retrieve information about the position and types of valid reports
+
+<ul>
+<li>[D3] When using the S2B, the user’s device is always connected to internet</li>
+<li>[D4] When using the S2B, the user’s device has a valid GPS signal</li>
+<li>[D5] The internet connection works properly without failure</li>
+<li>[D7] The user does not fake his position</li>
+<li>[R1] A user must be able to sign up to the system with a unique personal username and password</li>
+<li>[R3] The system must allow only registered users, municipal employee and officers to login with their username and password</li>
+<li>[R4] A users, municipal employee or local officer must be uniquely identified by his/her username</li>
+<li>[R16] When getting the valid reports by area, a user can choose a position, or automatically get his/her from the GPS</li>
+<li>[R17]When getting the valid reports by area, the system must provide all the valid reports near the position given by the user and display their violation type through the MS</li>
+</ul></li>
+<li>[G4] The system must allow verified authorities to mine information about date, time, position and type of valid reports
+
+<ul>
+<li>[D5] The internet connection works properly without failure</li>
+<li>[D8] Every location has one and only one municipality</li>
+<li>[D10] Each municipality has its own account, certified and authorized by a state authority</li>
+<li>[D11] Each municipal employee receives his/her official credentials from the municipality (different from those used for report violations)</li>
+<li>[D12] Each local officer receives his/her official credentials from the municipality (different from those used for report violations)</li>
+<li>[D13] The municipality voids credentials of its employees or local officers at the end of their service</li>
+<li>[D14] When using the S2B, the authority's device is always connected to internet</li>
+<li>[R2] The system must allow a municipality to create account for its employees and local officers</li>
+<li>[R3] The system must allow only registered users, municipal employee and officers to login with their username and password</li>
+<li>[R4] A users, municipal employee or local officer must be uniquely identified by his/her username</li>
+<li>[R18] When mining the information, a municipal employee or a local officer can access only to violations type of reports occurred in his/her municipality</li>
+<li>[R19] When mining the information, a municipal employee or a local officer can filter reports by area, date, time or type of violation</li>
+</ul></li>
+<li>[G5] The system must allow verified authorities to retrieve statistics about valid reports
+
+<ul>
+<li>[D5] The internet connection works properly without failure</li>
+<li>[D8] Every location has one and only one municipality</li>
+<li>[D10] Each municipality has its own account, certified and authorized by a state authority</li>
+<li>[D11] Each municipal employee receives his/her official credentials from the municipality (different from those used for report violations)</li>
+<li>[D12] Each local officer receives his/her official credentials from the municipality (different from those used for report violations)</li>
+<li>[D13] The municipality voids credentials of its employees or local officers at the end of their service</li>
+<li>[D14] When using the S2B, the authority's device is always connected to internet</li>
+<li>[R2] The system must allow a municipality to create account for its employees and local officers</li>
+<li>[R3] The system must allow only registered users, municipal employee and officers to login with their username and password</li>
+<li>[R4] A users, municipal employee or local officer must be uniquely identified by his/her username</li>
+<li>[R20] When a ticket is issued through the TS, the system receives and store it</li>
+<li>[R21] When retrieving statistics, a municipal employee or a local officer can access only to reports of violations that occurred in his/her municipality</li>
+<li>[R22] The system must be able to calculate statistics from the reports of violations and issued tickets of the municipal employee or local officer’s municipality</li>
+</ul></li>
+<li>[G6] The system must be able to cross the data retrieved from the municipality with its own, in order to identify unsafe areas and suggest possible interventions and suggest them to municipal employee
+
+<ul>
+<li>[D5] The internet connection works properly without failure</li>
+<li>[D8] Every location has one and only one municipality</li>
+<li>[D10] Each municipality has its own account, certified and authorized by a state authority</li>
+<li>[D11] Each municipal employee receives his/her official credentials from the municipality (different from those used for report violations)</li>
+<li>[D13] The municipality voids credentials of its employees or local officers at the end of their service</li>
+<li>[D14] When using the S2B, the authority's device is always connected to internet</li>
+<li>[D2] The number of possible interventions is finite and there exists an already established correlation between violations and possible interventions</li>
+<li>[R2] The system must allow a municipality to create account for its employees and local officers</li>
+<li>[R3] The system must allow only registered users, municipal employee and officers to login with their username and password</li>
+<li>[R4] A users, municipal employee or local officer must be uniquely identified by his/her username</li>
+<li>[R23] When getting improvements, a municipal employee can access only to data of reports occurred in his/her municipality</li>
+<li>[R24] The system must be able to retrieve information about accidents from the MAS (municipal accident system)</li>
+<li>[R25] The system must be able to identify the possible unsafe areas of the municipal employee or local officer’s municipality</li>
+<li>[R26] The system must be able to suggest possible interventions on a specific unsafe area</li>
+</ul></li>
+<li>[G7] The system must allow local officer to set the validity of a report sent by the user
+
+<ul>
+<li>[D5] The internet connection works properly without failure</li>
+<li>[D8] Every location has one and only one municipality</li>
+<li>[D10] Each municipality has its own account, certified and authorized by a state authority</li>
+<li>[D12] Each local officer receives his/her official credentials from the municipality (different from those used for report violations)</li>
+<li>[D13] The municipality voids credentials of its employees or local officers at the end of their service</li>
+<li>[D14] When using the S2B, the authority's device is always connected to internet</li>
+<li>[R2] The system must allow a municipality to create account for its employees and local officers</li>
+<li>[R3] The system must allow only registered users, municipal employee and officers to login with their username and password</li>
+<li>[R4] A users, municipal employee or local officer must be uniquely identified by his/her username</li>
+<li>[R27] A municipal officer must be able to mark a report as valid or not valid</li>
+</ul></li>
+<li>[G8] The system must ensure that the chain of custody of the information coming from the user to the municipality is never broken, and the information is never altered
+
+<ul>
+<li>[D5] The internet connection works properly without failure</li>
+</ul></li>
+</ul>
+
+<h3 id="book-heading-102">Traceability matrix</h3>
+
+<p>The following table keeps track of the relation between Use Cases and Requirements</p>
+
+<table>
+<thead>
+<tr>
+  <th>Use Cases</th>
+  <th>Requirements</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Sign-Up</td>
+  <td>[R1]</td>
+</tr>
+<tr>
+  <td>Registered User Log-In</td>
+  <td>[R4]</td>
+</tr>
+<tr>
+  <td>Add Report</td>
+  <td>[R5],[R6],[R7],[R8],[R9],[R10],[R11],[R12],[R13],[R14]</td>
+</tr>
+<tr>
+  <td>Get My Reports</td>
+  <td>[R15]</td>
+</tr>
+<tr>
+  <td>Get Violations Type By Area</td>
+  <td>[R16],[R17]</td>
+</tr>
+<tr>
+  <td>Authority Log-In</td>
+  <td>[R2],[R3]</td>
+</tr>
+<tr>
+  <td>Get Improvements</td>
+  <td>[R23],[R24],[R25],[R26]</td>
+</tr>
+<tr>
+  <td>See Statistics</td>
+  <td>[R20],[R21],[R22]</td>
+</tr>
+<tr>
+  <td>Mine Reports By Type</td>
+  <td>[R18],[R19]</td>
+</tr>
+<tr>
+  <td>Mine Reports By Date</td>
+  <td>[R18],[R19]</td>
+</tr>
+<tr>
+  <td>Mine Reports By Time</td>
+  <td>[R18],[R19]</td>
+</tr>
+<tr>
+  <td>Mine Reports By Area</td>
+  <td>[R18],[R19]</td>
+</tr>
+<tr>
+  <td>Validate Reports</td>
+  <td>[R27]</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="book-heading-103">Performance requirements</h2>
+
+<p>The system does not have any particular performance requirements. Obviously it will have to be able to handle multiple operation from multiple clients (users and authorities) at same time.</p>
+
+<h2 id="book-heading-104">Design constraints</h2>
+
+<h3 id="book-heading-105">Standards compliance</h3>
+
+<p>The system adopts the current traffic rules in order to provide all the possible VTs.</p>
+
+<h3 id="book-heading-106">Hardware limitations</h3>
+
+<p>The system presents hardware requirements only on the user's side. As a matter of fact the user is required to have a smartphone with a camera and internet connection (wifi or mobile). Authorities need at least a device capable of connecting to the net.</p>
+
+<h2 id="book-heading-107">Software systems attributes</h2>
+
+<h3 id="book-heading-108">Reliability</h3>
+
+<p>In order to provide reliability, the system must be resilient to faults. The solution is to replicate the system's server. In particular it will be fault tolerant against Byzantine faults (faults where a disconnected system has unforeseeable behaviours) , so the number of replicas of the system's server must be, at least, <em>(3*number of failing replicas)+1</em> , with the <em>number of failing replicas</em> decided during the design and implementation.</p>
+
+<h3 id="book-heading-109">Availability</h3>
+
+<p>In order to provide availability, as mentioned in the reliability section, the system's server must be replicated. In this way it is possible to obtain a 24/7 service. Obviously little deviations from this requirements will be accepted.</p>
+
+<h3 id="book-heading-110">Security</h3>
+
+<p>In order to provide security, both users and authorities data will be always transferred trough encrypted channels. In particular every report, sent by the user, is provided with a digital signature, in order to maintain the chain of custody from the user up to the authorities.</p>
+
+<h3 id="book-heading-111">Maintainability</h3>
+
+<p>In order to provide maintainability, the development of the system have to be done so that will be easy and cheap to fix and modify it in the future. In order to achieve these properties, appropriate design patterns will be used. More of this in the design document.</p>
+
+<h3 id="book-heading-112">Portability</h3>
+
+<p>In order to provide portability, the system will be available as a downloadable app for the user and as a web service for the authorities.</p>
+
+<h1 id="book-heading-113">Formal Analysis Using Alloy</h1>
+
+<h2 id="book-heading-114">World model</h2>
+
+<div class="highlight"><pre><span></span><span class="c1">-------------- SIGNATURE ------------------</span>
+
+<span class="kd">sig</span> <span class="n">Position</span> <span class="o">{</span>
+    <span class="n">latitude</span><span class="p">:</span> <span class="k">one</span> <span class="kt">Int</span><span class="p">,</span>
+    <span class="n">longitude</span><span class="p">:</span> <span class="k">one</span> <span class="kt">Int</span><span class="p">,</span>
+    <span class="n">municipality</span><span class="p">:</span> <span class="k">one</span> <span class="n">Municipality</span>
+<span class="o">}</span>
+
+<span class="kd">sig</span> <span class="n">Municipality</span> <span class="o">{</span>
+    <span class="n">name</span><span class="p">:</span> <span class="k">one</span> <span class="n">String</span><span class="p">,</span>
+    <span class="n">center</span><span class="p">:</span> <span class="k">one</span> <span class="n">Position</span><span class="p">,</span>
+    <span class="n">reports</span><span class="p">:</span> <span class="k">set</span> <span class="n">Report</span><span class="p">,</span>
+    <span class="n">accidents</span><span class="p">:</span> <span class="k">set</span> <span class="n">Accident</span><span class="p">,</span>
+    <span class="n">tickets</span><span class="p">:</span> <span class="k">set</span> <span class="n">Ticket</span>
+<span class="o">}</span>
+
+<span class="kd">sig</span> <span class="n">Picture</span> <span class="o">{}</span>
+
+<span class="c1">-- It represents the violation type that can be associated to a report</span>
+<span class="k">abstract</span> <span class="kd">sig</span> <span class="n">ViolationType</span> <span class="o">{}</span>
+
+<span class="c1">-- It represents the set of violation associated to a report </span>
+<span class="c1">-- In each report there must be at least one type of violation</span>
+<span class="kd">sig</span> <span class="n">Violation</span> <span class="o">{</span>
+    <span class="n">violations</span><span class="p">:</span> <span class="k">some</span> <span class="n">ViolationType</span>
+<span class="o">}</span>
+
+<span class="kd">sig</span> <span class="n">Date</span> <span class="o">{}</span>
+
+<span class="kd">sig</span> <span class="n">Time</span> <span class="o">{}</span>
+
+<span class="kd">sig</span> <span class="n">Vehicle</span> <span class="o">{</span>
+    <span class="n">licensePlate</span><span class="p">:</span> <span class="k">one</span> <span class="n">String</span>
+<span class="o">}</span>
+
+<span class="k">abstract</span> <span class="kd">sig</span> <span class="n">RegisteredEntity</span> <span class="o">{</span>
+    <span class="n">username</span><span class="p">:</span> <span class="k">one</span> <span class="n">String</span><span class="p">,</span>
+    <span class="n">password</span><span class="p">:</span> <span class="k">one</span> <span class="n">String</span>
+<span class="o">}</span>
+
+<span class="k">abstract</span> <span class="kd">sig</span> <span class="n">Authority</span> <span class="k">extends</span> <span class="n">RegisteredEntity</span> <span class="o">{</span>
+    <span class="n">municipality</span><span class="p">:</span> <span class="k">one</span> <span class="n">Municipality</span>
+<span class="o">}</span>
+
+<span class="kd">sig</span> <span class="n">User</span> <span class="k">extends</span> <span class="n">RegisteredEntity</span> 
+<span class="o">{</span>
+    <span class="n">email</span><span class="p">:</span> <span class="k">one</span> <span class="n">String</span><span class="p">,</span> 
+    <span class="n">reports</span><span class="p">:</span> <span class="k">set</span> <span class="n">Report</span>
+<span class="o">}</span>
+
+<span class="kd">sig</span> <span class="n">LocalOfficer</span> <span class="k">extends</span> <span class="n">Authority</span> <span class="o">{}</span>
+
+<span class="kd">sig</span> <span class="n">MunicipalEmployee</span> <span class="k">extends</span> <span class="n">Authority</span> <span class="o">{}</span>
+
+
+<span class="k">abstract</span> <span class="kd">sig</span> <span class="n">ReportStatus</span> <span class="o">{}</span>
+<span class="k">one</span> <span class="kd">sig</span> <span class="n">Valid</span> <span class="k">extends</span> <span class="n">ReportStatus</span> <span class="o">{}</span>
+<span class="k">one</span> <span class="kd">sig</span> <span class="n">NotValid</span> <span class="k">extends</span> <span class="n">ReportStatus</span> <span class="o">{}</span>
+<span class="k">one</span> <span class="kd">sig</span> <span class="n">NotVerified</span> <span class="k">extends</span> <span class="n">ReportStatus</span> <span class="o">{}</span>
+
+<span class="kd">sig</span> <span class="n">Report</span> <span class="o">{</span>
+    <span class="n">vehicle</span><span class="p">:</span> <span class="k">lone</span> <span class="n">Vehicle</span><span class="p">,</span>
+    <span class="n">segnalatingUser</span><span class="p">:</span> <span class="k">one</span> <span class="n">User</span><span class="p">,</span>
+    <span class="n">position</span><span class="p">:</span> <span class="k">one</span> <span class="n">Position</span><span class="p">,</span>
+    <span class="n">picture</span><span class="p">:</span> <span class="k">one</span> <span class="n">Picture</span><span class="p">,</span>
+    <span class="n">violation</span><span class="p">:</span> <span class="k">one</span> <span class="n">Violation</span><span class="p">,</span>
+    <span class="n">date</span><span class="p">:</span> <span class="k">one</span> <span class="n">Date</span><span class="p">,</span>
+    <span class="n">time</span><span class="p">:</span> <span class="k">one</span> <span class="n">Time</span><span class="p">,</span>
+    <span class="n">status</span><span class="p">:</span> <span class="k">one</span> <span class="n">ReportStatus</span>
+<span class="o">}</span>
+
+<span class="k">abstract</span> <span class="kd">sig</span> <span class="n">ImprovementState</span> <span class="o">{}</span>
+<span class="k">one</span> <span class="kd">sig</span> <span class="n">NotDone</span> <span class="k">extends</span> <span class="n">ImprovementState</span> <span class="o">{}</span>
+<span class="k">one</span> <span class="kd">sig</span> <span class="n">Done</span> <span class="k">extends</span> <span class="n">ImprovementState</span> <span class="o">{}</span>
+
+<span class="k">abstract</span> <span class="kd">sig</span> <span class="n">ImprovementType</span>  <span class="o">{}</span>
+
+<span class="kd">sig</span> <span class="n">Improvement</span> <span class="o">{</span>
+    <span class="n">type</span><span class="p">:</span> <span class="k">one</span> <span class="n">ImprovementType</span><span class="p">,</span>
+    <span class="n">position</span><span class="p">:</span> <span class="k">one</span> <span class="n">Position</span><span class="p">,</span>
+    <span class="n">state</span><span class="p">:</span> <span class="k">one</span> <span class="n">ImprovementState</span>
+<span class="o">}</span>
+
+<span class="kd">sig</span> <span class="n">Accident</span> <span class="o">{</span>
+    <span class="n">position</span><span class="p">:</span> <span class="k">one</span> <span class="n">Position</span><span class="p">,</span>
+    <span class="n">date</span><span class="p">:</span> <span class="k">one</span> <span class="n">Date</span><span class="p">,</span>
+    <span class="n">time</span><span class="p">:</span> <span class="k">one</span> <span class="n">Time</span><span class="p">,</span>
+    <span class="n">vehicles</span><span class="p">:</span> <span class="k">some</span> <span class="n">Vehicle</span>
+<span class="o">}</span>
+
+<span class="k">abstract</span> <span class="kd">sig</span> <span class="n">Gender</span> <span class="o">{}</span>
+<span class="k">one</span> <span class="kd">sig</span> <span class="n">Male</span> <span class="k">extends</span> <span class="n">Gender</span> <span class="o">{}</span>
+<span class="k">one</span> <span class="kd">sig</span> <span class="n">Female</span> <span class="k">extends</span> <span class="n">Gender</span> <span class="o">{}</span>
+
+<span class="kd">sig</span> <span class="n">Ticket</span>
+<span class="o">{</span>
+    <span class="n">vehicle</span><span class="p">:</span> <span class="k">one</span> <span class="n">Vehicle</span><span class="p">,</span>
+    <span class="n">violation</span><span class="p">:</span> <span class="k">one</span> <span class="n">Violation</span><span class="p">,</span>
+    <span class="n">position</span><span class="p">:</span> <span class="k">one</span> <span class="n">Position</span><span class="p">,</span>
+    <span class="n">date</span><span class="p">:</span> <span class="k">one</span> <span class="n">Date</span><span class="p">,</span>
+    <span class="n">time</span><span class="p">:</span> <span class="k">one</span> <span class="n">Time</span><span class="p">,</span>
+    <span class="n">offenderGender</span><span class="p">:</span> <span class="k">one</span> <span class="n">Gender</span><span class="p">,</span>
+    <span class="n">offenderAge</span><span class="p">:</span> <span class="k">one</span> <span class="kt">Int</span><span class="p">,</span>
+    <span class="n">report</span><span class="p">:</span> <span class="k">lone</span> <span class="n">Report</span>
+<span class="o">}</span>
+<span class="o">{</span>    
+    <span class="c1">-- Offender must be adult (age &gt;= 18), but here used scaled value for simplicity</span>
+    <span class="n">offenderAge</span> <span class="o">&gt;=</span> <span class="mi">3</span>
+    <span class="c1">-- if a ticket is related to a report, this must be valid</span>
+    <span class="n">report</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">Valid</span>    
+<span class="o">}</span>
+
+<span class="c1">-------------------- FACT -----------------------------</span>
+
+<span class="c1">-- Each username is unique</span>
+<span class="k">fact</span> <span class="n">UniqueUsername</span> 
+<span class="o">{</span>
+    <span class="k">no</span> <span class="k">disj</span> <span class="n">u1</span><span class="p">,</span><span class="n">u2</span><span class="p">:</span> <span class="n">RegisteredEntity</span> <span class="o">|</span> <span class="n">u1</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="n">u2</span><span class="o">.</span><span class="n">username</span>
+<span class="o">}</span>
+
+<span class="c1">-- Each vehicle is unique and is associated to a unique license plate</span>
+<span class="k">fact</span> <span class="n">UniqueVehiclePlate</span>
+<span class="o">{</span>
+    <span class="k">no</span> <span class="k">disj</span> <span class="n">v1</span><span class="p">,</span><span class="n">v2</span><span class="p">:</span> <span class="n">Vehicle</span> <span class="o">|</span>    <span class="n">v1</span><span class="o">.</span><span class="n">licensePlate</span> <span class="o">=</span> <span class="n">v2</span><span class="o">.</span><span class="n">licensePlate</span>
+<span class="o">}</span> 
+
+<span class="c1">-- Each municipality name is unique</span>
+<span class="k">fact</span> <span class="n">UniqueMunicipalityName</span> 
+<span class="o">{</span>
+    <span class="k">no</span> <span class="k">disj</span> <span class="n">m1</span><span class="p">,</span> <span class="n">m2</span><span class="p">:</span> <span class="n">Municipality</span> <span class="o">|</span> <span class="n">m1</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">m2</span><span class="o">.</span><span class="n">name</span>
+<span class="o">}</span>
+
+<span class="c1">-- Email used for registration must not be associated to multiple users</span>
+<span class="k">fact</span> <span class="n">UniqueEmail</span>
+<span class="o">{</span>
+    <span class="k">no</span> <span class="k">disj</span> <span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">:</span> <span class="n">User</span> <span class="o">|</span> <span class="n">u1</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">u2</span><span class="o">.</span><span class="n">email</span>
+<span class="o">}</span>
+
+<span class="c1">-- There must not be positions with same coordinates belonging to different municipalities</span>
+<span class="k">fact</span> <span class="n">SamePositionSameMunicipality</span> 
+<span class="o">{</span>
+    <span class="k">no</span> <span class="k">disj</span> <span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">:</span> <span class="n">Position</span> <span class="o">|</span> 
+        <span class="n">p1</span><span class="o">.</span><span class="n">latitude</span> <span class="o">=</span> <span class="n">p2</span><span class="o">.</span><span class="n">latitude</span> <span class="o">&amp;&amp;</span> 
+        <span class="n">p1</span><span class="o">.</span><span class="n">longitude</span> <span class="o">=</span> <span class="n">p2</span><span class="o">.</span><span class="n">longitude</span> <span class="o">&amp;&amp;</span>
+        <span class="n">p1</span><span class="o">.</span><span class="n">municipality</span> <span class="o">!=</span> <span class="n">p1</span><span class="o">.</span><span class="n">municipality</span>
+<span class="o">}</span>
+
+<span class="c1">-- The position associated to a municipality center must belong to such municipality</span>
+<span class="k">fact</span> <span class="n">CenterInMunicipality</span>
+<span class="o">{</span>
+    <span class="k">all</span> <span class="n">m</span><span class="p">:</span> <span class="n">Municipality</span> <span class="o">|</span> <span class="n">m</span><span class="o">.</span><span class="n">center</span><span class="o">.</span><span class="n">municipality</span> <span class="o">=</span> <span class="n">m</span>
+<span class="o">}</span>
+
+<span class="c1">-- Each picture must belong exactly to one report</span>
+<span class="k">fact</span> <span class="n">AllPictureBelongToOneReport</span>
+<span class="o">{</span>
+    <span class="k">all</span> <span class="n">p</span><span class="p">:</span> <span class="n">Picture</span> <span class="o">|</span> <span class="k">one</span> <span class="n">r</span><span class="p">:</span> <span class="n">Report</span> <span class="o">|</span> <span class="n">r</span><span class="o">.</span><span class="n">picture</span> <span class="o">=</span> <span class="n">p</span>
+<span class="o">}</span>
+
+<span class="c1">-- A vehicle can not be reported simultaneously in different reports with different positions,</span>
+<span class="c1">-- but it can be reported in the same position, for example from different users</span>
+<span class="k">fact</span> <span class="n">NoVehicleUbiquityInReport</span>
+<span class="o">{</span>
+    <span class="k">no</span> <span class="k">disj</span> <span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">:</span> <span class="n">Report</span> <span class="o">|</span>
+        <span class="n">r1</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">r2</span><span class="o">.</span><span class="n">date</span> <span class="o">&amp;&amp;</span>
+        <span class="n">r1</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">r2</span><span class="o">.</span><span class="n">time</span> <span class="o">&amp;&amp;</span>
+        <span class="n">r1</span><span class="o">.</span><span class="n">vehicle</span> <span class="o">=</span> <span class="n">r2</span><span class="o">.</span><span class="n">vehicle</span> <span class="o">&amp;&amp;</span>
+        <span class="n">r1</span><span class="o">.</span><span class="n">position</span> <span class="o">!=</span> <span class="n">r2</span><span class="o">.</span><span class="n">position</span>
+<span class="o">}</span>
+
+<span class="c1">-- A user can not make different reports simultaneously</span>
+<span class="k">fact</span> <span class="n">OneReportPerTimeForUser</span>
+<span class="o">{</span>
+    <span class="k">no</span> <span class="k">disj</span> <span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">:</span> <span class="n">Report</span> <span class="o">|</span>
+        <span class="n">r1</span><span class="o">.</span><span class="n">segnalatingUser</span> <span class="o">=</span> <span class="n">r2</span><span class="o">.</span><span class="n">segnalatingUser</span> <span class="o">&amp;&amp;</span>
+        <span class="n">r1</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">r2</span><span class="o">.</span><span class="n">date</span> <span class="o">&amp;&amp;</span>
+        <span class="n">r1</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">r2</span><span class="o">.</span><span class="n">time</span>
+<span class="o">}</span>
+
+<span class="c1">-- A vehicle can not be involved in an accident and simultaneously be reported in a different position</span>
+<span class="k">fact</span> <span class="n">NoVehicleUbiquityBetweenReportAccident</span>
+<span class="o">{</span>    
+    <span class="k">no</span> <span class="n">r</span><span class="p">:</span> <span class="n">Report</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="n">Accident</span> <span class="o">|</span>
+        <span class="n">r</span><span class="o">.</span><span class="n">vehicle</span> <span class="ow">in</span> <span class="n">a</span><span class="o">.</span><span class="n">vehicles</span> <span class="o">&amp;&amp;</span>
+        <span class="n">r</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">date</span> <span class="o">&amp;&amp;</span>
+        <span class="n">r</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">time</span> <span class="o">&amp;&amp;</span>
+        <span class="n">r</span><span class="o">.</span><span class="n">position</span> <span class="o">!=</span> <span class="n">a</span><span class="o">.</span><span class="n">position</span>
+<span class="o">}</span>
+
+<span class="c1">-- A vehicle can be involved in at most one accident per time</span>
+<span class="k">fact</span> <span class="n">NoVehicleUbiquityInAccident</span>
+<span class="o">{</span>
+    <span class="k">no</span> <span class="k">disj</span> <span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">:</span> <span class="n">Accident</span>   <span class="o">|</span>
+        <span class="n">a1</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">a2</span><span class="o">.</span><span class="n">date</span> <span class="o">&amp;&amp;</span>
+        <span class="n">a1</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">a2</span><span class="o">.</span><span class="n">time</span> <span class="o">&amp;&amp;</span>
+        <span class="n">a1</span><span class="o">.</span><span class="n">position</span> <span class="o">!=</span> <span class="n">a2</span><span class="o">.</span><span class="n">position</span> <span class="o">&amp;&amp;</span>
+        <span class="n">a1</span><span class="o">.</span><span class="n">vehicles</span> <span class="o">&amp;</span> <span class="n">a2</span><span class="o">.</span><span class="n">vehicles</span> <span class="o">!=</span> <span class="kc">none</span>
+<span class="o">}</span>
+
+<span class="c1">-- There must not be multiple accidents involving the same vehicles (or a part of them) </span>
+<span class="c1">-- in the same position and at the same time and date</span>
+<span class="k">fact</span> <span class="n">UniqueAccident</span>
+<span class="o">{</span>
+    <span class="k">no</span> <span class="k">disj</span> <span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">:</span> <span class="n">Accident</span>   <span class="o">|</span>
+        <span class="n">a1</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">a2</span><span class="o">.</span><span class="n">date</span> <span class="o">&amp;&amp;</span>
+        <span class="n">a1</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">a2</span><span class="o">.</span><span class="n">time</span> <span class="o">&amp;&amp;</span>
+    <span class="c1">-- a1.position = a2.position &amp;&amp;</span>
+        <span class="o">(</span><span class="n">a1</span><span class="o">.</span><span class="n">vehicles</span> <span class="o">=</span> <span class="n">a2</span><span class="o">.</span><span class="n">vehicles</span> <span class="o">||</span> <span class="n">a1</span><span class="o">.</span><span class="n">vehicles</span> <span class="o">&amp;</span> <span class="n">a2</span><span class="o">.</span><span class="n">vehicles</span> <span class="o">!=</span> <span class="kc">none</span><span class="o">)</span>
+<span class="o">}</span>
+
+<span class="c1">-- There must not be duplicated suggestion for improvements on same position</span>
+<span class="k">fact</span> <span class="n">UniqueImprovementForEachPosition</span>
+<span class="o">{</span>
+    <span class="k">no</span> <span class="k">disj</span> <span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">:</span> <span class="n">Improvement</span> <span class="o">|</span>
+        <span class="n">i1</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">i2</span><span class="o">.</span><span class="n">position</span> <span class="o">&amp;&amp;</span>
+        <span class="n">i1</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">i2</span><span class="o">.</span><span class="n">type</span>
+<span class="o">}</span>
+
+<span class="c1">-- A suggested improvement for a position must be generated only if there occurred an accident or a valid report</span>
+<span class="k">fact</span> <span class="n">NoImprovementWithoutProblem</span>
+<span class="o">{</span>
+    <span class="k">no</span> <span class="n">i</span><span class="p">:</span> <span class="n">Improvement</span> <span class="o">|</span>
+    <span class="o">((</span><span class="k">no</span> <span class="n">a</span><span class="p">:</span> <span class="n">Accident</span> <span class="o">|</span> <span class="n">i</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">position</span><span class="o">)</span> <span class="o">&amp;&amp;</span>
+        <span class="o">(</span><span class="k">no</span> <span class="n">r</span><span class="p">:</span> <span class="n">Report</span> <span class="o">|</span> <span class="n">r</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="n">position</span> <span class="o">&amp;&amp;</span> <span class="n">r</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">Valid</span><span class="o">))</span>
+<span class="o">}</span>    
+
+<span class="c1">-- If on one position there occurred at least a minimum number of accidents or valid reports, </span>
+<span class="c1">-- there must be a suggested improvement for that position</span>
+<span class="c1">-- For simplicity, the minimum number of &quot;problems&quot; occurred on a position in order to have a suggested improvement is set to one</span>
+<span class="k">fact</span> <span class="n">NoProblematicPositionWithoutImprovement</span>
+<span class="o">{</span>
+    <span class="k">no</span> <span class="n">p</span><span class="p">:</span> <span class="n">Position</span> <span class="o">|</span> 
+        <span class="o">(((</span><span class="k">some</span> <span class="n">a</span><span class="p">:</span> <span class="n">Accident</span> <span class="o">|</span> <span class="n">a</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">p</span><span class="o">)</span> <span class="o">||</span>
+        <span class="o">(</span><span class="k">some</span> <span class="n">r</span><span class="p">:</span> <span class="n">Report</span> <span class="o">|</span> <span class="n">r</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">p</span> <span class="o">&amp;&amp;</span> <span class="n">r</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">Valid</span><span class="o">))</span> <span class="o">&amp;&amp;</span> 
+        <span class="k">no</span> <span class="n">i</span><span class="p">:</span> <span class="n">Improvement</span> <span class="o">|</span> <span class="n">i</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">p</span><span class="o">)</span>
+<span class="o">}</span>
+
+<span class="c1">-- If the OCRs did not recognize a valid license plate, the report is not valid but is still stored</span>
+<span class="c1">-- Some &quot;Not Valid&quot; reports can be associated to a vehicle: it might happen that a local officer </span>
+<span class="c1">-- marked them as &quot;Not Valid&quot; but the vehicle&#39;s license plate had been recognized by the OCRs</span>
+<span class="k">fact</span> <span class="n">NotValidReportsStored</span>
+<span class="o">{</span>
+    <span class="k">all</span> <span class="n">r</span><span class="p">:</span> <span class="n">Report</span> <span class="o">|</span>
+         <span class="n">r</span><span class="o">.</span><span class="n">vehicle</span> <span class="o">=</span> <span class="kc">none</span> <span class="ow">implies</span> <span class="n">r</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">NotValid</span> 
+<span class="o">}</span>
+
+<span class="c1">--If the OCRs recognized a valid license plate, the related vehicle must be associated to the report</span>
+<span class="k">fact</span> <span class="n">ValidReportsRelatedToAVehicle</span>
+<span class="o">{</span>
+    <span class="k">all</span> <span class="n">r</span><span class="p">:</span> <span class="n">Report</span> <span class="o">|</span>
+        <span class="n">r</span><span class="o">.</span><span class="n">status</span> <span class="o">!=</span> <span class="n">NotValid</span> <span class="ow">implies</span> <span class="n">r</span><span class="o">.</span><span class="n">vehicle</span> <span class="o">!=</span> <span class="kc">none</span>
+<span class="o">}</span>
+
+<span class="c1">-- All strings must be associated to a username, to a municipality name or to a license plate</span>
+<span class="k">fact</span> <span class="n">NoRandomString</span>
+<span class="o">{</span>
+    <span class="k">all</span> <span class="n">s</span><span class="p">:</span> <span class="n">String</span> <span class="o">|</span>
+    <span class="o">((</span><span class="k">one</span> <span class="n">e</span><span class="p">:</span> <span class="n">RegisteredEntity</span> <span class="o">|</span> <span class="n">e</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="n">s</span><span class="o">)</span> <span class="o">||</span>
+     <span class="o">(</span><span class="k">one</span> <span class="n">m</span><span class="p">:</span> <span class="n">Municipality</span> <span class="o">|</span> <span class="n">m</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">s</span><span class="o">)</span> <span class="o">||</span>
+     <span class="o">(</span><span class="k">one</span> <span class="n">v</span><span class="p">:</span> <span class="n">Vehicle</span> <span class="o">|</span> <span class="n">v</span><span class="o">.</span><span class="n">licensePlate</span> <span class="o">=</span> <span class="n">s</span><span class="o">))</span>
+<span class="o">}</span>
+
+<span class="c1">-- If a ticket is related to a valid report, they must be consistent</span>
+<span class="k">fact</span> <span class="n">TicketReportConsistency</span>
+<span class="o">{</span>
+    <span class="k">all</span> <span class="n">t</span><span class="p">:</span> <span class="n">Ticket</span> <span class="o">|</span>
+    <span class="o">(</span><span class="n">t</span><span class="o">.</span><span class="n">report</span> <span class="o">!=</span> <span class="kc">none</span> <span class="ow">implies</span> 
+        <span class="o">(</span><span class="n">t</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">report</span><span class="o">.</span><span class="n">position</span> <span class="o">&amp;&amp;</span>
+            <span class="n">t</span><span class="o">.</span><span class="n">vehicle</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">report</span><span class="o">.</span><span class="n">vehicle</span> <span class="o">&amp;&amp;</span>
+            <span class="n">t</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">report</span><span class="o">.</span><span class="n">date</span> <span class="o">&amp;&amp;</span>
+            <span class="n">t</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">report</span><span class="o">.</span><span class="n">time</span> <span class="o">&amp;&amp;</span>
+            <span class="n">t</span><span class="o">.</span><span class="n">violation</span><span class="o">.</span><span class="n">violations</span> <span class="o">&amp;</span> <span class="n">t</span><span class="o">.</span><span class="n">report</span><span class="o">.</span><span class="n">violation</span><span class="o">.</span><span class="n">violations</span> <span class="o">!=</span> <span class="kc">none</span><span class="o">))</span>
+<span class="o">}</span>
+
+<span class="c1">-- There must be a unique issued ticket for a vehicle on a specific date and time</span>
+<span class="k">fact</span> <span class="n">UniqueTicket</span>
+<span class="o">{</span>
+    <span class="k">no</span> <span class="k">disj</span> <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">:</span> <span class="n">Ticket</span> <span class="o">|</span>
+        <span class="n">t1</span><span class="o">.</span><span class="n">vehicle</span> <span class="o">=</span> <span class="n">t2</span><span class="o">.</span><span class="n">vehicle</span> <span class="o">&amp;&amp;</span>
+        <span class="n">t1</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">t2</span><span class="o">.</span><span class="n">date</span> <span class="o">&amp;&amp;</span>
+        <span class="n">t1</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">t2</span><span class="o">.</span><span class="n">time</span>
+<span class="o">}</span>
+
+<span class="c1">-- A vehicle can not be issued in a ticket and simultaneously be reported in a different position</span>
+<span class="k">fact</span> <span class="n">NoVehicleUbiquityBetweenReportTicket</span>
+<span class="o">{</span>    
+    <span class="k">no</span> <span class="n">r</span><span class="p">:</span> <span class="n">Report</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> <span class="n">Ticket</span> <span class="o">|</span>
+        <span class="n">r</span><span class="o">.</span><span class="n">vehicle</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">vehicle</span> <span class="o">&amp;&amp;</span>
+        <span class="n">r</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">date</span> <span class="o">&amp;&amp;</span>
+        <span class="n">r</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">time</span> <span class="o">&amp;&amp;</span>
+        <span class="n">r</span><span class="o">.</span><span class="n">position</span> <span class="o">!=</span> <span class="n">t</span><span class="o">.</span><span class="n">position</span>
+<span class="o">}</span>
+
+<span class="c1">-- A vehicle can not be involved in an accident and simultaneously be issued in a different position</span>
+<span class="k">fact</span> <span class="n">NoVehicleUbiquityBetweenTicketAccident</span>
+<span class="o">{</span>    
+    <span class="k">no</span> <span class="n">t</span><span class="p">:</span> <span class="n">Ticket</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="n">Accident</span> <span class="o">|</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">vehicle</span> <span class="ow">in</span> <span class="n">a</span><span class="o">.</span><span class="n">vehicles</span> <span class="o">&amp;&amp;</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">date</span> <span class="o">&amp;&amp;</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">time</span> <span class="o">&amp;&amp;</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">position</span> <span class="o">!=</span> <span class="n">a</span><span class="o">.</span><span class="n">position</span>
+<span class="o">}</span>
+
+<span class="c1">-- Each municipality must have only reports occurred in a position belonging to that municipality</span>
+<span class="k">fact</span> <span class="n">MunicipalityOwnsOnlyItsReports</span>
+<span class="o">{</span>
+    <span class="k">all</span> <span class="n">m</span><span class="p">:</span> <span class="n">Municipality</span> <span class="o">|</span>
+    <span class="o">(</span><span class="n">m</span><span class="o">.</span><span class="n">reports</span> <span class="o">!=</span> <span class="kc">none</span> <span class="ow">implies</span>
+        <span class="o">(</span><span class="k">all</span> <span class="n">r</span><span class="p">:</span> <span class="n">m</span><span class="o">.</span><span class="n">reports</span> <span class="o">|</span> <span class="n">r</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">municipality</span> <span class="o">=</span> <span class="n">m</span><span class="o">))</span>
+<span class="o">}</span>
+
+<span class="c1">-- All reports must be associated to a municipality</span>
+<span class="k">fact</span> <span class="n">AllReportsRelatedToMunicipality</span>
+<span class="o">{</span>
+    <span class="k">all</span> <span class="n">r</span><span class="p">:</span> <span class="n">Report</span> <span class="o">|</span>
+        <span class="o">(</span><span class="k">one</span> <span class="n">m</span><span class="p">:</span> <span class="n">Municipality</span> <span class="o">|</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">m</span><span class="o">.</span><span class="n">reports</span><span class="o">)</span>
+<span class="o">}</span>
+
+<span class="c1">-- Each user must have only his/her reports</span>
+<span class="k">fact</span> <span class="n">UserOwnsOnlyItsReports</span>
+<span class="o">{</span>
+    <span class="k">all</span> <span class="n">u</span><span class="p">:</span> <span class="n">User</span> <span class="o">|</span>
+    <span class="o">(</span><span class="n">u</span><span class="o">.</span><span class="n">reports</span> <span class="o">!=</span> <span class="kc">none</span> <span class="ow">implies</span>
+        <span class="o">(</span><span class="k">all</span> <span class="n">r</span><span class="p">:</span> <span class="n">u</span><span class="o">.</span><span class="n">reports</span> <span class="o">|</span> <span class="n">r</span><span class="o">.</span><span class="n">segnalatingUser</span> <span class="o">=</span> <span class="n">u</span><span class="o">))</span>
+<span class="o">}</span>
+
+<span class="c1">-- All reports must be associated to a the segnalating user</span>
+<span class="k">fact</span> <span class="n">AllReportsRelatedToUser</span>
+<span class="o">{</span>
+    <span class="k">all</span> <span class="n">r</span><span class="p">:</span> <span class="n">Report</span> <span class="o">|</span>
+        <span class="o">(</span><span class="k">one</span> <span class="n">u</span><span class="p">:</span> <span class="n">User</span> <span class="o">|</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">u</span><span class="o">.</span><span class="n">reports</span><span class="o">)</span>
+<span class="o">}</span>
+    
+<span class="c1">-- Each municipality must have only accidents occurred in a position belonging to that municipality</span>
+<span class="k">fact</span> <span class="n">MunicipalityOwnsOnlyItsAccidents</span>
+<span class="o">{</span>
+    <span class="k">all</span> <span class="n">m</span><span class="p">:</span> <span class="n">Municipality</span> <span class="o">|</span>
+    <span class="o">(</span><span class="n">m</span><span class="o">.</span><span class="n">accidents</span> <span class="o">!=</span> <span class="kc">none</span> <span class="ow">implies</span>
+        <span class="o">(</span><span class="k">all</span> <span class="n">a</span><span class="p">:</span> <span class="n">m</span><span class="o">.</span><span class="n">accidents</span> <span class="o">|</span> <span class="n">a</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">municipality</span> <span class="o">=</span> <span class="n">m</span><span class="o">))</span>
+<span class="o">}</span>
+
+<span class="c1">-- All accidents must be associated to a municipality</span>
+<span class="k">fact</span> <span class="n">AllAccidentsRelatedToMunicipality</span>
+<span class="o">{</span>
+    <span class="k">all</span> <span class="n">a</span><span class="p">:</span> <span class="n">Accident</span> <span class="o">|</span>
+        <span class="o">(</span><span class="k">one</span> <span class="n">m</span><span class="p">:</span> <span class="n">Municipality</span> <span class="o">|</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">m</span><span class="o">.</span><span class="n">accidents</span><span class="o">)</span>
+<span class="o">}</span>
+
+<span class="c1">-- Each municipality must have only accidents occurred in a position belonging to that municipality</span>
+<span class="k">fact</span> <span class="n">MunicipalityOwnsOnlyItsTickets</span>
+<span class="o">{</span>
+    <span class="k">all</span> <span class="n">m</span><span class="p">:</span> <span class="n">Municipality</span> <span class="o">|</span>
+    <span class="o">(</span><span class="n">m</span><span class="o">.</span><span class="n">tickets</span> <span class="o">!=</span> <span class="kc">none</span> <span class="ow">implies</span>
+        <span class="o">(</span><span class="k">all</span> <span class="n">t</span><span class="p">:</span> <span class="n">m</span><span class="o">.</span><span class="n">tickets</span> <span class="o">|</span> <span class="n">t</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">municipality</span> <span class="o">=</span> <span class="n">m</span><span class="o">))</span>
+<span class="o">}</span>
+
+<span class="c1">-- All tickets must be associated to a municipality</span>
+<span class="k">fact</span> <span class="n">AllAccidentsRelatedToMunicipality</span>
+<span class="o">{</span>
+    <span class="k">all</span> <span class="n">t</span><span class="p">:</span> <span class="n">Ticket</span> <span class="o">|</span>
+        <span class="o">(</span><span class="k">one</span> <span class="n">m</span><span class="p">:</span> <span class="n">Municipality</span> <span class="o">|</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">m</span><span class="o">.</span><span class="n">tickets</span><span class="o">)</span>
+<span class="o">}</span>    
+<span class="c1">----------------------- ASSERTION ------------------------------</span>
+
+<span class="c1">-- There are no municipalities with centers in the same position</span>
+<span class="k">assert</span> <span class="n">NoOverlapMunicipalityCenter</span>
+<span class="o">{</span>
+    <span class="k">no</span> <span class="k">disj</span> <span class="n">m1</span><span class="p">,</span> <span class="n">m2</span><span class="p">:</span> <span class="n">Municipality</span> <span class="o">|</span> <span class="n">m1</span><span class="o">.</span><span class="n">center</span> <span class="o">=</span> <span class="n">m2</span><span class="o">.</span><span class="n">center</span>
+<span class="o">}</span>
+
+<span class="k">check</span> <span class="n">NoOverlapMunicipalityCenter</span>
+
+<span class="c1">---------------------- PREDICATE --------------------------------</span>
+
+<span class="k">pred</span> <span class="n">addReport</span> <span class="o">[</span><span class="n">m</span><span class="p">,</span> <span class="n">m&#39;</span><span class="p">:</span> <span class="n">Municipality</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">u&#39;</span><span class="p">:</span> <span class="n">User</span><span class="p">,</span> <span class="n">r</span><span class="p">:</span> <span class="n">Report</span><span class="o">]</span>
+<span class="o">{</span>
+    <span class="c1">//precondition</span>
+    <span class="n">r</span><span class="o">.</span><span class="n">segnalatingUser</span> <span class="o">=</span> <span class="n">u</span>
+    <span class="n">r</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">municipality</span> <span class="o">=</span> <span class="n">m</span>
+    <span class="c1">//postcondition</span>
+    <span class="n">u&#39;</span><span class="o">.</span><span class="n">reports</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">reports</span> <span class="o">+</span> <span class="n">r</span>
+    <span class="n">m&#39;</span><span class="o">.</span><span class="n">reports</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">reports</span> <span class="o">+</span> <span class="n">r</span>
+<span class="o">}</span>
+
+<span class="c1">-- Generic world</span>
+<span class="k">pred</span> <span class="n">GenericWorld</span>
+<span class="o">{}</span>
+
+
+
+<span class="c1">-- World to highlight municipality</span>
+<span class="k">pred</span> <span class="n">MunicipalWorld</span>
+<span class="o">{</span>
+    <span class="o">#</span><span class="n">Municipality</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="o">}</span>
+
+
+
+<span class="c1">-- World to highlight reports </span>
+<span class="k">pred</span> <span class="n">UserWorld</span>
+<span class="o">{</span>
+    <span class="o">#</span><span class="n">User</span> <span class="o">=</span> <span class="mi">4</span>
+    <span class="o">#</span><span class="n">Report</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="o">#</span><span class="n">Position</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="k">one</span> <span class="n">r</span><span class="p">:</span> <span class="n">Report</span> <span class="o">|</span> <span class="n">r</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">Valid</span>
+    <span class="k">one</span> <span class="n">r</span><span class="p">:</span> <span class="n">Report</span> <span class="o">|</span> <span class="n">r</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">NotValid</span> 
+<span class="o">}</span>
+
+
+<span class="k">run</span> <span class="n">GenericWorld</span> <span class="k">for</span> <span class="mi">3</span> <span class="k">but</span> <span class="k">exactly</span> <span class="mi">3</span> <span class="n">String</span>
+<span class="k">run</span> <span class="n">MunicipalWorld</span> <span class="k">for</span> <span class="mi">5</span> <span class="k">but</span> <span class="k">exactly</span> <span class="mi">9</span> <span class="n">String</span><span class="p">,</span> <span class="mi">3</span> <span class="n">Municipality</span>
+<span class="k">run</span> <span class="n">UserWorld</span> <span class="k">for</span> <span class="mi">6</span> <span class="k">but</span> <span class="k">exactly</span> <span class="mi">10</span> <span class="n">String</span><span class="p">,</span> <span class="mi">0</span> <span class="n">Accident</span>
+<span class="k">run</span> <span class="n">addReport</span> <span class="k">for</span> <span class="mi">3</span> <span class="k">but</span> <span class="k">exactly</span> <span class="mi">5</span> <span class="n">String</span>
+</pre></div>
+
+<h2 id="book-heading-115">Generated World</h2>
+
+<h3 id="book-heading-116">Generic world</h3>
+
+<p>This is an example of a generic world</p>
+
+<p><img src="./images/Alloy/GenericWorld.png" alt="GenericWorld" /></p>
+
+<h3 id="book-heading-117">Muncipal world</h3>
+
+<p>This world highlights the associations occurring into a municipality, such as received reports, issued tickets, occurred accidents and suggested improvements. 
+It also shows how positions are related to municipalities and what occurred on them.</p>
+
+<p><img src="./images/Alloy/MunicipalWorld.png" alt="MunicipalWorld" /></p>
+
+<h3 id="book-heading-118">User world</h3>
+
+<p>This world highlights the associations between users and reports.</p>
+
+<p><img src="./images/Alloy/UserWorld.png" alt="UserWorld" /></p>
+
+<h3 id="book-heading-119">Add report</h3>
+
+<p>It shows how a "add report" event occurred
+<img src="./images/Alloy/AddReport.png" alt="AddReport" /></p>
+
+<h1 id="book-heading-120">Effort Spent</h1>
+
+<table class="effort">
+<thead>
+<tr>
+  <th>Student</th>
+  <th>Time spent (h)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td width="50%"><p>Bonatti Andrea</p>
+</td>
+  <td width="50%"><ul>
+<li>Part 1: 12</li>
+<li>Part 2: 15</li>
+<li>Part 3: 5</li>
+<li>Part 4: 3</li>
+</ul>
+</td>
+</tr>
+<tr>
+  <td><p>Buttironi Monica</p>
+</td>
+  <td><ul>
+<li>Part 1: 3</li>
+<li>Part 2: 5</li>
+<li>Part 3: 13</li>
+<li>Part 4: 17</li>
+</ul>
+</td>
+</tr>
+<tr>
+  <td><p>Caruso Marco Giuseppe</p>
+</td>
+  <td><ul>
+<li>Part 1: 5</li>
+<li>Part 2: 7</li>
+<li>Part 3: 20</li>
+<li>Part 4: 3</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="book-heading-121">References</h1>
+
+<ul>
+<li>Github (https://github.com) for version control</li>
+<li>Alloy (http://http://alloy.mit.edu/alloy/) for model verification</li>
+<li>Signavio (http://www.signavio.com/) for diagrams</li>
+<li>Moqups (https://moqups.com/) for mockups</li>
+</ul>
+    </body>
+</html>
