@@ -9,3 +9,4 @@
 ##Acronyms
 
 ##Abbreviation
+* DMZ = demilitarized zone
