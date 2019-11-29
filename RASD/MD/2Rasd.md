@@ -50,7 +50,7 @@ This diagram contains the states of an improvement from when is framed to when i
 | RU choose the type of violations | Y | W |
 | RU sends a report | Y | W |
 | S2B registers a report | N | M |
-| RU wants to request its reports | N | W |
+| RU wants to request its reports | N | W | 
 | RU requests its reports | Y | W |
 | RU asks the S2B for seeing reports by area | Y | W |
 | S2B selects the reports for the RU | N | M |
@@ -105,7 +105,7 @@ There are three kind of users that will employ this product:
 2. Municipal Employee: the ME is someone hired from the municipality to which the task of accessing information,on behalf of the authorities, will be given. To such kind of individuals, a unique username and password will be provided, already linked to an account able to utilize all functions dedicated to the retrieval of data.
 A ME is unable to add or modify the status of any reports, but is able to change the status of an improvement from "not done" to "done". 
     
-3. Local Officer: The LO is part of the law enforcement of the municipality. As the ME, the LO receives his own account information from the municipality that will permit him/her to utilize all the functions to retrieve data.
+3. Local Officer: The LO is part of the law enforcement of the municipality. As the ME, the LO receives his own account information from the state authority that will permit him/her to utilize all the functions to retrieve data.
     Unlike the ME, the LO is able to modify the state of a report but is unable to do so with an improvement. An LO may, or may not, utilize the data stored by SafeStreet to write tickets for the cars that committed a violation
    
 ## Assumptions, dependencies and constraints
