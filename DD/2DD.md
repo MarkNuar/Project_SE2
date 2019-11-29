@@ -49,9 +49,18 @@ are returned to the requester. Moreover, through this component, an authority ca
 * **StatisticsComputationManager**: this component is responsible for building statistics, belonging to the requesting authority's municipality, about the violations and the 
 perpetrators who cause them by crossing the information coming from reports received by the ReportMiner and from issued tickets coming from the TS. 
 It is important to note that statistics are always crunched on request and never saved on the server, because they can change at any time. 
-* **StatisticsDownloadManager**: this component is responsible for creating a non materialized document about the statistics, belonging to the requesting authority's municipality, 
+* **StatisticsDownloadManager**: this component is responsible for creating a non materialized document (which means it is not saved on server side, but only generated
+and sent) about the statistics, belonging to the requesting authority's municipality, 
 by fetching them from the StatisticsComputationManager. The resulting document is returned to the caller.
 ##Deployment view
+![DeploymentView](./images/exported/DeploymentView.svg) 
+
+//TODO 
+This picture shows how the system should be deployed. 
+The Database server and the Application server are deployed on two different physical nodes, 
+in order to have more security for data and to achieve a decoupled architecture. 
+The Web server, deployed on its physical node, has the purpose of caching static contents (which are, for example, .html and .css files) for the Web application. 
+Every other request received from the clients (both the Web and Mobile application) is automatically forwarded to the Application server. 
 
 ##Runtime view
 
