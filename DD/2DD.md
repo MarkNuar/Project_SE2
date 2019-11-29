@@ -66,6 +66,399 @@ Every other request received from the clients (both the Web and Mobile applicati
 
 ##Component interfaces
 
+###REST table of resources
+
+| URI | POST | GET | PUT | DELETE |
+| ---- | ---- | ---- | ---- | ---- |
+| /reports/default | X | - | - | - |
+| /reports/default/?id=xxx| - | X | - | - |
+| /reports/default/unsafearea | - | X | - | - |
+| /reports/notverified/?id=xxx | - | X | X | - |
+| /reports/valid/?id=xxx | - | X | - | - |
+| /users/login/?id=xxx | - | X | - | - |
+| /users/authorities/login/?id=xxx| - | X | - | - |
+| /users/registration/?id=xxx| X | - | - | 
+| /improvements/?id=xxx | - | X | X | - |
+| /statistics/?id=xxx | - | X | - | - |
+ //in report not valid non mi serve niente in realtà
+
+
+"X" : the operation is applicable on the resource
+ 
+"-" : the resource is inapplicable on the resource
+
+"?" : the resource is applicable only on specific conditions that will be explained in the following pages 
+
+The data that will be transmitted will be composed of XML files.
+
+To recognize the user who sent a request to the server, the system will employ tokens. A token is a cripted String that is given after the login and contains a precise set of information:
+* User type information: this
+* User identifier:
+* Creation time: 
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+**POST** /users/registration/?id={id}
+
+**Parameters**
+| Field | Type | Description |
+| ---- | ---- | ---- |
+|  id | String | The username of the user who is trying to register |
+
+**Fields**
+
+| Field | Type | Description |
+| ---- | ---- | ---- |
+| email | String | The email of the user |
+| passwordFirst | String | The password of the user |
+| passwordSecond | String | The same password as before |
+
+**Error 401** (Unauthorized)
+
+| Field |  Description |
+| ---- |  ---- |
+| ExistingUsername | Someone with the same username is already registered | 
+| DifferentPassword | The second password is different from the first one |
+| WEREALYNEED?ExistingMail | This email is already associated with another account |
+
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+**GET** /users/login/?id={id}
+
+**Parameters**
+
+| Field | Type | Description |
+| ---- | ---- | ---- |
+|  id | String | The username of the user who is trying to login |
+
+**Fields**
+
+| Field | Type | Description |
+| ---- | ---- | ---- |
+| loginInformation | String | The email or username of the user |
+| password | String | The password of the user |
+
+
+**Success 200** (request OK)
+
+| Field | Type | Description |
+| ---- | ---- | ---- |
+| token | String | A token that represents the user |
+
+
+**Error 401** (Unauthorized)
+
+| Field |  Description |
+| ---- |  ---- |
+| WrongUsernameOrPassword | The written username and password does not correspond to any existing user | 
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+**GET** /users/authorities/login/?id={id}
+
+**Parameters**
+
+| Field | Type | Description |
+| ---- | ---- | ---- |
+|  id | String | The username of the user who is trying to login |
+
+**Fields**
+
+| Field | Type | Description |
+| ---- | ---- | ---- |
+| loginInformation | String | The username of the user |
+| password | String | The password of the user |
+| workRole | String | This will be 'ME' or 'LO' |
+
+
+**Success 200** (request OK)
+
+| Field | Type | Description |
+| ---- | ---- | ---- |
+| token | String | A token that represents the user and the municipality he/she works in|
+| municipalityID| String | The id of the municipality where the ME or LO works |
+
+
+**Error 401** (Unauthorized)
+
+| Field |  Description |
+| ---- |  ---- |
+| WrongUsernameOrPassword | The written username and password does not correspond to any existing user | 
+| NotCorrespondingRole | The selected work role does not correspond to the user which given login and password corresponds to | 
+
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+**POST** /reports/default
+
+
+**Fields**
+
+| Field | Type | Description |
+| ---- | ---- | ---- |
+| vehicle | Object | The vehicle information |
+| &nbsp;&nbsp;&nbsp;&nbsp;licensePlate | String | The license plate of the vehicle |
+| position | Object | The  |
+| &nbsp;&nbsp;&nbsp;&nbsp;latitude | String | The license plate of the vehicle |
+| &nbsp;&nbsp;&nbsp;&nbsp;longitude | String | The license plate of the vehicle |
+| picture | Object | Representation of the image of the vehicle |
+| violation | Object[] | An array of the type of violation |
+| &nbsp;&nbsp;&nbsp;&nbsp;violationType | String | The type of violation |
+| date | String | The datetime in <span style="color:blue">dd-MM-yyyyThh:mm:ss</span> format |
+
+**Success 201** (resource created)
+
+| Field | Type | Description |
+| ---- | ---- | ---- |
+| id | String | The id that the system has assigned to the sent report, this id will uniquely identify the report and will also contain information about the user which sent it |
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+**GET** /reports/default/?id={id}
+
+**Parameters**
+
+| Field | Type | Description |
+| ---- | ---- | ---- |
+| id | String | The id that uniquely identifies the report that the user wants to see|
+
+**Success 200** (request OK)
+
+| Field | Type | Description |
+| ---- | ---- | ---- |
+| vehicle | Object | The vehicle information |
+| &nbsp;&nbsp;&nbsp;&nbsp;licensePlate | String | The license plate of the vehicle |
+| position | Object | The  |
+| &nbsp;&nbsp;&nbsp;&nbsp;latitude | String | The license plate of the vehicle |
+| &nbsp;&nbsp;&nbsp;&nbsp;longitude | String | The license plate of the vehicle |
+| picture | Object | Representation of the image of the vehicle |
+| violation | Object[] | An array of the type of violation |
+| &nbsp;&nbsp;&nbsp;&nbsp;violationType | String | The type of violation |
+| date | String | The datetime in <span style="color:blue">dd-MM-yyyyThh:mm:ss</span> format |
+
+**Error 403** (forbidden)
+
+| Field | Description |
+| ---- | ---- |
+| UserNotAuthorized | The id of the report and the token of the user have been analyzed. It was found that the user was not the one who submitted the report and as such he/she was not permitted to see report  |
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+**GET** /reports/default/unsafearea
+
+**Fields**
+
+| Field | Type | Description |
+| ---- | ---- | ---- |
+| id | String | The id of the report |
+| ? | ? | ? |
+
+**Success 200** (request OK)
+
+| Field | Type | Description |
+| ---- | ---- | ---- |
+| ? | ? | ? |
+
+**Error 403** (forbidden)
+
+| Field | Description |
+| ---- | ---- |
+| UserNotAuthorized | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an LO or the LO's municipality was not the one of the reports requested|
+
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+**GET** /reports/notverified/?id={id}
+
+**Parameters**
+
+| Field | Type | Description |
+| ---- | ---- | ---- |
+| id | String | The id that uniquely identifies the municipality which the LO works for |
+
+
+**Fields**
+
+| Field | Type | Description |
+| ---- | ---- | ---- |
+| id | String | The id of the report |
+| ? | ? | ? |
+
+
+**Success 200** (request OK)
+
+| Field | Type | Description |
+| ---- | ---- | ---- |
+| ? | ? | ? |
+
+**Error 403** (forbidden)
+
+| Field | Description |
+| ---- | ---- |
+| UserNotAuthorized | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an LO or the LO's municipality was not the one of the reports requested|
+
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+**PUT** /reports/notverified/?id={id}
+
+**Parameters**
+
+| Field | Type | Description |
+| ---- | ---- | ---- |
+| id | String | The id that uniquely identifies the municipality which the LO works for |
+
+
+**Fields**
+
+| Field | Type | Description |
+| ---- | ---- | ---- |
+| id | String | The id of the report |
+| newStatus | String | The result of the validation performed by the LO |
+
+
+
+**Error 403** (forbidden)
+
+| Field | Description |
+| ---- | ---- |
+| UserNotAuthorized | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an LO or the LO's municipality was not the one of the reports requested |
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+
+**GET** /reports/valid/?id={id}
+
+**Parameters**
+
+| Field | Type | Description |
+| ---- | ---- | ---- |
+| id | String | The id that uniquely identifies the municipality which the LO works for |
+
+
+**Fields**
+
+| Field | Type | Description |
+| ---- | ---- | ---- |
+| id | String | The id of the report |
+| ? | ? | ? |
+
+**Success 200** (request OK)
+
+| Field | Type | Description |
+| ---- | ---- | ---- |
+| ? | ? | ? |
+
+**Error 403** (forbidden)
+
+| Field | Description |
+| ---- | ---- |
+| UserNotAuthorized | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an LO or the LO's  municipality was not the one of the reports requested  |
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+**GET** /improvements/?id={id}
+
+
+**Parameters**
+
+| Field | Type | Description |
+| ---- | ---- | ---- |
+| id | String | The id that uniquely identifies the municipality which the ME works for |
+
+
+**Fields**
+
+| Field | Type | Description |
+| ---- | ---- | ---- |
+| ? | ? | ? |
+
+**Success 200** (request OK)
+
+| Field | Type | Description |
+| ---- | ---- | ---- |
+| ? | ? | ? |
+
+**Error 403** (forbidden)
+
+| Field | Description |
+| ---- | ---- |
+| UserNotAuthorized | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's  municipality was not the one of the reports requested  |
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+**PUT** /improvements/?id={id}
+
+
+**Parameters**
+
+| Field | Type | Description |
+| ---- | ---- | ---- |
+| id | String | The id that uniquely identifies the municipality which the LO works for |
+
+**Success 200** (request OK)
+
+| Field | Type | Description |
+| ---- | ---- | ---- |
+| ? | ? | ? |
+
+**Fields**
+
+| Field | Type | Description |
+| ---- | ---- | ---- |
+| id | String | The id of the improvement |
+
+
+**Error 403** (forbidden)
+
+| Field | Description |
+| ---- | ---- |
+| UserNotAuthorized | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's municipality was not the one of the reports requested |
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+**GET** /statistics/?id={id}
+
+
+**Parameters**
+
+| Field | Type | Description |
+| ---- | ---- | ---- |
+| id | String | The id that uniquely identifies the municipality which the LO works for |
+
+
+**Fields**
+
+| Field | Type | Description |
+| ---- | ---- | ---- |
+| ? | ? | ? |
+
+**Success 200** (request OK)
+
+| Field | Type | Description |
+| ---- | ---- | ---- |
+| ? | ? | ? |
+
+**Error 403** (forbidden)
+
+| Field | Description |
+| ---- | ---- |
+| UserNotAuthorized | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's  municipality was not the one of the reports requested  |
+
+
+
+
+
+
+
 ##Selected architectural styles and patterns
 
 ##Other design decisions

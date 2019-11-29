@@ -1,8 +1,0 @@
-[G1] The system must allow logged-in users to send a report of the violation
-[G2] The System must allow logged-in users to see their past reports
-[G3] The system must allow logged-in users to retrieve information about the position and types of valid reports
-[G4] The system must allow verified authorities to mine information about date, time, position and type of valid reports
-[G5] The system must allow verified authorities to retrieve statistics about valid reports
-[G6] The system must be able to cross the data retrieved from the municipality with its own, in order to identify unsafe areas and suggest possible interventions and suggest them to municipal employee
-[G7] The system must allow local officer to set the validity of a report sent by the user
-[G8] The system must ensure that the chain of custody of the information coming from the user to the municipality is never broken, and the information is never altered (?)

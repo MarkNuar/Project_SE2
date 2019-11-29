@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<alloy>
+
+<view nodetheme="Martha">
+
+<defaultnode/>
+
+<defaultedge/>
+
+<node>
+   <type name="Authority"/>
+   <type name="Done"/>
+   <type name="Female"/>
+   <type name="Int"/>
+   <type name="Male"/>
+   <type name="NotDone"/>
+   <type name="NotValid"/>
+   <type name="NotVerified"/>
+   <type name="String"/>
+   <type name="univ"/>
+   <type name="Valid"/>
+   <type name="seq/Int"/>
+</node>
+
+<node color="Blue">
+   <type name="Time"/>
+</node>
+
+<node color="Gray">
+   <type name="Violation"/>
+</node>
+
+<node color="Green">
+   <type name="Vehicle"/>
+</node>
+
+<node shape="Ellipse" color="Yellow">
+   <type name="Accident"/>
+   <type name="Date"/>
+</node>
+
+<node shape="Hexagon" color="White">
+   <type name="Position"/>
+</node>
+
+<node shape="House" color="Blue">
+   <type name="RegisteredEntity"/>
+</node>
+
+<node shape="Inv House">
+   <type name="MunicipalEmployee"/>
+</node>
+
+<node shape="Inv Trapezoid">
+   <type name="User"/>
+</node>
+
+<node shape="Inv Triangle">
+   <type name="LocalOfficer"/>
+</node>
+
+<node shape="Inv Triangle" color="Red">
+   <type name="Municipality"/>
+</node>
+
+<node shape="Lined Diamond" color="Gray">
+   <type name="Picture"/>
+</node>
+
+<node shape="Lined Square" color="Black">
+   <type name="Report"/>
+</node>
+
+<node shape="Parallelogram" color="Red">
+   <type name="Ticket"/>
+</node>
+
+<node shape="Trapezoid" color="Green">
+   <type name="Improvement"/>
+</node>
+
+<node visible="no">
+   <type name="Gender"/>
+   <type name="ImprovementState"/>
+   <type name="ImprovementType"/>
+   <type name="ReportStatus"/>
+   <type name="ViolationType"/>
+</node>
+
+<edge color="Gray" visible="no" attribute="yes" constraint="no">
+   <relation name="offenderGender"> <type name="Ticket"/> <type name="Gender"/> </relation>
+   <relation name="state"> <type name="Improvement"/> <type name="ImprovementState"/> </relation>
+   <relation name="status"> <type name="Report"/> <type name="ReportStatus"/> </relation>
+   <relation name="type"> <type name="Improvement"/> <type name="ImprovementType"/> </relation>
+   <relation name="violations"> <type name="Violation"/> <type name="ViolationType"/> </relation>
+</edge>
+
+</view>
+
+</alloy>
