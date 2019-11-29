@@ -94,7 +94,7 @@ Using the improvement function makes it possible to determine feasible solutions
 between	the bike lane and the part of the road for motorized vehicles to prevent unsafe parking.
 
 ### Statistics
-With the information, about issued tickets and accidents that happened on the street, retrievable from the Authorities, and SafeStreets' own data, is possible to build statistic about the violations and the perpetrators who cause them.
+With the information about issued tickets coming from the Ticket Service and SafeStreets' own data, is possible to build statistic about the violations and the perpetrators who cause them.
 Some examples of these statistics can be seen in section 3.3.1 in the Local Officer paragraph. 
 ## User characteristics
 There are three kind of users that will employ this product:

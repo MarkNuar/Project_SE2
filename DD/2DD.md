@@ -22,15 +22,35 @@ same reasons explained above.
 
 
 ##Component view
--- image of the component view
-Only component in the application server.
-* **Router**: receives HTTP requests and forward them to the internal components of the application server (maybe add AP for application server). Then forwards the reply
-back to the clients. Token used for granting the right function and providing context. 
-* **UserManager**: this component is responsible for managing the users and is composed by two sub-components: 
+![ComponentDiagram](./images/exported/ComponentDiagram.svg) 
+The Component view diagrams represents, explicitly, only the components of the Application server, as they depict the main section of the system. 
+Below we describe in depth the function of every internal server component made ad-hoc for the system (the ones in green).
+* **Router**: receives HTTP over SSL/TLS requests following the Rest paradigm (see below in the "Component interface" section for further details) and forward them to the others internal components of the Application server. Then forwards the replies
+back to the clients. It is relevant to note that temporary tokens are adopted, in order to define which functionalities are accessible for each client. Every client receives its personal token after the login procedure. 
+* **UserManager**:
     * **LoginManager**: this component is responsible for granting access to registered users. In particular, the component receives the access credentials and returns an unique token used for further communication
     by the user.
     * **SignUpManager**: this component is responsible for the registration of unregistered users. In particular is receives the new access credentials and save them in the system's database. 
-    
+* **ReportManager**:
+    * **ReportReceiver**: this component is responsible for receiving the data of a new report and storing them in the database. In particular it takes care of the following tasks:
+        * retrieving of the municipality where the report has been created, by employing the MS apis.
+        * recognizing the car's plate in the picture, by employing the OCRS apis. In case of an unrecognizable plate, the report status is set to "NOTVALID" by default, otherwise is set to "NOTVERIFIED" by default(which means that a local officer has still to prove its validity).
+        * saving the report in the system's database.
+    * **ReportValidator**: this component is responsible for the modification of status of a report, by changing if from "NOTVERIFIED" to "VALID" or "NOTVALID" according to the request sent by the local officer. 
+* **ReportMiner**: this component is responsible for obtaining reports by querying the database. It is crucial to note that the request of the authority can come from directly from the Router of from other components like the ImprovementsManager and StatisticsComputationManager. In both cases, authority's municipality is used for filtering reports. Various form of mining can be performed, in particular it's is possible to mine:
+    * All: all the reports produced in the same municipality of the authority, who has issued the request, are returned.
+    * By Type: between all the reports produced in the same municipality of the authority, who has issued the request, only those which have the given violation's type are returned.
+    * By Date: between all the reports produced in the same municipality of the authority, who has issued the request, only those which were composed in the given date are returned.
+    * By Time: between all the reports produced in the same municipality of the authority, who has issued the request, only those which were composed in the given time, regardless the date, are returned.
+    * By Area: between all the reports produced in the same municipality of the authority, who has issued the request, only those which were composed in the given area, defined by a center and a radius, are returned.
+* **ImprovementManager**: this component is responsible for getting the possible improvements belonging to the requesting authority's municipality and for setting their status. In order to determine the possible improvements, it crosses the data
+coming from the external MAS and from the MineReports component. When a new improvement is determined, it's status is set by default to "NOTDONE" and it is saved in the database. When no further improvements can be discovered, all those which have the status set to "NOTDONE" 
+are returned to the requester. Moreover, through this component, an authority can set the status of a specific improvement to "DONE", after fetching all the possible one as described before.  
+* **StatisticsComputationManager**: this component is responsible for building statistics, belonging to the requesting authority's municipality, about the violations and the 
+perpetrators who cause them by crossing the information coming from reports received by the ReportMiner and from issued tickets coming from the TS. 
+It is important to note that statistics are always crunched on request and never saved on the server, because they can change at any time. 
+* **StatisticsDownloadManager**: this component is responsible for creating a non materialized document about the statistics, belonging to the requesting authority's municipality, 
+by fetching them from the StatisticsComputationManager. The resulting document is returned to the caller.
 ##Deployment view
 
 ##Runtime view
@@ -39,4 +59,4 @@ back to the clients. Token used for granting the right function and providing co
 
 ##Selected architectural styles and patterns
 
-##Other desing decisions
+##Other design decisions
