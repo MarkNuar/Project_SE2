@@ -55,12 +55,12 @@ by fetching them from the StatisticsComputationManager. The resulting document i
 ##Deployment view
 ![DeploymentView](./images/exported/DeploymentView.svg) 
 
-//TODO 
-This picture shows how the system should be deployed. 
-The Database server and the Application server are deployed on two different physical nodes, 
-in order to have more security for data and to achieve a decoupled architecture. 
-The Web server, deployed on its physical node, has the purpose of caching static contents (which are, for example, .html and .css files) for the Web application. 
+This picture shows how the system should be deployed: 
+* It is available for end users as a Mobile application, while, for authorities, as a Web application, accessible both from Mobile and PC.
+* The Web server, deployed on its physical node, has the purpose of caching static contents (which are, for example, .html and .css files) for the Web application. 
 Every other request received from the clients (both the Web and Mobile application) is automatically forwarded to the Application server. 
+* The Application server and the Database server are deployed on two different physical nodes, in order to have more security for data and to achieve a decoupled architecture. 
+
 
 ##Runtime view
 
