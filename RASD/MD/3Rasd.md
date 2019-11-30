@@ -375,7 +375,6 @@ In this section we show that the requirements ensure the satisfaction of the goa
     * [R2] The system must allow a municipality to create account for its employees and local officers
     * [R3] The system must allow only registered users, municipal employee and officers to login with their username and password
     * [R4] A users, municipal employee or local officer must be uniquely identified by his/her username
-    * [R20] When a ticket is issued through the TS, the system receives and store it
     * [R21] When retrieving statistics, a municipal employee or a local officer can access only to reports of violations that occurred in his/her municipality
     * [R22] The system must be able to calculate statistics from the reports of violations and issued tickets of the municipal employee or local officer’s municipality
 * [G6] The system must be able to cross the data retrieved from the municipality with its own, in order to identify unsafe areas and suggest possible interventions to the municipal employee
@@ -403,7 +402,7 @@ In this section we show that the requirements ensure the satisfaction of the goa
     * [R2] The system must allow a municipality to create account for its employees and local officers
     * [R3] The system must allow only registered users, municipal employee and officers to login with their username and password
     * [R4] A users, municipal employee or local officer must be uniquely identified by his/her username        
-    * [R27] A municipal officer must be able to mark a report as valid or not valid
+    * [R20] A local officer must be able to mark a report as valid or not valid
 * [G8] The system must ensure that the chain of custody of the information coming from the user to the municipality is never broken, and the information is never altered
     * [D5] The internet connection works properly without failure
        
@@ -419,12 +418,12 @@ The following table keeps track of the relation between Use Cases and Requiremen
 |Get Violations Type By Area|[R16],[R17]|
 |Authority Log-In|[R2],[R3]|
 |Get Improvements|[R23],[R24],[R25],[R26]|
-|See Statistics|[R20],[R21],[R22]|
+|See Statistics|[R21],[R22]|
 |Mine Reports By Type|[R18],[R19]|
 |Mine Reports By Date|[R18],[R19]|
 |Mine Reports By Time|[R18],[R19]|
 |Mine Reports By Area|[R18],[R19]|
-|Validate Reports|[R27]|
+|Validate Reports|[R20]|
 
 ## Performance requirements
 The system does not have any particular performance requirements. Obviously it will have to be able to handle multiple operation from multiple clients (users and authorities) at same time.

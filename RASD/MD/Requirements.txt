@@ -23,8 +23,9 @@ GetReportsTypeByArea
 MineReports
 [R18] When mining the information, a municipal employee or a local officer can access only to violations type of reports occurred in his/her municipality
 [R19] When mining the information, a municipal employee or a local officer can filter reports by area, date, time or type of violation
+ValidateReports
+[R20] A local officer must be able to mark a report as valid or not valid
 RetrieveStatistics
-[R20] When a ticket is issued through the TS, the system receives and store it
 [R21] When retrieving statistics, a municipal employee or a local officer can access only to reports of violations that occurred in his/her municipality
 [R22] The system must be able to calculate statistics from the reports of violations and issued tickets of the municipal employee or local officer’s municipality
 GetImprovements
@@ -32,5 +33,4 @@ GetImprovements
 [R24] The system must be able to retrieve information about accidents from the MAS (municipal accident system)
 [R25] The system must be able to identify the possible unsafe areas of the municipal employee or local officer’s municipality
 [R26] The system must be able to suggest possible interventions on a specific unsafe area
-ValidateReports
-[R27] A municipal officer must be able to mark a report as valid or not valid
+

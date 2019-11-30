@@ -83,6 +83,7 @@ For a precise description of RU, ME and LO see paragraph 2.3.
     * Correction of loops in sequence diagrams
     * Correction of typos in G6
     * Correction of use case and sequence diagram for "GetImprovements"
+    * Correction of useless requirements about issued tickets (old R20)
 ## Reference documents
 * Specification document: “Mandatory Project Assignment AY 2019‐2020”
 ## Document structure
