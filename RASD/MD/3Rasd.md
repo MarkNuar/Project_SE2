@@ -322,7 +322,7 @@ In this section we show that the requirements ensure the satisfaction of the goa
     * [D6] The user device has a camera and is able to take pictures 
     * [D7] The user does not fake his position 
     * [R1] A user must be able to sign up to the system with a unique personal username and password
-    * [R3] The system must allow only registered users, municipal employee and officers to login with their username and password
+    * [R2] The system must allow only registered users to login with their username and password
     * [R4] A users, municipal employee or local officer must be uniquely identified by his/her username
     * [R5] When composing the report, the system must be able to access the user’s device camera and GPS sensor
     * [R6] When composing the report, a user must take a picture from the device’s camera and highlight the license plate
@@ -338,7 +338,7 @@ In this section we show that the requirements ensure the satisfaction of the goa
     * [D3] When using the S2B, the user’s device is always connected to internet 
     * [D5] The internet connection works properly without failure
     * [R1] A user must be able to sign up to the system with a unique personal username and password
-    * [R3] The system must allow only registered users, municipal employee and officers to login with their username and password
+    * [R2] The system must allow only registered users to login with their username and password
     * [R4] A users, municipal employee or local officer must be uniquely identified by his/her username    
     * [R15] When a user asks for his/her reports, the system must provide the saved reports sent by that user
 * [G3] The system must allow logged-in users to retrieve information about the position and types of valid reports
@@ -347,7 +347,7 @@ In this section we show that the requirements ensure the satisfaction of the goa
     * [D5] The internet connection works properly without failure
     * [D7] The user does not fake his position 
     * [R1] A user must be able to sign up to the system with a unique personal username and password
-    * [R3] The system must allow only registered users, municipal employee and officers to login with their username and password
+    * [R2] The system must allow only registered users to login with their username and password
     * [R4] A users, municipal employee or local officer must be uniquely identified by his/her username     
     * [R16] When getting the valid reports by area, a user can choose a position, or automatically get his/her from the GPS
     * [R17]When getting the valid reports by area, the system must provide all the valid reports near the position given by the user and display their violation type through the MS
@@ -360,7 +360,6 @@ In this section we show that the requirements ensure the satisfaction of the goa
     * [D13] The state authority voids credentials of municipal employees or local officers at the end of their service
     * [D14] When using the S2B, the authority's device is always connected to internet
     * [R2] The system must allow a municipality to create account for its employees and local officers
-    * [R3] The system must allow only registered users, municipal employee and officers to login with their username and password
     * [R4] A users, municipal employee or local officer must be uniquely identified by his/her username
     * [R18] When mining the information, a municipal employee or a local officer can access only to violations type of reports occurred in his/her municipality
     * [R19] When mining the information, a municipal employee or a local officer can filter reports by area, date, time or type of violation
@@ -372,7 +371,6 @@ In this section we show that the requirements ensure the satisfaction of the goa
     * [D12] The official credentials of each local officer are different from those used for report violations (if he/she has registered as a normal user)
     * [D13] The state authority voids credentials of municipal employees or local officers at the end of their service
     * [D14] When using the S2B, the authority's device is always connected to internet
-    * [R2] The system must allow a municipality to create account for its employees and local officers
     * [R3] The system must allow only registered users, municipal employee and officers to login with their username and password
     * [R4] A users, municipal employee or local officer must be uniquely identified by his/her username
     * [R21] When retrieving statistics, a municipal employee or a local officer can access only to reports of violations that occurred in his/her municipality
@@ -385,7 +383,6 @@ In this section we show that the requirements ensure the satisfaction of the goa
     * [D13] The state authority voids credentials of municipal employees or local officers at the end of their service
     * [D14] When using the S2B, the authority's device is always connected to internet    
     * [D2] The number of possible interventions is finite and there exists an already established correlation between violations and possible interventions
-    * [R2] The system must allow a municipality to create account for its employees and local officers
     * [R3] The system must allow only registered users, municipal employee and officers to login with their username and password
     * [R4] A users, municipal employee or local officer must be uniquely identified by his/her username    
     * [R23] When getting improvements, a municipal employee can access only to data of reports occurred in his/her municipality
@@ -399,7 +396,6 @@ In this section we show that the requirements ensure the satisfaction of the goa
     * [D12] The official credentials of each local officer are different from those used for report violations (if he/she has registered as a normal user)
     * [D13] The state authority voids credentials of municipal employees or local officers at the end of their service
     * [D14] When using the S2B, the authority's device is always connected to internet    
-    * [R2] The system must allow a municipality to create account for its employees and local officers
     * [R3] The system must allow only registered users, municipal employee and officers to login with their username and password
     * [R4] A users, municipal employee or local officer must be uniquely identified by his/her username        
     * [R20] A local officer must be able to mark a report as valid or not valid
@@ -412,11 +408,11 @@ The following table keeps track of the relation between Use Cases and Requiremen
 | Use Cases | Requirements |
 | ---- | ---- |
 | Sign-Up | [R1] |
-|Registered User Log-In|[R4]|
+|Registered User Log-In|[R2],[R4]|
 |Add Report |[R5],[R6],[R7],[R8],[R9],[R10],[R11],[R12],[R13],[R14]|
 |Get My Reports |[R15]|
 |Get Violations Type By Area|[R16],[R17]|
-|Authority Log-In|[R2],[R3]|
+|Authority Log-In|[R3],[R4]|
 |Get Improvements|[R23],[R24],[R25],[R26]|
 |See Statistics|[R21],[R22]|
 |Mine Reports By Type|[R18],[R19]|

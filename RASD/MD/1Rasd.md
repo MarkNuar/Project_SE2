@@ -78,7 +78,7 @@ For a precise description of RU, ME and LO see paragraph 2.3.
 * Version 1.0: 
     * Initial release
 * Version 1.1:
-    * Partial revision of the domain assumptions w.r.t. the authorities' credentials
+    * Partial revision of the domain assumptions and requirements w.r.t. the authorities' credentials
     * Expansion of the security performance chapter
     * Correction of loops in sequence diagrams
     * Correction of typos in G6

@@ -1,8 +1,9 @@
 Sign-up
 [R1] A user must be able to sign up to the system with a unique personal username and password
 Log-in
-[R2] The system must allow a municipality to create account for its employees and local officers
-[R3] The system must allow only registered users, municipal employee and officers to login with their username and password
+[R2] The system must allow only registered users to login with their username and password
+[R3] The system must allow only municipal authorities to login with their username and password
+
 [R4] A users, municipal employee or local officer must be uniquely identified by his/her username
 Add Report
 [R5] When composing the report, the system must be able to access the user’s device camera and GPS sensor
