@@ -68,39 +68,55 @@ Every other request received from the clients (both the Web and Mobile applicati
 
 ###REST table of resources
 
+The following table represents the logic structures of the resources of the system and the operation that can be done on them.
+
 | URI | POST | GET | PUT | DELETE |
 | ---- | ---- | ---- | ---- | ---- |
+| /users/registration/?id=xxx| X | - | - |
+| /users/login/?id=xxx | - | X | - | - |
+| /users/authorities/login/?id=xxx| - | X | - | - |
 | /reports/default | X | - | - | - |
 | /reports/default/?id=xxx| - | X | - | - |
 | /reports/default/unsafearea | - | X | - | - |
 | /reports/notverified/?id=xxx | - | X | X | - |
-| /reports/valid/?id=xxx | - | X | - | - |
-| /users/login/?id=xxx | - | X | - | - |
-| /users/authorities/login/?id=xxx| - | X | - | - |
-| /users/registration/?id=xxx| X | - | - | 
+| /reports/valid/?id=xxx | - | X | - | - | 
 | /improvements/?id=xxx | - | X | X | - |
 | /statistics/?id=xxx | - | X | - | - |
- //in report not valid non mi serve niente in realtà
-
 
 "X" : the operation is applicable on the resource
  
-"-" : the resource is inapplicable on the resource
+"-" : the operation is inapplicable on the resource
 
-"?" : the resource is applicable only on specific conditions that will be explained in the following pages 
+Here a quick description of the resources group:
+* */users/** represent the information related to the users, in particular their account information 
+* */report/default/** represents the resources accessible by the RU. These resources will be greatly used by the mobile app.
+* */reports/notverified/** contains all the received reports that haven't been immediately discarded by the OCR but are still on impending evaluation by a LO 
+* */reports/valid/** contains all the received reports that have been judged as valid by a LO
+* */improvements/** contains the improvents suggested to a municipality that can be retrieved by a ME
+* */statistics/** contains the statistics that can be retrieved by a ME
+
+
+###General request description 
 
 The data that will be transmitted will be composed of XML files.
 
-To recognize the user who sent a request to the server, the system will employ tokens. A token is a cripted String that is given after the login and contains a precise set of information:
-* User type information: this
-* User identifier:
-* Creation time: 
+To recognize the user who sent a request to the server, the system will employ tokens. 
+A token is a string that is provided to the user as an answer to the login, it contains information on the user and will always be part of the requests, except the login and sign up.
+The contained information will be:
 
-------------------------------------------------------------------------------------------------------------------------------------
+* User type information: the different type users (RU, LO and ME) will be identified in different ways to avoid ambiguity. Moreover the identifier for LO and ME will contain an identifier for the Municipality they work for
+* User identifier: The single user will be identified to have information on who is making the request and give the correct permission to access data.
+* Creation time: The token is a "one time only" use. Its validity is fixed and will generally last at least for a session. This permits to recycle pieces of tokens and avoids the malicious use of old ones to get data.
 
-**POST** /users/registration/?id={id}
+
+The tokens will be structured in a way that will be impossible to decipher by malevolent parties and that will guarantee legitimacy for each request.
+
+###Detail requests
+
+**POST**   &nbsp;&nbsp;&nbsp;&nbsp;/users/registration/?id={id}
 
 **Parameters**
+
 | Field | Type | Description |
 | ---- | ---- | ---- |
 |  id | String | The username of the user who is trying to register |
@@ -111,7 +127,7 @@ To recognize the user who sent a request to the server, the system will employ t
 | ---- | ---- | ---- |
 | email | String | The email of the user |
 | passwordFirst | String | The password of the user |
-| passwordSecond | String | The same password as before |
+| passwordSecond | String | The same password as before, used to confirm the first password |
 
 **Error 401** (Unauthorized)
 
@@ -119,12 +135,12 @@ To recognize the user who sent a request to the server, the system will employ t
 | ---- |  ---- |
 | ExistingUsername | Someone with the same username is already registered | 
 | DifferentPassword | The second password is different from the first one |
-| WEREALYNEED?ExistingMail | This email is already associated with another account |
+| DOWEREALYNEED?ExistingMail | This email is already associated with another account |
 
 
 ------------------------------------------------------------------------------------------------------------------------------------
 
-**GET** /users/login/?id={id}
+**GET**   &nbsp;&nbsp;&nbsp;&nbsp;/users/login/?id={id}
 
 **Parameters**
 
@@ -145,6 +161,7 @@ To recognize the user who sent a request to the server, the system will employ t
 | Field | Type | Description |
 | ---- | ---- | ---- |
 | token | String | A token that represents the user |
+| reportIDs | String[] | The list of id associated with the reports uploaded by the user |
 
 
 **Error 401** (Unauthorized)
@@ -155,7 +172,7 @@ To recognize the user who sent a request to the server, the system will employ t
 
 ------------------------------------------------------------------------------------------------------------------------------------
 
-**GET** /users/authorities/login/?id={id}
+**GET**   &nbsp;&nbsp;&nbsp;&nbsp;/users/authorities/login/?id={id}
 
 **Parameters**
 
@@ -177,7 +194,7 @@ To recognize the user who sent a request to the server, the system will employ t
 | Field | Type | Description |
 | ---- | ---- | ---- |
 | token | String | A token that represents the user and the municipality he/she works in|
-| municipalityID| String | The id of the municipality where the ME or LO works |
+| municipalityID| String | The id of the municipality where the ME or LO works, this will be a parameter for the following requests |
 
 
 **Error 401** (Unauthorized)
@@ -190,7 +207,7 @@ To recognize the user who sent a request to the server, the system will employ t
 
 ------------------------------------------------------------------------------------------------------------------------------------
 
-**POST** /reports/default
+**POST**   &nbsp;&nbsp;&nbsp;&nbsp;/reports/default
 
 
 **Fields**
@@ -215,7 +232,7 @@ To recognize the user who sent a request to the server, the system will employ t
 
 ------------------------------------------------------------------------------------------------------------------------------------
 
-**GET** /reports/default/?id={id}
+**GET**   &nbsp;&nbsp;&nbsp;&nbsp;/reports/default/?id={id}
 
 **Parameters**
 
@@ -247,32 +264,31 @@ To recognize the user who sent a request to the server, the system will employ t
 
 ------------------------------------------------------------------------------------------------------------------------------------
 
-**GET** /reports/default/unsafearea
+**GET**   &nbsp;&nbsp;&nbsp;&nbsp;/reports/default/unsafearea
 
 **Fields**
 
 | Field | Type | Description |
 | ---- | ---- | ---- |
-| id | String | The id of the report |
-| ? | ? | ? |
+| position | Object | The position, expressed in DMS, of the center of the area which the RU wants to know about |
+| &nbsp;&nbsp;&nbsp;&nbsp;latitude | String | The latitude where the vehicle was recorded to be |
+| &nbsp;&nbsp;&nbsp;&nbsp;longitude | String | The longitude where the vehicle was recorded to be |
 
 **Success 200** (request OK)
 
 | Field | Type | Description |
 | ---- | ---- | ---- |
-| ? | ? | ? |
-
-**Error 403** (forbidden)
-
-| Field | Description |
-| ---- | ---- |
-| UserNotAuthorized | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an LO or the LO's municipality was not the one of the reports requested|
-
+| pseudoReport | Object[] | The list of partial reports that can be seen bya a RU |
+| &nbsp;&nbsp;&nbsp;&nbsp;position | Object | The position, expressed in DMS, of the vehicle when the report was submitted  |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;latitude | String | The latitude where the vehicle was recorded to be |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;longitude | String | The longitude where the vehicle was recorded to be |
+| &nbsp;&nbsp;&nbsp;&nbsp;violation | Object[] | An array of the type of violation |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;violationType | String | The type of violation |
 
 ------------------------------------------------------------------------------------------------------------------------------------
 
 
-**GET** /reports/notverified/?id={id}
+**GET**   &nbsp;&nbsp;&nbsp;&nbsp;/reports/notverified/?id={id}
 
 **Parameters**
 
@@ -293,7 +309,16 @@ To recognize the user who sent a request to the server, the system will employ t
 
 | Field | Type | Description |
 | ---- | ---- | ---- |
-| ? | ? | ? |
+| reports | Object[] | A list of the valid reports of a certain municipality |
+| &nbsp;&nbsp;&nbsp;&nbsp;vehicle | Object | The vehicle information |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;licensePlate | String | The license plate of the vehicle |
+| &nbsp;&nbsp;&nbsp;&nbsp;position | Object | The position, expressed in DMS, of the vehicle when the report was submitted  |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;latitude | String | The latitude where the vehicle was recorded to be |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;longitude | String | The longitude where the vehicle was recorded to be |
+| &nbsp;&nbsp;&nbsp;&nbsp;picture | Object | Representation of the image of the vehicle |
+| &nbsp;&nbsp;&nbsp;&nbsp;violation | Object[] | An array of the type of violation |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;violationType | String | The type of violation |
+| &nbsp;&nbsp;&nbsp;&nbsp;date | String | The datetime in <span style="color:blue">dd-MM-yyyyThh:mm:ss</span> format |
 
 **Error 403** (forbidden)
 
@@ -304,7 +329,7 @@ To recognize the user who sent a request to the server, the system will employ t
 
 --------------------------------------------------------------------------------------------------------------------------------------
 
-**PUT** /reports/notverified/?id={id}
+**PUT**   &nbsp;&nbsp;&nbsp;&nbsp;/reports/notverified/?id={id}
 
 **Parameters**
 
@@ -330,9 +355,7 @@ To recognize the user who sent a request to the server, the system will employ t
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------
-
-
-**GET** /reports/valid/?id={id}
+**GET**   &nbsp;&nbsp;&nbsp;&nbsp;/reports/valid/?id={id}
 
 **Parameters**
 
@@ -352,7 +375,16 @@ To recognize the user who sent a request to the server, the system will employ t
 
 | Field | Type | Description |
 | ---- | ---- | ---- |
-| ? | ? | ? |
+| reports | Object[] | A list of the valid reports of a certain municipality |
+| &nbsp;&nbsp;&nbsp;&nbsp;vehicle | Object | The vehicle information |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;licensePlate | String | The license plate of the vehicle |
+| &nbsp;&nbsp;&nbsp;&nbsp;position | Object | The position, expressed in DMS, of the vehicle when the report was submitted  |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;latitude | String | The latitude where the vehicle was recorded to be |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;longitude | String | The longitude where the vehicle was recorded to be |
+| &nbsp;&nbsp;&nbsp;&nbsp;picture | Object | Representation of the image of the vehicle |
+| &nbsp;&nbsp;&nbsp;&nbsp;violation | Object[] | An array of the type of violation |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;violationType | String | The type of violation |
+| &nbsp;&nbsp;&nbsp;&nbsp;date | String | The datetime in <span style="color:blue">dd-MM-yyyyThh:mm:ss</span> format |
 
 **Error 403** (forbidden)
 
@@ -363,7 +395,7 @@ To recognize the user who sent a request to the server, the system will employ t
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
-**GET** /improvements/?id={id}
+**GET**   &nbsp;&nbsp;&nbsp;&nbsp;/improvements/?id={id}
 
 
 **Parameters**
@@ -383,7 +415,12 @@ To recognize the user who sent a request to the server, the system will employ t
 
 | Field | Type | Description |
 | ---- | ---- | ---- |
-| ? | ? | ? |
+| improvements | Object[] | The list of suggested improvements |
+| &nbsp;&nbsp;&nbsp;&nbsp;type | String | The of the improvement, i.e. "add a cycling lane" |
+| &nbsp;&nbsp;&nbsp;&nbsp;position | Object | The position of the improvement expresses in DMS |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;latitude | String | The latitude where the suggested improvement will be expected to be |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;longitude | String |The longitude where the suggested improvement will be expected to be  |
+| &nbsp;&nbsp;&nbsp;&nbsp;state | String | The status of the improvement, it could be "DONE" or "NOT DONE" |
 
 **Error 403** (forbidden)
 
@@ -394,7 +431,7 @@ To recognize the user who sent a request to the server, the system will employ t
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
-**PUT** /improvements/?id={id}
+**PUT**   &nbsp;&nbsp;&nbsp;&nbsp;/improvements/?id={id}
 
 
 **Parameters**
@@ -403,11 +440,6 @@ To recognize the user who sent a request to the server, the system will employ t
 | ---- | ---- | ---- |
 | id | String | The id that uniquely identifies the municipality which the LO works for |
 
-**Success 200** (request OK)
-
-| Field | Type | Description |
-| ---- | ---- | ---- |
-| ? | ? | ? |
 
 **Fields**
 
@@ -425,7 +457,7 @@ To recognize the user who sent a request to the server, the system will employ t
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
-**GET** /statistics/?id={id}
+**GET**  &nbsp;&nbsp;&nbsp;&nbsp; /statistics/?id={id}
 
 
 **Parameters**
@@ -435,17 +467,16 @@ To recognize the user who sent a request to the server, the system will employ t
 | id | String | The id that uniquely identifies the municipality which the LO works for |
 
 
-**Fields**
-
-| Field | Type | Description |
-| ---- | ---- | ---- |
-| ? | ? | ? |
-
 **Success 200** (request OK)
 
 | Field | Type | Description |
 | ---- | ---- | ---- |
-| ? | ? | ? |
+| statistics | Object[] | The various statistics |
+|&nbsp;&nbsp;&nbsp;&nbsp; firstFieldName | String | The name of the first field of the graph |
+|&nbsp;&nbsp;&nbsp;&nbsp; secondFieldName | String | The name of the second field of the graph |
+|&nbsp;&nbsp;&nbsp;&nbsp; firstFieldValues | Number[] | The values of the first field |
+|&nbsp;&nbsp;&nbsp;&nbsp; secondFieldValues | Number[] | The value of the second field |
+
 
 **Error 403** (forbidden)
 
