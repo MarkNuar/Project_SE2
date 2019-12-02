@@ -1,6 +1,6 @@
-#Architectural Description
+# Architectural Description
 
-##Overview
+## Overview
 The application is a distributed application based on the three logic layers of Presentation, that manages the user's interaction with the system, Application, which handles the logic of the system and Data, which manages the information. 
 
 Those three layers are divided onto four different physical tiers. As shown by the following image, Presentation and Data levels reside on a single tier, while Application level is split into two tiers. The first one is the Web Server, 
@@ -21,7 +21,7 @@ Finally, also communication channels between the Application server and other se
 same reasons explained above.
 
 
-##Component view
+## Component view
 ![ComponentDiagram](./images/exported/ComponentDiagram.svg) 
 The Component view diagrams represents, explicitly, only the components of the Application server, as they depict the main section of the system. 
 Below we describe in depth the function of every internal server component made ad-hoc for the system (the ones in green).
@@ -52,7 +52,7 @@ It is important to note that statistics are always crunched on request and never
 * **StatisticsDownloadManager**: this component is responsible for creating a non materialized document (which means it is not saved on server side, but only generated
 and sent) about the statistics, belonging to the requesting authority's municipality, 
 by fetching them from the StatisticsComputationManager. The resulting document is returned to the caller.
-##Deployment view
+## Deployment view
 ![DeploymentView](./images/exported/DeploymentView.svg) 
 
 This picture shows how the system should be deployed: 
@@ -88,11 +88,11 @@ The following table represents the logic structures of the resources of the syst
 "-" : the operation is inapplicable on the resource
 
 Here a quick description of the resources group:
-* */users/** represent the information related to the users, in particular their account information 
-* */report/default/** represents the resources accessible by the RU. These resources will be greatly used by the mobile app.
+* */users/** represents the information related to the users, in particular their account information 
+* */reports/default/** represents the resources accessible by the RU, in particular reports and "pseudo report" for the unsafe areas. These resources will be greatly used by the mobile app.
 * */reports/notverified/** contains all the received reports that haven't been immediately discarded by the OCR but are still on impending evaluation by a LO 
 * */reports/valid/** contains all the received reports that have been judged as valid by a LO
-* */improvements/** contains the improvents suggested to a municipality that can be retrieved by a ME
+* */improvements/** contains the improvements suggested to a municipality that can be retrieved by a ME
 * */statistics/** contains the statistics that can be retrieved by a ME
 
 
@@ -106,14 +106,16 @@ The contained information will be:
 
 * User type information: the different type users (RU, LO and ME) will be identified in different ways to avoid ambiguity. Moreover the identifier for LO and ME will contain an identifier for the Municipality they work for
 * User identifier: The single user will be identified to have information on who is making the request and give the correct permission to access data.
-* Creation time: The token is a "one time only" use. Its validity is fixed and will generally last at least for a session. This permits to recycle pieces of tokens and avoids the malicious use of old ones to get data.
+* Creation time: The token is a "one time only" use. Its validity is fixed and will generally last at least for a session, this permits to recycle pieces of tokens and avoids the malicious use of old ones to get data.
 
 
 The tokens will be structured in a way that will be impossible to decipher by malevolent parties and that will guarantee legitimacy for each request.
 
-### Detail requests
+### Detailed requests
 
 **POST**   &nbsp;&nbsp;&nbsp;&nbsp;/users/registration/?id={id}
+
+This request is used to register a user.
 
 **Parameters**
 
@@ -129,18 +131,23 @@ The tokens will be structured in a way that will be impossible to decipher by ma
 | passwordFirst | String | The password of the user |
 | passwordSecond | String | The same password as before, used to confirm the first password |
 
+**Success 201** (resource created)
+
+
 **Error 401** (Unauthorized)
 
 | Field |  Description |
 | ---- |  ---- |
 | ExistingUsername | Someone with the same username is already registered | 
 | DifferentPassword | The second password is different from the first one |
-| DOWEREALYNEED?ExistingMail | This email is already associated with another account |
+| ExistingMail | This email is already associated with another account |
 
 
 ------------------------------------------------------------------------------------------------------------------------------------
 
 **GET**   &nbsp;&nbsp;&nbsp;&nbsp;/users/login/?id={id}
+
+This request allows a RU to login. 
 
 **Parameters**
 
@@ -173,6 +180,8 @@ The tokens will be structured in a way that will be impossible to decipher by ma
 ------------------------------------------------------------------------------------------------------------------------------------
 
 **GET**   &nbsp;&nbsp;&nbsp;&nbsp;/users/authorities/login/?id={id}
+
+This request allows a ME or LO to login. 
 
 **Parameters**
 
@@ -209,6 +218,7 @@ The tokens will be structured in a way that will be impossible to decipher by ma
 
 **POST**   &nbsp;&nbsp;&nbsp;&nbsp;/reports/default
 
+This request add a report to the system.
 
 **Fields**
 
@@ -216,9 +226,9 @@ The tokens will be structured in a way that will be impossible to decipher by ma
 | ---- | ---- | ---- |
 | vehicle | Object | The vehicle information |
 | &nbsp;&nbsp;&nbsp;&nbsp;licensePlate | String | The license plate of the vehicle |
-| position | Object | The  |
-| &nbsp;&nbsp;&nbsp;&nbsp;latitude | String | The license plate of the vehicle |
-| &nbsp;&nbsp;&nbsp;&nbsp;longitude | String | The license plate of the vehicle |
+| position | Object | The position, expressed in DMS, of the vehicle when the report was submitted  |
+| &nbsp;&nbsp;&nbsp;&nbsp;latitude | String | The latitude where the vehicle was recorded to be |
+| &nbsp;&nbsp;&nbsp;&nbsp;longitude | String | The longitude where the vehicle was recorded to be |
 | picture | Object | Representation of the image of the vehicle |
 | violation | Object[] | An array of the type of violation |
 | &nbsp;&nbsp;&nbsp;&nbsp;violationType | String | The type of violation |
@@ -234,6 +244,8 @@ The tokens will be structured in a way that will be impossible to decipher by ma
 
 **GET**   &nbsp;&nbsp;&nbsp;&nbsp;/reports/default/?id={id}
 
+This request retrieves a report form the system.
+
 **Parameters**
 
 | Field | Type | Description |
@@ -246,9 +258,9 @@ The tokens will be structured in a way that will be impossible to decipher by ma
 | ---- | ---- | ---- |
 | vehicle | Object | The vehicle information |
 | &nbsp;&nbsp;&nbsp;&nbsp;licensePlate | String | The license plate of the vehicle |
-| position | Object | The  |
-| &nbsp;&nbsp;&nbsp;&nbsp;latitude | String | The license plate of the vehicle |
-| &nbsp;&nbsp;&nbsp;&nbsp;longitude | String | The license plate of the vehicle |
+| position | Object | The position, expressed in DMS, of the vehicle when the report was submitted  |
+| &nbsp;&nbsp;&nbsp;&nbsp;latitude | String | The latitude where the vehicle was recorded to be |
+| &nbsp;&nbsp;&nbsp;&nbsp;longitude | String | The longitude where the vehicle was recorded to be |
 | picture | Object | Representation of the image of the vehicle |
 | violation | Object[] | An array of the type of violation |
 | &nbsp;&nbsp;&nbsp;&nbsp;violationType | String | The type of violation |
@@ -258,13 +270,15 @@ The tokens will be structured in a way that will be impossible to decipher by ma
 
 | Field | Description |
 | ---- | ---- |
-| UserNotAuthorized | The id of the report and the token of the user have been analyzed. It was found that the user was not the one who submitted the report and as such he/she was not permitted to see report  |
+| UserNotAuthorized | The id of the report and the token of the user have been analyzed. It was found that the user was not the one who submitted the report and as such the RU was not permitted to see the report  |
 
 
 
 ------------------------------------------------------------------------------------------------------------------------------------
 
 **GET**   &nbsp;&nbsp;&nbsp;&nbsp;/reports/default/unsafearea
+
+This request retrieves the type of violations in certain area.
 
 **Fields**
 
@@ -290,19 +304,13 @@ The tokens will be structured in a way that will be impossible to decipher by ma
 
 **GET**   &nbsp;&nbsp;&nbsp;&nbsp;/reports/notverified/?id={id}
 
+This request retrieves the reports that are waiting for validation in a certain municipality.
+
 **Parameters**
 
 | Field | Type | Description |
 | ---- | ---- | ---- |
 | id | String | The id that uniquely identifies the municipality which the LO works for |
-
-
-**Fields**
-
-| Field | Type | Description |
-| ---- | ---- | ---- |
-| id | String | The id of the report |
-| ? | ? | ? |
 
 
 **Success 200** (request OK)
@@ -331,6 +339,8 @@ The tokens will be structured in a way that will be impossible to decipher by ma
 
 **PUT**   &nbsp;&nbsp;&nbsp;&nbsp;/reports/notverified/?id={id}
 
+This request modifies the status of a report. 
+
 **Parameters**
 
 | Field | Type | Description |
@@ -357,6 +367,8 @@ The tokens will be structured in a way that will be impossible to decipher by ma
 ----------------------------------------------------------------------------------------------------------------------------------------
 **GET**   &nbsp;&nbsp;&nbsp;&nbsp;/reports/valid/?id={id}
 
+This request gets all the valid reports in a certain municipality.
+
 **Parameters**
 
 | Field | Type | Description |
@@ -369,7 +381,8 @@ The tokens will be structured in a way that will be impossible to decipher by ma
 | Field | Type | Description |
 | ---- | ---- | ---- |
 | id | String | The id of the report |
-| ? | ? | ? |
+| requestType | String | The type of request issued (i.e. "by area") |
+| requestField| String | The field that contains precise information on the request |
 
 **Success 200** (request OK)
 
@@ -397,6 +410,7 @@ The tokens will be structured in a way that will be impossible to decipher by ma
 
 **GET**   &nbsp;&nbsp;&nbsp;&nbsp;/improvements/?id={id}
 
+This request retrieves all the suggested improvements in a certain municipality.
 
 **Parameters**
 
@@ -404,12 +418,6 @@ The tokens will be structured in a way that will be impossible to decipher by ma
 | ---- | ---- | ---- |
 | id | String | The id that uniquely identifies the municipality which the ME works for |
 
-
-**Fields**
-
-| Field | Type | Description |
-| ---- | ---- | ---- |
-| ? | ? | ? |
 
 **Success 200** (request OK)
 
@@ -433,6 +441,7 @@ The tokens will be structured in a way that will be impossible to decipher by ma
 
 **PUT**   &nbsp;&nbsp;&nbsp;&nbsp;/improvements/?id={id}
 
+This request modifies the status of an improvement from "not done" to "done".
 
 **Parameters**
 
@@ -459,6 +468,7 @@ The tokens will be structured in a way that will be impossible to decipher by ma
 
 **GET**  &nbsp;&nbsp;&nbsp;&nbsp; /statistics/?id={id}
 
+This  request gets the available statistics on a certain municipality.
 
 **Parameters**
 
@@ -490,6 +500,10 @@ The tokens will be structured in a way that will be impossible to decipher by ma
 
 
 
-##Selected architectural styles and patterns
+## Selected architectural styles and patterns
+ xml yadiyada
+## Other design decisions
+security yadiyada
 
-##Other design decisions
+
+? add id on improvements, reports, municipality
