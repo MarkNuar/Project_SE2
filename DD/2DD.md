@@ -62,17 +62,17 @@ Every other request received from the clients (both the Web and Mobile applicati
 * The Application server and the Database server are deployed on two different physical nodes, in order to have more security for data and to achieve a decoupled architecture. 
 
 
-##Runtime view
+## Runtime view
 
-##Component interfaces
+## Component interfaces
 
-###REST table of resources
+### REST table of resources
 
 The following table represents the logic structures of the resources of the system and the operation that can be done on them.
 
 | URI | POST | GET | PUT | DELETE |
 | ---- | ---- | ---- | ---- | ---- |
-| /users/registration/?id=xxx| X | - | - |
+| /users/registration/?id=xxx| X | - | - | - |
 | /users/login/?id=xxx | - | X | - | - |
 | /users/authorities/login/?id=xxx| - | X | - | - |
 | /reports/default | X | - | - | - |
@@ -96,7 +96,7 @@ Here a quick description of the resources group:
 * */statistics/** contains the statistics that can be retrieved by a ME
 
 
-###General request description 
+### General request description 
 
 The data that will be transmitted will be composed of XML files.
 
@@ -111,7 +111,7 @@ The contained information will be:
 
 The tokens will be structured in a way that will be impossible to decipher by malevolent parties and that will guarantee legitimacy for each request.
 
-###Detail requests
+### Detail requests
 
 **POST**   &nbsp;&nbsp;&nbsp;&nbsp;/users/registration/?id={id}
 
@@ -222,7 +222,7 @@ The tokens will be structured in a way that will be impossible to decipher by ma
 | picture | Object | Representation of the image of the vehicle |
 | violation | Object[] | An array of the type of violation |
 | &nbsp;&nbsp;&nbsp;&nbsp;violationType | String | The type of violation |
-| date | String | The datetime in <span style="color:blue">dd-MM-yyyyThh:mm:ss</span> format |
+| date | String | The datetime in <span style="color:lightgreen">dd-MM-yyyyThh:mm:ss</span> format |
 
 **Success 201** (resource created)
 
