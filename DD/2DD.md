@@ -36,13 +36,16 @@ back to the clients. It is relevant to note that temporary tokens are adopted, i
         * retrieving of the municipality where the report has been created, by employing the MS apis.
         * recognizing the car's plate in the picture, by employing the OCRS apis. In case of an unrecognizable plate, the report status is set to "NOTVALID" by default, otherwise is set to "NOTVERIFIED" by default(which means that a local officer has still to prove its validity).
         * saving the report in the system's database.
-    * **ReportValidator**: this component is responsible for the modification of status of a report, by changing if from "NOTVERIFIED" to "VALID" or "NOTVALID" according to the request sent by the local officer. 
-* **ReportMiner**: this component is responsible for obtaining reports by querying the database. It is crucial to note that the request of the authority can come from directly from the Router of from other components like the ImprovementsManager and StatisticsComputationManager. In both cases, authority's municipality is used for filtering reports. Various form of mining can be performed, in particular it's is possible to mine:
+    * **ReportValidator**: this component is responsible for two main operations:
+        * fetching, from the database, of reports with status set to "NOTVERIFIED";
+        * modification of status of a report, by changing if from "NOTVERIFIED" to "VALID" or "NOTVALID" according to the request sent by the local officer. 
+* **ReportMiner**: this component is responsible for obtaining reports by querying the database. It is crucial to note that the request of the authority can come from directly from the Router of from other components like the ImprovementsManager and StatisticsComputationManager. In both cases, authority's municipality is used for filtering reports. Only reports with status set to "VALID" are fetched. Various form of mining can be performed, in particular it's is possible to mine:
     * All: all the reports produced in the same municipality of the authority, who has issued the request, are returned.
     * By Type: between all the reports produced in the same municipality of the authority, who has issued the request, only those which have the given violation's type are returned.
     * By Date: between all the reports produced in the same municipality of the authority, who has issued the request, only those which were composed in the given date are returned.
     * By Time: between all the reports produced in the same municipality of the authority, who has issued the request, only those which were composed in the given time, regardless the date, are returned.
     * By Area: between all the reports produced in the same municipality of the authority, who has issued the request, only those which were composed in the given area, defined by a center and a radius, are returned.
+    
 * **ImprovementManager**: this component is responsible for getting the possible improvements belonging to the requesting authority's municipality and for setting their status. In order to determine the possible improvements, it crosses the data
 coming from the external MAS and from the MineReports component. When a new improvement is determined, it's status is set by default to "NOTDONE" and it is saved in the database. When no further improvements can be discovered, all those which have the status set to "NOTDONE" 
 are returned to the requester. Moreover, through this component, an authority can set the status of a specific improvement to "DONE", after fetching all the possible one as described before.  
@@ -60,7 +63,7 @@ This picture shows how the system should be deployed:
 * The Web server, deployed on its physical node, has the purpose of caching static contents (which are, for example, .html and .css files) for the Web application. 
 Every other request received from the clients (both the Web and Mobile application) is automatically forwarded to the Application server. 
 * The Application server and the Database server are deployed on two different physical nodes, in order to have more security for data and to achieve a decoupled architecture. 
-
+Other external services has been ignored for this view.
 
 ## Runtime view
 

@@ -361,7 +361,7 @@ In this section we show that the requirements ensure the satisfaction of the goa
     * [D14] When using the S2B, the authority's device is always connected to internet
     * [R2] The system must allow a municipality to create account for its employees and local officers
     * [R4] A users, municipal employee or local officer must be uniquely identified by his/her username
-    * [R18] When mining the information, a municipal employee or a local officer can access only to violations type of reports occurred in his/her municipality
+    * [R18] When mining the information, a municipal employee or a local officer can access only to violations type and date and time of reports occurred in his/her municipality
     * [R19] When mining the information, a municipal employee or a local officer can filter reports by area, date, time or type of violation
 * [G5] The system must allow verified authorities to retrieve statistics about valid reports
     * [D5] The internet connection works properly without failure
@@ -387,8 +387,8 @@ In this section we show that the requirements ensure the satisfaction of the goa
     * [R4] A users, municipal employee or local officer must be uniquely identified by his/her username    
     * [R23] When getting improvements, a municipal employee can access only to data of reports occurred in his/her municipality
     * [R24] The system must be able to retrieve information about accidents from the MAS (municipal accident system)
-    * [R25] The system must be able to identify the possible unsafe areas of the municipal employee or local officer’s municipality
-    * [R26] The system must be able to suggest possible interventions on a specific unsafe area
+    * [R25] The system must be able to identify the possible unsafe areas of the municipal employee or local officer’s municipality from the reports of violations and data coming the MAS
+
 * [G7] The system must allow local officer to set the validity of a report sent by the user
     * [D5] The internet connection works properly without failure
     * [D8] Every location has one and only one municipality
@@ -413,7 +413,7 @@ The following table keeps track of the relation between Use Cases and Requiremen
 |Get My Reports |[R15]|
 |Get Violations Type By Area|[R16],[R17]|
 |Authority Log-In|[R3],[R4]|
-|Get Improvements|[R23],[R24],[R25],[R26]|
+|Get Improvements|[R23],[R24],[R25]|
 |See Statistics|[R21],[R22]|
 |Mine Reports By Type|[R18],[R19]|
 |Mine Reports By Date|[R18],[R19]|

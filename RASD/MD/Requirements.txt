@@ -22,7 +22,7 @@ GetReportsTypeByArea
 [R16] When getting the valid reports by area, a user can choose a position, or automatically get his/her from the GPS
 [R17]When getting the valid reports by area, the system must provide all the valid reports near the position given by the user and display their violation type through the MS
 MineReports
-[R18] When mining the information, a municipal employee or a local officer can access only to violations type of reports occurred in his/her municipality
+[R18] When mining the information, a municipal employee or a local officer can access only to violations type and date and time of reports occurred in his/her municipality
 [R19] When mining the information, a municipal employee or a local officer can filter reports by area, date, time or type of violation
 ValidateReports
 [R20] A local officer must be able to mark a report as valid or not valid
@@ -32,6 +32,4 @@ RetrieveStatistics
 GetImprovements
 [R23] When getting improvements, a municipal employee can access only to data of reports occurred in his/her municipality
 [R24] The system must be able to retrieve information about accidents from the MAS (municipal accident system)
-[R25] The system must be able to identify the possible unsafe areas of the municipal employee or local officer’s municipality
-[R26] The system must be able to suggest possible interventions on a specific unsafe area
-
+[R25] The system must be able to identify the possible unsafe areas of the municipal employee or local officer’s municipality from the reports of violations and data coming the MAS
