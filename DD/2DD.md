@@ -37,8 +37,8 @@ back to the clients. It is relevant to note that temporary tokens are adopted, i
         * recognizing the car's plate in the picture, by employing the OCRS apis. In case of an unrecognizable plate, the report status is set to "NOTVALID" by default, otherwise is set to "NOTVERIFIED" by default(which means that a local officer has still to prove its validity).
         * saving the report in the system's database.
     * **ReportValidator**: this component is responsible for two main operations:
-        * fetching, from the database, of reports with status set to "NOTVERIFIED";
-        * modification of status of a report, by changing if from "NOTVERIFIED" to "VALID" or "NOTVALID" according to the request sent by the local officer. 
+        * fetching, from the database, of reports with status set to "NOTVERIFIED".
+        * modification of status of a set of report, by changing if from "NOTVERIFIED" to "VALID" or "NOTVALID" according to the request sent by the local officer. Then it saves them in the database and sends them to the TS, responsible for issuing traffic tickets.
 * **ReportMiner**: this component is responsible for obtaining reports by querying the database. It is crucial to note that the request of the authority can come from directly from the Router of from other components like the ImprovementsManager and StatisticsComputationManager. In both cases, authority's municipality is used for filtering reports. Only reports with status set to "VALID" are fetched. Various form of mining can be performed, in particular it's is possible to mine:
     * All: all the reports produced in the same municipality of the authority, who has issued the request, are returned.
     * By Type: between all the reports produced in the same municipality of the authority, who has issued the request, only those which have the given violation's type are returned.

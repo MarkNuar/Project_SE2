@@ -256,7 +256,7 @@ A local officer in patrol is tasked to give fines during his work shift but usua
 | | 1. The ME/LO chooses the "Mine By Area" option. |
 | | 1. The ME/LO decides the address, or selects a point on a map provided by the MS, of the violations to retrieve and select the radius of the search. |
 | | 1. The system provides the ME/LO with all the violations in his/her municipality that were issued within the specified radius. |
-| |1. Only the violation types are shown, in a list on the left, starting from the newest one. <br>A map with violation types, shown as points, is displayed on the right, thanks to the MS.!
+| | 1. Only the violation types are shown, in a list on the left, starting from the newest one. <br>A map with violation types, shown as points, is displayed on the right, thanks to the MS.!
 !Exit Conditions | The ME/LO is able to search through the violations and see when they happened !
 !Exceptions | 1. There are no reports issued in the specific area. <br> In the case 1 an error message is displayed, saying "There are no Violations to be displayed", and the ME/LO is taken back to the home page. !
 #### Validate Reports
@@ -268,9 +268,9 @@ A local officer in patrol is tasked to give fines during his work shift but usua
 !Event Flow | 1. The LO clicks on the "Validate Report" function. |
 | | 1. The system provides the LO with all the reports of his/her municipality still not verified. |
 | | 1. The reports are shown starting from the newest one.|
-| | 1. The LO clicks on one report and is able to validate or invalidate it. |
-| | 1. Eventually the LO uses the report data to create a new ticket and add it to the TS. !
-!Exit Conditions | The LO is able to browse through the reports and validate or invalidate them!
+| | 1. The LO clicks on one or more reports and is able to validate or invalidate them. |
+| | 1. The system sends the reports set as valid to the TS !
+!Exit Conditions | The LO successfully set the status of report not validated !
 !Exceptions | 1. There are no reports in LO's municipality. <br> In the case 1 an error message is displayed, saying "There are no Reports to be displayed", and the LO is taken back to the home page. !
 ### Sequence diagrams 
 
