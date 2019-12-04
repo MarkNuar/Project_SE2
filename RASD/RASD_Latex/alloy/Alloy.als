@@ -1,4 +1,4 @@
--------------- SIGNATURE ------------------
+------------------ SIGNATURE ----------------------
 
 sig Position {
 	latitude: one Int,
@@ -16,10 +16,10 @@ sig Municipality	{
 
 sig Picture {}
 
--- It represents the violation type that can be associated to a report
+-- It represents each violation type that can be associated to a report
 abstract sig ViolationType {}
 
--- It represents the set of violation associated to a report 
+-- It represents the set of violations associated to a report 
 -- In each report there must be at least one type of violation
 sig Violation {
 	violations: some ViolationType
@@ -110,7 +110,7 @@ sig Ticket
 	report.status = Valid	
 }
 
--------------------- FACT -----------------------------
+---------------------- FACT -----------------------------
 
 -- Each username is unique
 fact UniqueUsername 
@@ -369,6 +369,14 @@ assert NoOverlapMunicipalityCenter
 }
 
 check NoOverlapMunicipalityCenter
+
+-- There are no reports reported by authority account
+assert NoAuthorityReport
+{
+	no r: Report, a:Authority | r.segnalatingUser.username = a.username
+}
+
+check NoAuthorityReport
 
 ---------------------- PREDICATE --------------------------------
 
