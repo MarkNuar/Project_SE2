@@ -87,11 +87,47 @@ generated improvements, saved in the database, still not completed. Finally the 
 * **Functional mobile app for RU**: this feature is realized through the implementation, testing and integration of the *UserMobileApp*;
 * **Functional web app for LO**: this feature is realized through the implementation, testing and integration of the *LocalOfficerWebApp*;
 * **Functional web app for ME**: this feature is realized through the implementation, testing and integration of the *MunicipalEmployeeWebApp*;
-
-
-
-
-
 It is crucial to note that, for each feature, all the described components have to be integrated and unit tested. 
 
-The integration is driven by the following diagrams, which describes the dependencies between all the components of the system:
+The integration is driven by the following diagrams, which describes the dependencies between all the components of the system. 
+The arrow relation from a component A to a component B indicate that A "uses" B. So, in order to integrate and unit test component A,
+component B must be already integrated and unit tested. Finally, components that are not used by no other components do not need to be
+integrated and unit tested (in our case the components highlighted in red, which are the already implemented ones, are be 
+the starting points for the integration and unit testing).
+
+* ReportReceiverIntegration
+
+![ReportReceiverIntegration](images/integrationDependecies/ReportReceiverIntegration.svg) 
+
+* DatabaseAccessorsIntegration
+
+![DatabaseAccessorsIntegration](./images/integrationDependecies/DatabaseAccessorsIntegration.svg) 
+
+* TicketServiceAccessorsIntegration
+
+![TicketServiceAccessorsIntegration](./images/integrationDependecies/TicketServiceAccessorsIntegration.svg) 
+
+* ImprovementManagerIntegration
+
+![ImprovementManagerIntegration](./images/integrationDependecies/ImprovementManagerIntegration.svg) 
+
+* ReportMinerAccessorsIntegration
+
+![ReportMinerAccessorsIntegration](./images/integrationDependecies/ReportMinerAccessorsIntegration.svg) 
+
+* StatisticsDownloadManagerIntegration
+
+![StatisticsDownloadManagerIntegration](./images/integrationDependecies/StatisticsDownloadManagerIntegration.svg) 
+
+* RouterIntegration
+
+![RouterIntegration](./images/integrationDependecies/RouterIntegration.svg) 
+
+* WebServerIntegration
+
+![WebServerIntegration](./images/integrationDependecies/WebServerIntegration.svg) 
+
+* AppsIntegration
+
+![AppsIntegration](./images/integrationDependecies/AppsIntegration.svg) 
+
