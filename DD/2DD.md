@@ -1,7 +1,7 @@
 # Architectural Description
 
 ## Overview
-The application is a distributed application based on the three logic layers of Presentation, that manages the user's interaction with the system, Application, which handles the logic of the system and Data, which manages the information. 
+The product is a distributed application based on the three logic layers of Presentation, that manages the user's interaction with the system, Application, which handles the logic of the system and Data, which manages the information. 
 
 Those three layers are divided onto four different physical tiers. As shown by the following image, Presentation and Data levels reside on a single tier, while Application level is split into two tiers. The first one is the Web Server, 
 responsible for the forwarding of requests from the clients and for the caching of static contents, while the second one is the Application Server, which contains the logic of the system. 
@@ -10,31 +10,31 @@ responsible for the forwarding of requests from the clients and for the caching 
 
 In order to maximize the scalability of our system, both the Web and Application server follow a scale-out approach: performances improvement is obtained through nodes replication. 
 Because of this approach, load-balancing system are used in order to distribute the working load among the various nodes. 
-All the nodes of the Application Server use a "share everything" configuration, because there is only one, shared database with one point of access. 
+All the nodes of the Application Server use a "share everything" configuration, because there is only one shared database with one point of access. 
 Moreover, the Data layer is accomplished by exploiting and external DBMS service already available on the market. In this way we avoid devoting time on difficult
-problems about data replication and consistency, which are already solved by the existing well tested database systems. 
+problems about data replication and consistency, which are already solved by the existing and well tested database systems. 
 
-Every communication channel is secured by using firewalls. In this way, the entire Application layer is secured in a DMZ. In this way attacks and intrusions from malicious 
-clients are prevented. It is important to note that, because the DBMS is located on a different tier with respect to the Application Server, a firewall between them 
-can improve the security of the system against malicious attacks coming from the data base, especially in our case of an external bought DBMS. 
-Finally, also communication channels between the Application server and other services, like the Ticket service, Municipal Accident service and Map service, are secured for the 
+Every communication channel is secured by using firewalls. In this way, the entire Application layer is secured in a DMZ, so attacks and intrusions from malicious 
+clients will be prevented. It is important to note that, because the DBMS is located on a different tier with respect to the Application Server, a firewall between them 
+can improve the security of the system against malicious attacks coming from the data base, especially in the case of an external DBSM like in our solution. 
+Finally, both communication channels between the Application server and other services, like the Ticket service, are secured for the 
 same reasons explained above.
 
 
 ## Component view
 ![ComponentDiagram](./images/exported/ComponentDiagram.svg) 
 The Component view diagrams represents, explicitly, only the components of the Application server, as they depict the main section of the system. 
-Below we describe in depth the function of every internal server component made ad-hoc for the system (the ones in green).
-* **Router**: receives HTTP over SSL/TLS requests following the Rest paradigm (see below in the "Component interface" section for further details) and forward them to the others internal components of the Application server. Then forwards the replies
+Below we will describe in depth the function of every internal server component made ad-hoc for the system (the ones in green).
+* **Router**: receives HTTP over SSL/TLS requests following the REST paradigm (see below in the "Component interface" section for further details) and forward them to the others internal components of the Application server. Then forwards the replies
 back to the clients. It is relevant to note that temporary tokens are adopted, in order to define which functionalities are accessible for each client. Every client receives its personal token after the login procedure. 
 * **UserManager**:
     * **LoginManager**: this component is responsible for granting access to registered users. In particular, the component receives the access credentials and returns an unique token used for further communication
     by the user.
-    * **SignUpManager**: this component is responsible for the registration of unregistered users. In particular is receives the new access credentials and save them in the system's database. 
+    * **SignUpManager**: this component is responsible for the registration of unregistered users. In particular it receives the new access credentials and save them in the system's database. 
 * **ReportManager**:
-    * **ReportReceiver**: this component is responsible for receiving the data of a new report and storing them in the database. In particular it takes care of the following tasks:
-        * retrieving of the municipality where the report has been created, by employing the MS apis.
-        * recognizing the car's plate in the picture, by employing the OCRS apis. In case of an unrecognizable plate, the report status is set to "NOTVALID" by default, otherwise is set to "NOTVERIFIED" by default(which means that a local officer has still to prove its validity).
+    * **ReportReceiver**: this component is responsible for receiving the data of new reports and storing them in the database. In particular it takes care of the following tasks:
+        * employ the MS apis to retrieve the information about which municipality the report has been created from.
+        * recognizing the car's plate in the picture, by employing the OCRS apis. In case of an unrecognizable plate, the report status will be set to "NOTVALID" by default, otherwise it will be "NOTVERIFIED" (which means that a local officer has still to prove its validity).
         * saving the report in the system's database.
     * **ReportValidator**: this component is responsible for two main operations:
         * fetching, from the database, of reports with status set to "NOTVERIFIED".
@@ -42,8 +42,8 @@ back to the clients. It is relevant to note that temporary tokens are adopted, i
 * **ReportMiner**: this component is responsible for obtaining reports by querying the database. It is crucial to note that the request of the authority can come from directly from the Router of from other components like the ImprovementsManager and StatisticsComputationManager. In both cases, authority's municipality is used for filtering reports. Only reports with status set to "VALID" are fetched. Various form of mining can be performed, in particular it's is possible to mine:
     * All: all the reports produced in the same municipality of the authority, who has issued the request, are returned.
     * By Type: between all the reports produced in the same municipality of the authority, who has issued the request, only those which have the given violation's type are returned.
-    * By Date: between all the reports produced in the same municipality of the authority, who has issued the request, only those which were composed in the given date are returned.
-    * By Time: between all the reports produced in the same municipality of the authority, who has issued the request, only those which were composed in the given time, regardless the date, are returned.
+    * By Date: between all the reports produced in the same municipality of the authority, who has issued the request, only those which were composed on the given date are returned.
+    * By Time: between all the reports produced in the same municipality of the authority, who has issued the request, only those which were composed on the given time, regardless the date, are returned.
     * By Area: between all the reports produced in the same municipality of the authority, who has issued the request, only those which were composed in the given area, defined by a center and a radius, are returned.
     
 * **ImprovementManager**: this component is responsible for getting the possible improvements belonging to the requesting authority's municipality and for setting their status. In order to determine the possible improvements, it crosses the data
@@ -69,7 +69,11 @@ Other external services has been ignored for this view.
 
 ## Component interfaces
 
-### REST table of resources
+### Web server interface and Report interface
+
+For the Web server interface and the Report interface a RESTful api has been chosen. Since both interfaces are a vital part of the system, and the components that they connect belongs to the part that will be implemented, they will be discussed in depth.
+
+#### REST table of resources
 
 The following table represents the logic structures of the resources of the system and the operation that can be done on them.
 
@@ -99,7 +103,7 @@ Here a quick description of the resources group:
 * */statistics/** contains the statistics that can be retrieved by a ME
 
 
-### General request description 
+#### General request description 
 
 The data that will be transmitted will be composed of XML files.
 
@@ -114,7 +118,7 @@ The contained information will be:
 
 The tokens will be structured in a way that will be impossible to decipher by malevolent parties and that will guarantee legitimacy for each request.
 
-### Detailed requests
+#### Detailed requests
 
 **POST**   &nbsp;&nbsp;&nbsp;&nbsp;/users/registration/?id={id}
 
@@ -221,7 +225,7 @@ This request allows a ME or LO to login.
 
 **POST**   &nbsp;&nbsp;&nbsp;&nbsp;/reports/default
 
-This request add a report to the system.
+This request adds a report to the system.
 
 **Fields**
 
@@ -498,7 +502,49 @@ This  request gets the available statistics on a certain municipality.
 | UserNotAuthorized | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's  municipality was not the one of the reports requested  |
 
 
+### TS interface and MAS interface
 
+Since both the TS and the MAS are optional external services which are not completely specified on the outer part of the system, we will assume that the communication interface will be provided trough RESTful api
+given the fact that a stateless communication will ease the load on both our system and the Municipality's system.
+
+Here the structure of what will be expected to be exchanged between our system and the municipality's ones:
+
+#### Request of data about accidents
+
+| Field | Type | Description |
+| ---- | ---- | ---- |
+| statistics | Object[] | The various statistics |
+
+#### Request of data about tickets
+
+| Field | Type | Description |
+| ---- | ---- | ---- |
+| statistics | Object[] | The various statistics |
+
+#### Forwarding of data about valid reports
+
+| Field | Type | Description |
+| ---- | ---- | ---- |
+| statistics | Object[] | The various statistics |
+
+### DBMS interface
+
+(va specificato da qualche parte che il DB userà quello detto da Monica)
+
+The communication between the database and our system will be handled by a class
+
+uso del DB
+
+-creazione nuova tabella
+- inserimento di nuovi report
+- ricerca di report non validati
+- modifica di report non validati con la sostituzione a report validi
+- ricerca di report validi  
+
+
+### Map interface 
+
+ 
 
 
 
