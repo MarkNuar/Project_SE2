@@ -240,6 +240,12 @@ This request adds a report to the system.
 | violation | Object[] | An array of the type of violation |
 | &nbsp;&nbsp;&nbsp;&nbsp;violationType | String | The type of violation |
 | date | String | The datetime in <span style="color:lightgreen">dd-MM-yyyyThh:mm:ss</span> format |
+| highlightVertexes | Object | The coordinates on the picture of where the license plate is located |
+| &nbsp;&nbsp;&nbsp;&nbsp;vertexOne | Number[] | The coordinates of the first vertex |
+| &nbsp;&nbsp;&nbsp;&nbsp;vertexTwo | Number[] | The coordinates of the second vertex |
+| &nbsp;&nbsp;&nbsp;&nbsp;vertexThree | Number[] | The coordinates of the third vertex |
+| &nbsp;&nbsp;&nbsp;&nbsp;vertexFour | Number[] | The coordinates of the fourth vertex |
+
 
 **Success 201** (resource created)
 
@@ -325,6 +331,7 @@ This request retrieves the reports that are waiting for validation in a certain 
 | Field | Type | Description |
 | ---- | ---- | ---- |
 | reports | Object[] | A list of the valid reports of a certain municipality |
+| &nbsp;&nbsp;&nbsp;&nbsp;reportId | String | The string that uniquely identifies a report |
 | &nbsp;&nbsp;&nbsp;&nbsp;vehicle | Object | The vehicle information |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;licensePlate | String | The license plate of the vehicle |
 | &nbsp;&nbsp;&nbsp;&nbsp;position | Object | The position, expressed in DMS, of the vehicle when the report was submitted  |
@@ -387,7 +394,6 @@ This request gets all the valid reports in a certain municipality.
 
 | Field | Type | Description |
 | ---- | ---- | ---- |
-| id | String | The id of the report |
 | requestType | String | The type of request issued (i.e. "by area") |
 | requestField| String | The field that contains precise information on the request |
 
@@ -396,6 +402,7 @@ This request gets all the valid reports in a certain municipality.
 | Field | Type | Description |
 | ---- | ---- | ---- |
 | reports | Object[] | A list of the valid reports of a certain municipality |
+| &nbsp;&nbsp;&nbsp;&nbsp;reportId | String | The string that uniquely identifies a report |
 | &nbsp;&nbsp;&nbsp;&nbsp;vehicle | Object | The vehicle information |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;licensePlate | String | The license plate of the vehicle |
 | &nbsp;&nbsp;&nbsp;&nbsp;position | Object | The position, expressed in DMS, of the vehicle when the report was submitted  |
@@ -504,28 +511,55 @@ This  request gets the available statistics on a certain municipality.
 
 ### TS interface and MAS interface
 
-Since both the TS and the MAS are optional external services which are not completely specified on the outer part of the system, we will assume that the communication interface will be provided trough RESTful api
-given the fact that a stateless communication will ease the load on both our system and the Municipality's system.
+Since both the TS and the MAS are optional external services which are not completely specified it will be assumed that their communication interfaces will be provided trough RESTful api
+given the fact that a stateless communication will ease the load on both our system and the Municipality's system. There will be assumptions only on the expected response for the GET requests and for the POST only the field of the message will be described.
+Both the URIs, controls on accesses and security will be overlooked. 
 
-Here the structure of what will be expected to be exchanged between our system and the municipality's ones:
 
-#### Request of data about accidents
+#### Request of data about accidents from the MAS
 
-| Field | Type | Description |
-| ---- | ---- | ---- |
-| statistics | Object[] | The various statistics |
-
-#### Request of data about tickets
+This request will be structured as a GET and the expected success message will be structured as follows. 
 
 | Field | Type | Description |
 | ---- | ---- | ---- |
-| statistics | Object[] | The various statistics |
+| accidents | Object[] | The list of accidents that a Municipality can provide |
+| &nbsp;&nbsp;&nbsp;&nbsp;date | String | The datetime in <span style="color:lightgreen">dd-MM-yyyyThh:mm:ss</span> format |
+| &nbsp;&nbsp;&nbsp;&nbsp;position | Object | The position, expressed in DMS, where the accident happened |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;latitude | String | The latitude where the accident was recorded to have happened |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;longitude | String | The longitude where the vehicle was recorded to have happened |
+| &nbsp;&nbsp;&nbsp;&nbsp;vehicles | Object[] | The vehicles that were involved in the accident |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;licensePlate | String | The license plate of the vehicle |
 
-#### Forwarding of data about valid reports
+#### Request of data about tickets from the TS
+
+This request will be structured as a GET, the expected success message will be structured as follows.
 
 | Field | Type | Description |
 | ---- | ---- | ---- |
-| statistics | Object[] | The various statistics |
+| tickets | Object[] | The tickets issued in a certain Municipality |
+| &nbsp;&nbsp;&nbsp;&nbsp;vehicle | Object | The vehicle information |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;licensePlate | String | The license plate of the vehicle |
+| &nbsp;&nbsp;&nbsp;&nbsp;position | Object | The position, expressed in DMS, of the vehicle when the ticket was issued  |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;latitude | String | The latitude where the vehicle was recorded to be |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;longitude | String | The longitude where the vehicle was recorded to be |
+| &nbsp;&nbsp;&nbsp;&nbsp;violation | Object[] | An array of the type of violation |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;violationType | String | The type of violation |
+| &nbsp;&nbsp;&nbsp;&nbsp;date | String | The datetime in <span style="color:lightgreen">dd-MM-yyyyThh:mm:ss</span> format |
+
+#### Forwarding of data about valid reports to the TS
+
+The request will be POST, the content of the sent message will be as follows.
+
+| Field | Type | Description |
+| ---- | ---- | ---- |
+| vehicle | Object | The vehicle information |
+| &nbsp;&nbsp;&nbsp;&nbsp;licensePlate | String | The license plate of the vehicle |
+| position | Object | The position, expressed in DMS, of the vehicle when the ticket was issued  |
+| &nbsp;&nbsp;&nbsp;&nbsp;latitude | String | The latitude where the vehicle was recorded to be |
+| &nbsp;&nbsp;&nbsp;&nbsp;longitude | String | The longitude where the vehicle was recorded to be |
+| violation | Object[] | An array of the type of violation |
+| &nbsp;&nbsp;&nbsp;&nbsp;violationType | String | The type of violation |
+| date | String | The datetime in <span style="color:lightgreen">dd-MM-yyyyThh:mm:ss</span> format |
 
 ### DBMS interface
 
