@@ -51,6 +51,8 @@ environment.
 * VT = Violation type;
 * DMZ = demilitarized zone
 * DBMS = database management system
+* I&T = implementation and testing
+* DMS = degrees minutes seconds
 
 ### Abbreviation
 
