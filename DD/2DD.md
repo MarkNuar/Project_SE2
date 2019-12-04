@@ -6,7 +6,7 @@ The product is a distributed application based on the three logic layers of Pres
 Those three layers are divided onto four different physical tiers. As shown by the following image, Presentation and Data levels reside on a single tier, while Application level is split into two tiers. The first one is the Web Server, 
 responsible for the forwarding of requests from the clients and for the caching of static contents, while the second one is the Application Server, which contains the logic of the system. 
 
-![SimplfiedDeploymentView](./images/exported/SimplifiedDeploymentView.svg) 
+![SimplifiedDeploymentView](./images/exported/SimplifiedDeploymentView.svg) 
 
 In order to maximize the scalability of our system, both the Web and Application server follow a scale-out approach: performances improvement is obtained through nodes replication. 
 Because of this approach, load-balancing system are used in order to distribute the working load among the various nodes. 
