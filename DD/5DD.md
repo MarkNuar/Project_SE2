@@ -46,8 +46,8 @@ have to be developed in parallel.
 
 | Phase of I&T | Component | Features |
 | ---- | ---- | ---- |
-| 1 | ReportReceiver | Add a Report for RU |
-| 1 | ReportMiner | Retrieve Reports for RU, Mine Reports for ME/LO, Get unsafe areas for RU |
+| 1 | ReportReceiver | Add a report for RU |
+| 1 | ReportMiner | Retrieve reports for RU, Mine reports for ME/LO, Get unsafe areas for RU |
 | 2 | ReportValidator | Validate reports for LO |
 | 2 | ImprovementsManager | Get improvements for ME |
 | 2 | StatisticsComputationManager | See statistics for ME/LO |
@@ -59,3 +59,39 @@ have to be developed in parallel.
 | 5 | LocalOfficerWebApp | Functional web app for LO | 
 | 5 | MunicipalEmployeeWebApp | Functional web app for ME|
 
+Hence we describe in particular how the previous features are obtained through the system's components:
+* **SignUp and Login**: this feature is realized through the following components:
+    * SignUpManager: responsible for registering new users;
+    * LoginManager: responsible for recognizing registered users and authorities.
+* **Add a report for RU**: this feature is realized through the component *ReportReceiver*, which receives the report
+and saves it in the database through the *DBMS*.
+* **Retrieves reports for RU**: this feature is realized through the component *MineReports*, which receives the request, 
+coming from the *Router*, asks the database through the *DBMS* and returns the reports composed by the requesting user. 
+* **Get unsafe area for RU**: this feature is realized through the component *MineReports*, which receives the request, 
+coming from the *Router*, asks the database through the *DBMS* and returns violations type, date and time of reports 
+issued in the requested area. 
+* **Mine reports for ME/LO**: this feature is realized through the component *MineReports*, which receives the request,
+coming from the *Router*, asks the database through the *DBMS* and returns the reports issued in the authority's 
+ municipality that satisfy the requested condition (All, Date, Time, Violation Type, Area).
+* **See statistics for ME/LO**: this feature is realized through the component *StatisticsComputationManager*, which receives 
+the request coming from the *Router*, asks the database through the *DBMS* and retrieves data about issued tickets through 
+the *TS*, crosses them,produces and returns statistics to the requesting authority. 
+* **Download statistics for ME/LO*: this feature is realized through the component *StatisticsDownloadManager*, which asks 
+*StatisticsComputationManager* for statistics, generate a non materialized document and returns it to the requesting authority. 
+* **Validate reports for LO**: this feature is realized through the component *ReportValidator*, which is able to retrieve 
+reports belonging to the LO's municipality from the database through the *DBMS* and let the LO setting their validity. 
+* **Get improvements for ME**: this feature is realized through the component *ImprovementsManager*, which is able to get 
+reports, issued in the ME's municipality, from the database through the *DBMS* and cross their data with the information
+coming from the *MAS*, in order to generate new possible improvements. Then they are presented to the ME, along with previously
+generated improvements, saved in the database, still not completed. Finally the ME can set the status of the improvements received. 
+* **Functional mobile app for RU**: this feature is realized through the implementation, testing and integration of the *UserMobileApp*;
+* **Functional web app for LO**: this feature is realized through the implementation, testing and integration of the *LocalOfficerWebApp*;
+* **Functional web app for ME**: this feature is realized through the implementation, testing and integration of the *MunicipalEmployeeWebApp*;
+
+
+
+
+
+It is crucial to note that, for each feature, all the described components have to be integrated and unit tested. 
+
+The integration is driven by the following diagrams, which describes the dependencies between all the components of the system:
