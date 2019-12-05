@@ -80,37 +80,37 @@ integrated and unit tested (in our case the components highlighted in red, which
 
 * ReportReceiverIntegration
 
-![ReportReceiverIntegration](images/integrationDependecies/ReportReceiverIntegration.svg) 
+![ReportReceiverIntegration](images/exported/integrationDependecies/ReportReceiverIntegration.svg) 
 
 * DatabaseAccessorsIntegration
 
-![DatabaseAccessorsIntegration](./images/integrationDependecies/DatabaseAccessorsIntegration.svg) 
+![DatabaseAccessorsIntegration](images/exported/integrationDependecies/DatabaseAccessorsIntegration.svg) 
 
 * TicketServiceAccessorsIntegration
 
-![TicketServiceAccessorsIntegration](./images/integrationDependecies/TicketServiceAccessorsIntegration.svg) 
+![TicketServiceAccessorsIntegration](images/exported/integrationDependecies/TicketServiceAccessorsIntegration.svg) 
 
 * ImprovementManagerIntegration
 
-![ImprovementManagerIntegration](./images/integrationDependecies/ImprovementManagerIntegration.svg) 
+![ImprovementManagerIntegration](images/exported/integrationDependecies/ImprovementManagerIntegration.svg) 
 
 * ReportMinerAccessorsIntegration
 
-![ReportMinerAccessorsIntegration](./images/integrationDependecies/ReportMinerAccessorsIntegration.svg) 
+![ReportMinerAccessorsIntegration](images/exported/integrationDependecies/ReportMinerAccessorsIntegration.svg) 
 
 * StatisticsDownloadManagerIntegration
 
-![StatisticsDownloadManagerIntegration](./images/integrationDependecies/StatisticsDownloadManagerIntegration.svg) 
+![StatisticsDownloadManagerIntegration](images/exported/integrationDependecies/StatisticsDownloadManagerIntegration.svg) 
 
 * RouterIntegration
 
-![RouterIntegration](./images/integrationDependecies/RouterIntegration.svg) 
+![RouterIntegration](images/exported/integrationDependecies/RouterIntegration.svg) 
 
 * WebServerIntegration
 
-![WebServerIntegration](./images/integrationDependecies/WebServerIntegration.svg) 
+![WebServerIntegration](images/exported/integrationDependecies/WebServerIntegration.svg) 
 
 * AppsIntegration
 
-![AppsIntegration](./images/integrationDependecies/AppsIntegration.svg) 
+![AppsIntegration](images/exported/integrationDependecies/AppsIntegration.svg) 
 
