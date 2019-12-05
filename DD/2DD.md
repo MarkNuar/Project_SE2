@@ -289,8 +289,6 @@ This request retrieves a report form the system.
 | ---- | ---- |
 | UserNotAuthorized | The id of the report and the token of the user have been analyzed. It was found that the user was not the one who submitted the report and as such the RU was not permitted to see the report  |
 
-
-
 ------------------------------------------------------------------------------------------------------------------------------------
 
 **GET**   &nbsp;&nbsp;&nbsp;&nbsp;/reports/default/unsafearea
@@ -791,7 +789,432 @@ This methods works in the same way as retrieveUsersData, sending a username and 
 
 ### Map interface 
 
- 
+
+### Web and Application server interfaces
+
+The Web server has one interface, responsible for receiving REST requests and handle them by responding directly, if the request comes from a WebApplication and the response is cached, otherwise
+by forwarding to the router through the RouterInterface.
+The Application server has one external interface, the RouterInterface, and has more internal interface, for each one of its components, as described below.
+
+#### WebServerInterface
+
+**handleRequest**
+
+This method is used for handling the REST requests coming from the clients. 
+In particular, if the WebServer has the response, returns directly it, 
+otherwise forward the request to the RouterInterface.
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ---- |
+|  xmlFile | XmlFile | The xml file containing the data of the request  |
+
+**Return** 
+
+| Type | Description |
+| ---- | ---- |
+| xmlFile | The xml file containing the response of the request |
+
+**Exception** 
+
+| Field |  Description |
+| ---- |  ---- |
+| Exception | When an error occurs on Server's side, an xml file containing the description of the exception is returned |
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+#### RouterInterface
+
+**forwardRequest**
+
+This method is used for handling the REST requests coming from the WebServer. 
+In particular it forward the requests to the correct component.
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ---- |
+|  xmlFile | XmlFile | The xml file containing the data of the request  |
+
+**Return** 
+
+| Type | Description |
+| ---- | ---- |
+| xmlFile | The xml file containing the response of the request |
+
+**Exception** 
+
+| Field |  Description |
+| ---- |  ---- |
+| Exception | When an error occurs on Server's side, an xml file containing the description of the exception is returned |
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+####ManageAccess
+
+**signUpUser**
+
+This method is used for registering a user in the system. 
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ---- |
+| username | String | The user's username  |
+| email | String | The user's email |
+| password1 | String | The first password typed by the user |
+| password2 | String | The second password typed by the user |
+
+**Return** 
+
+| Type | Description |
+| ---- | ---- |
+| Boolean | A boolean value which is true when the signUp goes well  |
+
+**Exception** 
+
+| Field |  Description |
+| ---- |  ---- |
+| ExistingUsername | Someone with the same username is already registered |
+| DifferentPassword | The second password is different from the first one |
+| ExistingMail | This email is already associated with another account |
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+**loginUser**
+
+This method is used for logging a user in the system, by providing it a token used for further validation.
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ---- |
+| loginInfo | String | The user's username or email |
+| password | String | The user's password |
+
+**Return** 
+
+| Type | Description |
+| ---- | ---- |
+| Token | The token that identify the user in the system |
+
+**Exception** 
+
+| Field |  Description |
+| ---- |  ---- |
+| WrongUsernameOrPassword | The written username and password does not correspond to any existing user |
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+**loginAuthority**
+
+This method is used for logging an authority in the system, by providing it a token used for further validation.
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ---- |
+| loginInfo | String | The authority's username |
+| password | String | The authority's password |
+| workRole | WorkRole | The authority's work role ("ME" or "LO") |
+
+**Return** 
+
+| Type | Description |
+| ---- | ---- |
+| Token | The token that identify the authority in the system |
+
+**Exception** 
+
+| Field |  Description |
+| ---- |  ---- |
+| WrongUsernameOrPassword | The written username and password does not correspond to any existing user |
+| NotCorrespondingRole | The selected work role does not correspond to the user which given login and password corresponds to |
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+####ManageReport
+
+**addReport**
+
+This method is used for adding a new Report. In particular it tries to recognize the 
+plate with the help of the OCRS. Then saves the report in the database. 
+The returned string is the identifier of the report, used for further requests made by the user. 
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ---- |
+| report | Report | The report received from the user |
+| token | Token | The token that identifies the user in the system |
+
+**Return** 
+
+| Type | Description |
+| ---- | ---- |
+| String | The ID of the report added by the user |
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+**getNotVerifiedReports**
+
+This method is used for fetching all the reports in the
+database, issued in the municipality specified by the municipalityID, which have still to be verified.
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ---- |
+| token | Token | The token that identifies the authority in the system |
+| municipalityID | String | The municipality of the requesting local officer |
+
+**Return**
+
+| Type | Description |
+| ---- | ---- |
+| List<Report> | The list containing the reports still to be verified |
+
+**Exception**
+
+| Field | Description |
+| ---- | ---- |
+| UserNotAuthorized | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an LO or the LO's municipality was not the one of the reports requested|
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+**setReportStatus**
+
+This method is used in order to set the status of a report, given its ID, to "VALID" or "NOTVALID".
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ---- |
+| token | Token | The token that identifies the authority in the system|
+| municipalityID | String | The municipality of the requesting local officer |
+| reportID | String | The ID of the report of which the state is changed | 
+| newStatus | ReportStatus | The new status of the report ("VALID" or "NOTVALID") |
+
+**Return**
+
+| Type | Description |
+| ---- | ---- |
+| List<Report> | The list containing the reports still to be verified |
+
+**Exception**
+
+| Field | Description |
+| ---- | ---- |
+| UserNotAuthorized | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an LO or the LO's municipality was not the one of the reports requested|
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+#### ManageReportMining 
+
+**getUserReport**
+
+This method is used for fetching, from the database, the report with the given 
+reportID, issued by the requesting user. 
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ---- |
+| token | Token | The token that identifies the user in the system |
+| reportID | String | The ID of the report which has to be retrieved | 
+
+**Return**
+
+| Type | Description |
+| ---- | ---- |
+| Report | The report the user has required |
+
+**Exception**
+
+| Field | Description |
+| ---- | ---- |
+| UserNotAuthorized | The id of the report and the token of the user have been analyzed. It was found that the user was not the one who submitted the report and as such the RU was not permitted to see the report  |
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+**getUnsafeAreas**
+
+This method is used for fetching from the database all the pseudoreports issued within 300 meters from the 
+given position. A pseudoreport is like a report, but containing only info about violation's type, date and time of issuing. 
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ---- |
+| position | Position | The position indicated by the user from which find violations |
+| token | Token | The token that identifies the user in the system | 
+
+**Return** 
+| Type | Description |
+| ---- | ---- |
+| List<PseudoReport> | The list containing the violations occurred within 300 meters from the given position, with their date and time |
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+**getReports**
+
+This method is used for retrieving all valid reports issued in the municipality specified by the municipalityID.  
+Eventually some condition of mining can be applied. In particular is possible to mine a subset of the previous reports, by defining one of the
+following property:
+* AREA: only the reports within a given radius from a given position are fetched.
+* VIOLATION: only the reports with the given violation are fetched
+* DATE: only the reports issued in the specified date are fetched
+* TIME: only the reports issued in the specified time are fetched
+
+The necessary parameters are contained in the "requestField" field. 
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ---- |
+| requestType | RequestType | The type of mining, can be "ALL", "AREA", "VIOLATION", "DATE", "TIME" |
+| requestField | String | The necessary parameters for the request | 
+| token | Token | The token that identifies the authority in the system |
+
+**Return** 
+
+| Type | Description |
+| ---- | ---- |
+| List<Report> | List of valid reports retrieved from the database |
+
+**Exception**
+
+| Field | Description |
+| ---- | ---- |
+| UserNotAuthorized | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an LO or the LO's  municipality was not the one of the reports requested  |
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+#### ManageImprovements 
+
+**getNotDoneImprovements**
+
+This method is used for retrieving all the improvements with the status set to "NOTDONE" from the database.
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ---- |
+| token | Token | The token that identifies the authority in the system |
+| municipalityID | String | The municipality of the requesting local officer |
+
+
+**Return** 
+
+| Type | Description |
+| ---- | ---- |
+| List<Improvement> | List of not done improvements |
+
+**Exception**
+
+| Field | Description |
+| ---- | ---- |
+| UserNotAuthorized | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an LO or the LO's  municipality was not the one of the reports requested  |
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+**updateImprovements**
+
+This method is used for updating the improvements saved in the database. 
+In particular data coming from the MAS and the reports fetched via the ReportMiner are used.
+Every new improvement found has the status set to "NOTDONE" by default and is saved in the database.
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ---- |
+| token | Token | The token that identifies the authority in the system |
+| municipalityID | String | The municipality of the requesting local officer |
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+**setImprovementStatus**
+
+This method is used for setting the status of an improvement, given its ID, from 
+"NOTDONE" to "DONE".
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ---- |
+| token | Token | The token that identifies the authority in the system |
+| municipalityID | String | The municipality of the requesting local officer |
+| improvementID | String | The ID of the improvement which status has to be changed to done |
+
+**Return** 
+
+| Type | Description |
+| ---- | ---- |
+| Boolean | A boolean which is true if the operation of changing status goes correctly |
+
+**Exception**
+
+| Field | Description |
+| ---- | ---- |
+| UserNotAuthorized | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's municipality was not the one of the reports requested |
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+#### ManageStatisticsComputation
+
+**getStatistics**
+
+This method is used for calculating the current statistics, based on the data coming the TS and the reports fetched via the ReportMiner.
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ---- |
+| token | Token | The token that identifies the authority in the system |
+| municipalityID | String | The municipality of the requesting local officer |
+
+**Return** 
+
+| Type | Description |
+| ---- | ---- |
+| Statistic | A statistic object containing the new statistics created |
+
+**Exception**
+
+| Field | Description |
+| ---- | ---- |
+| UserNotAuthorized | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's  municipality was not the one of the reports requested  |
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+#### ManageStatisticsDownload
+
+**getStatisticsFile**
+
+This method is used for getting a file (for example .pdf) containing the current statistics, based on the data coming the TS and the reports fetched via the ReportMiner.
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ---- |
+| token | Token | The token that identifies the authority in the system |
+| municipalityID | String | The municipality of the requesting local officer |
+
+**Return** 
+
+| Type | Description |
+| ---- | ---- |
+| Object | An object containing the new file containing the statistics created |
+
+**Exception**
+
+| Field | Description |
+| ---- | ---- |
+| UserNotAuthorized | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's  municipality was not the one of the reports requested  |
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
 
 
 
