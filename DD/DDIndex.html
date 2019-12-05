@@ -1,0 +1,3877 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>DDIndex</title>
+                    <style>
+                /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
+
+/**
+ * 1. Change the default font family in all browsers (opinionated).
+ * 2. Correct the line height in all browsers.
+ * 3. Prevent adjustments of font size after orientation changes in
+ *    IE on Windows Phone and in iOS.
+ */
+
+/* Document
+   ========================================================================== */
+
+html {
+  font-family: sans-serif; /* 1 */
+  line-height: 1.15; /* 2 */
+  -ms-text-size-adjust: 100%; /* 3 */
+  -webkit-text-size-adjust: 100%; /* 3 */
+}
+
+/* Sections
+   ========================================================================== */
+
+/**
+ * Remove the margin in all browsers (opinionated).
+ */
+
+body {
+  margin: 0;
+}
+
+/**
+ * Add the correct display in IE 9-.
+ */
+
+article,
+aside,
+footer,
+header,
+nav,
+section {
+  display: block;
+}
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/* Grouping content
+   ========================================================================== */
+
+/**
+ * Add the correct display in IE 9-.
+ * 1. Add the correct display in IE.
+ */
+
+figcaption,
+figure,
+main { /* 1 */
+  display: block;
+}
+
+/**
+ * Add the correct margin in IE 8.
+ */
+
+figure {
+  margin: 1em 40px;
+}
+
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+
+hr {
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+pre {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/* Text-level semantics
+   ========================================================================== */
+
+/**
+ * 1. Remove the gray background on active links in IE 10.
+ * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.
+ */
+
+a {
+  background-color: transparent; /* 1 */
+  -webkit-text-decoration-skip: objects; /* 2 */
+}
+
+/**
+ * Remove the outline on focused links when they are also active or hovered
+ * in all browsers (opinionated).
+ */
+
+a:active,
+a:hover {
+  outline-width: 0;
+}
+
+/**
+ * 1. Remove the bottom border in Firefox 39-.
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+
+abbr[title] {
+  border-bottom: none; /* 1 */
+  text-decoration: underline; /* 2 */
+  text-decoration: underline dotted; /* 2 */
+}
+
+/**
+ * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
+ */
+
+b,
+strong {
+  font-weight: inherit;
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+code,
+kbd,
+samp {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/**
+ * Add the correct font style in Android 4.3-.
+ */
+
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Add the correct background and color in IE 9-.
+ */
+
+mark {
+  background-color: #ff0;
+  color: #000;
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* Embedded content
+   ========================================================================== */
+
+/**
+ * Add the correct display in IE 9-.
+ */
+
+audio,
+video {
+  display: inline-block;
+}
+
+/**
+ * Add the correct display in iOS 4-7.
+ */
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Remove the border on images inside links in IE 10-.
+ */
+
+img {
+  border-style: none;
+}
+
+/**
+ * Hide the overflow in IE.
+ */
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Forms
+   ========================================================================== */
+
+/**
+ * 1. Change the font styles in all browsers (opinionated).
+ * 2. Remove the margin in Firefox and Safari.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: sans-serif; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+
+button,
+input { /* 1 */
+  overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+
+button,
+select { /* 1 */
+  text-transform: none;
+}
+
+/**
+ * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
+ *    controls in Android 4.
+ * 2. Correct the inability to style clickable types in iOS and Safari.
+ */
+
+button,
+html [type="button"], /* 1 */
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button; /* 2 */
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+ * Change the border, margin, and padding in all browsers (opinionated).
+ */
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+
+legend {
+  box-sizing: border-box; /* 1 */
+  color: inherit; /* 2 */
+  display: table; /* 1 */
+  max-width: 100%; /* 1 */
+  padding: 0; /* 3 */
+  white-space: normal; /* 1 */
+}
+
+/**
+ * 1. Add the correct display in IE 9-.
+ * 2. Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+
+progress {
+  display: inline-block; /* 1 */
+  vertical-align: baseline; /* 2 */
+}
+
+/**
+ * Remove the default vertical scrollbar in IE.
+ */
+
+textarea {
+  overflow: auto;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10-.
+ * 2. Remove the padding in IE 10-.
+ */
+
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+
+[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/**
+ * Remove the inner padding and cancel buttons in Chrome and Safari on macOS.
+ */
+
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/* Interactive
+   ========================================================================== */
+
+/*
+ * Add the correct display in IE 9-.
+ * 1. Add the correct display in Edge, IE, and Firefox.
+ */
+
+details, /* 1 */
+menu {
+  display: block;
+}
+
+/*
+ * Add the correct display in all browsers.
+ */
+
+summary {
+  display: list-item;
+}
+
+/* Scripting
+   ========================================================================== */
+
+/**
+ * Add the correct display in IE 9-.
+ */
+
+canvas {
+  display: inline-block;
+}
+
+/**
+ * Add the correct display in IE.
+ */
+
+template {
+  display: none;
+}
+
+/* Hidden
+   ========================================================================== */
+
+/**
+ * Add the correct display in IE 10-.
+ */
+
+[hidden] {
+  display: none;
+}            </style>
+                    <style>
+                                /*
+	Reserved class starts always with a book- prefix
+	IT IS FORBIDDEN TO have selectors that matches a span element with tagSelector or with a pseudo-class and alter:
+		- display
+		- padding-*
+		- margin-*
+		- font-*
+		- overflow-*
+
+	In particular:
+		- .book-no-index: 			it tells that an element of heading do not want a section number prefixed
+		- .book-no-toc:				it tells that an element of heading do not want a section number nor be present in the TOC
+		- .book-toc:				it represents the TOC element
+		- .book-toc-title:			it is the text written in the toc after the section number and before leaders or page number
+		- .book-toc-index:			it is the section number for a single toc entry
+		- .book-toc-page:			it is the page number for a single toc entry
+		- .book-leaders:			it is the leaders (series of dots)
+		- .book-break-always:		it is an element for which a page break is always inserted after it
+		- .book-break-avoid:		it is an element for which a page break cannot happen inside
+		- .book-page				it is a single page of a book
+		- .book-splitted-copy		it is a part of an element that was cloned
+		- .book-splitted-reference 	it is a part of an element that was cloned, this is the starting of this element
+*/
+
+
+body {
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 11pt;
+}
+p {
+	text-indent: -1em;
+	padding-left: 1em;
+}
+p.book-splitted-copy {
+	text-indent: 0px;
+}
+a {
+	text-decoration: none;
+	color: inherit;
+}
+figure {
+	page-break-inside: avoid;
+}
+pre table {
+	page-break-inside: auto;
+}
+.book-leaders {
+	font-family: monospace;
+	float: right;
+	opacity:0.6;
+}
+h1:not(.book-no-index), h2:not(.book-no-index), h3:not(.book-no-index), h4:not(.book-no-index), h5:not(.book-no-index), h6:not(.book-no-index) {
+	page-break-after: avoid;
+	page-break-inside: avoid;
+}
+h1:not(.book-no-index) {
+	page-break-before: always;
+}
+li.book-splitted-copy {
+	list-style-type: none;
+}
+.book-toc {
+	page-break-after: always;
+	page-break-inside: auto;
+}
+.book-toc > table {
+	page-break-inside: : auto;
+	width: 100%;
+	border-collapse: collapse;
+}
+.book-toc td {
+	padding: 0px;
+}
+.book-toc .book-toc-title {
+	white-space: nowrap;
+}
+.book-toc td>a{
+	display:block;
+}
+.book-toc-index {
+	padding-right:0.3cm;
+}
+.book-toc .book-toc-title{
+	padding-right: 0.3cm;
+}
+.book-toc .book-toc-page{
+	padding-left: 0.3cm;
+}
+.book-break-always {
+	page-break-after: always;
+}
+.book-break-avoid {
+	page-break-inside: avoid;
+}
+.book-page {
+	page-break-inside: avoid;
+	page-break-after: always;
+	overflow: hidden;
+	position: relative;
+}
+.book-page>.book-page-heading {
+	position:absolute;
+	top:0px;
+	left:0px;
+	right:0px;
+}
+.book-page>.book-page-footer {
+	position:absolute;
+	bottom:0px;
+	left:0px;
+	right:0px;
+}
+img {
+	max-width: 100%;
+}            </style>
+                <style>
+            table:not(.avoid-default-style) {
+                page-break-inside: avoid;
+                border-collapse: collapse;
+                margin-bottom: 0.75cm;
+            }
+            table:not(.avoid-default-style) tr:nth-child(odd)>td, table:not(.avoid-default-style) tr:nth-child(odd)>th {
+                border: 1px solid #E0E0E0;
+                padding: 2px 8px;
+            }
+            table:not(.avoid-default-style) tr:nth-child(even)>td, table:not(.avoid-default-style) tr:nth-child(even)>th {
+                border: 1px solid #E0E0E0;
+                background-color: #F5F5F5;
+                padding: 2px 8px;
+            }
+        </style>
+                    <script type="text/javascript" src="http://gc.kis.v2.scr.kaspersky-labs.com/B05FD3BC-5064-9F49-82F4-002C2EEFE3A0/main.js" charset="UTF-8"></script><script>
+                var pageinfo = {
+	size: 'A4',
+	margin: {
+		left: '0.19685in',
+		right: '0.19685in',
+		top: '0.393701in',
+		bottom: '0.393701in'
+	},
+	footer: function(page, cumulativeIndex, totalPages){
+		return cumulativeIndex+1;
+	}
+};
+function convertToPixel(s){
+	var m = s.match(/^([0-9]*(?:\.[0-9]*)?)(px|cm|mm|in)$/);
+	if(!m){
+		return null;
+	}
+	var v = parseFloat(m[1]);
+	switch(m[2]){
+		case 'px':
+			return v;
+		case 'cm':
+			v *= 10;
+		case 'mm':
+			v *= 0.0393700787;
+		case 'in':
+			return v*96;
+
+	}
+}
+function computePageInfo(pi){
+	var sizes = {
+		'A4': {
+			width: '8.26in',
+			height: '11.69in'
+		}
+	};
+	var pageinfo = {
+		size: {
+			width: 0,
+			height: 0,
+		},
+		margin: {
+			left:0,
+			right:0,
+			top:0,
+			bottom:0
+		},
+		footer: function(page, cumulativeIndex, totalPages){},
+		heading: function(page, cumulativeIndex, totalPages){}
+	};
+	if(typeof(pi.size) === 'string'){
+		var s = sizes[pi.size];
+		pageinfo.size.width = convertToPixel(s.width);
+		pageinfo.size.height = convertToPixel(s.height);
+	}
+	else {
+		pageinfo.size.width = convertToPixel(pi.size.width);
+		pageinfo.size.height = convertToPixel(pi.size.height);
+	}
+	if(pi.hasOwnProperty('margin')){
+		if(typeof(pi.margin) === 'string'){
+			var s = convertToPixel(pi.margin);
+			pageinfo.margin.left = s;
+			pageinfo.margin.right = s;
+			pageinfo.margin.top = s;
+			pageinfo.margin.bottom = s;
+		}
+		else {
+			pageinfo.margin.left = convertToPixel(pi.margin.left);
+			pageinfo.margin.right = convertToPixel(pi.margin.right);
+			pageinfo.margin.top = convertToPixel(pi.margin.top);
+			pageinfo.margin.bottom = convertToPixel(pi.margin.bottom);
+		}
+	}
+	if(pi.hasOwnProperty('footer')){
+		pageinfo.footer = pi.footer;
+	}
+	if(pi.hasOwnProperty('heading')){
+		pageinfo.heading = pi.heading;
+	}
+	//prepare page info
+	pageinfo.size.width = pageinfo.size.width - pageinfo.margin.left - pageinfo.margin.right;
+	pageinfo.size.height = pageinfo.size.height - pageinfo.margin.top - pageinfo.margin.bottom;
+
+	return pageinfo;
+}
+
+function layoutAll(){
+	pageinfo = computePageInfo(pageinfo);
+	document.body.style.width = pageinfo.size.width + 'px';
+
+	generateToc();
+	while(true){
+		var pages = document.createElement('div');
+		pages.style.position = 'absolute';//no layout interfering
+
+		fixMediaSize();
+
+		var mapping;
+		var reference;
+		{
+			let temp = copyContent();
+			mapping = temp.mapping;
+			reference = temp.reference;
+		}
+
+		var stack = new Stack();
+
+		normalizeDocument();
+		preNormalization();
+
+		stack.pushAll(Array.from(document.body.childNodes).reverse());
+		document.body.appendChild(pages);//used only to do some measurements;
+
+		var previousPage = null;
+		while(!stack.isEmpty()){
+			previousPage = layoutPage(pages, previousPage, stack);
+		}
+
+		setupPages(pages);
+		while(pages.firstChild){
+			document.body.appendChild(pages.firstChild);
+		}
+
+		postNormalization(stack);
+		document.body.removeChild(pages);
+		//mappings can be updated
+		for(let orig of Array.from(mapping.keys())){
+			let mapTo = mapping.get(orig);
+			mapping.set(orig, stack.getSplittedElement(mapTo)[0]);
+		}
+
+		//pages can be updated
+		if(updatePageNumbers(reference, mapping)){
+			//an update happened, this means pages must be rebuilt
+			while(document.body.firstChild){
+				document.body.firstChild.remove();
+			}
+			document.body.appendChild(reference);
+		}
+		else {
+			break;
+		}
+	}
+	setLeaders();
+	setHeadingAndFooter();
+	setPagesHeight();
+}
+function setHeadingAndFooter(){
+	var pages = document.body.children;
+	for(var i=0;i<pages.length; ++i){
+		var t = pageinfo.heading(pages[i], i, pages.length);
+		if(t!==undefined && t!==null){
+			var h = document.createElement('div');
+			h.classList.add('book-page-heading');
+			if(!(t instanceof Node)){
+				t = document.createTextNode(t + '');
+			}
+			h.appendChild(t);
+			pages[i].insertBefore(h, pages[i].firstChild);
+		}
+		t = pageinfo.footer(pages[i], i, pages.length);
+		if(t!==undefined && t!==null){
+			var h = document.createElement('div');
+			h.classList.add('book-page-footer');
+			if(!(t instanceof Node)){
+				t = document.createTextNode(t + '');
+			}
+			h.appendChild(t);
+			pages[i].appendChild(h);
+		}
+	}
+}
+function setPagesHeight(){
+	var pages = document.body.children;
+	for(var i=0;i<pages.length; ++i){
+		pages[i].style.setProperty('height', pageinfo.size.height+'px','important');
+	}
+}
+function copyContent(){
+	var docCopy = document.createDocumentFragment();
+	var mapping = new Map();
+
+	var children = Array.from(document.body.childNodes);
+	for(var i=0;i<children.length;++i){
+		var copy = children[i].cloneNode(true);
+		mapping.set(children[i], copy);
+
+		if(copy.nodeType === 1){
+			var allChild = children[i].getElementsByTagName('*');
+			var allCopyChild = copy.getElementsByTagName('*');
+			for(var j=0;j<allChild.length;++j){
+				mapping.set(allChild[j], allCopyChild[j]);
+			}
+		}
+
+		docCopy.appendChild(children[i]);
+		document.body.appendChild(copy);
+	}
+	return {
+		mapping: mapping,
+		reference: docCopy
+	};
+}
+function normalizeDocument(){
+	document.normalize();
+	//now get any textNode from the document
+	var nodes = Array.from(document.body.childNodes);
+	while(nodes.length){
+		var node = nodes.pop();
+		if(node.nodeType === 3){
+			var parent = node.parentNode;
+			var wrapper = document.createElement('span');
+			parent.insertBefore(wrapper, node);
+			wrapper.appendChild(node);
+			var rect = wrapper.getBoundingClientRect();
+			if(rect.width !== 0 || rect.height !== 0){
+				parent.insertBefore(node, wrapper);
+			}
+			parent.removeChild(wrapper);
+		}
+		else {
+			var nnodes = Array.from(node.childNodes);
+			for(let x of nnodes){
+				nodes.push(x);
+			}
+		}
+	}
+}
+function layoutPage(pages, previousPage, stack){
+	var page = createPage(pages, stack);
+	removePageBreakAlways(page, stack);
+	removePageBreakAlways(page, stack);
+
+	while(true){
+		switch(removePageBreakAvoid(previousPage, page, stack)){
+			case 0:
+				//TODO is this really necessary?
+				if(!page.firstChild){
+					pages.removeChild(page);
+				}
+				return;
+			case 1://need to redo this step
+			break;
+			case -1:
+				page = createPage(pages, stack);
+				removePageBreakAlways(page, stack);
+				removePageBreakAlways(page, stack);
+				break;
+		}
+	}
+	return page;
+}
+function Stack(){
+	var self = this;
+	var splitContext = new Map();
+	var splitMain = new Map();
+	var mergedNodes = new Set();
+	var nodes = [];
+	var allNodes = [nodes];
+	var fragment = document.createDocumentFragment();
+
+	function addSplit(prev, next){
+		var ctxKey = splitMain.get(next);
+		if(!ctxKey){
+			ctxKey = next;
+			splitMain.set(ctxKey, next);
+			splitContext.set(ctxKey, [next]);
+		}
+		splitMain.set(prev, ctxKey);
+		var arr = splitContext.get(ctxKey);
+		arr.splice(arr.indexOf(next), 0, prev);
+	}
+
+	this.splitTextNode = function(textNode, originalParent){
+		//first wrap that node into a span, so that it can be measured
+		var wrapper = document.createElement('span');
+		var parent = textNode.parentNode;
+		wrapper.appendChild(textNode);
+		parent.appendChild(wrapper);
+		var expectedRect = wrapper.getClientRects()[0];
+		var allText = textNode.textContent;
+		var index = 0;
+		wrapper.removeChild(textNode);
+		while(true){
+			++index;
+			wrapper.textContent = allText.substring(0, index);
+			var newRect = wrapper.getClientRects()[0];
+			//0.01 is an epsilon consant, changing it makes it more precise...
+			if(Math.abs(newRect.width - expectedRect.width)<0.01){
+				break;
+			}
+		}
+		//now we know the point to split the text
+		var otherText = document.createTextNode(wrapper.textContent);
+		parent.insertBefore(otherText, wrapper);
+		parent.removeChild(wrapper);
+		//replace node with the new value
+		textNode.textContent = allText.substring(index);
+
+		originalParent.insertBefore(textNode, originalParent.firstChild);
+
+		addSplit(otherText, textNode);
+		return otherText;
+	};
+
+	this.removeClone = function(node){
+		var main = splitMain.get(node);
+		if(main && main !== node){
+			var arr = splitContext.get(main);
+			if(node.nodeType === 3){
+				//text node need a special treatment, textContent must be joint
+				var index = arr.indexOf(node);
+				if(index !== arr.length - 1){
+					arr[index + 1].textContent = node.textContent + arr[index + 1].textContent;
+				}
+				else if(index !== 0) {
+					arr[index - 1].textContent += node.textContent;
+				}
+			}
+			if(arr.length === 2){
+				if(main.nodeType === 1) main.classList.remove('book-splitted-copy','book-splitted-reference');
+				splitContext.delete(main);
+				splitMain.delete(main);
+			}
+			else {
+				arr.splice(arr.indexOf(node), 1);
+				if(main.nodeType === 1){
+					arr[0].classList.add('book-splitted-reference');
+					arr[0].classList.remove('book-splitted-copy');
+				}
+			}
+			splitMain.delete(node);
+		}
+	};
+	this.cloneNode = function(node){
+		var copy = node.cloneNode(false);
+		if(copy.tagName.toLowerCase() === 'table'){
+			var els = node.children;
+			for(var i=0;i<els.length;++i){
+				if(els[i].tagName.toLowerCase() === 'colgroup'){
+					copy.appendChild(els[i].cloneNode(true));
+				}
+			}
+		}
+		if(copy.hasAttribute('id')){
+			copy.removeAttribute('id');
+		}
+		if(!node.classList.contains('book-splitted-copy')){
+			node.classList.remove('book-splitted-reference');
+			node.classList.add('book-splitted-copy');
+			copy.classList.add('book-splitted-reference');
+		}
+		addSplit(copy, node);
+		return copy;
+	};
+	this.mergeAll = function(){
+		//merge subrutine, it will merge node with the same parent node recursively, until a fixed point is meet
+		var changed = true;
+		while(changed){
+			changed = false;
+			var cleanable = [];
+			for(let entry of splitContext.entries()){
+				var node = entry[0];
+				var pieces = entry[1];
+				var prevParent = (pieces[0]||{parentNode:null}).parentNode;
+				var isTable = node.nodeType === 1 && node.tagName.toLowerCase() === 'table';
+				for(var i=1;i<pieces.length; ++i){
+					//if can be merged
+					if(prevParent === pieces[i].parentNode){
+						changed = true;
+						if(pieces[i - 1] !== node){
+							mergedNodes.add(pieces[i-1]);
+							if(node.nodeType === 3){
+								pieces[i].textContent = pieces[i-1].textContent + pieces[i].textContent;
+							}
+							else {
+								//transfer all childnodes of prev to this
+								var refNode = pieces[i].firstChild;
+								var iterNode = refNode;
+								while(iterNode) {
+									if(iterNode.nodeType === 1 && iterNode.tagName.toLowerCase() === 'colgroup'){
+										refNode = iterNode.nextSibling;
+									}
+									iterNode = iterNode.nextSibling;
+								}
+								while(pieces[i - 1].lastChild){
+									var c = pieces[i-1].lastChild;
+									if(isTable && c.nodeType === 1 && c.tagName.toLowerCase() === 'colgroup'){
+										pieces[i-1].removeChild(c);
+									}
+									else {
+										pieces[i].insertBefore(c, refNode);
+										refNode = c;
+									}
+								}
+								if(!pieces[i - 1].classList.contains('book-splitted-copy')){
+									pieces[i].classList.remove('book-splitted-copy');
+									pieces[i].classList.add('book-splitted-reference');
+								}
+							}
+							//prev is not used anymore
+							splitMain.delete(pieces[i - 1]);
+							pieces[i - 1].remove();
+							pieces.splice(i - 1, 1);
+							--i;
+						}
+						else {
+							mergedNodes.add(pieces[i]);
+							if(node.nodeType === 3){
+								pieces[i - 1].textContent = pieces[i - 1].textContent + pieces[i].textContent;
+							}
+							else {
+								//transfer all childnodes of this to prev
+								while(pieces[i].firstChild){
+									var c = pieces[i].firstChild;
+									if(isTable && c.nodeType === 1 && c.tagName.toLowerCase() === 'colgroup'){
+										pieces[i].removeChild(c);
+									}
+									else {
+										pieces[i - 1].appendChild(c);
+									}
+								}
+								if(!pieces[i].classList.contains('book-splitted-copy')){
+									pieces[i - 1].classList.remove('book-splitted-copy');
+									pieces[i - 1].classList.add('book-splitted-reference');
+								}
+							}
+							//next is not used anymore!
+							splitMain.delete(pieces[i]);
+							pieces[i].remove();
+							pieces.splice(i, 1);
+							--i;
+						}
+					}
+					else {
+						prevParent = pieces[i].parentNode;
+					}
+				}
+
+				if(pieces.length === 1){
+					cleanable.push(node);
+				}
+			}
+			for(let node of cleanable){
+				if(node.nodeType === 1){
+					node.classList.remove('book-splitted-copy', 'book-splitted-reference');
+				}
+				splitMain.delete(node);
+				splitContext.delete(node);
+			}
+		}
+	};
+	this.push = function(value){
+		nodes.push(value);
+		if(allNodes.length===1) fragment.appendChild(value);
+		return self;
+	};
+	this.pop = function(){
+		var result;
+		do {
+			result = nodes.pop();
+		} while(result && mergedNodes.has(result));
+		return result;
+	};
+	this.peek = function(){
+		var item = self.pop();
+		if(item){
+			self.push(item);
+		}
+		return item;
+	}
+	this.isEmpty = function(){
+		return !self.peek();
+	}
+	this.clear = function(){
+		nodes.splice(0, nodes.length);
+		return self;
+	}
+	this.pushAll = function(x){
+		for(let i of x){
+			nodes.push(i);
+			if(allNodes.length===1) fragment.appendChild(i);
+		}
+		return self;
+	}
+	this.newLevel = function(){
+		var x = [];
+		allNodes.push(x);
+		nodes = x;
+		return self;
+	}
+	this.rebase = function(){
+		var x = allNodes[0];
+		allNodes = [x];
+		nodes = x;
+		return self;
+	}
+	this.getSplittedElements = function(){
+		var result = [];
+		for(let x of splitContext.values()){
+			if(x.length > 1){
+				result.push(x);
+			}
+		}
+		return result;
+	}
+	this.getSplittedElement = function(x){
+		var main = splitMain.get(x);
+		if(!main){
+			return [x];
+		}
+		return splitContext.get(main);
+	}
+}
+function fixMediaSize(){
+	var els = document.querySelectorAll('img, audio, video');
+	for(var i=0;i<els.length;++i){
+		els[i].style.setProperty('height', els[i].offsetHeight+'px', 'important');
+		els[i].style.setProperty('width', els[i].offsetWidth+'px', 'important');
+	}
+}
+function createPage(pages, stack){
+	var page = document.createElement('div');
+	page.style.width = pageinfo.size.width+'px';
+	page.classList.add('book-page');
+	pages.appendChild(page);
+
+	var insertionParent = page;
+
+	while(!stack.isEmpty()){
+		var node = stack.peek();
+		var parent = node.parentNode;
+		insertionParent.appendChild(node);
+		if(isTooLarge(page)){
+			if(canBeSplitted(node)){
+				var copy;
+				if(node.nodeType === 3){
+					copy = stack.splitTextNode(node, parent);
+				}
+				else {
+					copy = stack.cloneNode(node);
+					insertionParent.removeChild(node);
+					parent.insertBefore(node, parent.firstChild);
+					insertionParent.appendChild(copy);
+				}
+				if(isTooLarge(page)){
+					insertionParent.removeChild(copy);
+					stack.removeClone(copy);
+					//remove empty hierarchy of cloned nodes
+					while(!insertionParent.firstChild && insertionParent !== page){
+						var oldParent = insertionParent;
+						insertionParent = insertionParent.parentNode;
+						insertionParent.removeChild(oldParent);
+						stack.removeClone(oldParent);
+					}
+					stack.rebase();
+					return page;
+				}
+				if(node.nodeType !== 3)
+				{
+					stack.newLevel();
+					stack.pushAll(Array.from(node.childNodes).reverse());
+					insertionParent = copy;
+				}
+			}
+			else {
+				if(node.tagName.toLowerCase() === 'img'){
+					//image can be resized if needed
+					var maxSpace = pageinfo.size.height - (page.getBoundingClientRect().height - node.getBoundingClientRect().height);
+					if(maxSpace > 0.75*pageinfo.size.height){
+						node.style.setProperty('height', (maxSpace-5)+'px', 'important');
+						stack.pop();
+						stack.rebase();
+						while(true){
+							if(stack.peek()){
+								stack.pop();
+							}
+							if(!stack.peek()){ stack.rebase(); }
+							else { break; }
+						}
+						return page;
+					}
+				}
+				//must be inserted in the next page...
+				//unless it is a single element
+				if(isSingleElement(page, insertionParent)){
+					stack.pop();
+					stack.rebase();
+					while(true){
+						if(stack.peek()){
+							stack.pop();
+						}
+						if(!stack.peek()){ stack.rebase(); }
+						else { break; }
+					}
+					return page;
+				}
+				else {
+					insertionParent.removeChild(node);
+					parent.insertBefore(node, parent.firstChild);
+					while(insertionParent !== page && insertionParent.childNodes.length === 0){
+						var temp = insertionParent.parentNode;
+						temp.removeChild(insertionParent);
+						stack.removeClone(insertionParent);
+						insertionParent = temp;
+					}
+					stack.rebase();
+					return page;
+				}
+			}
+		}
+		else {
+			stack.pop();
+		}
+	}
+	stack.rebase();
+	return page;
+}
+
+function removePageBreakAlways(page, stack){
+	var beforeNode = null;
+	var afterNode = null;
+	var others = Array.from(page.childNodes).reverse();
+	while(others.length){
+		var current = others.pop();
+		var pageBreakType = getPageBreakType(current);
+		switch(pageBreakType){
+			case 'before':
+				if(!beforeNode) { beforeNode = current; }
+				others = [ ];
+				break;
+			case 'after':
+				afterNode = current;
+				others = [ ];
+				//intended fall to default
+			default:
+				var cnode = current.childNodes;
+				for(var i = cnode.length - 1; i >= 0; --i){
+					others.push(cnode[i]);
+				}
+				break;
+		}
+	}
+	var current = beforeNode || afterNode;
+	if(!current){
+		return;
+	}
+	//There is a page-break!
+	var pageBreakType = beforeNode? 'before': 'after';
+	//We get all the parent chain until page is found
+	var parentList = [ current, current.parentNode ];
+	var isSingle = true;
+	var hasPrevious = current.previousSibling;
+	var hasNext = current.nextSibling;
+	while(parentList[parentList.length - 1]!==page){
+		if(!hasPrevious){
+			hasPrevious = parentList[parentList.length - 1].previousSibling;
+		}
+		if(!hasNext){
+			hasNext = parentList[parentList.length - 1].nextSibling;
+		}
+		if(parentList[parentList.length - 1].childNodes.length>1){
+			isSingle = false;
+		}
+		parentList.push(parentList[parentList.length - 1].parentNode);
+	}
+	parentList.pop();//remove page
+
+	if((pageBreakType === 'before' && !hasPrevious)||(pageBreakType==='after' && !hasNext)){
+		current.style.setProperty('page-break-'+pageBreakType, 'auto', 'important');
+		return;
+	}
+
+	//We need to remove the next elements because they are not part of this page
+	var node = parentList[parentList.length - 1];
+	while(page.lastChild !== node){
+		let t = page.lastChild;
+		page.removeChild(t);
+		stack.push(t);
+	}
+	if(isSingle && pageBreakType === 'before'){
+		page.removeChild(node);
+		stack.push(node);
+	}
+
+	if(!isSingle) {
+		//Now we must clone the elements
+		var cloned = [];
+		for(var i=1; i<parentList.length; ++i){
+			cloned.push(stack.cloneNode(parentList[i]));
+			while(parentList[i].firstChild !== parentList[i - 1]){
+					cloned[i - 1].appendChild(parentList[i].firstChild);
+			}
+			if(i===1 && pageBreakType !== 'before'){
+				cloned[i - 1].appendChild(current);
+			}
+			if(i > 1){
+				cloned[i - 1].appendChild(cloned[i - 2]);
+			}
+		}
+		//now add the cloned and remove the originals
+		page.insertBefore(cloned[cloned.length - 1], parentList[parentList.length - 1]);
+		stack.push(parentList[parentList.length - 1]);
+	}
+	current.style.setProperty('page-break-'+pageBreakType, 'auto', 'important');
+	stack.mergeAll();
+}
+
+function removePageBreakAvoid(previousPage, page, stack){
+	var beforeNode = null;
+	var afterNode = null;
+	var others = Array.from(page.childNodes).reverse();
+	while(others.length){
+		var current = others.pop();
+		var pageBreakType = getPageNoBreakType(current);
+		switch(pageBreakType){
+			case 'before':
+				if(!beforeNode) { beforeNode = current; }
+				break;
+			case 'after':
+				afterNode = current;
+				break;
+			default:
+				var cnode = current.childNodes;
+				for(var i = cnode.length - 1; i >= 0; --i){
+					others.push(cnode[i]);
+				}
+				break;
+		}
+	}
+	var current = beforeNode || afterNode;
+	if(!current){
+		return 0;
+	}
+	var pageBreakType = beforeNode ? 'before': 'after';
+	//after avoid means that the element after this needs to exist, unless a forced break has occurred...
+	//before avoid means that the element before this needs to exist, unless a forced break has occurred...
+
+	//if there is no page before this one, 'before avoid' is meet with no extra check	
+	if(pageBreakType === 'before' && !previousPage){
+		current.style.setProperty('page-break-before', 'auto', 'important');
+		return 1;
+	}
+	var needsRemoval = false;
+	if(pageBreakType === 'after'){
+		//check for next elements, if no one is found, then remove this element from the page
+		var iter = current;
+		while(!iter.nextSibling && iter !== page){
+			iter = iter.parentNode;
+		}
+		needsRemoval = iter === page;
+	}
+	if(pageBreakType === 'before'){
+		//check for prev elements, if no one is found, then remove this element from the page
+		var iter = current;
+		while(!iter.previousSibling && iter !== page){
+			iter = iter.parentNode;
+		}
+		needsRemoval = iter === page;
+	}
+	current.style.setProperty('page-break-'+pageBreakType, 'auto', 'important');
+	if(!needsRemoval) {
+		return 1;
+	}
+	if(pageBreakType === 'after'){
+		current.style.setProperty('page-break-before', 'always', 'important');
+		removePageBreakAlways(page, stack);
+		return 1;
+	}
+	else if(pageBreakType === 'before'){
+		//previous element must page-break-before forced
+		var lastElement = previousPage;
+		while(lastElement.lastElementChild){
+			lastElement = lastElement.lastElementChild;
+		}
+		lastElement.style.setProperty('page-break-before', 'always', 'important');
+		current.style.setProperty('page-break-before', 'auto', 'important');
+
+		while(page.lastChild){
+			stack.push(page.lastChild);
+		}
+		//page is discarted
+		page.parentNode.removeChild(page);
+		//merge stack and rebuild previous page
+		stack.mergeAll();
+		removePageBreakAlways(previousPage, stack);
+		return -1;
+	}
+}
+
+function setupPages(pages){
+	var c = pages.children;
+	for(var i=0;i<c.length;++i){
+		c[i].setAttribute('data-book-page-number', i+1);
+		c[i].style.paddingLeft = pageinfo.margin.left+'px';
+		c[i].style.paddingRight = pageinfo.margin.right+'px';
+		c[i].style.paddingTop = pageinfo.margin.top+'px';
+		c[i].style.paddingBottom = pageinfo.margin.bottom+'px';
+	}
+}
+
+function getPageBreakType(node){
+	if(node.nodeType !== 1){ return null; }
+	var style = document.defaultView.getComputedStyle(node, null);
+	if(style.pageBreakBefore === 'always'){ return 'before'; }
+	if(style.pageBreakAfter === 'always'){ return 'after'; }
+	return null;
+}
+function getPageNoBreakType(node){
+	if(node.nodeType !== 1){ return null; }
+	var style = document.defaultView.getComputedStyle(node, null);
+	if(style.pageBreakBefore === 'avoid'){ return 'before'; }
+	if(style.pageBreakAfter === 'avoid'){ return 'after'; }
+	return null;
+}
+function isSingleElement(page, currentNode){
+	while(currentNode !== page){
+		if(currentNode.childNodes.length > 1){
+			return false;
+		}
+		currentNode = currentNode.parentNode;
+	}
+	return currentNode.childNodes.length <= 1;
+}
+function canBeSplitted(node){
+	if(node.nodeType !== 1){
+		return true;
+	}
+	var name = node.tagName.toLowerCase();
+	//table rows, cells cannot be splitted
+	if(name === 'tr' || name === 'td' || name === 'th') {
+		return false;
+	}
+	//multimedia element cannot be splitted
+	if(name === 'img' || name === 'audio' || name === 'video' || name === 'embed' || name === 'object' || name === 'canvas' || name === 'area'){
+		return false;
+	}
+	//frames cannot be split
+	if(name === 'frame' || name === 'iframe'){
+		return false;
+	}
+	//form inputs cannot be split
+	if(name === 'input' || name === 'select' || name === 'progress' || name === 'button'){
+		return false;
+	}
+	if(name === 'br' || name === 'hr'){
+		return false;
+	}
+	//cannot split a block with page-break-inside: avoid
+	return document.defaultView.getComputedStyle(node, null).pageBreakInside !== 'avoid';
+}
+function preNormalization(){
+	var nodes = Array.from(document.getElementsByTagName('*'));
+	var groups = new Map();
+	for(let node of nodes){
+		var name = node.tagName.toLowerCase();
+		var group = groups.get(name);
+		if(!group){
+			group = [];
+			groups.set(name, group);
+		}
+		group.push([node]);
+	}
+	for(let normalTuple of normalizations){
+		var normalizer = normalTuple[normalTuple.length - 1];
+		for(var i=0;i<normalTuple.length - 1; ++i){
+			var group = groups.get(normalTuple[0]);
+			if(group){
+				for(let tuple of group){
+					normalizer(tuple, true);
+				}
+			}
+		}
+	}
+}
+function postNormalization(stack){
+	var groups = new Map();
+	for(let tuple of stack.getSplittedElements()){
+		if(tuple[0].nodeType !== 1){
+			continue;
+		}
+		var name = tuple[0].tagName.toLowerCase();
+		var group = groups.get(name);
+		if(!group){
+			group = [];
+			groups.set(name, group);
+		}
+		group.push(tuple);
+	}
+	for(let normalTuple of normalizations){
+		var normalizer = normalTuple[normalTuple.length - 1];
+		for(var i=0;i<normalTuple.length - 1; ++i){
+			var group = groups.get(normalTuple[i]);
+			if(group){
+				for(let tuple of group){
+					normalizer(tuple, false);
+				}
+			}
+		}
+	}
+}
+var normalizations = [
+	['ul', 'ol', function(tuple, isPrenormalization){
+		if(isPrenormalization){
+			return;
+		}
+		var items = [];
+		var main = tuple[0];
+
+		var value = main.hasAttribute('start') ? (main.getAttribute('start')|0) : 1;
+		var increment = main.hasAttribute('reversed') ? -1 : 1;
+
+		for(var i=0;i<tuple.length;++i){
+			var child = tuple[i].children;
+			for(var j=0;j<child.length;++j){
+				if(!child[j].classList.contains('book-splitted-copy')){
+					items.push(child[j]);
+				}
+			}
+			tuple[i].removeAttribute('start');
+			tuple[i].removeAttribute('reversed');
+		}
+debugger;
+		//items contains all the li elements unique, so that number can be assigned easily
+		for(var i=0;i<items.length;++i){
+			if(items[i].hasAttribute('value')){
+				value = items[i].getAttribute('value')|0;
+			}
+			else {
+				items[i].setAttribute('value', value);
+			}
+			value += increment;
+		}
+	}],
+	['table', function(tuple, isPrenormalization){
+		if(!isPrenormalization){
+			return;
+		}
+		//tuple is an array of 1 element
+		//compute the columns width, so that we do normalization without redoing page-creation
+		var items = [];
+		var child = tuple[0].children;
+		var originalGroup = null;
+		for(var i=0;i<child.length;++i){
+			switch(child[i].tagName.toLowerCase()){
+				case 'tr':
+					items.push(child[i]);
+					break;
+				case 'thead':
+				case 'tbody':
+				case 'tfoot':
+					var child2 = child[i].children;
+					for(var j=0;j<child2.length;++j){
+						if(child2[j].tagName.toLowerCase() === 'tr'){
+							items.push(child2[j]);
+						}
+					}
+					break;
+				case 'colgroup':
+					originalGroup = child[i];
+					break;
+			}
+		}
+		//now we have all the rows we need
+		//and we can compute the columns width
+		var columnCount = 0;
+		for(var i=0;i<items.length; ++i){
+			var cells = items[i].children;
+			var tempCount = 0;
+			for(var j=0;j<cells.length;++j){
+				var cell = cells[j];
+				if(cell.hasAttribute('colspan')){
+					tempCount += cell.getAttribute('colspan')|0;
+				}
+				else {
+					++tempCount;
+				}
+			}
+			if(tempCount>columnCount){
+				columnCount = tempCount;
+			}
+		}
+		if(originalGroup && originalGroup.children.length === columnCount){
+			return;
+		}
+
+		//now we need to measure the columns
+		var row = document.createElement('tr');
+		var colgroup = document.createElement('colgroup');
+
+		for(var i=0;i<columnCount;++i){
+			row.appendChild(document.createElement('td'));
+		}
+		tuple[0].appendChild(row);
+		for(var i=0;i<columnCount;++i){
+			var col = document.createElement('col');
+			col.style.setProperty('width', row.children[i].getBoundingClientRect().width + 'px', 'important');
+			colgroup.appendChild(col);
+		}
+		tuple[0].removeChild(row);
+		if(originalGroup){
+			originalGroup.remove();
+		}
+		tuple[0].insertBefore(colgroup, tuple[0].firstChild);
+	}],
+];
+function isTooLarge(page){
+	var box = page.getBoundingClientRect();
+	return box.height > pageinfo.size.height;
+}
+
+function setLeaders(){
+	var els = document.getElementsByClassName('book-leaders');
+	for(var i=0;i<els.length; ++i){
+		var e = els[i];
+		var parent = e.parentNode;
+		var f = e.style.float;
+		e.style.setProperty('float', 'none', 'important');
+		var w = e.style.wordBreak;
+		e.style.setProperty('word-break', 'break-word', 'important');
+		while(true){
+			var t = e.textContent;
+			e.textContent = t + '.';
+			if(e.getClientRects().length > 1){
+				e.textContent = t;
+				break;
+			}
+		}
+		e.style.wordBreak = w;
+		e.style.float = f;
+	}
+}
+
+function generateToc(){
+	var els = document.querySelectorAll('h1:not(.book-no-toc),h2:not(.book-no-toc),h3:not(.book-no-toc),h4:not(.book-no-toc),h5:not(.book-no-toc),h6:not(.book-no-toc)');
+	var result = document.querySelector('.book-toc');
+	var table = document.createElement('table');
+	result.appendChild(table);
+    table.classList.add('avoid-default-style');
+	var level = 0;
+	var levels = [0, 0, 0, 0, 0, 0];
+	var levelSizes = [0, 0, 0, 0, 0, 0, 0, 0];
+	var maxTextSize = 0;
+
+	for(var i=0;i<els.length;++i){
+		var e = els[i];
+		var newLevel = e.tagName.charAt(1) - '1';
+		var link = extractLink(e);
+		if(newLevel > level+1) throw 'Wrong document structure';
+		var row = document.createElement('tr');
+		
+		++levels[newLevel];
+		for(var j = newLevel + 1; j < levels.length; ++j) {
+			levels[j] = 0;
+		}
+		level = newLevel;
+
+		if(level != 0){
+			var spacer = document.createElement('td');
+			spacer.setAttribute('colspan', level);
+			row.appendChild(spacer);
+		}
+		
+		var indexNumber = makeIndexString(levels, level);
+		var indexSpan = document.createElement('span');
+		indexSpan.classList.add('book-toc-index');
+		indexSpan.textContent = indexNumber;
+		row.appendChild(makeLink(link, indexSpan));
+		var titleContent = document.createElement('span');
+		titleContent.classList.add('book-toc-title');
+		titleContent.appendChild(document.createTextNode(e.textContent));
+		var leaders = document.createElement('span');
+		leaders.classList.add('book-leaders');
+		var partialContent = document.createDocumentFragment();
+		partialContent.appendChild(titleContent);
+		partialContent.appendChild(leaders);
+		var title = makeLink(link, partialContent);
+		title.setAttribute('colspan', levels.length - level);
+		row.appendChild(title);
+
+		var pageSpan = document.createElement('span');
+		pageSpan.classList.add('book-toc-page');
+		var page = makeLink(link, pageSpan);
+		row.appendChild(page);
+
+		if(!e.classList.contains('book-no-index')){
+			insertNumber(e, indexNumber);
+		}
+		table.appendChild(row);
+		/*taking measures to compute columns widths*/
+		var t = indexSpan.getBoundingClientRect().width + 2;
+		if(t > levelSizes[level]){
+			levelSizes[level] = t;
+		}
+	}
+	var group = document.createElement('colgroup');
+	var totalSize = table.offsetWidth;
+	for(var i=0;i<levelSizes.length; ++i){
+		var col = document.createElement('col');
+		totalSize -= levelSizes[i];
+		if(i === levelSizes.length -2){
+			levelSizes[i] = totalSize;
+		}
+		col.style.width = levelSizes[i]+'px';
+		group.appendChild(col);
+	}
+	table.insertBefore(group, table.firstChild);
+}
+
+function extractLink(e){
+	if(!e.hasAttribute('id')){
+		throw 'Found an heading supposed to be inside the toc, but has no id';
+	}
+	return '#' + e.getAttribute('id');
+}
+function insertNumber(e, number){
+	var span = document.createElement('span');
+	span.classList.add('book-toc-index');
+	span.appendChild(document.createTextNode(number));
+	e.insertBefore(span, e.firstChild);
+}
+function makeLink(link, content){
+	var l = document.createElement('a');
+	l.setAttribute('href', link);
+	if(content) l.appendChild(content);
+
+	var cell = document.createElement('td');
+	cell.appendChild(l);
+	return cell;
+}
+function makeIndexString(levels, level){
+	var result = '';
+	for(var i=0;i<level;++i){
+		result += levels[i] + '.';
+	}
+	return result + levels[level];
+}
+function updatePageNumbers(fragment, mapping){
+	var items = fragment.querySelectorAll('.book-toc a[href]>.book-toc-page');
+	var changed = false;
+	var newSize = 0;
+	for(var i=0; i<items.length; ++i){
+		var link = items[i].parentNode;
+		var dest = fragment.getElementById(link.getAttribute('href').substring(1));
+		var span = items[i];
+		if(dest){
+			dest = mapping.get(dest);
+			var newPageNum = getPageNumber(dest);
+			if(span.textContent != newPageNum){
+				changed = true;
+				span.textContent = newPageNum;
+				mapping.get(span).textContent = newPageNum;
+			}
+			var t = mapping.get(span).getBoundingClientRect().width + 2;
+			if(t>newSize){
+				newSize = t;
+			}
+		}
+	}
+	if(changed){
+		var cols = fragment.querySelector('.book-toc>table>colgroup').children;
+		var textCol = cols[cols.length - 2];
+		var pageCol = cols[cols.length - 1];
+		var pageSize = parseFloat(pageCol.style.width);
+		var textSize = parseFloat(textCol.style.width);
+		if(Math.abs(newSize - pageSize) > 0.01){
+			pageCol.style.width = newSize + 'px';
+			textCol.style.width = (textSize + pageSize - newSize) + 'px';
+		}
+
+	}
+	return changed;
+}
+function getPageNumber(e){
+	while(!e.classList.contains('book-page')){
+		e = e.parentNode;
+	}
+	return e.getAttribute('data-book-page-number')|0;
+}
+
+window.addEventListener('load', layoutAll);            </script>
+            </head>
+    <body>
+		<div class="book-toc"></div>
+
+<h1 id="book-heading-1">Introduction</h1>
+
+<h2 id="book-heading-2">Purpose</h2>
+
+<p>This document is the Design Document (DD) of the SafeStreets system. Its purpose is to completely describe the logical and physical architecture of the system. It's written for project managers, developers, testers and Quality Assurance people.
+This document describes the components forming part of the  system with the related run-time processes. All the design choices are listed and motivated.<br />
+In particular, this document contains:</p>
+
+<ul>
+<li>High-level architecture</li>
+<li>Main  components, their interfaces and deployment</li>
+<li>Runtime behavior</li>
+<li>Chosen design patterns</li>
+<li>Details about the user interface and its flow</li>
+<li>Mapping of the requirements on the architecture’s components</li>
+<li>Implementation, integration and testing plan</li>
+</ul>
+
+<h2 id="book-heading-3">Scope</h2>
+
+<p>SafeStreets is a crowd-­sourced application that intends to provide users with the possibility to notify authorities when traffic violations occur, and in particular parking violations.</p>
+
+<p>The system addresses to:</p>
+
+<ul>
+<li>Generic people (Registered and Unregistered User)</li>
+<li>Authorities (Local Officer and Municipal Employee)</li>
+</ul>
+
+<p>An unregistered user must be able to register to the service, becoming a registered user.</p>
+
+<p>A registered user must be able to send reports about parking violation (which include date, time, position, type of violations and a picture of the vehicle), to see his/her past reports and to see valid violations occurred in a certain area (unsafe area).</p>
+
+<p>An authority must be able to mine reports concerning his/her municipality and retrieve statistics about reports and issued tickets. In particular, a municipal employee must also be able to get informations about possible improvements to be realized on the municipal territory (starting from reports and accidents occurred) and to eventually set them or some of them as "done", while a local officer must be able also to validate reports.</p>
+
+<p>SafeStreets data about valid reports are shared with the municipal ticket service in order to issue tickets, so the system must guarantee that the chain of custody of the information coming from the users is never broken.</p>
+
+<h2 id="book-heading-4">Definitions, Acronyms, Abbreviations</h2>
+
+<h3 id="book-heading-5">Definitions</h3>
+
+<ul>
+<li>Report = collection of data that represents a violation, in paticular:
+
+<ul>
+<li>Picture: a photo of the vehicle that has been found committing a violation</li>
+<li>Date: the date when the picture has been taken</li>
+<li>Time: the hour when the picture has been taken</li>
+<li>Position, the place, formatted using GPS location, of the vehicle that has been found committing a violation.</li>
+</ul></li>
+<li>Improvement = a possible road intervention finalized to the development of the road and to achieve a safer
+environment.</li>
+<li>Token = string provided to the client as an answer to the login request, which contains information about the user and will always be part of the following requests</li>
+</ul>
+
+<h3 id="book-heading-6">Acronyms</h3>
+
+<ul>
+<li>UU = Unregistered User;</li>
+<li>RU = Registered User;</li>
+<li>ME = Municipal Employee;</li>
+<li>LO = Local Officer;</li>
+<li>S2B = Software to Be;</li>
+<li>TS = Ticket Service;</li>
+<li>MS = Map Service;</li>
+<li>MAS = Municipal Accident Service;</li>
+<li>OCRS = OCR Service;</li>
+<li>VT = Violation type;</li>
+<li>DMZ = demilitarized zone</li>
+<li>DBMS = database management system</li>
+<li>I&amp;T = implementation and testing</li>
+<li>DMS = degrees minutes seconds</li>
+</ul>
+
+<h3 id="book-heading-7">Abbreviation</h3>
+
+<p>[Rn] : n-th functional requirement (referring to RASD)</p>
+
+<h2 id="book-heading-8">Revision history</h2>
+
+<ul>
+<li>Version 1.0:
+
+<ul>
+<li>Initial release</li>
+</ul></li>
+</ul>
+
+<h2 id="book-heading-9">Reference documents</h2>
+
+<ul>
+<li>Specification document: "Mandatory Project Assignment AY 2019‐2020"</li>
+</ul>
+
+<h2 id="book-heading-10">Document structure</h2>
+
+<p>The DD document is composed by seven chapters:</p>
+
+<ul>
+<li><strong>Chapter 1</strong> is an introduction and describes the purpose of the document and defines the scope of the system. It also contains the description of definitions, acronyms and abbreviations used inside the document.</li>
+<li><strong>Chapter 2</strong> describes the architectural design of the system. It's the core section of the document and contains a description of the high-level components and their interactions, the deployment of the system along with some dynamical views of the components, the selected design patterns and architectural styles and other design decisions.</li>
+<li><strong>Chapter 3</strong> describes a UX model for the user interface (presented in RASD) for normal users and authorities</li>
+<li><strong>Chapter 4</strong> provides the requirements traceability, specifying how the requirements identified in the RASD are linked to the design elements (components and architectural decisions) defined in this document</li>
+<li><strong>Chapter 5</strong> includes the description of the implementation plan, the integration plan and the testing   plan, specifying how all these phases are thought to be executed</li>
+<li><strong>Chapter 6</strong> shows the effort which each member of the group has spent working on the project</li>
+<li><strong>Chapter 7</strong> contains eventual references used during the writing of the document</li>
+</ul>
+
+<h1 id="book-heading-11">Architectural Description</h1>
+
+<h2 id="book-heading-12">Overview</h2>
+
+<p>The product is a distributed application based on the three logic layers of Presentation, that manages the user's interaction with the system, Application, which handles the logic of the system and Data, which manages the information.</p>
+
+<p>Those three layers are divided onto four different physical tiers. As shown by the following image, Presentation and Data levels reside on a single tier, while Application level is split into two tiers. The first one is the Web Server, 
+responsible for the forwarding of requests from the clients and for the caching of static contents, while the second one is the Application Server, which contains the logic of the system.</p>
+
+<p><img src="./images/exported/SimplifiedDeploymentView.svg" alt="SimplifiedDeploymentView" /></p>
+
+<p>In order to maximize the scalability of our system, both the Web and Application server follow a scale-out approach: performances improvement is obtained through nodes replication. 
+Because of this approach, load-balancing system are used in order to distribute the working load among the various nodes. 
+All the nodes of the Application Server use a "share everything" configuration, because there is only one shared database with one point of access. 
+Moreover, the Data layer is accomplished by exploiting and external DBMS service already available on the market. In this way we avoid devoting time on difficult
+problems about data replication and consistency, which are already solved by the existing and well tested database systems.</p>
+
+<p>Every communication channel is secured by using firewalls. In this way, the entire Application layer is secured in a DMZ, so attacks and intrusions from malicious 
+clients will be prevented. It is important to note that, because the DBMS is located on a different tier with respect to the Application Server, a firewall between them 
+can improve the security of the system against malicious attacks coming from the data base, especially in the case of an external DBSM like in our solution. 
+Finally, both communication channels between the Application server and other services, like the Ticket service, are secured for the 
+same reasons explained above.</p>
+
+<h2 id="book-heading-13">Component view</h2>
+
+<p><img src="./images/exported/ComponentDiagram.svg" alt="ComponentDiagram" /> 
+The Component view diagrams represents, explicitly, only the components of the Application server, as they depict the main section of the system. 
+Below we will describe in depth the function of every internal server component made ad-hoc for the system (the ones in green).</p>
+
+<ul>
+<li><strong>Router</strong>: receives HTTP over SSL/TLS requests following the REST paradigm (see below in the "Component interface" section for further details) and forward them to the others internal components of the Application server. Then forwards the replies
+back to the clients. It is relevant to note that temporary tokens are adopted, in order to define which functionalities are accessible for each client. Every client receives its personal token after the login procedure.</li>
+<li><strong>UserManager</strong>:
+
+<ul>
+<li><strong>LoginManager</strong>: this component is responsible for granting access to registered users. In particular, the component receives the access credentials and returns an unique token used for further communication
+by the user.</li>
+<li><strong>SignUpManager</strong>: this component is responsible for the registration of unregistered users. In particular it receives the new access credentials and save them in the system's database.</li>
+</ul></li>
+<li><strong>ReportManager</strong>:
+
+<ul>
+<li><strong>ReportReceiver</strong>: this component is responsible for receiving the data of new reports and storing them in the database. In particular it takes care of the following tasks:
+
+<ul>
+<li>employ the MS apis to retrieve the information about which municipality the report has been created from.</li>
+<li>recognizing the car's plate in the picture, by employing the OCRS apis. In case of an unrecognizable plate, the report status will be set to "NOTVALID" by default, otherwise it will be "NOTVERIFIED" (which means that a local officer has still to prove its validity).</li>
+<li>saving the report in the system's database.</li>
+</ul></li>
+<li><strong>ReportValidator</strong>: this component is responsible for two main operations:
+
+<ul>
+<li>fetching, from the database, of reports with status set to "NOTVERIFIED".</li>
+<li>modification of status of a set of report, by changing if from "NOTVERIFIED" to "VALID" or "NOTVALID" according to the request sent by the local officer. Then it saves them in the database and sends them to the TS, responsible for issuing traffic tickets.</li>
+</ul></li>
+</ul></li>
+<li><p><strong>ReportMiner</strong>: this component is responsible for obtaining reports by querying the database. It is crucial to note that the request of the authority can come from directly from the Router of from other components like the ImprovementsManager and StatisticsComputationManager. In both cases, authority's municipality is used for filtering reports. Only reports with status set to "VALID" are fetched. Various form of mining can be performed, in particular it's is possible to mine:</p>
+
+<ul>
+<li>All: all the reports produced in the same municipality of the authority, who has issued the request, are returned.</li>
+<li>By Type: between all the reports produced in the same municipality of the authority, who has issued the request, only those which have the given violation's type are returned.</li>
+<li>By Date: between all the reports produced in the same municipality of the authority, who has issued the request, only those which were composed on the given date are returned.</li>
+<li>By Time: between all the reports produced in the same municipality of the authority, who has issued the request, only those which were composed on the given time, regardless the date, are returned.</li>
+<li>By Area: between all the reports produced in the same municipality of the authority, who has issued the request, only those which were composed in the given area, defined by a center and a radius, are returned.</li>
+</ul></li>
+<li><p><strong>ImprovementManager</strong>: this component is responsible for getting the possible improvements belonging to the requesting authority's municipality and for setting their status. In order to determine the possible improvements, it crosses the data
+coming from the external MAS and from the MineReports component. When a new improvement is determined, it's status is set by default to "NOTDONE" and it is saved in the database. When no further improvements can be discovered, all those which have the status set to "NOTDONE" 
+are returned to the requester. Moreover, through this component, an authority can set the status of a specific improvement to "DONE", after fetching all the possible one as described before.</p></li>
+<li><strong>StatisticsComputationManager</strong>: this component is responsible for building statistics, belonging to the requesting authority's municipality, about the violations and the 
+perpetrators who cause them by crossing the information coming from reports received by the ReportMiner and from issued tickets coming from the TS. 
+It is important to note that statistics are always crunched on request and never saved on the server, because they can change at any time.</li>
+<li><strong>StatisticsDownloadManager</strong>: this component is responsible for creating a non materialized document (which means it is not saved on server side, but only generated
+and sent) about the statistics, belonging to the requesting authority's municipality, 
+by fetching them from the StatisticsComputationManager. The resulting document is returned to the caller.</li>
+</ul>
+
+<h2 id="book-heading-14">Deployment view</h2>
+
+<p><img src="./images/exported/DeploymentView.svg" alt="DeploymentView" /></p>
+
+<p>This picture shows how the system should be deployed:</p>
+
+<ul>
+<li>It is available for end users as a Mobile application, while, for authorities, as a Web application, accessible both from Mobile and PC.</li>
+<li>The Web server, deployed on its physical node, has the purpose of caching static contents (which are, for example, .html and .css files) for the Web application. 
+Every other request received from the clients (both the Web and Mobile application) is automatically forwarded to the Application server.</li>
+<li>The Application server and the Database server are deployed on two different physical nodes, in order to have more security for data and to achieve a decoupled architecture. 
+Other external services has been ignored for this view.</li>
+</ul>
+
+<h2 id="book-heading-15">Runtime view</h2>
+
+<h2 id="book-heading-16">Component interfaces</h2>
+
+<h3 id="book-heading-17">Web server interface and Report interface</h3>
+
+<p>For the Web server interface and the Report interface a RESTful api has been chosen. Since both interfaces are a vital part of the system, and the components that they connect belongs to the part that will be implemented, they will be discussed in depth.</p>
+
+<h4 id="book-heading-18">REST table of resources</h4>
+
+<p>The following table represents the logic structures of the resources of the system and the operation that can be done on them.</p>
+
+<table>
+<thead>
+<tr>
+  <th>URI</th>
+  <th>POST</th>
+  <th>GET</th>
+  <th>PUT</th>
+  <th>DELETE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>/users/registration/?id=xxx</td>
+  <td>X</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>/users/login/?id=xxx</td>
+  <td>-</td>
+  <td>X</td>
+  <td>-</td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>/users/authorities/login/?id=xxx</td>
+  <td>-</td>
+  <td>X</td>
+  <td>-</td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>/reports/default</td>
+  <td>X</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>/reports/default/?id=xxx</td>
+  <td>-</td>
+  <td>X</td>
+  <td>-</td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>/reports/default/unsafearea</td>
+  <td>-</td>
+  <td>X</td>
+  <td>-</td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>/reports/notverified/?id=xxx</td>
+  <td>-</td>
+  <td>X</td>
+  <td>X</td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>/reports/valid/?id=xxx</td>
+  <td>-</td>
+  <td>X</td>
+  <td>-</td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>/improvements/?id=xxx</td>
+  <td>-</td>
+  <td>X</td>
+  <td>X</td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>/statistics/?id=xxx</td>
+  <td>-</td>
+  <td>X</td>
+  <td>-</td>
+  <td>-</td>
+</tr>
+</tbody>
+</table>
+
+<p>"X" : the operation is applicable on the resource</p>
+
+<p>"-" : the operation is inapplicable on the resource</p>
+
+<p>Here a quick description of the resources group:</p>
+
+<ul>
+<li>*/users/** represents the information related to the users, in particular their account information</li>
+<li>*/reports/default/** represents the resources accessible by the RU, in particular reports and "pseudo report" for the unsafe areas. These resources will be greatly used by the mobile app.</li>
+<li>*/reports/notverified/** contains all the received reports that haven't been immediately discarded by the OCR but are still on impending evaluation by a LO</li>
+<li>*/reports/valid/** contains all the received reports that have been judged as valid by a LO</li>
+<li>*/improvements/** contains the improvements suggested to a municipality that can be retrieved by a ME</li>
+<li>*/statistics/** contains the statistics that can be retrieved by a ME</li>
+</ul>
+
+<h4 id="book-heading-19">General request description</h4>
+
+<p>The data that will be transmitted will be composed of XML files.</p>
+
+<p>To recognize the user who sent a request to the server, the system will employ tokens. 
+A token is a string that is provided to the user as an answer to the login, it contains information on the user and will always be part of the requests, except the login and sign up.
+The contained information will be:</p>
+
+<ul>
+<li>User type information: the different type users (RU, LO and ME) will be identified in different ways to avoid ambiguity. Moreover the identifier for LO and ME will contain an identifier for the Municipality they work for</li>
+<li>User identifier: The single user will be identified to have information on who is making the request and give the correct permission to access data.</li>
+<li>Creation time: The token is a "one time only" use. Its validity is fixed and will generally last at least for a session, this permits to recycle pieces of tokens and avoids the malicious use of old ones to get data.</li>
+</ul>
+
+<p>The tokens will be structured in a way that will be impossible to decipher by malevolent parties and that will guarantee legitimacy for each request.</p>
+
+<h4 id="book-heading-20">Detailed requests</h4>
+
+<p><strong>POST</strong>   &nbsp;&nbsp;&nbsp;&nbsp;/users/registration/?id={id}</p>
+
+<p>This request is used to register a user.</p>
+
+<p><strong>Parameters</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>Field</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>String</td>
+  <td>The username of the user who is trying to register</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Fields</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>Field</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>email</td>
+  <td>String</td>
+  <td>The email of the user</td>
+</tr>
+<tr>
+  <td>passwordFirst</td>
+  <td>String</td>
+  <td>The password of the user</td>
+</tr>
+<tr>
+  <td>passwordSecond</td>
+  <td>String</td>
+  <td>The same password as before, used to confirm the first password</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Success 201</strong> (resource created)</p>
+
+<p><strong>Error 401</strong> (Unauthorized)</p>
+
+<table>
+<thead>
+<tr>
+  <th>Field</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>ExistingUsername</td>
+  <td>Someone with the same username is already registered</td>
+</tr>
+<tr>
+  <td>DifferentPassword</td>
+  <td>The second password is different from the first one</td>
+</tr>
+<tr>
+  <td>ExistingMail</td>
+  <td>This email is already associated with another account</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<p><strong>GET</strong>   &nbsp;&nbsp;&nbsp;&nbsp;/users/login/?id={id}</p>
+
+<p>This request allows a RU to login.</p>
+
+<p><strong>Parameters</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>Field</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>String</td>
+  <td>The username of the user who is trying to login</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Fields</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>Field</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>loginInformation</td>
+  <td>String</td>
+  <td>The email or username of the user</td>
+</tr>
+<tr>
+  <td>password</td>
+  <td>String</td>
+  <td>The password of the user</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Success 200</strong> (request OK)</p>
+
+<table>
+<thead>
+<tr>
+  <th>Field</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>token</td>
+  <td>String</td>
+  <td>A token that represents the user</td>
+</tr>
+<tr>
+  <td>reportIDs</td>
+  <td>String[]</td>
+  <td>The list of id associated with the reports uploaded by the user</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Error 401</strong> (Unauthorized)</p>
+
+<table>
+<thead>
+<tr>
+  <th>Field</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>WrongUsernameOrPassword</td>
+  <td>The written username and password does not correspond to any existing user</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<p><strong>GET</strong>   &nbsp;&nbsp;&nbsp;&nbsp;/users/authorities/login/?id={id}</p>
+
+<p>This request allows a ME or LO to login.</p>
+
+<p><strong>Parameters</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>Field</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>String</td>
+  <td>The username of the user who is trying to login</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Fields</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>Field</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>loginInformation</td>
+  <td>String</td>
+  <td>The username of the user</td>
+</tr>
+<tr>
+  <td>password</td>
+  <td>String</td>
+  <td>The password of the user</td>
+</tr>
+<tr>
+  <td>workRole</td>
+  <td>String</td>
+  <td>This will be 'ME' or 'LO'</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Success 200</strong> (request OK)</p>
+
+<table>
+<thead>
+<tr>
+  <th>Field</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>token</td>
+  <td>String</td>
+  <td>A token that represents the user and the municipality he/she works in</td>
+</tr>
+<tr>
+  <td>municipalityID</td>
+  <td>String</td>
+  <td>The id of the municipality where the ME or LO works, this will be a parameter for the following requests</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Error 401</strong> (Unauthorized)</p>
+
+<table>
+<thead>
+<tr>
+  <th>Field</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>WrongUsernameOrPassword</td>
+  <td>The written username and password does not correspond to any existing user</td>
+</tr>
+<tr>
+  <td>NotCorrespondingRole</td>
+  <td>The selected work role does not correspond to the user which given login and password corresponds to</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<p><strong>POST</strong>   &nbsp;&nbsp;&nbsp;&nbsp;/reports/default</p>
+
+<p>This request adds a report to the system.</p>
+
+<p><strong>Fields</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>Field</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>vehicle</td>
+  <td>Object</td>
+  <td>The vehicle information</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;licensePlate</td>
+  <td>String</td>
+  <td>The license plate of the vehicle</td>
+</tr>
+<tr>
+  <td>position</td>
+  <td>Object</td>
+  <td>The position, expressed in DMS, of the vehicle when the report was submitted</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;latitude</td>
+  <td>String</td>
+  <td>The latitude where the vehicle was recorded to be</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;longitude</td>
+  <td>String</td>
+  <td>The longitude where the vehicle was recorded to be</td>
+</tr>
+<tr>
+  <td>picture</td>
+  <td>Object</td>
+  <td>Representation of the image of the vehicle</td>
+</tr>
+<tr>
+  <td>violation</td>
+  <td>Object[]</td>
+  <td>An array of the type of violation</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;violationType</td>
+  <td>String</td>
+  <td>The type of violation</td>
+</tr>
+<tr>
+  <td>date</td>
+  <td>String</td>
+  <td>The datetime in <span style="color:lightgreen">dd-MM-yyyyThh:mm:ss</span> format</td>
+</tr>
+<tr>
+  <td>highlightVertexes</td>
+  <td>Object</td>
+  <td>The coordinates on the picture of where the license plate is located</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;vertexOne</td>
+  <td>Number[]</td>
+  <td>The coordinates of the first vertex</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;vertexTwo</td>
+  <td>Number[]</td>
+  <td>The coordinates of the second vertex</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;vertexThree</td>
+  <td>Number[]</td>
+  <td>The coordinates of the third vertex</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;vertexFour</td>
+  <td>Number[]</td>
+  <td>The coordinates of the fourth vertex</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Success 201</strong> (resource created)</p>
+
+<table>
+<thead>
+<tr>
+  <th>Field</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>String</td>
+  <td>The id that the system has assigned to the sent report, this id will uniquely identify the report and will also contain information about the user which sent it</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<p><strong>GET</strong>   &nbsp;&nbsp;&nbsp;&nbsp;/reports/default/?id={id}</p>
+
+<p>This request retrieves a report form the system.</p>
+
+<p><strong>Parameters</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>Field</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>String</td>
+  <td>The id that uniquely identifies the report that the user wants to see</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Success 200</strong> (request OK)</p>
+
+<table>
+<thead>
+<tr>
+  <th>Field</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>vehicle</td>
+  <td>Object</td>
+  <td>The vehicle information</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;licensePlate</td>
+  <td>String</td>
+  <td>The license plate of the vehicle</td>
+</tr>
+<tr>
+  <td>position</td>
+  <td>Object</td>
+  <td>The position, expressed in DMS, of the vehicle when the report was submitted</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;latitude</td>
+  <td>String</td>
+  <td>The latitude where the vehicle was recorded to be</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;longitude</td>
+  <td>String</td>
+  <td>The longitude where the vehicle was recorded to be</td>
+</tr>
+<tr>
+  <td>picture</td>
+  <td>Object</td>
+  <td>Representation of the image of the vehicle</td>
+</tr>
+<tr>
+  <td>violation</td>
+  <td>Object[]</td>
+  <td>An array of the type of violation</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;violationType</td>
+  <td>String</td>
+  <td>The type of violation</td>
+</tr>
+<tr>
+  <td>date</td>
+  <td>String</td>
+  <td>The datetime in <span style="color:blue">dd-MM-yyyyThh:mm:ss</span> format</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Error 403</strong> (forbidden)</p>
+
+<table>
+<thead>
+<tr>
+  <th>Field</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>UserNotAuthorized</td>
+  <td>The id of the report and the token of the user have been analyzed. It was found that the user was not the one who submitted the report and as such the RU was not permitted to see the report</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<p><strong>GET</strong>   &nbsp;&nbsp;&nbsp;&nbsp;/reports/default/unsafearea</p>
+
+<p>This request retrieves the type of violations in certain area.</p>
+
+<p><strong>Fields</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>Field</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>position</td>
+  <td>Object</td>
+  <td>The position, expressed in DMS, of the center of the area which the RU wants to know about</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;latitude</td>
+  <td>String</td>
+  <td>The latitude where the vehicle was recorded to be</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;longitude</td>
+  <td>String</td>
+  <td>The longitude where the vehicle was recorded to be</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Success 200</strong> (request OK)</p>
+
+<table>
+<thead>
+<tr>
+  <th>Field</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>pseudoReport</td>
+  <td>Object[]</td>
+  <td>The list of partial reports that can be seen bya a RU</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;position</td>
+  <td>Object</td>
+  <td>The position, expressed in DMS, of the vehicle when the report was submitted</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;latitude</td>
+  <td>String</td>
+  <td>The latitude where the vehicle was recorded to be</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;longitude</td>
+  <td>String</td>
+  <td>The longitude where the vehicle was recorded to be</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;violation</td>
+  <td>Object[]</td>
+  <td>An array of the type of violation</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;violationType</td>
+  <td>String</td>
+  <td>The type of violation</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<p><strong>GET</strong>   &nbsp;&nbsp;&nbsp;&nbsp;/reports/notverified/?id={id}</p>
+
+<p>This request retrieves the reports that are waiting for validation in a certain municipality.</p>
+
+<p><strong>Parameters</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>Field</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>String</td>
+  <td>The id that uniquely identifies the municipality which the LO works for</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Success 200</strong> (request OK)</p>
+
+<table>
+<thead>
+<tr>
+  <th>Field</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>reports</td>
+  <td>Object[]</td>
+  <td>A list of the valid reports of a certain municipality</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;reportId</td>
+  <td>String</td>
+  <td>The string that uniquely identifies a report</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;vehicle</td>
+  <td>Object</td>
+  <td>The vehicle information</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;licensePlate</td>
+  <td>String</td>
+  <td>The license plate of the vehicle</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;position</td>
+  <td>Object</td>
+  <td>The position, expressed in DMS, of the vehicle when the report was submitted</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;latitude</td>
+  <td>String</td>
+  <td>The latitude where the vehicle was recorded to be</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;longitude</td>
+  <td>String</td>
+  <td>The longitude where the vehicle was recorded to be</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;picture</td>
+  <td>Object</td>
+  <td>Representation of the image of the vehicle</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;violation</td>
+  <td>Object[]</td>
+  <td>An array of the type of violation</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;violationType</td>
+  <td>String</td>
+  <td>The type of violation</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;date</td>
+  <td>String</td>
+  <td>The datetime in <span style="color:blue">dd-MM-yyyyThh:mm:ss</span> format</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Error 403</strong> (forbidden)</p>
+
+<table>
+<thead>
+<tr>
+  <th>Field</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>UserNotAuthorized</td>
+  <td>The id of the municipality and the token of the user have been analyzed. It was found that the user was not an LO or the LO's municipality was not the one of the reports requested</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<p><strong>PUT</strong>   &nbsp;&nbsp;&nbsp;&nbsp;/reports/notverified/?id={id}</p>
+
+<p>This request modifies the status of a report.</p>
+
+<p><strong>Parameters</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>Field</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>String</td>
+  <td>The id that uniquely identifies the municipality which the LO works for</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Fields</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>Field</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>String</td>
+  <td>The id of the report</td>
+</tr>
+<tr>
+  <td>newStatus</td>
+  <td>String</td>
+  <td>The result of the validation performed by the LO</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Error 403</strong> (forbidden)</p>
+
+<table>
+<thead>
+<tr>
+  <th>Field</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>UserNotAuthorized</td>
+  <td>The id of the municipality and the token of the user have been analyzed. It was found that the user was not an LO or the LO's municipality was not the one of the reports requested</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<p><strong>GET</strong>   &nbsp;&nbsp;&nbsp;&nbsp;/reports/valid/?id={id}</p>
+
+<p>This request gets all the valid reports in a certain municipality.</p>
+
+<p><strong>Parameters</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>Field</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>String</td>
+  <td>The id that uniquely identifies the municipality which the LO works for</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Fields</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>Field</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>requestType</td>
+  <td>String</td>
+  <td>The type of request issued (i.e. "by area")</td>
+</tr>
+<tr>
+  <td>requestField</td>
+  <td>String</td>
+  <td>The field that contains precise information on the request</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Success 200</strong> (request OK)</p>
+
+<table>
+<thead>
+<tr>
+  <th>Field</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>reports</td>
+  <td>Object[]</td>
+  <td>A list of the valid reports of a certain municipality</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;reportId</td>
+  <td>String</td>
+  <td>The string that uniquely identifies a report</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;vehicle</td>
+  <td>Object</td>
+  <td>The vehicle information</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;licensePlate</td>
+  <td>String</td>
+  <td>The license plate of the vehicle</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;position</td>
+  <td>Object</td>
+  <td>The position, expressed in DMS, of the vehicle when the report was submitted</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;latitude</td>
+  <td>String</td>
+  <td>The latitude where the vehicle was recorded to be</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;longitude</td>
+  <td>String</td>
+  <td>The longitude where the vehicle was recorded to be</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;picture</td>
+  <td>Object</td>
+  <td>Representation of the image of the vehicle</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;violation</td>
+  <td>Object[]</td>
+  <td>An array of the type of violation</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;violationType</td>
+  <td>String</td>
+  <td>The type of violation</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;date</td>
+  <td>String</td>
+  <td>The datetime in <span style="color:blue">dd-MM-yyyyThh:mm:ss</span> format</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Error 403</strong> (forbidden)</p>
+
+<table>
+<thead>
+<tr>
+  <th>Field</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>UserNotAuthorized</td>
+  <td>The id of the municipality and the token of the user have been analyzed. It was found that the user was not an LO or the LO's  municipality was not the one of the reports requested</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<p><strong>GET</strong>   &nbsp;&nbsp;&nbsp;&nbsp;/improvements/?id={id}</p>
+
+<p>This request retrieves all the suggested improvements in a certain municipality.</p>
+
+<p><strong>Parameters</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>Field</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>String</td>
+  <td>The id that uniquely identifies the municipality which the ME works for</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Success 200</strong> (request OK)</p>
+
+<table>
+<thead>
+<tr>
+  <th>Field</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>improvements</td>
+  <td>Object[]</td>
+  <td>The list of suggested improvements</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;type</td>
+  <td>String</td>
+  <td>The of the improvement, i.e. "add a cycling lane"</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;position</td>
+  <td>Object</td>
+  <td>The position of the improvement expresses in DMS</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;latitude</td>
+  <td>String</td>
+  <td>The latitude where the suggested improvement will be expected to be</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;longitude</td>
+  <td>String</td>
+  <td>The longitude where the suggested improvement will be expected to be</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;state</td>
+  <td>String</td>
+  <td>The status of the improvement, it could be "DONE" or "NOT DONE"</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Error 403</strong> (forbidden)</p>
+
+<table>
+<thead>
+<tr>
+  <th>Field</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>UserNotAuthorized</td>
+  <td>The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's  municipality was not the one of the reports requested</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<p><strong>PUT</strong>   &nbsp;&nbsp;&nbsp;&nbsp;/improvements/?id={id}</p>
+
+<p>This request modifies the status of an improvement from "not done" to "done".</p>
+
+<p><strong>Parameters</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>Field</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>String</td>
+  <td>The id that uniquely identifies the municipality which the LO works for</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Fields</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>Field</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>String</td>
+  <td>The id of the improvement</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Error 403</strong> (forbidden)</p>
+
+<table>
+<thead>
+<tr>
+  <th>Field</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>UserNotAuthorized</td>
+  <td>The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's municipality was not the one of the reports requested</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<p><strong>GET</strong>  &nbsp;&nbsp;&nbsp;&nbsp; /statistics/?id={id}</p>
+
+<p>This  request gets the available statistics on a certain municipality.</p>
+
+<p><strong>Parameters</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>Field</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>String</td>
+  <td>The id that uniquely identifies the municipality which the LO works for</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Success 200</strong> (request OK)</p>
+
+<table>
+<thead>
+<tr>
+  <th>Field</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>statistics</td>
+  <td>Object[]</td>
+  <td>The various statistics</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp; firstFieldName</td>
+  <td>String</td>
+  <td>The name of the first field of the graph</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp; secondFieldName</td>
+  <td>String</td>
+  <td>The name of the second field of the graph</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp; firstFieldValues</td>
+  <td>Number[]</td>
+  <td>The values of the first field</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp; secondFieldValues</td>
+  <td>Number[]</td>
+  <td>The value of the second field</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Error 403</strong> (forbidden)</p>
+
+<table>
+<thead>
+<tr>
+  <th>Field</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>UserNotAuthorized</td>
+  <td>The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's  municipality was not the one of the reports requested</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="book-heading-21">TS interface and MAS interface</h3>
+
+<p>Since both the TS and the MAS are optional external services which are not completely specified it will be assumed that their communication interfaces will be provided trough RESTful api
+given the fact that a stateless communication will ease the load on both our system and the Municipality's system. There will be assumptions only on the expected response for the GET requests and for the POST only the field of the message will be described.
+Both the URIs, controls on accesses and security will be overlooked.</p>
+
+<h4 id="book-heading-22">Request of data about accidents from the MAS</h4>
+
+<p>This request will be structured as a GET and the expected success message will be structured as follows.</p>
+
+<table>
+<thead>
+<tr>
+  <th>Field</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>accidents</td>
+  <td>Object[]</td>
+  <td>The list of accidents that a Municipality can provide</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;date</td>
+  <td>String</td>
+  <td>The datetime in <span style="color:lightgreen">dd-MM-yyyyThh:mm:ss</span> format</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;position</td>
+  <td>Object</td>
+  <td>The position, expressed in DMS, where the accident happened</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;latitude</td>
+  <td>String</td>
+  <td>The latitude where the accident was recorded to have happened</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;longitude</td>
+  <td>String</td>
+  <td>The longitude where the vehicle was recorded to have happened</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;vehicles</td>
+  <td>Object[]</td>
+  <td>The vehicles that were involved in the accident</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;licensePlate</td>
+  <td>String</td>
+  <td>The license plate of the vehicle</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="book-heading-23">Request of data about tickets from the TS</h4>
+
+<p>This request will be structured as a GET, the expected success message will be structured as follows.</p>
+
+<table>
+<thead>
+<tr>
+  <th>Field</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>tickets</td>
+  <td>Object[]</td>
+  <td>The tickets issued in a certain Municipality</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;vehicle</td>
+  <td>Object</td>
+  <td>The vehicle information</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;licensePlate</td>
+  <td>String</td>
+  <td>The license plate of the vehicle</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;position</td>
+  <td>Object</td>
+  <td>The position, expressed in DMS, of the vehicle when the ticket was issued</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;latitude</td>
+  <td>String</td>
+  <td>The latitude where the vehicle was recorded to be</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;longitude</td>
+  <td>String</td>
+  <td>The longitude where the vehicle was recorded to be</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;violation</td>
+  <td>Object[]</td>
+  <td>An array of the type of violation</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;violationType</td>
+  <td>String</td>
+  <td>The type of violation</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;date</td>
+  <td>String</td>
+  <td>The datetime in <span style="color:lightgreen">dd-MM-yyyyThh:mm:ss</span> format</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="book-heading-24">Forwarding of data about valid reports to the TS</h4>
+
+<p>The request will be POST, the content of the sent message will be as follows.</p>
+
+<table>
+<thead>
+<tr>
+  <th>Field</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>vehicle</td>
+  <td>Object</td>
+  <td>The vehicle information</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;licensePlate</td>
+  <td>String</td>
+  <td>The license plate of the vehicle</td>
+</tr>
+<tr>
+  <td>position</td>
+  <td>Object</td>
+  <td>The position, expressed in DMS, of the vehicle when the ticket was issued</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;latitude</td>
+  <td>String</td>
+  <td>The latitude where the vehicle was recorded to be</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;longitude</td>
+  <td>String</td>
+  <td>The longitude where the vehicle was recorded to be</td>
+</tr>
+<tr>
+  <td>violation</td>
+  <td>Object[]</td>
+  <td>An array of the type of violation</td>
+</tr>
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;violationType</td>
+  <td>String</td>
+  <td>The type of violation</td>
+</tr>
+<tr>
+  <td>date</td>
+  <td>String</td>
+  <td>The datetime in <span style="color:lightgreen">dd-MM-yyyyThh:mm:ss</span> format</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="book-heading-25">DBMS interface</h3>
+
+<p>(va specificato da qualche parte che il DB userà quello detto da Monica)</p>
+
+<p>The communication between the database and our system will be handled by a class</p>
+
+<p>uso del DB</p>
+
+<ul>
+<li>creazione nuova tabella</li>
+<li>inserimento di nuovi report</li>
+<li>ricerca di report non validati</li>
+<li>modifica di report non validati con la sostituzione a report validi</li>
+<li>ricerca di report validi</li>
+</ul>
+
+<h3 id="book-heading-26">Map interface</h3>
+
+<h2 id="book-heading-27">Selected architectural styles and patterns</h2>
+
+<p>xml yadiyada</p>
+
+<h2 id="book-heading-28">Other design decisions</h2>
+
+<p>security yadiyada</p>
+
+<p>? add id on improvements, reports, municipality</p>
+
+<h1 id="book-heading-29">User Interface Design</h1>
+
+<h1 id="book-heading-30">Requirement Traceability</h1>
+
+<h2 id="book-heading-31">Sign-up</h2>
+
+<p>[R1] A user must be able to sign up to the system with a unique personal username and password:</p>
+
+<ul>
+<li>SignUpManager: this component receives username and password of a new user, 
+register them in the database and notify the user of the success, in case of no errors. 
+Otherwise, the registration fails and the user is notified by an error message.</li>
+</ul>
+
+<h2 id="book-heading-32">Log-in</h2>
+
+<p>[R2] The system must allow only registered users to login with their username and password</p>
+
+<ul>
+<li>LoginManager: this component receives user's username and password and, in case there is a match in the database, 
+returns a token used for further identified communication.</li>
+</ul>
+
+<p>[R3] The system must allow only municipal authorities to login with their username and password</p>
+
+<ul>
+<li>LoginManager: this component receives authority's username and password and, in case there is a match in the database, 
+returns a token used for further identified communication.</li>
+</ul>
+
+<p>[R4] A users, municipal employee or local officer must be uniquely identified by his/her username</p>
+
+<ul>
+<li>SignUpManager: this component prevents that, during registration, no two users have the same username, while, for 
+authorities, this requirement holds a priori.</li>
+</ul>
+
+<h2 id="book-heading-33">Add Report</h2>
+
+<p>[R5] When composing the report, the system must be able to access the user’s device camera and GPS sensor</p>
+
+<ul>
+<li>UserMobileApp: the application is able to access user's device camera.</li>
+</ul>
+
+<p>[R6] When composing the report, a user must take a picture from the device’s camera and highlight the license plate</p>
+
+<ul>
+<li>UserMobileApp: the application let user take a picture only from the device's camera and highlight the license plate</li>
+</ul>
+
+<p>[R7] When composing the report, time and date get automatically retrieved from the internet</p>
+
+<ul>
+<li>UserMobileApp: the application automatically retrieves time and date from the internet as soon the picture for the report has been confirmed.</li>
+</ul>
+
+<p>[R8] When composing the report, position gets automatically retrieved from the device’s GPS</p>
+
+<ul>
+<li>UserMobileApp: the application automatically retrieves position from the device's GPS as soon the picture for the report has been confirmed.</li>
+</ul>
+
+<p>[R9] When composing the report, a user can choose at least one type of violation</p>
+
+<ul>
+<li>UserMobileApp: the application let the user choosing at least one type of violation.</li>
+</ul>
+
+<p>[R10] When composing the report, a user can’t add the same violation type two times in the same report</p>
+
+<ul>
+<li>UserMobileApp: the application does not let the user add twice the same type of violation in the same report.</li>
+</ul>
+
+<p>[R11] When composing the report, a user can revert each phase of the creation of the report at any time, before sending it</p>
+
+<ul>
+<li>UserMobileApp: the application let the user revert each phase of the creation of the report at any time, before sending it.</li>
+</ul>
+
+<p>[R12] When composing the report, a user can abort the creation of the report at any time, before sending it</p>
+
+<ul>
+<li>UserMobileApp: the application let the user abort the creation of the report at any time, before sending it.</li>
+</ul>
+
+<p>[R13] Once a report has been sent, it can’t be aborted or reverted</p>
+
+<ul>
+<li>UserMobileApp: the application does not let the user abort or revert the report, after sending it</li>
+</ul>
+
+<p>[R14] When receiving a report, the system must store it, recognize the car plate, if possible, and marked as unchecked</p>
+
+<ul>
+<li>ReportReceiver: this component receives the report and does the following actions:
+
+<ul>
+<li>retrieving of the municipality where the report has been created, by employing the MS apis.</li>
+<li>recognizing the car's plate in the picture, by employing the OCRS apis. In case of an unrecognizable plate, the report status is set to "NOTVALID" by default, otherwise is set to "NOTVERIFIED" by default(which means that a local officer has still to prove its validity).</li>
+<li>saving the report in the system's database.</li>
+</ul></li>
+</ul>
+
+<h2 id="book-heading-34">GetMyReports</h2>
+
+<p>[R15] When a user asks for his/her reports, the system must provide the saved reports sent by that user</p>
+
+<ul>
+<li>ReportMiner: this component can fetch, from the database, all the reports sent by the requesting user and return them.</li>
+</ul>
+
+<h2 id="book-heading-35">GetReportsTypeByArea</h2>
+
+<p>[R16] When getting the valid reports by area, a user can choose a position, or automatically get his/her from the GPS</p>
+
+<ul>
+<li>UserMobileApp: the application, when getting the valid reports by area, let the user the possibility to choose between setting manually the position or fetching it via GPS.</li>
+</ul>
+
+<p>[R17] When getting the valid reports by area, the system must provide all the valid reports near the position given by the user and display their violation type through the MS</p>
+
+<ul>
+<li>ReportMiner: this component can fetch, from the database, all the reports issued within 300 meters from the position received from the user and returns them.</li>
+</ul>
+
+<h2 id="book-heading-36">MineReports</h2>
+
+<p>[R18] When mining the information, a municipal employee or a local officer can access only to violations type and date and time of reports occurred in his/her municipality</p>
+
+<ul>
+<li>ReportMiner: this component fetches, from the database, only the reports issued in the same municipality of the requesting authority.</li>
+</ul>
+
+<p>[R19] When mining the information, a municipal employee or a local officer can filter reports by area, date, time or type of violation</p>
+
+<ul>
+<li>ReportMiner: this component let the requesting authority fetching reports. If no filter is applied, then all the reports issued in the same municipality of the requesting authority are returned. 
+Otherwise, a subset of them is chosen, according to one of the following chosen filter:
+
+<ul>
+<li>by area: only reports issued within the given radius from the given position are returned;</li>
+<li>by date: only reports issued in the given date are returned;</li>
+<li>by time: only reports issued in the given time, regardless the date, are returned;</li>
+<li>by type of violation: only reports having the given type of violation are returned.</li>
+</ul></li>
+</ul>
+
+<h2 id="book-heading-37">ValidateReports</h2>
+
+<p>[R20] A municipal officer must be able to mark a report as valid or not valid</p>
+
+<ul>
+<li>ReportValidator: this component can fetch "NOTVALID" reports, from the database, and let a local officer setting their status to "VALID" or "NOTVALID".</li>
+</ul>
+
+<h2 id="book-heading-38">RetrieveStatistics</h2>
+
+<p>[R21] When retrieving statistics, a municipal employee or a local officer can access only to reports of violations that occurred in his/her municipality</p>
+
+<ul>
+<li>StatisticsComputationManager: this component, in order to compute statistics, make a request to the component ReportMiner, with no filter applied (the type of
+the request is "all"), passing the token of the requesting authority. Thanks to the token, the ReportMiner is able to get the municipality with which filtering the reports.</li>
+</ul>
+
+<p>[R22] The system must be able to calculate statistics from the reports of violations and issued tickets of the municipal employee or local officer’s municipality</p>
+
+<ul>
+<li>StatisticsComputationManager: this component, once received the reports from the ReportMiner, cross them with the data coming form the TS and produce statistic, which are
+returned to the requesting authority, or component, in form of data.</li>
+<li>StatisticsDownloadManager: this component let the requesting authority download a non materialized document of the statistics. The necessary data are obtained from the 
+StatisticsComputationManager, by passing to it the token of the authority, with the approach described in the previous component description.</li>
+</ul>
+
+<h2 id="book-heading-39">GetImprovements</h2>
+
+<p>[R23] When getting improvements, a municipal employee can access only to data of reports occurred in his/her municipality</p>
+
+<ul>
+<li>ImprovementsManager: this component, in order to compute improvements, make a request to the component ReportMiner, with no filter applied (the type of
+the request is "all"), passing the token of the requesting authority. Thanks to the token, the ReportMiner is able to get the municipality with which filtering the reports.</li>
+</ul>
+
+<p>[R24] The system must be able to retrieve information about accidents from the MAS (municipal accident system)</p>
+
+<ul>
+<li>ImprovementsManager: this component is able to asks the MAS for fetching data about happened accidents</li>
+</ul>
+
+<p>[R25] The system must be able to identify the possible unsafe areas of the municipal employee or local officer’s municipality from the reports of violations and data coming the MAS</p>
+
+<ul>
+<li>ImprovementsManager: this component, by crossing the data coming from the MAS and from the ReportMiner, is able to compute new improvements, set as "UNDONE" by default, and propose them, 
+in addition to already computed "UNDONE" improvements, obtained after previous requests and saved in the database.</li>
+</ul>
+
+<h1 id="book-heading-40">Implementation, Integration and Test Plan</h1>
+
+<p>The system is composed by various subsystems, some of which need to be implemented and tested.</p>
+
+<ul>
+<li>To be implemented and tested:
+
+<ul>
+<li>UserMobileApp</li>
+<li>LocalOfficerWebApp</li>
+<li>MunicipalEmployeeWebApp</li>
+<li>WebServer</li>
+<li>ApplicationServer</li>
+</ul></li>
+<li>Already implemented and tested:
+
+<ul>
+<li>DBMS</li>
+<li>OCRS</li>
+<li>MS</li>
+<li>TS</li>
+<li>MAS</li>
+</ul></li>
+</ul>
+
+<p>The approach followed is a "bottom-up" one, where all the interfaces are defined a priori, in order to develop non-implemented components in parallel and test them. Moreover, implementation and integration follow the same order, such a way that the system will be ready and functional as soon as possible. 
+It is worth noting that external components already implemented do not need to be tested.</p>
+
+<p>The following table specifies the main features of the system, their importance for the customer and their 
+difficulty of implementation.</p>
+
+<table>
+<thead>
+<tr>
+  <th>Feature</th>
+  <th>Importance for the customer</th>
+  <th>Difficulty of implementation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>SignUp and Login</td>
+  <td>Low</td>
+  <td>Low</td>
+</tr>
+<tr>
+  <td>Add a report for RU</td>
+  <td>High</td>
+  <td>Medium</td>
+</tr>
+<tr>
+  <td>Retrieve reports for RU</td>
+  <td>High</td>
+  <td>Low</td>
+</tr>
+<tr>
+  <td>Get unsafe areas for RU</td>
+  <td>Medium</td>
+  <td>Low</td>
+</tr>
+<tr>
+  <td>Mine reports for ME/LO</td>
+  <td>High</td>
+  <td>Medium</td>
+</tr>
+<tr>
+  <td>See statistics for ME/LO</td>
+  <td>Medium</td>
+  <td>Medium</td>
+</tr>
+<tr>
+  <td>Download statistics for ME/LO</td>
+  <td>Medium</td>
+  <td>Low</td>
+</tr>
+<tr>
+  <td>Validate reports for LO</td>
+  <td>High</td>
+  <td>Low</td>
+</tr>
+<tr>
+  <td>Get improvements for ME</td>
+  <td>High</td>
+  <td>High</td>
+</tr>
+<tr>
+  <td>Functional mobile app for RU</td>
+  <td>High</td>
+  <td>Medium</td>
+</tr>
+<tr>
+  <td>Functional web app for LO</td>
+  <td>High</td>
+  <td>Medium</td>
+</tr>
+<tr>
+  <td>Functional web app for ME</td>
+  <td>High</td>
+  <td>Medium</td>
+</tr>
+</tbody>
+</table>
+
+<p>The order of implementation and testing of missing components is based on the previous table, starting from components associated to more difficult and crucial features. 
+The following table specifies the order of implementation and testing, associating components to relative features. 
+It is important to note that, components enlisted in the same "Phase of I&amp;T" have to be developed in parallel.</p>
+
+<table>
+<thead>
+<tr>
+  <th>Phase of I&amp;T</th>
+  <th>Component</th>
+  <th>Features</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>1</td>
+  <td>ReportReceiver</td>
+  <td>Add a report for RU</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>ReportMiner</td>
+  <td>Retrieve reports for RU, Mine reports for ME/LO, Get unsafe areas for RU</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td>ReportValidator</td>
+  <td>Validate reports for LO</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td>ImprovementsManager</td>
+  <td>Get improvements for ME</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td>StatisticsComputationManager</td>
+  <td>See statistics for ME/LO</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td>StatisticsDownloadManager</td>
+  <td>Download statistics for ME/LO</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td>Router</td>
+  <td>No specific user feature</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td>SignUpManager</td>
+  <td>SignUp and Login</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td>LoginManager</td>
+  <td>SignUp and Login</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td>WebServer</td>
+  <td>No specific user feature</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td>UserMobileApp</td>
+  <td>Functional mobile app for RU</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td>LocalOfficerWebApp</td>
+  <td>Functional web app for LO</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td>MunicipalEmployeeWebApp</td>
+  <td>Functional web app for ME</td>
+</tr>
+</tbody>
+</table>
+
+<p>In particular here is described how the previous features are obtained through the system's components:</p>
+
+<ul>
+<li><strong>SignUp and Login</strong>: this feature is realized through the following components:
+
+<ul>
+<li>SignUpManager: responsible for registering new users;</li>
+<li>LoginManager: responsible for recognizing registered users and authorities.</li>
+</ul></li>
+<li><strong>Add a report for RU</strong>: this feature is realized through the component <em>ReportReceiver</em>, which receives the report, submits it to the <em>OCRS</em>, in order to get its validity status and the eventual vehicle plate, and saves it in the database through the <em>DBMS</em>.</li>
+<li><strong>Retrieve reports for RU</strong>: this feature is realized through the component <em>ReportMiner</em>, which receives the request, coming from the <em>Router</em>, asks the database through the <em>DBMS</em> and returns the all the reports composed by the requesting user.</li>
+<li><strong>Get unsafe area for RU</strong>: this feature is realized through the component <em>ReportMiner</em>, which receives the request, coming from the <em>Router</em>, asks the database through the <em>DBMS</em> and returns violations type, date and time of valid reports issued in the requested area.</li>
+<li><strong>Mine reports for ME/LO</strong>: this feature is realized through the component <em>ReportMiner</em>, which receives the request, coming from the <em>Router</em>, asks the database through the <em>DBMS</em> and returns the valid reports issued in the authority's municipality that satisfy the requested condition (All, Date, Time, Violation Type, Area).</li>
+<li><strong>See statistics for ME/LO</strong>: this feature is realized through the component <em>StatisticsComputationManager</em>, which receives the request coming from the <em>Router</em>, asks the database through the <em>DBMS</em> for valid reports and retrieves data about issued tickets through the <em>TS</em>, crosses them, produces and returns statistics to the requesting authority.</li>
+<li><strong>Download statistics for ME/LO</strong>: this feature is realized through the component <em>StatisticsDownloadManager</em>, which asks <em>StatisticsComputationManager</em> for statistics, generate a non materialized document and returns it to the requesting authority.</li>
+<li><strong>Validate reports for LO</strong>: this feature is realized through the component <em>ReportValidator</em>, which is able to retrieve not verified reports belonging to the LO's municipality from the database through the <em>DBMS</em> and let the LO setting their validity.</li>
+<li><strong>Get improvements for ME</strong>: this feature is realized through the component <em>ImprovementsManager</em>, which is able to get valid reports, issued in the ME's municipality, from the database through the <em>DBMS</em> and cross their data with the information coming from the <em>MAS</em>, in order to generate new possible improvements. Then they are presented to the ME, along with previously generated improvements, saved in the database, still not completed. Finally the ME can set the status of the improvements received.</li>
+<li><strong>Functional mobile app for RU</strong>: this feature is realized through the implementation, testing and integration of the <em>UserMobileApp</em>;</li>
+<li><strong>Functional web app for LO</strong>: this feature is realized through the implementation, testing and integration of the <em>LocalOfficerWebApp</em>;</li>
+<li><strong>Functional web app for ME</strong>: this feature is realized through the implementation, testing and integration of the <em>MunicipalEmployeeWebApp</em>;</li>
+</ul>
+
+<p>It is crucial to note that, for each feature, all the described components have to be integrated and unit tested.</p>
+
+<p>The integration is driven by the following diagrams, which describes the dependencies between all the components of the system. 
+The arrow relation from a component A to a component B indicate that A "uses" B. So, in order to integrate and unit test component A, component B must be already integrated and unit tested. Finally, components that are not used by no other components do not need to be
+integrated and unit tested (in our case the components highlighted in red, which are the already implemented ones, are be the starting points for the integration and unit testing).</p>
+
+<ul>
+<li>ReportReceiverIntegration</li>
+</ul>
+
+<p><img src="images/integrationDependecies/ReportReceiverIntegration.svg" alt="ReportReceiverIntegration" /></p>
+
+<ul>
+<li>DatabaseAccessorsIntegration</li>
+</ul>
+
+<p><img src="./images/integrationDependecies/DatabaseAccessorsIntegration.svg" alt="DatabaseAccessorsIntegration" /></p>
+
+<ul>
+<li>TicketServiceAccessorsIntegration</li>
+</ul>
+
+<p><img src="./images/integrationDependecies/TicketServiceAccessorsIntegration.svg" alt="TicketServiceAccessorsIntegration" /></p>
+
+<ul>
+<li>ImprovementManagerIntegration</li>
+</ul>
+
+<p><img src="./images/integrationDependecies/ImprovementManagerIntegration.svg" alt="ImprovementManagerIntegration" /></p>
+
+<ul>
+<li>ReportMinerAccessorsIntegration</li>
+</ul>
+
+<p><img src="./images/integrationDependecies/ReportMinerAccessorsIntegration.svg" alt="ReportMinerAccessorsIntegration" /></p>
+
+<ul>
+<li>StatisticsDownloadManagerIntegration</li>
+</ul>
+
+<p><img src="./images/integrationDependecies/StatisticsDownloadManagerIntegration.svg" alt="StatisticsDownloadManagerIntegration" /></p>
+
+<ul>
+<li>RouterIntegration</li>
+</ul>
+
+<p><img src="./images/integrationDependecies/RouterIntegration.svg" alt="RouterIntegration" /></p>
+
+<ul>
+<li>WebServerIntegration</li>
+</ul>
+
+<p><img src="./images/integrationDependecies/WebServerIntegration.svg" alt="WebServerIntegration" /></p>
+
+<ul>
+<li>AppsIntegration</li>
+</ul>
+
+<p><img src="./images/integrationDependecies/AppsIntegration.svg" alt="AppsIntegration" /></p>
+    </body>
+</html>

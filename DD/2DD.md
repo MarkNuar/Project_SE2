@@ -25,6 +25,7 @@ same reasons explained above.
 ![ComponentDiagram](./images/exported/ComponentDiagram.svg) 
 The Component view diagrams represents, explicitly, only the components of the Application server, as they depict the main section of the system. 
 Below we will describe in depth the function of every internal server component made ad-hoc for the system (the ones in green).
+
 * **Router**: receives HTTP over SSL/TLS requests following the REST paradigm (see below in the "Component interface" section for further details) and forward them to the others internal components of the Application server. Then forwards the replies
 back to the clients. It is relevant to note that temporary tokens are adopted, in order to define which functionalities are accessible for each client. Every client receives its personal token after the login procedure. 
 * **UserManager**:
@@ -59,6 +60,7 @@ by fetching them from the StatisticsComputationManager. The resulting document i
 ![DeploymentView](./images/exported/DeploymentView.svg) 
 
 This picture shows how the system should be deployed: 
+
 * It is available for end users as a Mobile application, while, for authorities, as a Web application, accessible both from Mobile and PC.
 * The Web server, deployed on its physical node, has the purpose of caching static contents (which are, for example, .html and .css files) for the Web application. 
 Every other request received from the clients (both the Web and Mobile application) is automatically forwarded to the Application server. 
@@ -79,14 +81,14 @@ The following table represents the logic structures of the resources of the syst
 
 | URI | POST | GET | PUT | DELETE |
 | ---- | ---- | ---- | ---- | ---- |
-| /users/registration/?id=xxx| X | - | - | - |
+| /users/registration/?id=xxx | X | - | - | - |
 | /users/login/?id=xxx | - | X | - | - |
-| /users/authorities/login/?id=xxx| - | X | - | - |
+| /users/authorities/login/?id=xxx | - | X | - | - |
 | /reports/default | X | - | - | - |
-| /reports/default/?id=xxx| - | X | - | - |
+| /reports/default/?id=xxx | - | X | - | - |
 | /reports/default/unsafearea | - | X | - | - |
 | /reports/notverified/?id=xxx | - | X | X | - |
-| /reports/valid/?id=xxx | - | X | - | - | 
+| /reports/valid/?id=xxx | - | X | - | - |
 | /improvements/?id=xxx | - | X | X | - |
 | /statistics/?id=xxx | - | X | - | - |
 
@@ -95,6 +97,7 @@ The following table represents the logic structures of the resources of the syst
 "-" : the operation is inapplicable on the resource
 
 Here a quick description of the resources group:
+
 * */users/** represents the information related to the users, in particular their account information 
 * */reports/default/** represents the resources accessible by the RU, in particular reports and "pseudo report" for the unsafe areas. These resources will be greatly used by the mobile app.
 * */reports/notverified/** contains all the received reports that haven't been immediately discarded by the OCR but are still on impending evaluation by a LO 
@@ -145,7 +148,7 @@ This request is used to register a user.
 
 | Field |  Description |
 | ---- |  ---- |
-| ExistingUsername | Someone with the same username is already registered | 
+| ExistingUsername | Someone with the same username is already registered |
 | DifferentPassword | The second password is different from the first one |
 | ExistingMail | This email is already associated with another account |
 
@@ -182,7 +185,7 @@ This request allows a RU to login.
 
 | Field |  Description |
 | ---- |  ---- |
-| WrongUsernameOrPassword | The written username and password does not correspond to any existing user | 
+| WrongUsernameOrPassword | The written username and password does not correspond to any existing user |
 
 ------------------------------------------------------------------------------------------------------------------------------------
 
@@ -217,8 +220,8 @@ This request allows a ME or LO to login.
 
 | Field |  Description |
 | ---- |  ---- |
-| WrongUsernameOrPassword | The written username and password does not correspond to any existing user | 
-| NotCorrespondingRole | The selected work role does not correspond to the user which given login and password corresponds to | 
+| WrongUsernameOrPassword | The written username and password does not correspond to any existing user |
+| NotCorrespondingRole | The selected work role does not correspond to the user which given login and password corresponds to |
 
 
 ------------------------------------------------------------------------------------------------------------------------------------
@@ -569,7 +572,7 @@ The communication between the database and our system will be handled by a class
 
 uso del DB
 
--creazione nuova tabella
+- creazione nuova tabella
 - inserimento di nuovi report
 - ricerca di report non validati
 - modifica di report non validati con la sostituzione a report validi

@@ -32,9 +32,9 @@ difficulty of implementation.
 | Download statistics for ME/LO | Medium | Low |
 | Validate reports for LO | High | Low |
 | Get improvements for ME | High | High |
-| Functional mobile app for RU | High | Medium 
-| Functional web app for LO | High | Medium | 
-| Functional web app for ME | High | Medium | 
+| Functional mobile app for RU | High | Medium |
+| Functional web app for LO | High | Medium |
+| Functional web app for ME | High | Medium |
 
 The order of implementation and testing of missing components is based on the previous table, starting from components associated to more difficult and crucial features. 
 The following table specifies the order of implementation and testing, associating components to relative features. 
@@ -48,15 +48,16 @@ It is important to note that, components enlisted in the same "Phase of I&T" hav
 | 2 | ImprovementsManager | Get improvements for ME |
 | 2 | StatisticsComputationManager | See statistics for ME/LO |
 | 3 | StatisticsDownloadManager | Download statistics for ME/LO |
-| 4 | Router | No specific user feature | 
+| 4 | Router | No specific user feature |
 | 4 | SignUpManager | SignUp and Login |
 | 4 | LoginManager | SignUp and Login |
-| 5 | WebServer | No specific user feature | 
+| 5 | WebServer | No specific user feature |
 | 5 | UserMobileApp | Functional mobile app for RU |
-| 5 | LocalOfficerWebApp | Functional web app for LO | 
+| 5 | LocalOfficerWebApp | Functional web app for LO |
 | 5 | MunicipalEmployeeWebApp | Functional web app for ME|
 
 In particular here is described how the previous features are obtained through the system's components:
+
 * **SignUp and Login**: this feature is realized through the following components:
     * SignUpManager: responsible for registering new users;
     * LoginManager: responsible for recognizing registered users and authorities.
@@ -112,5 +113,4 @@ integrated and unit tested (in our case the components highlighted in red, which
 
 * AppsIntegration
 
-![AppsIntegration](./images/integrationDependecies/AppsIntegration.svg) 
-
+![AppsIntegration](./images/integrationDependecies/AppsIntegration.svg)
