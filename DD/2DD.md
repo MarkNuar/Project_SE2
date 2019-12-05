@@ -90,7 +90,8 @@ The following table represents the logic structures of the resources of the syst
 | /reports/notverified/?id=xxx | - | X | X | - |
 | /reports/valid/?id=xxx | - | X | - | - |
 | /improvements/?id=xxx | - | X | X | - |
-| /statistics/?id=xxx | - | X | - | - |
+| /statistics/visualize/?id=xxx | - | X | - | - |
+| /statistics/download/?id=xxx | - | X | - | - |
 
 "X" : the operation is applicable on the resource
  
@@ -483,7 +484,7 @@ This request modifies the status of an improvement from "not done" to "done".
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
-**GET**  &nbsp;&nbsp;&nbsp;&nbsp; /statistics/?id={id}
+**GET**  &nbsp;&nbsp;&nbsp;&nbsp; /statistics/visualize/?id={id}
 
 This  request gets the available statistics on a certain municipality.
 
@@ -510,6 +511,8 @@ This  request gets the available statistics on a certain municipality.
 | Field | Description |
 | ---- | ---- |
 | UserNotAuthorized | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's  municipality was not the one of the reports requested  |
+
+-----------------------------------------------------------------------------------------------------
 
 
 ### TS interface and MAS interface
@@ -551,7 +554,7 @@ This request will be structured as a GET, the expected success message will be s
 
 #### Forwarding of data about valid reports to the TS
 
-The request will be POST, the content of the sent message will be as follows.
+The request will structured as a POST, the content of the sent message will be as follows.
 
 | Field | Type | Description |
 | ---- | ---- | ---- |
@@ -566,17 +569,224 @@ The request will be POST, the content of the sent message will be as follows.
 
 ### DBMS interface
 
-(va specificato da qualche parte che il DB userà quello detto da Monica)
+The communication between the database and our system will be handled by a set of interfaces, implemented by the components, organized in two families characterized by the table that they manage. 
+In the database there will be three different tables: the table of the reports, the table of the users and the table of the authorities which will be respectively handled
+with the interfaces PostgreSQLReportHandler, PostgreSQLUsersHandler and PostgreSQLAuthorityHandler.
 
-The communication between the database and our system will be handled by a class
+#### PostgreSQLReportHandler 
+This interface will expose five methods that will establish a connection with the server where the database is hosted. The parameters for the connection (URL of the server, user and password) will be available in a class called 
+PostgreSQLUtilities. The methods will then try to send a query to the database, in case of success the connection will be closed and the method will return, otherwise the exception launched by the connection will be handled 
+launching an exception on the upper level.
 
-uso del DB
+The methods are:
 
-- creazione nuova tabella
-- inserimento di nuovi report
-- ricerca di report non validati
-- modifica di report non validati con la sostituzione a report validi
-- ricerca di report validi  
+**createTable**
+
+This method will create a new report table on the database, if one is already existing this function won't have any effect.
+
+**Exceptions**
+
+| Name | Description |
+| --- | --- |
+|DataBaseErrorException| An error has occurred in the connection to the database |
+
+--------------------------------------------------------------------------------------------
+
+**insertNewReport**
+
+This method will add a new report on the database.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| report | Report | The report that will have to be uploaded to the database |
+
+**Exceptions**
+
+| Name | Description |
+| --- | --- |
+|DataBaseErrorException | An error has occurred in the connection to the database |
+
+-------------------------------------------------------------------------------------------
+
+**retrieveReport**
+
+This method will get a report from the database.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| reportID | String | The id of the report that will be retrieved from the database |
+
+**Return**
+
+| Type | Description |
+| --- | --- |
+| Report | The report taken from the database |
+
+**Exceptions**
+
+| Name | Description |
+| --- | --- |
+|DataBaseErrorException | An error has occurred in the connection to the database |
+
+---------------------------------------------------------------------------------------------
+
+**retrieveNotVerifiedReports**
+
+This method will get all the reports which state is set as "NOTVERIFIED" and the id of the municipality where the report has been composed is equal to the one in the parameters.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| municipalityID | String | The id of the municipality in charge of the report |
+
+**Return**
+
+| Type | Description |
+| --- | --- |
+| List<Report> | The list of reports taken from the database which satisfy the query |
+
+**Exceptions**
+
+| Name | Description |
+| --- | --- |
+|DataBaseErrorException | An error has occurred in the connection to the database |
+
+
+-------------------------------------------------------------------------------------------------
+
+**retrieveValidReports**
+
+This method will get all the reports which state is set as "VALID" and where the id in the parameters is equal to the one of the municipality where the report has been composed .
+There will be a different query for each type of RequestType and requestField will contain the requirements of the search. 
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| reportID | String | The id of the report that will be retrieved from the database |
+| requestType | RequestType | The type of request, it may be "ALL", "TYPE", "AREA", "DATE" and "TIME" |
+| requestField | String | The requirements of the research, i.e. requestType = TYPE && requestField = "parkingOnCrosswalk" |
+
+**Return**
+
+| Type | Description |
+| --- | --- |
+| List<Report> | The list of reports which satisfy the condition of the query |
+
+**Exceptions**
+
+| Name | Description |
+| --- | --- |
+|DataBaseErrorException | An error has occurred in the connection to the database |
+
+
+#### PostgreSQLUsersHandler
+This interface will expose three methods dedicated to the management of the users's data. These methods will try to establish the connection to the database with the same procedure as the methods of PostgreSQLReportHandler, the handling of the exceptions will also be the same.
+
+The methods are:
+
+**createUserTable**
+
+This method will create a new table of the users on the database, if one is already existing this function won't have any effect.
+
+
+**Exceptions**
+
+| Name | Description |
+| --- | --- |
+|DataBaseErrorException | An error has occurred in the connection to the database |
+
+----------------------------------------------------------------------------------------------
+**addUserData**
+
+This method will register on the database the data of a new user.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| username | String | The username of the new user |
+| password | String | The password of the new user |
+
+
+**Exceptions**
+
+| Name | Description |
+| --- | --- |
+|DataBaseErrorException | An error has occurred in the connection to the database |
+
+----------------------------------------------------------------------------------------------
+**retrieveUserData**
+
+This method will be used during the login phase. The username, that i assured to be unique, will be used to search for the password of the user.
+
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| username | String | The username of the user that is trying to login |
+
+**Return**
+
+| Type | Description |
+| --- | --- |
+| String | The password of the user |
+
+**Exceptions**
+
+| Name | Description |
+| --- | --- |
+|DataBaseErrorException | An error has occurred in the connection to the database |
+
+
+#### PostgreSQLAuthorityHandler
+This interface will expose (?????) two methods dedicated to the management of the authorities' data. These methods will try to establish the connection to the database with the same procedure as the methods of PostgreSQLReportHandler, the handling of the exceptions will also be the same.
+
+The methods are:
+
+**createAuthorityTable**
+
+This method will create a new table of the authorities on the database, if one is already existing this function won't have any effect.
+
+**Exceptions**
+
+| Name | Description |
+| --- | --- |
+|DataBaseErrorException | An error has occurred in the connection to the database |
+
+----------------------------------------------------------------------------------------------------------------------
+
+**retrieveAuthorityData** 
+
+This methods works in the same way as retrieveUsersData, sending a username and receiving the password and workRole of the associated authority. 
+
+***Parameters**
+ 
+ | Name | Type | Description |
+ | --- | --- | --- |
+ | username | String | The username of the user that is trying to login |
+ 
+ **Return**
+ 
+ | Type | Description |
+ | --- | --- |
+ | String | The password of the authority |
+ | String | The workRole of the authority |
+ 
+ **Exceptions**
+ 
+ | Name | Description |
+ | --- | --- |
+ |DataBaseErrorException | An error has occurred in the connection to the database |
+
+
+
 
 
 ### Map interface 
@@ -592,4 +802,3 @@ uso del DB
 security yadiyada
 
 
-? add id on improvements, reports, municipality
