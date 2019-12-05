@@ -4,6 +4,7 @@
 This document is the Design Document (DD) of the SafeStreets system. Its purpose is to completely describe the logical and physical architecture of the system. It's written for project managers, developers, testers and Quality Assurance people.
 This document describes	the	components forming part of the	system with the related run-time processes. All the	design choices are listed and motivated.	
 In particular, this document contains:
+
 * High-level architecture
 * Main	components, their interfaces and deployment
 * Runtime behavior
@@ -16,6 +17,7 @@ In particular, this document contains:
 SafeStreets is a crowd-­sourced application that intends to provide users with the possibility to notify authorities when traffic violations occur, and in particular parking violations.
 
 The system addresses to:
+
 * Generic people (Registered and Unregistered User)
 * Authorities (Local Officer and Municipal Employee)
 
@@ -56,8 +58,6 @@ environment.
 
 ### Abbreviation
 
-[Gn] : n-th goal
-[Dn] : n-th domain assumption
 [Rn] : n-th functional requirement (referring to RASD)
 
 ## Revision history
