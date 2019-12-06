@@ -289,6 +289,12 @@ This request retrieves a report form the system.
 | ---- | ---- |
 | UserNotAuthorized | The id of the report and the token of the user have been analyzed. It was found that the user was not the one who submitted the report and as such the RU was not permitted to see the report  |
 
+**Error 404** (resource not found)
+
+| Field | Description |
+| --- | --- |
+| NoReportError | The requested resource caused an error on the database, this could both mean that the resource was not found on the database or that the database had internal error or an error on the connection | 
+
 ------------------------------------------------------------------------------------------------------------------------------------
 
 **GET**   &nbsp;&nbsp;&nbsp;&nbsp;/reports/default/unsafearea
@@ -313,6 +319,13 @@ This request retrieves the type of violations in certain area.
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;longitude | String | The longitude where the vehicle was recorded to be |
 | &nbsp;&nbsp;&nbsp;&nbsp;violation | Object[] | An array of the type of violation |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;violationType | String | The type of violation |
+
+**Error 404** (resource not found)
+
+| Field | Description |
+| --- | --- |
+| NoReportError | The requested resource caused an error on the database, this could both mean that the resource was not found on the database or that the database had internal error or an error on the connection | 
+
 
 ------------------------------------------------------------------------------------------------------------------------------------
 
@@ -350,6 +363,11 @@ This request retrieves the reports that are waiting for validation in a certain 
 | ---- | ---- |
 | UserNotAuthorized | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an LO or the LO's municipality was not the one of the reports requested|
 
+**Error 404** (resource not found)
+
+| Field | Description |
+| --- | --- |
+| NoReportError | The requested resource caused an error on the database, this could both mean that the resource was not found on the database or that the database had internal error or an error on the connection | 
 
 --------------------------------------------------------------------------------------------------------------------------------------
 
@@ -421,6 +439,12 @@ This request gets all the valid reports in a certain municipality.
 | ---- | ---- |
 | UserNotAuthorized | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an LO or the LO's  municipality was not the one of the reports requested  |
 
+**Error 404** (resource not found)
+
+| Field | Description |
+| --- | --- |
+| NoReportError | The requested resource caused an error on the database, this could both mean that the resource was not found on the database or that the database had internal error or an error on the connection | 
+
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
@@ -445,6 +469,7 @@ This request retrieves all the suggested improvements in a certain municipality.
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;latitude | String | The latitude where the suggested improvement will be expected to be |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;longitude | String |The longitude where the suggested improvement will be expected to be  |
 | &nbsp;&nbsp;&nbsp;&nbsp;state | String | The status of the improvement, it could be "DONE" or "NOT DONE" |
+| &nbsp;&nbsp;&nbsp;&nbsp;improvementId | String | The id that uniquely identifies the improvement on the database |
 
 **Error 403** (forbidden)
 
@@ -452,6 +477,11 @@ This request retrieves all the suggested improvements in a certain municipality.
 | ---- | ---- |
 | UserNotAuthorized | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's  municipality was not the one of the reports requested  |
 
+**Error 404** (resource not found)
+
+| Field | Description |
+| --- | --- |
+| NotEnoughReportError | The requested improvements could not be found on the database and the available information on the Municipality is not enough to compute correct suggestions | 
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
@@ -470,7 +500,7 @@ This request modifies the status of an improvement from "not done" to "done".
 
 | Field | Type | Description |
 | ---- | ---- | ---- |
-| id | String | The id of the improvement |
+| improvementId | String | The id that uniquely identifies the improvement on the database |
 
 
 **Error 403** (forbidden)
@@ -484,7 +514,7 @@ This request modifies the status of an improvement from "not done" to "done".
 
 **GET**  &nbsp;&nbsp;&nbsp;&nbsp; /statistics/visualize/?id={id}
 
-This  request gets the available statistics on a certain municipality.
+This request gets the available statistics on a certain municipality and lets the ME visualize them.
 
 **Parameters**
 
@@ -510,7 +540,43 @@ This  request gets the available statistics on a certain municipality.
 | ---- | ---- |
 | UserNotAuthorized | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's  municipality was not the one of the reports requested  |
 
+**Error 404** (resource not found)
+
+| Field | Description |
+| --- | --- |
+| NotEnoughReportError | The requested statistics could not be found on the database and the available information on the Municipality is not enough to compute accurate statistics | 
+
 -----------------------------------------------------------------------------------------------------
+
+**GET**  &nbsp;&nbsp;&nbsp;&nbsp; /statistics/download/?id={id}
+
+This request gets the url of the pdf file where the visualized statistics are written.
+
+**Parameters**
+
+| Field | Type | Description |
+| ---- | ---- | ---- |
+| id | String | The id that uniquely identifies the municipality which the LO works for |
+
+
+**Success 200** (request OK)
+
+| Field | Type | Description |
+| ---- | ---- | ---- |
+| url | String | The url where the ME can download the pdf file |
+
+**Error 403** (forbidden)
+
+| Field | Description |
+| ---- | ---- |
+| UserNotAuthorized | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's  municipality was not the one of the reports requested  |
+
+**Error 404** (resource not found)
+
+| Field | Description |
+| --- | --- |
+| NotEnoughReportError | The requested statistics could not be found on the database and the available information on the Municipality is not enough to compute accurate statistics | 
+
 
 
 ### TS interface and MAS interface
@@ -568,8 +634,8 @@ The request will structured as a POST, the content of the sent message will be a
 ### DBMS interface
 
 The communication between the database and our system will be handled by a set of interfaces, implemented by the components, organized in two families characterized by the table that they manage. 
-In the database there will be three different tables: the table of the reports, the table of the users and the table of the authorities which will be respectively handled
-with the interfaces PostgreSQLReportHandler, PostgreSQLUsersHandler and PostgreSQLAuthorityHandler.
+In the database there will be four different tables: the table of the reports, the table of the users, the table of the authorities and the table of the improvements which will be respectively handled
+with the interfaces PostgreSQLReportHandler, PostgreSQLUsersHandler, PostgreSQLAuthorityHandler and PostgreSQLImprovementsHandler.
 
 #### PostgreSQLReportHandler 
 This interface will expose five methods that will establish a connection with the server where the database is hosted. The parameters for the connection (URL of the server, user and password) will be available in a class called 
@@ -586,7 +652,7 @@ This method will create a new report table on the database, if one is already ex
 
 | Name | Description |
 | --- | --- |
-|DataBaseErrorException| An error has occurred in the connection to the database |
+|DataBaseErrorException| An error has occurred in database |
 
 --------------------------------------------------------------------------------------------
 
@@ -604,7 +670,7 @@ This method will add a new report on the database.
 
 | Name | Description |
 | --- | --- |
-|DataBaseErrorException | An error has occurred in the connection to the database |
+|DataBaseErrorException | An error has occurred in database |
 
 -------------------------------------------------------------------------------------------
 
@@ -616,7 +682,7 @@ This method will get a report from the database.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| reportID | String | The id of the report that will be retrieved from the database |
+| reportId | String | The id of the report that will be retrieved from the database |
 
 **Return**
 
@@ -628,7 +694,7 @@ This method will get a report from the database.
 
 | Name | Description |
 | --- | --- |
-|DataBaseErrorException | An error has occurred in the connection to the database |
+|DataBaseErrorException | An error has occurred in the database |
 
 ---------------------------------------------------------------------------------------------
 
@@ -640,7 +706,7 @@ This method will get all the reports which state is set as "NOTVERIFIED" and the
 
 | Name | Type | Description |
 | --- | --- | --- |
-| municipalityID | String | The id of the municipality in charge of the report |
+| municipalityId | String | The id of the municipality in charge of the report |
 
 **Return**
 
@@ -652,7 +718,7 @@ This method will get all the reports which state is set as "NOTVERIFIED" and the
 
 | Name | Description |
 | --- | --- |
-|DataBaseErrorException | An error has occurred in the connection to the database |
+|DataBaseErrorException | An error has occurred in the database |
 
 
 -------------------------------------------------------------------------------------------------
@@ -666,7 +732,7 @@ There will be a different query for each type of RequestType and requestField wi
 
 | Name | Type | Description |
 | --- | --- | --- |
-| reportID | String | The id of the report that will be retrieved from the database |
+| municipalityId | String | The id of the municipality in charge of the report |
 | requestType | RequestType | The type of request, it may be "ALL", "TYPE", "AREA", "DATE" and "TIME" |
 | requestField | String | The requirements of the research, i.e. requestType = TYPE && requestField = "parkingOnCrosswalk" |
 
@@ -680,7 +746,7 @@ There will be a different query for each type of RequestType and requestField wi
 
 | Name | Description |
 | --- | --- |
-|DataBaseErrorException | An error has occurred in the connection to the database |
+|DataBaseErrorException | An error has occurred in the database |
 
 
 #### PostgreSQLUsersHandler
@@ -697,7 +763,7 @@ This method will create a new table of the users on the database, if one is alre
 
 | Name | Description |
 | --- | --- |
-|DataBaseErrorException | An error has occurred in the connection to the database |
+|DataBaseErrorException | An error has occurred in the database |
 
 ----------------------------------------------------------------------------------------------
 **addUserData**
@@ -716,7 +782,7 @@ This method will register on the database the data of a new user.
 
 | Name | Description |
 | --- | --- |
-|DataBaseErrorException | An error has occurred in the connection to the database |
+|DataBaseErrorException | An error has occurred in database |
 
 ----------------------------------------------------------------------------------------------
 **retrieveUserData**
@@ -740,10 +806,10 @@ This method will be used during the login phase. The username, that i assured to
 
 | Name | Description |
 | --- | --- |
-|DataBaseErrorException | An error has occurred in the connection to the database |
-
+|DataBaseErrorException | An error has occurred in database |
 
 #### PostgreSQLAuthorityHandler
+
 This interface will expose (?????) two methods dedicated to the management of the authorities' data. These methods will try to establish the connection to the database with the same procedure as the methods of PostgreSQLReportHandler, the handling of the exceptions will also be the same.
 
 The methods are:
@@ -756,7 +822,7 @@ This method will create a new table of the authorities on the database, if one i
 
 | Name | Description |
 | --- | --- |
-|DataBaseErrorException | An error has occurred in the connection to the database |
+|DataBaseErrorException | An error has occurred in the database |
 
 ----------------------------------------------------------------------------------------------------------------------
 
@@ -764,7 +830,7 @@ This method will create a new table of the authorities on the database, if one i
 
 This methods works in the same way as retrieveUsersData, sending a username and receiving the password and workRole of the associated authority. 
 
-***Parameters**
+**Parameters**
  
  | Name | Type | Description |
  | --- | --- | --- |
@@ -781,10 +847,131 @@ This methods works in the same way as retrieveUsersData, sending a username and 
  
  | Name | Description |
  | --- | --- |
- |DataBaseErrorException | An error has occurred in the connection to the database |
+ |DataBaseErrorException | An error has occurred in the  database |
+
+
+
+#### PostgreSQLImprovementHandler
+
+This interface will expose four methods dedicated to the retrieval and insertion of improvements into the database. These methods will try to establish the connection to the database with the same procedure as the methods of PostgreSQLReportHandler, the handling of the exceptions will also be the same.
+
+The methods are:
+
+**createImprovementTable**   
+
+This method will create a new table of the authorities on the database, if one is already existing this function won't have any effect.
+
+**Exceptions**
+ 
+ | Name | Description |
+ | --- | --- |
+ |DataBaseErrorException | An error has occurred in the  database |
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+**addNewImprovement**
+
+This method will add a new improvement to the database.
+
+**Parameters**
+ 
+ | Name | Type | Description |
+ | --- | --- | --- |
+ | improvement | Improvement | The new improvement that has been calculated and was not already on the database |
+
+ 
+ **Exceptions**
+ 
+ | Name | Description |
+ | --- | --- |
+ |DataBaseErrorException | An error has occurred in the  database |
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+**retrieveImprovements**
+
+This methods retrieves the list of improvements that are suggested for a municipality which id is the same of the one in the parameters  and the state is set as "NOTDONE".
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| municipalityId| String | The id of the municipality in charge of the report |
+
+**Return**
+
+| Type | Description |
+| --- | --- |
+| List<Improvements> | The list of improvements that are suggested for a municipality |
+
+**Exceptions**
+
+| Name | Description |
+| --- | --- |
+|DataBaseErrorException | An error has occurred in database |
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+**updateImprovementStatus**
+
+This method will update to "DONE" the state of the improvement that has its id equal to the one in the parameter.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| improvementId | String | The id of the improvement which completion state has been set to "DONE" |
+
+**Exceptions**
+
+| Name | Description |
+| --- | --- |
+|DataBaseErrorException | An error has occurred in database |
 
 
 ### Map interface 
+
+The map service that will be adopted is the one provided by Google, in particular the Geocoding api and the SDK maps api will be used. The interface will possess methods for both apis. 
+
+**getGeocodedLocation**
+
+This method converts the address given from the user, this happens in case the ME wants to mine reports inserting the address where to execute the search. 
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| address | String | The address inserted by the ME |
+
+**Return**
+
+| Type | Description |
+| --- | --- |
+| Position | The corresponding position to the address in the parameters |
+
+
+**getMunicipalityFromCoordinates**
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| latitude | String | The latitude of the position which the belonging municipality is needed |
+| longitude | String | The longitude of the position which the belonging municipality is needed | 
+
+**Return**
+
+| Type | Description |
+| --- | --- |
+| String | The municipalityId of the municipality which the position belongs to |
+
+
+
+
+SDK maps (android/iOs)
+
+API geocoding
+
 
 
 ### OCRS interface
