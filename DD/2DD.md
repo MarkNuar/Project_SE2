@@ -784,10 +784,47 @@ This methods works in the same way as retrieveUsersData, sending a username and 
  |DataBaseErrorException | An error has occurred in the connection to the database |
 
 
-
-
-
 ### Map interface 
+
+
+### OCRS interface
+
+The OCRS is a bought component imported in our system. It exposes only one method, used for recognizing car plates from an image and an highlighted area on it, added by the user. 
+
+####OCRSinterface
+   
+**recognizePlate**
+
+This method is used for recognizing a car's plate given its picture and an highlighted area on it. 
+The highlighted area is defined by a rectangle, which is represented by its vertexes' coordinates. 
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ---- |
+| picture | Object | Representation of the image of the vehicle |
+| highlightVertexes | Object | The coordinates on the picture of where the license plate is located |
+| &nbsp;&nbsp;&nbsp;&nbsp;vertexOne | Number[] | The coordinates of the first vertex |
+| &nbsp;&nbsp;&nbsp;&nbsp;vertexTwo | Number[] | The coordinates of the second vertex |
+| &nbsp;&nbsp;&nbsp;&nbsp;vertexThree | Number[] | The coordinates of the third vertex |
+| &nbsp;&nbsp;&nbsp;&nbsp;vertexFour | Number[] | The coordinates of the fourth vertex |
+
+
+**Return** 
+
+| Type | Description |
+| ---- | ---- |
+| String | The string containing the car's plate |
+
+**Exception** 
+
+| Field |  Description |
+| ---- |  ---- |
+| PlateNotRecognized | This exception is thrown when the plate is not recognizable from the given picture |
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+
 
 
 ### Web and Application server interfaces
