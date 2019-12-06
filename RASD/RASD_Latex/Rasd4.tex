@@ -1,10 +1,10 @@
 \chapter{Formal analysis using Alloy}
 	\paragraph{}
-		In this section the system is described using an Alloy model.
+		In this section, the system is described using an Alloy model.
 		The model contains all entities involved in the system and their attributes, following the schema given by the class diagram.
 		Some relations between entities are highlighted and expressed as static constraints:
 		\begin{itemize}
-			\item It cannot happen that two different registered entities have the same username or that an email address is accociated to more than one account
+			\item It cannot happen that two different registered entities have the same username or that an email address is associated with more than one account
 			\item Each position must belong to one and only one municipality and if a position is the center of a municipality it must belong to that municipality
 			\item It cannot happen that a user, a vehicle, a ticket or an accident are registered in different positions at the same time
 			\item If a valid report or an accident occurred on a position, there must be at least one improvement suggestion for that position, but there must not be suggestion without having problems on a position
@@ -14,7 +14,7 @@
 		\end{itemize}
 		
 		Then, some other necessary structural constraints are expressed and properly commented in the Alloy formal notation. These are verified analyzing the worlds generated running the model.
-		It is also highlighted how the addition of a report involves the municipality, the userm the vehicle and the position.
+		It is also highlighted how the addition of a report involves the municipality, the user, the vehicle and the position.
 		\clearpage
 		\section{World model}
 			\lstinputlisting[language=alloy]{alloy/Alloy.als}
@@ -29,7 +29,7 @@
 		\section{Generated world}
 			\subsection{Generic world}
 				\paragraph{}
-					This is an example of a generic world, with entities and thier relations.
+					This is an example of a generic world, with entities and their relations.
 					
 					Each position belongs to only one municipality (which center position belongs to it too) and they don't share reports. 
 					
@@ -37,7 +37,7 @@
 					
 					Authorities are not related to reports.
 					
-					Improvents are generated if and only if a problem occurred on a certain position.
+					Improvements are generated if and only if a problem occurred in a certain position.
 					
 					There are no ubiquity problems.
 					\begin{figure}[!h]
@@ -48,7 +48,7 @@
 				\paragraph{}
 					This world highlights the associations occurring into a municipality, such as received reports, issued tickets, occurred accidents and suggested improvements. It also shows how positions are related to municipalities and what occurred on them.
 					
-					Each municipality can access only to reports occurred on its territory. It can also get improvements only on positions belonging to its territory.
+					Each municipality can access only to reports that occurred on its territory. It can also get improvements only in positions belonging to its territory.
 					\begin{figure}[!h]
 						\includegraphics[width=\textwidth]{images/Alloy/MunicipalWorld.png}
 						\caption{Alloy municipal world}
@@ -65,7 +65,7 @@
 					\end{figure}
 			\subsubsection{Add report}
 				\paragraph{}
-					It shows how a "add report" event occurred, being related to user and municipality, and also to the vehicle and the position, eventually making possible the generation of a possible improvement if the report is valid.
+					It shows how an "add report" event occurred, being related to user and municipality, and also to the vehicle and the position, eventually making possible the generation of a possible improvement if the report is valid.
 					\begin{figure}[!h]
 						\includegraphics[width=\textwidth]{images/Alloy/AddReport.png}
 						\caption{Alloy add report}
