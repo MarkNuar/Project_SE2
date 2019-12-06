@@ -1,0 +1,180 @@
+\contentsline {chapter}{\numberline {1}Introduction}{3}%
+\contentsline {section}{\numberline {1.1}Purpose}{3}%
+\contentsline {subsection}{\numberline {1.1.1}General purpose}{3}%
+\contentsline {paragraph}{}{3}%
+\contentsline {paragraph}{}{3}%
+\contentsline {paragraph}{}{3}%
+\contentsline {subsection}{\numberline {1.1.2}Document purpose}{4}%
+\contentsline {paragraph}{}{4}%
+\contentsline {section}{\numberline {1.2}Scope}{4}%
+\contentsline {paragraph}{}{4}%
+\contentsline {paragraph}{}{4}%
+\contentsline {paragraph}{}{4}%
+\contentsline {paragraph}{}{4}%
+\contentsline {paragraph}{}{5}%
+\contentsline {section}{\numberline {1.3}Definitions, Acronyms, Abbreviations}{5}%
+\contentsline {subsection}{\numberline {1.3.1}Definitions}{5}%
+\contentsline {subsection}{\numberline {1.3.2}Acronyms}{5}%
+\contentsline {paragraph}{}{5}%
+\contentsline {subsection}{\numberline {1.3.3}Abbreviations}{6}%
+\contentsline {section}{\numberline {1.4}Revision history}{6}%
+\contentsline {section}{\numberline {1.5}Reference documents}{6}%
+\contentsline {section}{\numberline {1.6}Document structure}{6}%
+\contentsline {paragraph}{}{6}%
+\contentsline {chapter}{\numberline {2}Overall description}{8}%
+\contentsline {section}{\numberline {2.1}Product perspective}{8}%
+\contentsline {paragraph}{}{8}%
+\contentsline {paragraph}{}{8}%
+\contentsline {subsection}{\numberline {2.1.1}Class diagram}{8}%
+\contentsline {subsection}{\numberline {2.1.2}State diagrams}{9}%
+\contentsline {paragraph}{}{9}%
+\contentsline {subsubsection}{\numberline {2.1.2.1}User state diagram}{9}%
+\contentsline {paragraph}{}{9}%
+\contentsline {paragraph}{}{9}%
+\contentsline {subsubsection}{\numberline {2.1.2.2}Report construction state diagram}{9}%
+\contentsline {paragraph}{}{9}%
+\contentsline {subsubsection}{\numberline {2.1.2.3}Report state diagram}{9}%
+\contentsline {paragraph}{}{9}%
+\contentsline {subsubsection}{\numberline {2.1.2.4}Improvement state diagram}{10}%
+\contentsline {paragraph}{}{10}%
+\contentsline {subsection}{\numberline {2.1.3}World and Phenomena}{11}%
+\contentsline {section}{\numberline {2.2}Product functions}{12}%
+\contentsline {paragraph}{}{12}%
+\contentsline {subsection}{\numberline {2.2.1}Report}{12}%
+\contentsline {paragraph}{}{12}%
+\contentsline {subsection}{\numberline {2.2.2}Improvement}{12}%
+\contentsline {paragraph}{}{12}%
+\contentsline {subsection}{\numberline {2.2.3}Statistics}{12}%
+\contentsline {paragraph}{}{12}%
+\contentsline {section}{\numberline {2.3}User characteristics}{12}%
+\contentsline {paragraph}{}{12}%
+\contentsline {section}{\numberline {2.4}Assumptions, dependencies and constraints}{13}%
+\contentsline {paragraph}{}{13}%
+\contentsline {chapter}{\numberline {3}Specific requirements}{14}%
+\contentsline {section}{\numberline {3.1}External interface requirements}{14}%
+\contentsline {subsection}{\numberline {3.1.1}User interfaces}{14}%
+\contentsline {paragraph}{}{14}%
+\contentsline {subsubsection}{\numberline {3.1.1.1}Unregistered User}{14}%
+\contentsline {paragraph}{}{14}%
+\contentsline {subsubsection}{\numberline {3.1.1.2}Registered User}{15}%
+\contentsline {subsubsection}{\numberline {3.1.1.3}Authority}{19}%
+\contentsline {subsubsection}{\numberline {3.1.1.4}Municipal Employee}{20}%
+\contentsline {subsubsection}{\numberline {3.1.1.5}Local Officer}{22}%
+\contentsline {subsection}{\numberline {3.1.2}Hardware interfaces}{24}%
+<<<<<<< Updated upstream
+\contentsline {paragraph}{}{24}%
+\contentsline {subsection}{\numberline {3.1.3}Software interfaces}{24}%
+\contentsline {paragraph}{}{24}%
+\contentsline {subsection}{\numberline {3.1.4}Communication interfaces}{24}%
+\contentsline {paragraph}{}{24}%
+\contentsline {section}{\numberline {3.2}Functional requirements}{24}%
+\contentsline {subsection}{\numberline {3.2.1}Scenarios}{24}%
+\contentsline {subsubsection}{\numberline {3.2.1.1}Scenario 1}{24}%
+\contentsline {paragraph}{}{24}%
+=======
+\contentsline {paragraph}{}{24}%
+\contentsline {subsection}{\numberline {3.1.3}Software interfaces}{24}%
+\contentsline {paragraph}{}{24}%
+\contentsline {subsection}{\numberline {3.1.4}Communication interfaces}{24}%
+\contentsline {paragraph}{}{24}%
+\contentsline {section}{\numberline {3.2}Functional requirements}{24}%
+\contentsline {subsection}{\numberline {3.2.1}Scenarios}{24}%
+\contentsline {subsubsection}{\numberline {3.2.1.1}Scenario 1}{24}%
+\contentsline {paragraph}{}{24}%
+>>>>>>> Stashed changes
+\contentsline {subsubsection}{\numberline {3.2.1.2}Scenario 2}{25}%
+\contentsline {paragraph}{}{25}%
+\contentsline {subsubsection}{\numberline {3.2.1.3}Scenario 3}{25}%
+\contentsline {paragraph}{}{25}%
+\contentsline {subsubsection}{\numberline {3.2.1.4}Scenario 4}{25}%
+\contentsline {paragraph}{}{25}%
+\contentsline {subsubsection}{\numberline {3.2.1.5}Scenario 5}{25}%
+\contentsline {paragraph}{}{25}%
+\contentsline {subsubsection}{\numberline {3.2.1.6}Scenario 6}{25}%
+\contentsline {paragraph}{}{25}%
+\contentsline {subsubsection}{\numberline {3.2.1.7}Scenario 7}{25}%
+\contentsline {paragraph}{}{25}%
+\contentsline {subsection}{\numberline {3.2.2}Use case diagrams}{26}%
+\contentsline {subsubsection}{\numberline {3.2.2.1}Unregistered User}{26}%
+\contentsline {subsubsection}{\numberline {3.2.2.2}Registered User}{26}%
+\contentsline {subsubsection}{\numberline {3.2.2.3}Municipal Employee}{27}%
+\contentsline {subsubsection}{\numberline {3.2.2.4}Local Officer}{27}%
+\contentsline {subsection}{\numberline {3.2.3}Use cases}{28}%
+\contentsline {subsubsection}{\numberline {3.2.3.1}Sign-Up}{28}%
+\contentsline {paragraph}{}{28}%
+\contentsline {paragraph}{}{28}%
+\contentsline {paragraph}{}{28}%
+\contentsline {subsubsection}{\numberline {3.2.3.2}Registered User login}{29}%
+\contentsline {paragraph}{}{29}%
+\contentsline {subsubsection}{\numberline {3.2.3.3}Add report}{29}%
+\contentsline {subsubsection}{\numberline {3.2.3.4}Get my reports}{30}%
+\contentsline {paragraph}{}{30}%
+\contentsline {subsubsection}{\numberline {3.2.3.5}Get unsafe areas}{30}%
+\contentsline {paragraph}{}{30}%
+\contentsline {subsubsection}{\numberline {3.2.3.6}Authority login}{31}%
+\contentsline {paragraph}{}{31}%
+\contentsline {subsubsection}{\numberline {3.2.3.7}See statistics}{31}%
+\contentsline {paragraph}{}{31}%
+\contentsline {subsubsection}{\numberline {3.2.3.8}Get improvements}{32}%
+\contentsline {paragraph}{}{32}%
+\contentsline {subsubsection}{\numberline {3.2.3.9}Mine reports by all}{33}%
+\contentsline {paragraph}{}{33}%
+\contentsline {subsubsection}{\numberline {3.2.3.10}Mine reports by type}{34}%
+\contentsline {paragraph}{}{34}%
+\contentsline {subsubsection}{\numberline {3.2.3.11}Mine reports by date}{35}%
+\contentsline {paragraph}{}{35}%
+\contentsline {subsubsection}{\numberline {3.2.3.12}Mine reports by time}{36}%
+\contentsline {paragraph}{}{36}%
+\contentsline {subsubsection}{\numberline {3.2.3.13}Mine reports by area}{37}%
+\contentsline {paragraph}{}{37}%
+\contentsline {subsubsection}{\numberline {3.2.3.14}Validate reports}{38}%
+\contentsline {paragraph}{}{38}%
+\contentsline {subsection}{\numberline {3.2.4}Sequence diagrams}{39}%
+\contentsline {subsubsection}{\numberline {3.2.4.1}Unregistered User}{39}%
+\contentsline {subsubsection}{\numberline {3.2.4.2}Registered User}{40}%
+\contentsline {subsubsection}{\numberline {3.2.4.3}Authority}{43}%
+\contentsline {subsubsection}{\numberline {3.2.4.4}Municipal Employee}{45}%
+\contentsline {subsubsection}{\numberline {3.2.4.5}Local Officer}{46}%
+\contentsline {subsection}{\numberline {3.2.5}Mapping requirements}{47}%
+\contentsline {paragraph}{}{47}%
+\contentsline {subsection}{\numberline {3.2.6}Traceability matrix}{51}%
+\contentsline {paragraph}{}{51}%
+\contentsline {section}{\numberline {3.3}Performance requirements}{51}%
+<<<<<<< Updated upstream
+\contentsline {paragraph}{}{51}%
+\contentsline {section}{\numberline {3.4}Design constraints}{51}%
+\contentsline {subsection}{\numberline {3.4.1}Standard compliance}{51}%
+\contentsline {paragraph}{}{51}%
+=======
+\contentsline {paragraph}{}{51}%
+\contentsline {section}{\numberline {3.4}Design constraints}{52}%
+\contentsline {subsection}{\numberline {3.4.1}Standard compliance}{52}%
+\contentsline {paragraph}{}{52}%
+>>>>>>> Stashed changes
+\contentsline {subsection}{\numberline {3.4.2}Hardware limitations}{52}%
+\contentsline {paragraph}{}{52}%
+\contentsline {section}{\numberline {3.5}Software systems attributes}{52}%
+\contentsline {subsection}{\numberline {3.5.1}Reliability}{52}%
+\contentsline {paragraph}{}{52}%
+\contentsline {subsection}{\numberline {3.5.2}Availability}{52}%
+\contentsline {paragraph}{}{52}%
+\contentsline {subsection}{\numberline {3.5.3}Security}{52}%
+\contentsline {paragraph}{}{52}%
+\contentsline {subsection}{\numberline {3.5.4}Maintainability}{52}%
+\contentsline {paragraph}{}{52}%
+\contentsline {subsection}{\numberline {3.5.5}Portability}{52}%
+\contentsline {paragraph}{}{52}%
+\contentsline {chapter}{\numberline {4}Formal analysis using Alloy}{53}%
+\contentsline {paragraph}{}{53}%
+\contentsline {section}{\numberline {4.1}World model}{54}%
+\contentsline {section}{\numberline {4.2}Generated world}{61}%
+\contentsline {subsection}{\numberline {4.2.1}Generic world}{61}%
+\contentsline {paragraph}{}{61}%
+\contentsline {subsubsection}{\numberline {4.2.1.1}Municipal world}{61}%
+\contentsline {paragraph}{}{61}%
+\contentsline {subsubsection}{\numberline {4.2.1.2}User world}{62}%
+\contentsline {paragraph}{}{62}%
+\contentsline {subsubsection}{\numberline {4.2.1.3}Add report}{62}%
+\contentsline {paragraph}{}{62}%
+\contentsline {chapter}{\numberline {5}Effort spent}{63}%
+\contentsline {chapter}{\numberline {6}References}{64}%
