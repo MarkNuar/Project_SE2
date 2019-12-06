@@ -68,8 +68,18 @@ Every other request received from the clients (both the Web and Mobile applicati
 Other external services has been ignored for this view.
 
 ## Runtime view
+--note: access errors always omitted as they are not relevant for the discussion, as for database exceptions. 
+
+
+
 
 ## Component interfaces
+
+The following picture contains all the used interface in the system.
+
+![Interfaces](./images/exported/interfaces.svg) 
+
+Below we describe them, starting from the REST interface connecting the applications and the Web server.
 
 ### Web server interface and Report interface
 
@@ -974,11 +984,12 @@ API geocoding
 
 
 
+
 ### OCRS interface
 
 The OCRS is a bought component imported in our system. It exposes only one method, used for recognizing car plates from an image and an highlighted area on it, added by the user. 
 
-####OCRSinterface
+####OCRS interface
    
 **recognizePlate**
 
@@ -1003,11 +1014,11 @@ The highlighted area is defined by a rectangle, which is represented by its vert
 | ---- | ---- |
 | String | The string containing the car's plate |
 
-**Exception** 
+**Exceptions** 
 
 | Field |  Description |
 | ---- |  ---- |
-| PlateNotRecognized | This exception is thrown when the plate is not recognizable from the given picture |
+| PlateNotRecognizedException | This exception is thrown when the plate is not recognizable from the given picture |
 
 ---------------------------------------------------------------------------------------------------------------------------------------
 
@@ -1038,9 +1049,9 @@ otherwise forward the request to the RouterInterface.
 
 | Type | Description |
 | ---- | ---- |
-| xmlFile | The xml file containing the response of the request |
+| XmlFile | The xml file containing the response of the request |
 
-**Exception** 
+**Exceptions** 
 
 | Field |  Description |
 | ---- |  ---- |
@@ -1065,9 +1076,9 @@ In particular it forward the requests to the correct component.
 
 | Type | Description |
 | ---- | ---- |
-| xmlFile | The xml file containing the response of the request |
+| XmlFile | The xml file containing the response of the request |
 
-**Exception** 
+**Exceptions** 
 
 | Field |  Description |
 | ---- |  ---- |
@@ -1096,13 +1107,13 @@ This method is used for registering a user in the system.
 | ---- | ---- |
 | Boolean | A boolean value which is true when the signUp goes well  |
 
-**Exception** 
+**Exceptions** 
 
 | Field |  Description |
 | ---- |  ---- |
-| ExistingUsername | Someone with the same username is already registered |
-| DifferentPassword | The second password is different from the first one |
-| ExistingMail | This email is already associated with another account |
+| ExistingUsernameException | Someone with the same username is already registered |
+| DifferentPasswordException | The second password is different from the first one |
+| ExistingMailException | This email is already associated with another account |
 
 ------------------------------------------------------------------------------------------------------------------------------------
 
@@ -1123,11 +1134,11 @@ This method is used for logging a user in the system, by providing it a token us
 | ---- | ---- |
 | Token | The token that identify the user in the system |
 
-**Exception** 
+**Exceptions** 
 
 | Field |  Description |
 | ---- |  ---- |
-| WrongUsernameOrPassword | The written username and password does not correspond to any existing user |
+| WrongUsernameOrPasswordException | The written username and password does not correspond to any existing user |
 
 ------------------------------------------------------------------------------------------------------------------------------------
 
@@ -1149,12 +1160,12 @@ This method is used for logging an authority in the system, by providing it a to
 | ---- | ---- |
 | Token | The token that identify the authority in the system |
 
-**Exception** 
+**Exceptions** 
 
 | Field |  Description |
 | ---- |  ---- |
-| WrongUsernameOrPassword | The written username and password does not correspond to any existing user |
-| NotCorrespondingRole | The selected work role does not correspond to the user which given login and password corresponds to |
+| WrongUsernameOrPasswordException | The written username and password does not correspond to any existing user |
+| NotCorrespondingRoleException | The selected work role does not correspond to the user which given login and password corresponds to |
 
 ---------------------------------------------------------------------------------------------------------------------------------------
 
@@ -1163,7 +1174,7 @@ This method is used for logging an authority in the system, by providing it a to
 **addReport**
 
 This method is used for adding a new Report. In particular it tries to recognize the 
-plate with the help of the OCRS. Then saves the report in the database. 
+plate with the help of the OCRS and, if the plate is not recognized, the status of the report is set to "NOTVALID", otherwise is set to "NOTVERIFIED". Then saves the report in the database. 
 The returned string is the identifier of the report, used for further requests made by the user. 
 
 **Parameters**
@@ -1199,11 +1210,11 @@ database, issued in the municipality specified by the municipalityID, which have
 | ---- | ---- |
 | List<Report> | The list containing the reports still to be verified |
 
-**Exception**
+**Exceptions**
 
 | Field | Description |
 | ---- | ---- |
-| UserNotAuthorized | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an LO or the LO's municipality was not the one of the reports requested|
+| UserNotAuthorizedException | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an LO or the LO's municipality was not the one of the reports requested|
 
 --------------------------------------------------------------------------------------------------------------------------------------
 
@@ -1226,11 +1237,11 @@ This method is used in order to set the status of a report, given its ID, to "VA
 | ---- | ---- |
 | List<Report> | The list containing the reports still to be verified |
 
-**Exception**
+**Exceptions**
 
 | Field | Description |
 | ---- | ---- |
-| UserNotAuthorized | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an LO or the LO's municipality was not the one of the reports requested|
+| UserNotAuthorizedException | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an LO or the LO's municipality was not the one of the reports requested|
 
 ---------------------------------------------------------------------------------------------------------------------------------------
 
@@ -1254,11 +1265,11 @@ reportID, issued by the requesting user.
 | ---- | ---- |
 | Report | The report the user has required |
 
-**Exception**
+**Exceptions**
 
 | Field | Description |
 | ---- | ---- |
-| UserNotAuthorized | The id of the report and the token of the user have been analyzed. It was found that the user was not the one who submitted the report and as such the RU was not permitted to see the report  |
+| UserNotAuthorizedException | The id of the report and the token of the user have been analyzed. It was found that the user was not the one who submitted the report and as such the RU was not permitted to see the report  |
 
 ---------------------------------------------------------------------------------------------------------------------------------------
 
@@ -1307,11 +1318,11 @@ The necessary parameters are contained in the "requestField" field.
 | ---- | ---- |
 | List<Report> | List of valid reports retrieved from the database |
 
-**Exception**
+**Exceptions**
 
 | Field | Description |
 | ---- | ---- |
-| UserNotAuthorized | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an LO or the LO's  municipality was not the one of the reports requested  |
+| UserNotAuthorizedException | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an LO or the LO's  municipality was not the one of the reports requested  |
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
@@ -1335,11 +1346,11 @@ This method is used for retrieving all the improvements with the status set to "
 | ---- | ---- |
 | List<Improvement> | List of not done improvements |
 
-**Exception**
+**Exceptions**
 
 | Field | Description |
 | ---- | ---- |
-| UserNotAuthorized | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an LO or the LO's  municipality was not the one of the reports requested  |
+| UserNotAuthorizedException | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an LO or the LO's  municipality was not the one of the reports requested  |
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
@@ -1377,11 +1388,11 @@ This method is used for setting the status of an improvement, given its ID, from
 | ---- | ---- |
 | Boolean | A boolean which is true if the operation of changing status goes correctly |
 
-**Exception**
+**Exceptions**
 
 | Field | Description |
 | ---- | ---- |
-| UserNotAuthorized | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's municipality was not the one of the reports requested |
+| UserNotAuthorizedException | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's municipality was not the one of the reports requested |
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
@@ -1404,11 +1415,11 @@ This method is used for calculating the current statistics, based on the data co
 | ---- | ---- |
 | Statistic | A statistic object containing the new statistics created |
 
-**Exception**
+**Exceptions**
 
 | Field | Description |
 | ---- | ---- |
-| UserNotAuthorized | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's  municipality was not the one of the reports requested  |
+| UserNotAuthorizedException | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's  municipality was not the one of the reports requested  |
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
@@ -1431,11 +1442,11 @@ This method is used for getting a file (for example .pdf) containing the current
 | ---- | ---- |
 | Object | An object containing the new file containing the statistics created |
 
-**Exception**
+**Exceptions**
 
 | Field | Description |
 | ---- | ---- |
-| UserNotAuthorized | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's  municipality was not the one of the reports requested  |
+| UserNotAuthorizedException | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's  municipality was not the one of the reports requested  |
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 

@@ -388,7 +388,6 @@ In this section we show that the requirements ensure the satisfaction of the goa
     * [R23] When getting improvements, a municipal employee can access only to data of reports occurred in his/her municipality
     * [R24] The system must be able to retrieve information about accidents from the MAS (municipal accident system)
     * [R25] The system must be able to identify the possible unsafe areas of the municipal employee or local officer’s municipality from the reports of violations and data coming the MAS
-
 * [G7] The system must allow local officer to set the validity of a report sent by the user
     * [D5] The internet connection works properly without failure
     * [D8] Every location has one and only one municipality
