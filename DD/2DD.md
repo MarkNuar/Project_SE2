@@ -68,30 +68,66 @@ Every other request received from the clients (both the Web and Mobile applicati
 Other external services has been ignored for this view.
 
 ## Runtime view
---note: access errors always omitted as they are not relevant for the discussion, as for database exceptions. 
 The following section contains the most important RuntimeView, organized by the previous depicted UseCases (see RASD document for further info).
-
-SignUp and Login omitted
-
+In order to simplify the complexity of those diagrams, we decided to omit access errors (which happen when the provided token 
+does not authorize the requested operation) and database'access errors. Moreover, the WebServer forwards every request, but in case of static contents request, it can reply directly without contacting the router. 
 ###RegisteredUser
 ####Add Report
 ![addReport](./images/exported/exportedRunTimeView/ru/addReport.svg) 
+
+In this sequence diagram the process through a RU adds a report to the system is shown. At first the RU chooses the "addReport" functionality 
+on the UserMobileApp. Then the app fetched a map from the MS and forward the request to the Web Server, which contacts the Router. 
+So, the Router forward the request to the ReportReceiver, which tries to recognize the plate with the help of the OCRS, gets the municipality where the report has been issued through the MS and, finally, adds 
+the report to the database through the DBMS. 
+
 ####Get MyReports
 ![getMyReports](./images/exported/exportedRunTimeView/ru/getMyReports.svg) 
+
+In this sequence diagram the process through a RU gets all the reports he/she has issued is shown. At first the RU chooses the "getMyReports" functionality
+on the UserMobileApp. Then the app starts fetching, one by one, all the reports issued by the user. In particular, every request passes through the WebServes, Router, ReportMiner and finally the DBMS, then
+is goes back to the UserMobileApp. Once all the reports have been fetched, they are presented to the RU.
+
 ####Get Unsafe Areas
 ![getUnsafeAreas](./images/exported/exportedRunTimeView/ru/getUnsafeAreas.svg) 
+
+semplice richiesta, descrivere i componenti per cui passa come sopra. 
+
 ###MunicipalEmployee and LocalOfficer
 ####Get Statistics
 ![getStatistics](./images/exported/exportedRunTimeView/melo/getStatistics.svg) 
+
+inizio la richiseta. 
+Chiedo al ticket service i ticket emessi per calcolare le statistiche.
+poi chiedo al report miner i report.
+Se ci sono abbastanza report vengono ritornati al statistics computaiton manager che calcola le statistiche e le presenta al me/lo.
+se eventualmente il me/lo vuole scaricarle, si passa per statisticsdownloadmanager che farà fare la stessa cosa di prima, solo che cè un passaggio in più in cui si crea il file delle statistiche. 
 ####Mine Reports
 ![mineReports](./images/exported/exportedRunTimeView/melo/mineReports.svg) 
+
+parte richiesta.
+prima vengono chiesti tutti quanti (requestType=ALL) per presentarli al me/lo.
+La richiesta arriva al database e, se ci sono reports nella sua municipality, vengono ritornati. Eventualmente il me/lo può applicare dei filtri alla ricerca -> come prima, solo che adesso non sarà più di tipo ALL.
+
 ###LocalOfficer
 ####Validate Reports
 ![validateReports](./images/exported/exportedRunTimeView/melo/lo/validateReports.svg) 
+
+parte la richiesta.
+si arriva al database, si vede se ci sono reports da validare.
+In caso positivo vengono ritornati al LO (la WeBApp nel mentre prende anche la mappa).
+Se poi il LO vuole settare la validità:
+loop in cui si setta la validità per ogni report. Importante è che se un report è settato valido allora viene salvato nel ticket service TS. 
+
 ###MunicipalEmployee
 ####Get Improvements
 ![getImprovements](./images/exported/exportedRunTimeView/melo/me/getImprovements.svg) 
 
+parte la richiesta.
+Importante è che si chiedono al MAS gli incidenti avvenuti nella municpality indicata dal municiplityID. Poi si contatta il database.
+Se è possibile proporre almeno un improvement si vanno le seguenti cose:
+Se esiste almeno un report si aggiornano i possibili improvements e, uno per uno, vengono aggiunti al database.
+Poi si chiedono al database tutti i possibili improvements e vengono ritornati al ME (si prende anche la mappa sulla WebAPP).
+Se poi cè qualche improvements da settare come "DONE", si fa un loop e si validano uno ad uno, aggiornando lo stato di ogni improvement nel database.
 
 
 ## Component interfaces
