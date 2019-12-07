@@ -710,7 +710,7 @@ In the database there will be four different tables: the table of the reports, t
 with the interfaces PostgreSQLReportHandler, PostgreSQLUsersHandler, PostgreSQLAuthorityHandler and PostgreSQLImprovementsHandler.
 
 #### PostgreSQLReportHandler 
-This interface will expose five methods that will establish a connection with the server where the database is hosted. The parameters for the connection (URL of the server, user and password) will be available in a class called 
+This interface will expose six methods that will all establish a connection with the server where the database is hosted. The parameters for the connection (URL of the server, user and password) will be available in a class called 
 PostgreSQLUtilities. The methods will then try to send a query to the database, in case of success the connection will be closed and the method will return, otherwise the exception launched by the connection will be handled 
 launching an exception on the upper level.
 
@@ -785,6 +785,25 @@ This method will get all the reports which state is set as "NOTVERIFIED" and the
 | Type | Description |
 | --- | --- |
 | List<Report> | The list of reports taken from the database which satisfy the query |
+
+**Exceptions**
+
+| Name | Description |
+| --- | --- |
+|DataBaseErrorException | An error has occurred in the database |
+
+-------------------------------------------------------------------------------------------------
+**updateReportStatus**
+
+This method will update, changing the status of the report to the one in the parameters, the tuple where the reportId is the same as the one in the parameters.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| reportId | String | The id of report that will have its status changed |
+| newReportStatus | ReportStatus | The new status that the report will have | 
+
 
 **Exceptions**
 
@@ -1038,12 +1057,14 @@ This method converts the address given from the user, this happens in case the M
 | String | The municipalityId of the municipality which the position belongs to |
 
 
+//////kjksdjhfjhjksdlhflkjhad
 
 
-SDK maps (android/iOs)
+       MANCA IL VISUALIZZATORE DI MAPPE
 
-API geocoding
 
+
+///////jsjhakjdhkjsahkdjahkjsdhasjkl
 
 
 
@@ -1517,8 +1538,56 @@ This method is used for getting a file (for example .pdf) containing the current
 
 
 ## Selected architectural styles and patterns
- xml yadiyada
+
+To build the system a number of different architectural style choices have been made. Between all possible alternatives the following are the one that was decided to use:
+
+* **Client-Server** : The client server style will be the one chosen in the system for the interaction between the user and the server components. This architectural style supports the request-response pattern, that is the one that mostly fits the way actors interact with the system: they make requests invoking some services provided by the server, and the server provides a response according to the received request.  
+
+* **Four tier architecture**: The architecture of the whole system has been organized in four tiers such as Presentation, Application 1, Application 2 and Data access. In the first tier, the presentation one, there will be both the user's app and the authority's web app. The presentation tier won't be responsible for almost any computations (only the logic behind the request and the display of the UI will be handled) forwarding all data request onto the two following tiers.
+The first application tier, Application 1, will be responsible of receiving the request from all users (RU, ME and LO) and will eventually forward the requests to the Application 2 layer which will be the one really in charge of computation. The Application 1 tier will also protect the following layer from malicious attacks limiting the requests that
+really reach Application 2, in fact Application 1 will also work as a proxy, directly answering the clients request if it already possess all necessary data in its cache. The Data access tier will be the one responsible to hold all information, its role it's a vital one since it will allow to reach a stateless architecture.  
+
+* **RESTful APIs**: Both the communication form and to both users, authorities and municipal services will be numerous and will need immediate response. For that purpose REST was adopted to work as the mean to communicate between parties. 
+The RESTful APIs will be implemented over the HTTPS protocol, both because its use is standard in these cases, for its ease of understanding and maintenance, and because it will grant added security onto the data transfer.
+The content of the messages will be formatted using XML, this format was preferred because of its ease of use when transmitting images. The choice of REST over SOAP was done to fully utilize the database to create a stateless architecture, its advantages can be seen in the reduction of workload on 
+the server will permit to handle multiple simultaneous communication sessions with both users and services with a little number of threads. This way the cost of the server will remain contained while ensuring good performances.
+
 ## Other design decisions
-security yadiyada
+
+### Framework selection
+
+### DBMS selection
+
+### Security
+
+### Service providers
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
