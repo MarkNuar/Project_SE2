@@ -69,7 +69,28 @@ Other external services has been ignored for this view.
 
 ## Runtime view
 --note: access errors always omitted as they are not relevant for the discussion, as for database exceptions. 
+The following section contains the most important RuntimeView, organized by the previous depicted UseCases (see RASD document for further info).
 
+SignUp and Login omitted
+
+###RegisteredUser
+####Add Report
+![addReport](./images/exported/exportedRunTimeView/ru/addReport.svg) 
+####Get MyReports
+![getMyReports](./images/exported/exportedRunTimeView/ru/getMyReports.svg) 
+####Get Unsafe Areas
+![getUnsafeAreas](./images/exported/exportedRunTimeView/ru/getUnsafeAreas.svg) 
+###MunicipalEmployee and LocalOfficer
+####Get Statistics
+![getStatistics](./images/exported/exportedRunTimeView/melo/getStatistics.svg) 
+####Mine Reports
+![mineReports](./images/exported/exportedRunTimeView/melo/mineReports.svg) 
+###LocalOfficer
+####Validate Reports
+![validateReports](./images/exported/exportedRunTimeView/melo/lo/validateReports.svg) 
+###MunicipalEmployee
+####Get Improvements
+![getImprovements](./images/exported/exportedRunTimeView/melo/me/getImprovements.svg) 
 
 
 
@@ -79,7 +100,12 @@ The following picture contains all the used interface in the system.
 
 ![Interfaces](./images/exported/interfaces.svg) 
 
-Below we describe them, starting from the REST interface connecting the applications and the Web server.
+As the development continued, the class diagram introduced in the RASD document has been updated. So we decided to 
+report here the new version, with classes used by the interfaces described below .
+
+![classDiagram](./images/exported/classDiagram.svg) 
+
+Down we start the interfaces'description from the REST interface connecting the applications and the Web server.
 
 ### Web server interface and Report interface
 
