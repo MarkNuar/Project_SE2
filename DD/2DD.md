@@ -1555,13 +1555,21 @@ the server will permit to handle multiple simultaneous communication sessions wi
 ## Other design decisions
 
 ### Framework selection
+Java Enterprise Edition was selected for the implementation of the server components, because it can be used to build reliable and scalable application, modeling the components as Enterprise Java Beans, and using Java Server Pages
+for building dynamical user interfaces. Moreover, Java Persistence APIs can be used for the interaction with the DBMS. (alberto non sapevo che scrivere)
+
 
 ### DBMS selection
 
+PostgreSQL
+
 ### Security
+Some security measures have been taken to guarantee legitimacy of data and requests:
+* Passwords, personal email addresses and username sent to and from the server won't be in plain text. Such information will be hashed and salted with strong cryptographic functions.
+* The mechanism of the token used during communication between client and server will guarantee secrecy over the identity of the user who's making a request, it won't be possible to extract any information from it. (BHO NON LO SO) 
 
 ### Service providers
-
+For the MS, Google Maps has been chosen. This was decided thanks to its reliability and ease of use ( XD non è vero ) .
 
 
 
