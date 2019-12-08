@@ -71,8 +71,8 @@ Other external services has been ignored for this view.
 The following section contains the most important RuntimeView, organized by the previous depicted UseCases (see RASD document for further info).
 In order to simplify the complexity of those diagrams, we decided to omit access errors (which happen when the provided token 
 does not authorize the requested operation) and database'access errors. Moreover, the WebServer forwards every request, but in case of static contents request, it can reply directly without contacting the router. 
-###RegisteredUser
-####Add Report
+### RegisteredUser
+#### Add Report
 ![addReport](./images/exported/exportedRunTimeView/ru/addReport.svg) 
 
 In this sequence diagram the process through a RU adds a report to the system is shown. At first the RU chooses the "addReport" functionality 
@@ -80,37 +80,52 @@ on the UserMobileApp. Then the app fetched a map from the MS and forward the req
 So, the Router forward the request to the ReportReceiver, which tries to recognize the plate with the help of the OCRS, gets the municipality where the report has been issued through the MS and, finally, adds 
 the report to the database through the DBMS. 
 
-####Get MyReports
+#### Get MyReports
 ![getMyReports](./images/exported/exportedRunTimeView/ru/getMyReports.svg) 
 
 In this sequence diagram the process through a RU gets all the reports he/she has issued is shown. At first the RU chooses the "getMyReports" functionality
 on the UserMobileApp. Then the app starts fetching, one by one, all the reports issued by the user. In particular, every request passes through the WebServes, Router, ReportMiner and finally the DBMS, then
 is goes back to the UserMobileApp. Once all the reports have been fetched, they are presented to the RU.
 
-####Get Unsafe Areas
+#### Get Unsafe Areas
 ![getUnsafeAreas](./images/exported/exportedRunTimeView/ru/getUnsafeAreas.svg) 
 
 semplice richiesta, descrivere i componenti per cui passa come sopra. 
 
-###MunicipalEmployee and LocalOfficer
-####Get Statistics
+In this sequence diagram is displayed the process which permits a RU to discover if an area was mentioned in a high number of reports. This starts with the request by the RU that gets sent to the web server which will forward to the Router. The router will call "getUnsafeAreas" on the ReportMiner component that will query the database.
+When the response i ready will go back through the same path.
+
+### MunicipalEmployee and LocalOfficer
+#### Get Statistics
 ![getStatistics](./images/exported/exportedRunTimeView/melo/getStatistics.svg) 
+
+In this sequence diagram the request gets sent with the same procedure that was just described. However when it reaches the Router, the StatisticsComputationManager will be called, this component will request tickets data from the TS and then use the ReportMiner component tyo access the database.
+If there are enough reports the StatisticsComputationManager will generate them. If the request from the ME was to visualize the statistics, the StaticsComputationManager will send them back to the Router and to the ME, otherwise the StatisticsDownload manager will take what was computed by the StaticsComputationManager, create a file and send it back through the Router.
 
 inizio la richiseta. 
 Chiedo al ticket service i ticket emessi per calcolare le statistiche.
 poi chiedo al report miner i report.
 Se ci sono abbastanza report vengono ritornati al statistics computaiton manager che calcola le statistiche e le presenta al me/lo.
 se eventualmente il me/lo vuole scaricarle, si passa per statisticsdownloadmanager che farà fare la stessa cosa di prima, solo che cè un passaggio in più in cui si crea il file delle statistiche. 
-####Mine Reports
+#### Mine Reports
 ![mineReports](./images/exported/exportedRunTimeView/melo/mineReports.svg) 
+
+NON HO CAPITO COME FUNZIONA LA STORIA DELLA PRIMA RICHIESTA, CORREGGERE IL TESTO
+
+This sequence diagram shows how the authorities can mine the reports.  The mine request gets sent from the Web App to the Web Server which sends it forward to the router. The ReportMiner gets called, it will query the database and, if enough report are found the list containing them will be created and sent back to Web App. When there are less reports that needed an error message will reach the ME/LO.  When the Web App receives the list of reports, it will use the MS to display them. 
+
 
 parte richiesta.
 prima vengono chiesti tutti quanti (requestType=ALL) per presentarli al me/lo.
 La richiesta arriva al database e, se ci sono reports nella sua municipality, vengono ritornati. Eventualmente il me/lo può applicare dei filtri alla ricerca -> come prima, solo che adesso non sarà più di tipo ALL.
 
-###LocalOfficer
-####Validate Reports
+### LocalOfficer
+#### Validate Reports
 ![validateReports](./images/exported/exportedRunTimeView/melo/lo/validateReports.svg) 
+
+The request gets sent with the standard route until the ReportValidator gets reached. Report validator will query the DBMS for reports to be validated, if there are none an error message will be shown back to the Web App, the reports will then be sent back to the Web App where they will be displayed with the intervention of the MS.
+The LO can at this point start to validate the reports. When a reports gets validated, with any result of validation, it gets sent back to the ReportValidator component which will update the database and, if the report is set as "VALID", it will also be sent as a POST request to the TS.
+The process will continue until the LO stops to validate reports.  
 
 parte la richiesta.
 si arriva al database, si vede se ci sono reports da validare.
@@ -118,9 +133,17 @@ In caso positivo vengono ritornati al LO (la WeBApp nel mentre prende anche la m
 Se poi il LO vuole settare la validità:
 loop in cui si setta la validità per ogni report. Importante è che se un report è settato valido allora viene salvato nel ticket service TS. 
 
-###MunicipalEmployee
-####Get Improvements
+### MunicipalEmployee
+#### Get Improvements
 ![getImprovements](./images/exported/exportedRunTimeView/melo/me/getImprovements.svg) 
+
+This sequence diagram shows the request of improvements from a ME. Using the standard route the request reaches the ImprovementManager 
+which will get from the MAS, trough a GET request, the list of accidents that took place in the ME's municipality. The ReportMiner will 
+then be tasked to obtain from the DBMS the list of reports of the Municipality, retuning them, in case of success or returning an 
+error to the Web App, in case of failure. With the data received from the MAS and the ReportMiner the ImprovementManager will compute all possible
+improvements that will, in a loop, be sent and memorized by the DBMS only if they were not already present. Finished the update ImprovementManager will request, using the "getImprovement" function, all possible "NOTDONE" improvements for the ME's municipality. 
+The list of improvements will then be sent back through the Router to the Web App where the ME can visualize and eventually set them as "DONE". When at least one improvement gets its status changed, the Web App sends a request back to the Web Server and the Router. The ImprovementManager is then 
+called by the Router to update the status of the improvement on the database.      
 
 parte la richiesta.
 Importante è che si chiedono al MAS gli incidenti avvenuti nella municpality indicata dal municiplityID. Poi si contatta il database.
@@ -1531,7 +1554,7 @@ This method is used for getting a file (for example .pdf) containing the current
 | ---- | ---- |
 | UserNotAuthorizedException | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's  municipality was not the one of the reports requested  |
 
-----------------------------------------------------------------------------------------------------------------------------------------
+
 
 
 
