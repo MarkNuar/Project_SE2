@@ -157,7 +157,7 @@ In this case a user U (which can be a RU,ME,LO) tries to use a functionality tha
 #### Invalid Token
 ![Interfaces](./images/exported/exportedRunTimeView/invalidToken.svg) 
 
-In this case a user U (which can be a RU,ME,LO) tries to use a functionality that is not accessible with the given toke (for example a RU that tries to MineReport).
+In this case a user U (which can be a RU,ME,LO) tries to use a functionality that is not accessible with the given token (for example a RU that tries to MineReport).
 
 #### Web Server Responding
 
