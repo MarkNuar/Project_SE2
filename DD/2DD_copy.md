@@ -6,26 +6,26 @@ This request retrieves the type of violations in certain area.
 
 | Field | Type | Description |
 | ---- | ---- | ---- |
-| position | Object | The position, expressed in DMS, of the center of the area which the RU wants to know about |
-| &nbsp;&nbsp;&nbsp;&nbsp;latitude | String | The latitude where the vehicle was recorded to be |
-| &nbsp;&nbsp;&nbsp;&nbsp;longitude | String | The longitude where the vehicle was recorded to be |
+ position & Object & The position, expressed in DMS, of the center of the area which the RU wants to know about \\
+\hspace{2.5mm}latitude & String & The latitude where the vehicle was recorded to be \\
+\hspace{2.5mm}longitude & String & The longitude where the vehicle was recorded to be \\
 
 **Success 200** (request OK)
 
 | Field | Type | Description |
 | ---- | ---- | ---- |
-| pseudoReport | Object[] | The list of partial reports that can be seen bya a RU |
-| &nbsp;&nbsp;&nbsp;&nbsp;position | Object | The position, expressed in DMS, of the vehicle when the report was submitted  |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;latitude | String | The latitude where the vehicle was recorded to be |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;longitude | String | The longitude where the vehicle was recorded to be |
-| &nbsp;&nbsp;&nbsp;&nbsp;violation | Object[] | An array of the type of violation |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;violationType | String | The type of violation |
+ pseudoReport & Object[] & The list of partial reports that can be seen bya a RU \\
+\hspace{2.5mm}position & Object & The position, expressed in DMS, of the vehicle when the report was submitted  \\
+\hspace{5mm}latitude & String & The latitude where the vehicle was recorded to be \\
+\hspace{5mm}longitude & String & The longitude where the vehicle was recorded to be \\
+\hspace{2.5mm}violation & Object[] & An array of the type of violation \\
+\hspace{5mm}violationType & String & The type of violation \\
 
 **Error 404** (resource not found)
 
 | Field | Description |
 | --- | --- |
-| NoReportError | The requested resource caused an error on the database, this could both mean that the resource was not found on the database or that the database had internal error or an error on the connection | 
+ NoReportError & The requested resource caused an error on the database, this could both mean that the resource was not found on the database or that the database had internal error or an error on the connection \\ 
 
 
 ------------------------------------------------------------------------------------------------------------------------------------
@@ -39,36 +39,36 @@ This request retrieves the reports that are waiting for validation in a certain 
 
 | Field | Type | Description |
 | ---- | ---- | ---- |
-| id | String | The id that uniquely identifies the municipality which the LO works for |
+ id & String & The id that uniquely identifies the municipality which the LO works for \\
 
 
 **Success 200** (request OK)
 
 | Field | Type | Description |
 | ---- | ---- | ---- |
-| reports | Object[] | A list of the valid reports of a certain municipality |
-| &nbsp;&nbsp;&nbsp;&nbsp;reportId | String | The string that uniquely identifies a report |
-| &nbsp;&nbsp;&nbsp;&nbsp;vehicle | Object | The vehicle information |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;licensePlate | String | The license plate of the vehicle |
-| &nbsp;&nbsp;&nbsp;&nbsp;position | Object | The position, expressed in DMS, of the vehicle when the report was submitted  |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;latitude | String | The latitude where the vehicle was recorded to be |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;longitude | String | The longitude where the vehicle was recorded to be |
-| &nbsp;&nbsp;&nbsp;&nbsp;picture | Object | Representation of the image of the vehicle |
-| &nbsp;&nbsp;&nbsp;&nbsp;violation | Object[] | An array of the type of violation |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;violationType | String | The type of violation |
-| &nbsp;&nbsp;&nbsp;&nbsp;date | String | The datetime in <span style="color:blue">dd-MM-yyyyThh:mm:ss</span> format |
+ reports & Object[] & A list of the valid reports of a certain municipality \\
+\hspace{2.5mm}reportId & String & The string that uniquely identifies a report \\
+\hspace{2.5mm}vehicle & Object & The vehicle information \\
+\hspace{5mm}licensePlate & String & The license plate of the vehicle \\
+\hspace{2.5mm}position & Object & The position, expressed in DMS, of the vehicle when the report was submitted  \\
+\hspace{5mm}latitude & String & The latitude where the vehicle was recorded to be \\
+\hspace{5mm}longitude & String & The longitude where the vehicle was recorded to be \\
+\hspace{2.5mm}picture & Object & Representation of the image of the vehicle \\
+\hspace{2.5mm}violation & Object[] & An array of the type of violation \\
+\hspace{5mm}violationType & String & The type of violation \\
+\hspace{2.5mm}date & String & The datetime in <span style="color:blue">dd-MM-yyyyThh:mm:ss</span> format \\
 
 **Error 403** (forbidden)
 
 | Field | Description |
 | ---- | ---- |
-| UserNotAuthorized | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an LO or the LO's municipality was not the one of the reports requested|
+ UserNotAuthorized & The id of the municipality and the token of the user have been analyzed. It was found that the user was not an LO or the LO's municipality was not the one of the reports requested \\
 
 **Error 404** (resource not found)
 
 | Field | Description |
 | --- | --- |
-| NoReportError | The requested resource caused an error on the database, this could both mean that the resource was not found on the database or that the database had internal error or an error on the connection | 
+ NoReportError & The requested resource caused an error on the database, this could both mean that the resource was not found on the database or that the database had internal error or an error on the connection \\ 
 
 --------------------------------------------------------------------------------------------------------------------------------------
 
@@ -80,15 +80,15 @@ This request modifies the status of a report.
 
 | Field | Type | Description |
 | ---- | ---- | ---- |
-| id | String | The id that uniquely identifies the municipality which the LO works for |
+ id & String & The id that uniquely identifies the municipality which the LO works for \\
 
 
 **Fields**
 
 | Field | Type | Description |
 | ---- | ---- | ---- |
-| id | String | The id of the report |
-| newStatus | String | The result of the validation performed by the LO |
+ id & String & The id of the report \\
+ newStatus & String & The result of the validation performed by the LO \\
 
 
 
@@ -96,7 +96,7 @@ This request modifies the status of a report.
 
 | Field | Description |
 | ---- | ---- |
-| UserNotAuthorized | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an LO or the LO's municipality was not the one of the reports requested |
+ UserNotAuthorized & The id of the municipality and the token of the user have been analyzed. It was found that the user was not an LO or the LO's municipality was not the one of the reports requested \\
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------
@@ -108,43 +108,43 @@ This request gets all the valid reports in a certain municipality.
 
 | Field | Type | Description |
 | ---- | ---- | ---- |
-| id | String | The id that uniquely identifies the municipality which the LO works for |
+ id & String & The id that uniquely identifies the municipality which the LO works for \\
 
 
 **Fields**
 
 | Field | Type | Description |
 | ---- | ---- | ---- |
-| requestType | String | The type of request issued (i.e. "by area") |
-| requestField| String | The field that contains precise information on the request |
+ requestType & String & The type of request issued (i.e. "by area") \\
+ requestField & String & The field that contains precise information on the request \\
 
 **Success 200** (request OK)
 
 | Field | Type | Description |
 | ---- | ---- | ---- |
-| reports | Object[] | A list of the valid reports of a certain municipality |
-| &nbsp;&nbsp;&nbsp;&nbsp;reportId | String | The string that uniquely identifies a report |
-| &nbsp;&nbsp;&nbsp;&nbsp;vehicle | Object | The vehicle information |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;licensePlate | String | The license plate of the vehicle |
-| &nbsp;&nbsp;&nbsp;&nbsp;position | Object | The position, expressed in DMS, of the vehicle when the report was submitted  |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;latitude | String | The latitude where the vehicle was recorded to be |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;longitude | String | The longitude where the vehicle was recorded to be |
-| &nbsp;&nbsp;&nbsp;&nbsp;picture | Object | Representation of the image of the vehicle |
-| &nbsp;&nbsp;&nbsp;&nbsp;violation | Object[] | An array of the type of violation |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;violationType | String | The type of violation |
-| &nbsp;&nbsp;&nbsp;&nbsp;date | String | The datetime in <span style="color:blue">dd-MM-yyyyThh:mm:ss</span> format |
+ reports & Object[] & A list of the valid reports of a certain municipality \\
+\hspace{2.5mm}reportId & String & The string that uniquely identifies a report \\
+\hspace{2.5mm}vehicle & Object & The vehicle information \\
+\hspace{5mm}licensePlate & String & The license plate of the vehicle \\
+\hspace{2.5mm}position & Object & The position, expressed in DMS, of the vehicle when the report was submitted  \\
+\hspace{5mm}latitude & String & The latitude where the vehicle was recorded to be \\
+\hspace{5mm}longitude & String & The longitude where the vehicle was recorded to be \\
+\hspace{2.5mm}picture & Object & Representation of the image of the vehicle \\
+\hspace{2.5mm}violation & Object[] & An array of the type of violation \\
+\hspace{5mm}violationType & String & The type of violation \\
+\hspace{2.5mm}date & String & The datetime in <span style="color:blue">dd-MM-yyyyThh:mm:ss</span> format \\
 
 **Error 403** (forbidden)
 
 | Field | Description |
 | ---- | ---- |
-| UserNotAuthorized | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an LO or the LO's  municipality was not the one of the reports requested  |
+ UserNotAuthorized & The id of the municipality and the token of the user have been analyzed. It was found that the user was not an LO or the LO's  municipality was not the one of the reports requested  \\
 
 **Error 404** (resource not found)
 
 | Field | Description |
 | --- | --- |
-| NoReportError | The requested resource caused an error on the database, this could both mean that the resource was not found on the database or that the database had internal error or an error on the connection | 
+ NoReportError & The requested resource caused an error on the database, this could both mean that the resource was not found on the database or that the database had internal error or an error on the connection \\ 
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------
@@ -157,32 +157,32 @@ This request retrieves all the suggested improvements in a certain municipality.
 
 | Field | Type | Description |
 | ---- | ---- | ---- |
-| id | String | The id that uniquely identifies the municipality which the ME works for |
+ id & String & The id that uniquely identifies the municipality which the ME works for \\
 
 
 **Success 200** (request OK)
 
 | Field | Type | Description |
 | ---- | ---- | ---- |
-| improvements | Object[] | The list of suggested improvements |
-| &nbsp;&nbsp;&nbsp;&nbsp;type | String | The of the improvement, i.e. "add a cycling lane" |
-| &nbsp;&nbsp;&nbsp;&nbsp;position | Object | The position of the improvement expresses in DMS |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;latitude | String | The latitude where the suggested improvement will be expected to be |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;longitude | String |The longitude where the suggested improvement will be expected to be  |
-| &nbsp;&nbsp;&nbsp;&nbsp;state | String | The status of the improvement, it could be "DONE" or "NOT DONE" |
-| &nbsp;&nbsp;&nbsp;&nbsp;improvementId | String | The id that uniquely identifies the improvement on the database |
+ improvements & Object[] & The list of suggested improvements \\
+\hspace{2.5mm}type & String & The of the improvement, i.e. "add a cycling lane" \\
+\hspace{2.5mm}position & Object & The position of the improvement expresses in DMS \\
+\hspace{5mm}latitude & String & The latitude where the suggested improvement will be expected to be \\
+\hspace{5mm}longitude & String & The longitude where the suggested improvement will be expected to be  \\
+\hspace{2.5mm}state & String & The status of the improvement, it could be "DONE" or "NOT DONE" \\
+\hspace{2.5mm}improvementId & String & The id that uniquely identifies the improvement on the database \\
 
 **Error 403** (forbidden)
 
 | Field | Description |
 | ---- | ---- |
-| UserNotAuthorized | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's  municipality was not the one of the reports requested  |
+ UserNotAuthorized & The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's  municipality was not the one of the reports requested  \\
 
 **Error 404** (resource not found)
 
 | Field | Description |
 | --- | --- |
-| NotEnoughReportError | The requested improvements could not be found on the database and the available information on the Municipality is not enough to compute correct suggestions | 
+ NotEnoughReportError & The requested improvements could not be found on the database and the available information on the Municipality is not enough to compute correct suggestions \\ 
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
@@ -194,21 +194,21 @@ This request modifies the status of an improvement from "not done" to "done".
 
 | Field | Type | Description |
 | ---- | ---- | ---- |
-| id | String | The id that uniquely identifies the municipality which the LO works for |
+ id & String & The id that uniquely identifies the municipality which the LO works for \\
 
 
 **Fields**
 
 | Field | Type | Description |
 | ---- | ---- | ---- |
-| improvementId | String | The id that uniquely identifies the improvement on the database |
+ improvementId & String & The id that uniquely identifies the improvement on the database \\
 
 
 **Error 403** (forbidden)
 
 | Field | Description |
 | ---- | ---- |
-| UserNotAuthorized | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's municipality was not the one of the reports requested |
+ UserNotAuthorized & The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's municipality was not the one of the reports requested \\
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------
@@ -221,31 +221,31 @@ This request gets the available statistics on a certain municipality and lets th
 
 | Field | Type | Description |
 | ---- | ---- | ---- |
-| id | String | The id that uniquely identifies the municipality which the LO works for |
+ id & String & The id that uniquely identifies the municipality which the LO works for \\
 
 
 **Success 200** (request OK)
 
 | Field | Type | Description |
 | ---- | ---- | ---- |
-| statistics | Object[] | The various statistics |
-|&nbsp;&nbsp;&nbsp;&nbsp; firstFieldName | String | The name of the first field of the graph |
-|&nbsp;&nbsp;&nbsp;&nbsp; secondFieldName | String | The name of the second field of the graph |
-|&nbsp;&nbsp;&nbsp;&nbsp; firstFieldValues | Number[] | The values of the first field |
-|&nbsp;&nbsp;&nbsp;&nbsp; secondFieldValues | Number[] | The value of the second field |
+ statistics & Object[] & The various statistics \\
+\hspace{2.5mm}firstFieldName & String & The name of the first field of the graph \\
+\hspace{2.5mm}secondFieldName & String & The name of the second field of the graph \\
+\hspace{2.5mm}firstFieldValues & Number[] & The values of the first field \\
+\hspace{2.5mm}secondFieldValues & Number[] & The value of the second field \\
 
 
 **Error 403** (forbidden)
 
 | Field | Description |
 | ---- | ---- |
-| UserNotAuthorized | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's  municipality was not the one of the reports requested  |
+ UserNotAuthorized & The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's  municipality was not the one of the reports requested  \\
 
 **Error 404** (resource not found)
 
 | Field | Description |
 | --- | --- |
-| NotEnoughReportError | The requested statistics could not be found on the database and the available information on the Municipality is not enough to compute accurate statistics | 
+ NotEnoughReportError & The requested statistics could not be found on the database and the available information on the Municipality is not enough to compute accurate statistics \\ 
 
 -----------------------------------------------------------------------------------------------------
 
@@ -257,26 +257,26 @@ This request gets the url of the pdf file where the visualized statistics are wr
 
 | Field | Type | Description |
 | ---- | ---- | ---- |
-| id | String | The id that uniquely identifies the municipality which the LO works for |
+ id & String & The id that uniquely identifies the municipality which the LO works for \\
 
 
 **Success 200** (request OK)
 
 | Field | Type | Description |
 | ---- | ---- | ---- |
-| url | String | The url where the ME can download the pdf file |
+url & String & The url where the ME can download the pdf file \\
 
 **Error 403** (forbidden)
 
 | Field | Description |
 | ---- | ---- |
-| UserNotAuthorized | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's  municipality was not the one of the reports requested  |
+UserNotAuthorized & The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's  municipality was not the one of the reports requested \\
 
 **Error 404** (resource not found)
 
 | Field | Description |
 | --- | --- |
-| NotEnoughReportError | The requested statistics could not be found on the database and the available information on the Municipality is not enough to compute accurate statistics | 
+NotEnoughReportError & The requested statistics could not be found on the database and the available information on the Municipality is not enough to compute accurate statistics \\
 
 
 
@@ -293,13 +293,13 @@ This request will be structured as a GET and the expected success message will b
 
 | Field | Type | Description |
 | ---- | ---- | ---- |
-| accidents | Object[] | The list of accidents that a Municipality can provide |
-| &nbsp;&nbsp;&nbsp;&nbsp;date | String | The datetime in <span style="color:lightgreen">dd-MM-yyyyThh:mm:ss</span> format |
-| &nbsp;&nbsp;&nbsp;&nbsp;position | Object | The position, expressed in DMS, where the accident happened |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;latitude | String | The latitude where the accident was recorded to have happened |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;longitude | String | The longitude where the vehicle was recorded to have happened |
-| &nbsp;&nbsp;&nbsp;&nbsp;vehicles | Object[] | The vehicles that were involved in the accident |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;licensePlate | String | The license plate of the vehicle |
+accidents & Object[] & The list of accidents that a Municipality can provide \\
+\hspace{2.5mm}date & String & The datetime in <span style="color:lightgreen">dd-MM-yyyyThh:mm:ss</span> format \\
+\hspace{2.5mm}position & Object & The position, expressed in DMS, where the accident happened \\
+\hspace{5mm}latitude & String & The latitude where the accident was recorded to have happened \\
+\hspace{5mm}longitude & String & The longitude where the vehicle was recorded to have happened \\
+\hspace{2.5mm}vehicles & Object[] & The vehicles that were involved in the accident \\
+\hspace{5mm}licensePlate & String & The license plate of the vehicle \\
 
 #### Request of data about tickets from the TS
 
@@ -307,15 +307,15 @@ This request will be structured as a GET, the expected success message will be s
 
 | Field | Type | Description |
 | ---- | ---- | ---- |
-| tickets | Object[] | The tickets issued in a certain Municipality |
-| &nbsp;&nbsp;&nbsp;&nbsp;vehicle | Object | The vehicle information |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;licensePlate | String | The license plate of the vehicle |
-| &nbsp;&nbsp;&nbsp;&nbsp;position | Object | The position, expressed in DMS, of the vehicle when the ticket was issued  |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;latitude | String | The latitude where the vehicle was recorded to be |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;longitude | String | The longitude where the vehicle was recorded to be |
-| &nbsp;&nbsp;&nbsp;&nbsp;violation | Object[] | An array of the type of violation |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;violationType | String | The type of violation |
-| &nbsp;&nbsp;&nbsp;&nbsp;date | String | The datetime in <span style="color:lightgreen">dd-MM-yyyyThh:mm:ss</span> format |
+tickets & Object[] & The tickets issued in a certain Municipality \\
+\hspace{2.5mm}vehicle & Object & The vehicle information \\
+\hspace{5mm}licensePlate & String & The license plate of the vehicle \\
+\hspace{2.5mm}position & Object & The position, expressed in DMS, of the vehicle when the ticket was issued  \\
+\hspace{5mm}latitude & String & The latitude where the vehicle was recorded to be \\
+\hspace{5mm}longitude & String & The longitude where the vehicle was recorded to be \\
+\hspace{2.5mm}violation & Object[] & An array of the type of violation \\
+\hspace{5mm}violationType & String & The type of violation \\
+\hspace{2.5mm}date & String & The datetime in <span style="color:lightgreen">dd-MM-yyyyThh:mm:ss</span> format \\
 
 #### Forwarding of data about valid reports to the TS
 
@@ -323,14 +323,14 @@ The request will structured as a POST, the content of the sent message will be a
 
 | Field | Type | Description |
 | ---- | ---- | ---- |
-| vehicle | Object | The vehicle information |
-| &nbsp;&nbsp;&nbsp;&nbsp;licensePlate | String | The license plate of the vehicle |
-| position | Object | The position, expressed in DMS, of the vehicle when the ticket was issued  |
-| &nbsp;&nbsp;&nbsp;&nbsp;latitude | String | The latitude where the vehicle was recorded to be |
-| &nbsp;&nbsp;&nbsp;&nbsp;longitude | String | The longitude where the vehicle was recorded to be |
-| violation | Object[] | An array of the type of violation |
-| &nbsp;&nbsp;&nbsp;&nbsp;violationType | String | The type of violation |
-| date | String | The datetime in <span style="color:lightgreen">dd-MM-yyyyThh:mm:ss</span> format |
+vehicle & Object & The vehicle information \\
+\hspace{2.5mm}licensePlate & String & The license plate of the vehicle \\
+position & Object & The position, expressed in DMS, of the vehicle when the ticket was issued  \\
+\hspace{2.5mm}latitude & String & The latitude where the vehicle was recorded to be \\
+\hspace{2.5mm}longitude & String & The longitude where the vehicle was recorded to be \\
+violation & Object[] & An array of the type of violation \\
+\hspace{2.5mm}violationType & String & The type of violation \\
+date & String & The datetime in <span style="color:lightgreen">dd-MM-yyyyThh:mm:ss</span> format \\
 
 ### DBMS interface
 
@@ -353,7 +353,7 @@ This method will create a new report table on the database, if one is already ex
 
 | Name | Description |
 | --- | --- |
-|DataBaseErrorException| An error has occurred in database |
+DataBaseErrorException & An error has occurred in database \\
 
 --------------------------------------------------------------------------------------------
 
@@ -365,13 +365,13 @@ This method will add a new report on the database.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| report | Report | The report that will have to be uploaded to the database |
+report & Report & The report that will have to be uploaded to the database \\
 
 **Exceptions**
 
 | Name | Description |
 | --- | --- |
-|DataBaseErrorException | An error has occurred in database |
+DataBaseErrorException & An error has occurred in database \\
 
 -------------------------------------------------------------------------------------------
 
@@ -383,19 +383,19 @@ This method will get a report from the database.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| reportId | String | The id of the report that will be retrieved from the database |
+reportId & String & The id of the report that will be retrieved from the database \\
 
 **Return**
 
 | Type | Description |
 | --- | --- |
-| Report | The report taken from the database |
+Report & The report taken from the database \\
 
 **Exceptions**
 
 | Name | Description |
 | --- | --- |
-|DataBaseErrorException | An error has occurred in the database |
+DataBaseErrorException & An error has occurred in the database \\ 
 
 ---------------------------------------------------------------------------------------------
 
@@ -407,19 +407,19 @@ This method will get all the reports which state is set as "NOTVERIFIED" and the
 
 | Name | Type | Description |
 | --- | --- | --- |
-| municipalityId | String | The id of the municipality in charge of the report |
+municipalityId & String & The id of the municipality in charge of the report \\
 
 **Return**
 
 | Type | Description |
 | --- | --- |
-| List<Report> | The list of reports taken from the database which satisfy the query |
+List<Report> & The list of reports taken from the database which satisfy the query \\
 
 **Exceptions**
 
 | Name | Description |
 | --- | --- |
-|DataBaseErrorException | An error has occurred in the database |
+DataBaseErrorException & An error has occurred in the database \\
 
 -------------------------------------------------------------------------------------------------
 **updateReportStatus**
@@ -430,15 +430,15 @@ This method will update, changing the status of the report to the one in the par
 
 | Name | Type | Description |
 | --- | --- | --- |
-| reportId | String | The id of report that will have its status changed |
-| newReportStatus | ReportStatus | The new status that the report will have | 
+reportId & String & The id of report that will have its status changed \\
+newReportStatus & ReportStatus & The new status that the report will have \\
 
 
 **Exceptions**
 
 | Name | Description |
 | --- | --- |
-|DataBaseErrorException | An error has occurred in the database |
+DataBaseErrorException & An error has occurred in the database \\
 
 
 -------------------------------------------------------------------------------------------------
@@ -452,21 +452,21 @@ There will be a different query for each type of RequestType and requestField wi
 
 | Name | Type | Description |
 | --- | --- | --- |
-| municipalityId | String | The id of the municipality in charge of the report |
-| requestType | RequestType | The type of request, it may be "ALL", "TYPE", "AREA", "DATE" and "TIME" |
-| requestField | String | The requirements of the research, i.e. requestType = TYPE && requestField = "parkingOnCrosswalk" |
+municipalityId & String & The id of the municipality in charge of the report \\
+requestType & RequestType & The type of request, it may be "ALL", "TYPE", "AREA", "DATE" and "TIME" \\
+requestField & String & The requirements of the research, i.e. requestType = TYPE && requestField = "parkingOnCrosswalk" \\
 
 **Return**
 
 | Type | Description |
 | --- | --- |
-| List<Report> | The list of reports which satisfy the condition of the query |
+List<Report> & The list of reports which satisfy the condition of the query \\
 
 **Exceptions**
 
 | Name | Description |
 | --- | --- |
-|DataBaseErrorException | An error has occurred in the database |
+DataBaseErrorException & An error has occurred in the database \\
 
 
 #### PostgreSQLUsersHandler
@@ -483,7 +483,7 @@ This method will create a new table of the users on the database, if one is alre
 
 | Name | Description |
 | --- | --- |
-|DataBaseErrorException | An error has occurred in the database |
+DataBaseErrorException & An error has occurred in the database \\
 
 ----------------------------------------------------------------------------------------------
 **addUserData**
@@ -494,15 +494,15 @@ This method will register on the database the data of a new user.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| username | String | The username of the new user |
-| password | String | The password of the new user |
+username & String & The username of the new user \\
+password & String & The password of the new user \\
 
 
 **Exceptions**
 
 | Name | Description |
 | --- | --- |
-|DataBaseErrorException | An error has occurred in database |
+DataBaseErrorException & An error has occurred in database \\
 
 ----------------------------------------------------------------------------------------------
 **retrieveUserData**
@@ -514,19 +514,19 @@ This method will be used during the login phase. The username, that i assured to
 
 | Name | Type | Description |
 | --- | --- | --- |
-| username | String | The username of the user that is trying to login |
+username & String & The username of the user that is trying to login \\
 
 **Return**
 
 | Type | Description |
 | --- | --- |
-| String | The password of the user |
+String & The password of the user \\
 
 **Exceptions**
 
 | Name | Description |
 | --- | --- |
-|DataBaseErrorException | An error has occurred in database |
+DataBaseErrorException & An error has occurred in database \\
 
 #### PostgreSQLAuthorityHandler
 
@@ -542,7 +542,7 @@ This method will create a new table of the authorities on the database, if one i
 
 | Name | Description |
 | --- | --- |
-|DataBaseErrorException | An error has occurred in the database |
+DataBaseErrorException & An error has occurred in the database \\
 
 ----------------------------------------------------------------------------------------------------------------------
 
@@ -554,20 +554,20 @@ This methods works in the same way as retrieveUsersData, sending a username and 
  
  | Name | Type | Description |
  | --- | --- | --- |
- | username | String | The username of the user that is trying to login |
+ username & String & The username of the user that is trying to login \\
  
  **Return**
  
  | Type | Description |
  | --- | --- |
- | String | The password of the authority |
- | String | The workRole of the authority |
+ String & The password of the authority \\
+ String & The workRole of the authority \\
  
  **Exceptions**
  
  | Name | Description |
  | --- | --- |
- |DataBaseErrorException | An error has occurred in the  database |
+DataBaseErrorException & An error has occurred in the  database \\
 
 
 
@@ -585,7 +585,7 @@ This method will create a new table of the authorities on the database, if one i
  
  | Name | Description |
  | --- | --- |
- |DataBaseErrorException | An error has occurred in the  database |
+ DataBaseErrorException & An error has occurred in the  database \\
 
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -595,16 +595,16 @@ This method will add a new improvement to the database.
 
 **Parameters**
  
- | Name | Type | Description |
- | --- | --- | --- |
- | improvement | Improvement | The new improvement that has been calculated and was not already on the database |
+| Name | Type | Description |
+| --- | --- | --- |
+improvement & Improvement & The new improvement that has been calculated and was not already on the database \\
 
  
  **Exceptions**
  
- | Name | Description |
- | --- | --- |
- |DataBaseErrorException | An error has occurred in the  database |
+| Name | Description |
+| --- | --- |
+DataBaseErrorException & An error has occurred in the  database \\
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -616,19 +616,19 @@ This methods retrieves the list of improvements that are suggested for a municip
 
 | Name | Type | Description |
 | --- | --- | --- |
-| municipalityId| String | The id of the municipality in charge of the report |
+municipalityId & String & The id of the municipality in charge of the report \\
 
 **Return**
 
 | Type | Description |
 | --- | --- |
-| List<Improvements> | The list of improvements that are suggested for a municipality |
+List<Improvements> & The list of improvements that are suggested for a municipality \\
 
 **Exceptions**
 
 | Name | Description |
 | --- | --- |
-|DataBaseErrorException | An error has occurred in database |
+DataBaseErrorException & An error has occurred in database \\
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -640,13 +640,13 @@ This method will update to "DONE" the state of the improvement that has its id e
 
 | Name | Type | Description |
 | --- | --- | --- |
-| improvementId | String | The id of the improvement which completion state has been set to "DONE" |
+improvementId & String & The id of the improvement which completion state has been set to "DONE" \\
 
 **Exceptions**
 
 | Name | Description |
 | --- | --- |
-|DataBaseErrorException | An error has occurred in database |
+DataBaseErrorException & An error has occurred in database \\
 
 
 ### Map interface 
@@ -661,13 +661,13 @@ This method converts the address given from the user, this happens in case the M
 
 | Name | Type | Description |
 | --- | --- | --- |
-| address | String | The address inserted by the ME |
+address & String & The address inserted by the ME \\
 
 **Return**
 
 | Type | Description |
 | --- | --- |
-| Position | The corresponding position to the address in the parameters |
+Position & The corresponding position to the address in the parameters \\
 
 
 **getMunicipalityFromCoordinates**
@@ -676,24 +676,14 @@ This method converts the address given from the user, this happens in case the M
 
 | Name | Type | Description |
 | --- | --- | --- |
-| latitude | String | The latitude of the position which the belonging municipality is needed |
-| longitude | String | The longitude of the position which the belonging municipality is needed | 
+latitude & String & The latitude of the position which the belonging municipality is needed \\
+longitude & String & The longitude of the position which the belonging municipality is needed \\
 
 **Return**
 
 | Type | Description |
 | --- | --- |
-| String | The municipalityId of the municipality which the position belongs to |
-
-
-//////kjksdjhfjhjksdlhflkjhad
-
-
-       MANCA IL VISUALIZZATORE DI MAPPE
-
-
-
-///////jsjhakjdhkjsahkdjahkjsdhasjkl
+String & The municipalityId of the municipality which the position belongs to \\
 
 
 
@@ -712,25 +702,25 @@ The highlighted area is defined by a rectangle, which is represented by its vert
 
 | Name | Type | Description |
 | ---- | ---- | ---- |
-| picture | Object | Representation of the image of the vehicle |
-| highlightVertexes | Object | The coordinates on the picture of where the license plate is located |
-| &nbsp;&nbsp;&nbsp;&nbsp;vertexOne | Number[] | The coordinates of the first vertex |
-| &nbsp;&nbsp;&nbsp;&nbsp;vertexTwo | Number[] | The coordinates of the second vertex |
-| &nbsp;&nbsp;&nbsp;&nbsp;vertexThree | Number[] | The coordinates of the third vertex |
-| &nbsp;&nbsp;&nbsp;&nbsp;vertexFour | Number[] | The coordinates of the fourth vertex |
+picture & Object & Representation of the image of the vehicle \\
+highlightVertexes & Object & The coordinates on the picture of where the license plate is located \\
+\hspace{2.5mm}vertexOne & Number[] & The coordinates of the first vertex \\
+\hspace{2.5mm}vertexTwo & Number[] & The coordinates of the second vertex \\
+\hspace{2.5mm}vertexThree & Number[] & The coordinates of the third vertex \\
+\hspace{2.5mm}vertexFour & Number[] & The coordinates of the fourth vertex \\
 
 
 **Return** 
 
 | Type | Description |
 | ---- | ---- |
-| String | The string containing the car's plate |
+String & The string containing the car's plate \\
 
 **Exceptions** 
 
 | Field |  Description |
 | ---- |  ---- |
-| PlateNotRecognizedException | This exception is thrown when the plate is not recognizable from the given picture |
+PlateNotRecognizedException & This exception is thrown when the plate is not recognizable from the given picture \\
 
 ---------------------------------------------------------------------------------------------------------------------------------------
 
@@ -755,19 +745,19 @@ otherwise forward the request to the RouterInterface.
 
 | Name | Type | Description |
 | ---- | ---- | ---- |
-|  xmlFile | XmlFile | The xml file containing the data of the request  |
+xmlFile & XmlFile & The xml file containing the data of the request \\
 
 **Return** 
 
 | Type | Description |
 | ---- | ---- |
-| XmlFile | The xml file containing the response of the request |
+XmlFile & The xml file containing the response of the request \\
 
 **Exceptions** 
 
 | Field |  Description |
 | ---- |  ---- |
-| Exception | When an error occurs on Server's side, an xml file containing the description of the exception is returned |
+Exception & When an error occurs on Server's side, an xml file containing the description of the exception is returned \\
 
 ---------------------------------------------------------------------------------------------------------------------------------------
 
@@ -782,19 +772,19 @@ In particular it forward the requests to the correct component.
 
 | Name | Type | Description |
 | ---- | ---- | ---- |
-|  xmlFile | XmlFile | The xml file containing the data of the request  |
+xmlFile & XmlFile & The xml file containing the data of the request  \\
 
 **Return** 
 
 | Type | Description |
 | ---- | ---- |
-| XmlFile | The xml file containing the response of the request |
+XmlFile & The xml file containing the response of the request \\
 
 **Exceptions** 
 
 | Field |  Description |
 | ---- |  ---- |
-| Exception | When an error occurs on Server's side, an xml file containing the description of the exception is returned |
+Exception & When an error occurs on Server's side, an xml file containing the description of the exception is returned \\
 
 ---------------------------------------------------------------------------------------------------------------------------------------
 
@@ -808,24 +798,24 @@ This method is used for registering a user in the system.
 
 | Name | Type | Description |
 | ---- | ---- | ---- |
-| username | String | The user's username  |
-| email | String | The user's email |
-| password1 | String | The first password typed by the user |
-| password2 | String | The second password typed by the user |
+username & String & The user's username \\
+email & String & The user's email \\
+password1 & String & The first password typed by the user \\
+password2 & String & The second password typed by the user \\
 
 **Return** 
 
 | Type | Description |
 | ---- | ---- |
-| Boolean | A boolean value which is true when the signUp goes well  |
+Boolean & A boolean value which is true when the signUp goes well \\
 
 **Exceptions** 
 
 | Field |  Description |
 | ---- |  ---- |
-| ExistingUsernameException | Someone with the same username is already registered |
-| DifferentPasswordException | The second password is different from the first one |
-| ExistingMailException | This email is already associated with another account |
+ExistingUsernameException & Someone with the same username is already registered \\
+DifferentPasswordException & The second password is different from the first one \\
+ExistingMailException & This email is already associated with another account \\
 
 ------------------------------------------------------------------------------------------------------------------------------------
 
@@ -837,20 +827,20 @@ This method is used for logging a user in the system, by providing it a token us
 
 | Name | Type | Description |
 | ---- | ---- | ---- |
-| loginInfo | String | The user's username or email |
-| password | String | The user's password |
+loginInfo & String & The user's username or email \\
+password & String & The user's password \\
 
 **Return** 
 
 | Type | Description |
 | ---- | ---- |
-| Token | The token that identify the user in the system |
+Token & The token that identify the user in the system \\
 
 **Exceptions** 
 
 | Field |  Description |
 | ---- |  ---- |
-| WrongUsernameOrPasswordException | The written username and password does not correspond to any existing user |
+WrongUsernameOrPasswordException & The written username and password does not correspond to any existing user \\
 
 ------------------------------------------------------------------------------------------------------------------------------------
 
@@ -862,22 +852,23 @@ This method is used for logging an authority in the system, by providing it a to
 
 | Name | Type | Description |
 | ---- | ---- | ---- |
-| loginInfo | String | The authority's username |
-| password | String | The authority's password |
-| workRole | WorkRole | The authority's work role ("ME" or "LO") |
+loginInfo & String & The authority's username \\
+password & String & The authority's password \\
+workRole & WorkRole & The authority's work role ("ME" or "LO") \\
 
 **Return** 
 
 | Type | Description |
 | ---- | ---- |
-| Token | The token that identify the authority in the system |
+Token & The token that identify the authority in the system \\
+
 
 **Exceptions** 
 
 | Field |  Description |
 | ---- |  ---- |
-| WrongUsernameOrPasswordException | The written username and password does not correspond to any existing user |
-| NotCorrespondingRoleException | The selected work role does not correspond to the user which given login and password corresponds to |
+WrongUsernameOrPasswordException & The written username and password does not correspond to any existing user \\
+NotCorrespondingRoleException & The selected work role does not correspond to the user which given login and password corresponds to \\
 
 ---------------------------------------------------------------------------------------------------------------------------------------
 
@@ -893,14 +884,14 @@ The returned string is the identifier of the report, used for further requests m
 
 | Name | Type | Description |
 | ---- | ---- | ---- |
-| report | Report | The report received from the user |
-| token | Token | The token that identifies the user in the system |
+report & Report & The report received from the user \\
+token & Token & The token that identifies the user in the system \\
 
 **Return** 
 
 | Type | Description |
 | ---- | ---- |
-| String | The ID of the report added by the user |
+String & The ID of the report added by the user \\
 
 ------------------------------------------------------------------------------------------------------------------------------------
 
@@ -913,20 +904,20 @@ database, issued in the municipality specified by the municipalityID, which have
 
 | Name | Type | Description |
 | ---- | ---- | ---- |
-| token | Token | The token that identifies the authority in the system |
-| municipalityID | String | The municipality of the requesting local officer |
+token & Token & The token that identifies the authority in the system \\
+municipalityID & String & The municipality of the requesting local officer \\
 
 **Return**
 
 | Type | Description |
 | ---- | ---- |
-| List<Report> | The list containing the reports still to be verified |
+List<Report> & The list containing the reports still to be verified \\
 
 **Exceptions**
 
 | Field | Description |
 | ---- | ---- |
-| UserNotAuthorizedException | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an LO or the LO's municipality was not the one of the reports requested|
+UserNotAuthorizedException & The id of the municipality and the token of the user have been analyzed. It was found that the user was not an LO or the LO's municipality was not the one of the reports requested \\
 
 --------------------------------------------------------------------------------------------------------------------------------------
 
@@ -938,22 +929,22 @@ This method is used in order to set the status of a report, given its ID, to "VA
 
 | Name | Type | Description |
 | ---- | ---- | ---- |
-| token | Token | The token that identifies the authority in the system|
-| municipalityID | String | The municipality of the requesting local officer |
-| reportID | String | The ID of the report of which the state is changed | 
-| newStatus | ReportStatus | The new status of the report ("VALID" or "NOTVALID") |
+token & Token & The token that identifies the authority in the system \\
+municipalityID & String & The municipality of the requesting local officer \\
+reportID & String & The ID of the report of which the state is changed \\
+newStatus & ReportStatus & The new status of the report ("VALID" or "NOTVALID") \\
 
 **Return**
 
 | Type | Description |
 | ---- | ---- |
-| List<Report> | The list containing the reports still to be verified |
+List<Report> & The list containing the reports still to be verified \\
 
 **Exceptions**
 
 | Field | Description |
 | ---- | ---- |
-| UserNotAuthorizedException | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an LO or the LO's municipality was not the one of the reports requested|
+UserNotAuthorizedException & The id of the municipality and the token of the user have been analyzed. It was found that the user was not an LO or the LO's municipality was not the one of the reports requested \\
 
 ---------------------------------------------------------------------------------------------------------------------------------------
 
@@ -968,20 +959,20 @@ reportID, issued by the requesting user.
 
 | Name | Type | Description |
 | ---- | ---- | ---- |
-| token | Token | The token that identifies the user in the system |
-| reportID | String | The ID of the report which has to be retrieved | 
+token & Token & The token that identifies the user in the system \\
+reportID & String & The ID of the report which has to be retrieved \\
 
 **Return**
 
 | Type | Description |
 | ---- | ---- |
-| Report | The report the user has required |
+Report & The report the user has required \\
 
 **Exceptions**
 
 | Field | Description |
 | ---- | ---- |
-| UserNotAuthorizedException | The id of the report and the token of the user have been analyzed. It was found that the user was not the one who submitted the report and as such the RU was not permitted to see the report  |
+UserNotAuthorizedException & The id of the report and the token of the user have been analyzed. It was found that the user was not the one who submitted the report and as such the RU was not permitted to see the report  \\
 
 ---------------------------------------------------------------------------------------------------------------------------------------
 
@@ -994,13 +985,13 @@ given position. A pseudoreport is like a report, but containing only info about 
 
 | Name | Type | Description |
 | ---- | ---- | ---- |
-| position | Position | The position indicated by the user from which find violations |
-| token | Token | The token that identifies the user in the system | 
+position & Position & The position indicated by the user from which find violations \\
+token & Token & The token that identifies the user in the system \\
 
 **Return** 
 | Type | Description |
 | ---- | ---- |
-| List<PseudoReport> | The list containing the violations occurred within 300 meters from the given position, with their date and time |
+List<PseudoReport> & The list containing the violations occurred within 300 meters from the given position, with their date and time \\
 
 ------------------------------------------------------------------------------------------------------------------------------------
 
@@ -1020,21 +1011,21 @@ The necessary parameters are contained in the "requestField" field.
 
 | Name | Type | Description |
 | ---- | ---- | ---- |
-| requestType | RequestType | The type of mining, can be "ALL", "AREA", "VIOLATION", "DATE", "TIME" |
-| requestField | String | The necessary parameters for the request | 
-| token | Token | The token that identifies the authority in the system |
+requestType & RequestType & The type of mining, can be "ALL", "AREA", "VIOLATION", "DATE", "TIME" \\
+requestField & String & The necessary parameters for the request \\
+token & Token & The token that identifies the authority in the system \\
 
 **Return** 
 
 | Type | Description |
 | ---- | ---- |
-| List<Report> | List of valid reports retrieved from the database |
+List<Report> & List of valid reports retrieved from the database \\
 
 **Exceptions**
 
 | Field | Description |
 | ---- | ---- |
-| UserNotAuthorizedException | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an LO or the LO's  municipality was not the one of the reports requested  |
+UserNotAuthorizedException & The id of the municipality and the token of the user have been analyzed. It was found that the user was not an LO or the LO's  municipality was not the one of the reports requested  \\
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
@@ -1048,21 +1039,21 @@ This method is used for retrieving all the improvements with the status set to "
 
 | Name | Type | Description |
 | ---- | ---- | ---- |
-| token | Token | The token that identifies the authority in the system |
-| municipalityID | String | The municipality of the requesting local officer |
+token & Token & The token that identifies the authority in the system \\
+municipalityID & String & The municipality of the requesting local officer \\
 
 
 **Return** 
 
 | Type | Description |
 | ---- | ---- |
-| List<Improvement> | List of not done improvements |
+List<Improvement> & List of not done improvements \\
 
 **Exceptions**
 
 | Field | Description |
 | ---- | ---- |
-| UserNotAuthorizedException | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an LO or the LO's  municipality was not the one of the reports requested  |
+UserNotAuthorizedException & The id of the municipality and the token of the user have been analyzed. It was found that the user was not an LO or the LO's  municipality was not the one of the reports requested  \\
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
@@ -1076,8 +1067,8 @@ Every new improvement found has the status set to "NOTDONE" by default and is sa
 
 | Name | Type | Description |
 | ---- | ---- | ---- |
-| token | Token | The token that identifies the authority in the system |
-| municipalityID | String | The municipality of the requesting local officer |
+token & Token & The token that identifies the authority in the system \\
+municipalityID & String & The municipality of the requesting local officer \\
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
@@ -1090,21 +1081,21 @@ This method is used for setting the status of an improvement, given its ID, from
 
 | Name | Type | Description |
 | ---- | ---- | ---- |
-| token | Token | The token that identifies the authority in the system |
-| municipalityID | String | The municipality of the requesting local officer |
-| improvementID | String | The ID of the improvement which status has to be changed to done |
+token & Token & The token that identifies the authority in the system \\
+municipalityID & String & The municipality of the requesting local officer \\
+improvementID & String & The ID of the improvement which status has to be changed to done \\
 
 **Return** 
 
 | Type | Description |
 | ---- | ---- |
-| Boolean | A boolean which is true if the operation of changing status goes correctly |
+Boolean & A boolean which is true if the operation of changing status goes correctly \\
 
 **Exceptions**
 
 | Field | Description |
 | ---- | ---- |
-| UserNotAuthorizedException | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's municipality was not the one of the reports requested |
+UserNotAuthorizedException & The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's municipality was not the one of the reports requested \\
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
@@ -1118,20 +1109,20 @@ This method is used for calculating the current statistics, based on the data co
 
 | Name | Type | Description |
 | ---- | ---- | ---- |
-| token | Token | The token that identifies the authority in the system |
-| municipalityID | String | The municipality of the requesting local officer |
+token & Token & The token that identifies the authority in the system \\
+municipalityID & String & The municipality of the requesting local officer \\
 
 **Return** 
 
 | Type | Description |
 | ---- | ---- |
-| Statistic | A statistic object containing the new statistics created |
+ Statistic & A statistic object containing the new statistics created \\
 
 **Exceptions**
 
 | Field | Description |
 | ---- | ---- |
-| UserNotAuthorizedException | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's  municipality was not the one of the reports requested  |
+UserNotAuthorizedException & The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's  municipality was not the one of the reports requested  \\
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
@@ -1146,19 +1137,19 @@ This method is used for getting a file (for example .pdf) containing the current
 | Name | Type | Description |
 | ---- | ---- | ---- |
 | token | Token | The token that identifies the authority in the system |
-| municipalityID | String | The municipality of the requesting local officer |
+ municipalityID & String & The municipality of the requesting local officer \\
 
 **Return** 
 
 | Type | Description |
 | ---- | ---- |
-| Object | An object containing the new file containing the statistics created |
+Object & An object containing the new file containing the statistics created \\
 
 **Exceptions**
 
 | Field | Description |
 | ---- | ---- |
-| UserNotAuthorizedException | The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's  municipality was not the one of the reports requested  |
+UserNotAuthorizedException & The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's  municipality was not the one of the reports requested  \\
 
 
 
