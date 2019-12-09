@@ -751,3 +751,198 @@
 								 	\bottomrule
 								\end{tabular}
 							\end{table}
+							
+						\paragraph{}
+						\textbf{GET} /improvements/?id={id}
+						
+						This request retrieves all the suggested improvements in a certain municipality
+						\paragraph{}
+							\textbf{Parameters}
+							\begin{table}[!h]
+								\begin{tabular}{L{0.2\textwidth}L{0.2\textwidth}L{0.4\textwidth}}
+									\toprule
+									Field & Type & Description \\
+									\midrule
+								 	id & String & The id that uniquely identifies the municipality which the ME works for \\
+								 	\bottomrule
+								\end{tabular}
+							\end{table}
+						\paragraph{}
+							\textbf{Success 200} (request ok)
+							\begin{table}[!h]
+								\begin{tabular}{L{0.25\textwidth}L{0.1\textwidth}L{0.45\textwidth}}
+									\toprule
+									Field & Type & Description \\
+									\midrule
+									improvements & Object[] & The list of suggested improvements \\
+									\hspace{2.5mm}type & String & The of the improvement, i.e. "add a cycling lane" \\
+									\hspace{2.5mm}position & Object & The position of the improvement expresses in DMS \
+									\hspace{5mm}latitude & String & The latitude where the suggested improvement will be expected to be \\
+									\hspace{5mm}longitude & String & The longitude where the suggested improvement will be expected to be  \\
+									\hspace{2.5mm}state & String & The status of the improvement, it could be "DONE" or "NOT DONE" \\
+									\hspace{2.5mm}improvementId & String & The id that uniquely identifies the improvement on the database \\
+								 	\bottomrule
+								\end{tabular}
+							\end{table}
+						\paragraph{}
+							\textbf{Error 403} (Forbidden)
+							\begin{table}[!h]
+								\begin{tabular}{L{0.4\textwidth}L{0.4\textwidth}}
+									\toprule
+									Field & Description \\
+									\midrule
+								  	UserNotAuthorized & The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's  municipality was not the one of the reports requested  \\
+								 	\bottomrule
+								\end{tabular}
+							\end{table}
+						\paragraph{}
+							\textbf{Error 404} (Resource not found)
+							\begin{table}[!h]
+								\begin{tabular}{L{0.4\textwidth}L{0.4\textwidth}}
+									\toprule
+									Field & Description \\
+									\midrule
+								  	NotEnoughReportError & The requested improvements could not be found on the database and the available information on the Municipality is not enough to compute correct suggestions \\
+								 	\bottomrule
+								\end{tabular}
+							\end{table}
+						
+						\paragraph{}
+						\textbf{PUT} /improvements/?id={id}
+						
+						This request allows a ME or LO to login
+						\paragraph{}
+							\textbf{Parameters}
+							\begin{table}[!h]
+								\begin{tabular}{L{0.2\textwidth}L{0.2\textwidth}L{0.4\textwidth}}
+									\toprule
+									Field & Type & Description \\
+									\midrule
+								 	id & String & The id that uniquely identifies the municipality which the LO works for \\
+								 	\bottomrule
+								\end{tabular}
+							\end{table}
+						\paragraph{}
+							\textbf{Fields}
+							\begin{table}[!h]
+								\begin{tabular}{L{0.25\textwidth}L{0.15\textwidth}L{0.4\textwidth}}
+									\toprule
+									Field & Type & Description \\
+									\midrule
+								 	improvementId & String & The id that uniquely identifies the improvement on the database \\
+								 	\bottomrule
+								\end{tabular}
+							\end{table}
+						\paragraph{}
+							\textbf{Error 403} (Forbidden)
+							\begin{table}[!h]
+								\begin{tabular}{L{0.4\textwidth}L{0.4\textwidth}}
+									\toprule
+									Field & Description \\
+									\midrule
+								  	UserNotAuthorized & The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's municipality was not the one of the reports requested \\
+								 	\bottomrule
+								\end{tabular}
+							\end{table}
+							
+						\paragraph{}
+						\textbf{GET} /statistics/visualize/?id={id}
+						
+						This request gets the available statistics on a certain municipality and lets the ME visualize them.
+						\paragraph{}
+							\textbf{Parameters}
+							\begin{table}[!h]
+								\begin{tabular}{L{0.2\textwidth}L{0.2\textwidth}L{0.4\textwidth}}
+									\toprule
+									Field & Type & Description \\
+									\midrule
+								 	id & String & The id that uniquely identifies the municipality which the LO works for \\
+								 	\bottomrule
+								\end{tabular}
+							\end{table}
+						\paragraph{}
+							\textbf{Success 200} (request ok)
+							\begin{table}[!h]
+								\begin{tabular}{L{0.25\textwidth}L{0.1\textwidth}L{0.45\textwidth}}
+									\toprule
+									Field & Type & Description \\
+									\midrule
+									statistics & Object[] & The various statistics \\
+									\hspace{2.5mm}firstFieldName & String & The name of the first field of the graph \\
+									\hspace{2.5mm}secondFieldName & String & The name of the second field of the graph \\
+									\hspace{2.5mm}firstFieldValues & Number[] & The values of the first field \\
+									\hspace{2.5mm}secondFieldValues & Number[] & The value of the second field \\
+								 	\bottomrule
+								\end{tabular}
+							\end{table}
+						\paragraph{}
+							\textbf{Error 403} (Forbidden)
+							\begin{table}[!h]
+								\begin{tabular}{L{0.4\textwidth}L{0.4\textwidth}}
+									\toprule
+									Field & Description \\
+									\midrule
+								  	UserNotAuthorized & The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's  municipality was not the one of the reports requested  \\
+								 	\bottomrule
+								\end{tabular}
+							\end{table}
+						\paragraph{}
+							\textbf{Error 404} (Resource not found)
+							\begin{table}[!h]
+								\begin{tabular}{L{0.4\textwidth}L{0.4\textwidth}}
+									\toprule
+									Field & Description \\
+									\midrule
+								  	NotEnoughReportError & The requested statistics could not be found on the database and the available information on the Municipality is not enough to compute accurate statistics \\
+								 	\bottomrule
+								\end{tabular}
+							\end{table}
+						
+						\paragraph{}
+						\textbf{GET} /statistics/download/?id={id}
+						
+						This request gets the url of the pdf file where the visualized statistics are written
+						\paragraph{}
+							\textbf{Parameters}
+							\begin{table}[!h]
+								\begin{tabular}{L{0.2\textwidth}L{0.2\textwidth}L{0.4\textwidth}}
+									\toprule
+									Field & Type & Description \\
+									\midrule
+								 	id & String & The id that uniquely identifies the municipality which the LO works for \\
+								 	\bottomrule
+								\end{tabular}
+							\end{table}
+						\paragraph{}
+							\textbf{Success 200} (request ok)
+							\begin{table}[!h]
+								\begin{tabular}{L{0.25\textwidth}L{0.1\textwidth}L{0.45\textwidth}}
+									\toprule
+									Field & Type & Description \\
+									\midrule
+									url & String & The url where the ME can download the pdf file \\
+								 	\bottomrule
+								\end{tabular}
+							\end{table}
+						\paragraph{}
+							\textbf{Error 403} (Forbidden)
+							\begin{table}[!h]
+								\begin{tabular}{L{0.4\textwidth}L{0.4\textwidth}}
+									\toprule
+									Field & Description \\
+									\midrule
+								  	UserNotAuthorized & The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's  municipality was not the one of the reports requested \\
+								 	\bottomrule
+								\end{tabular}
+							\end{table}
+						\paragraph{}
+							\textbf{Error 404} (Resource not found)
+							\begin{table}[!h]
+								\begin{tabular}{L{0.4\textwidth}L{0.4\textwidth}}
+									\toprule
+									Field & Description \\
+									\midrule
+								  	NotEnoughReportError & The requested statistics could not be found on the database and the available information on the Municipality is not enough to compute accurate statistics \\
+								 	\bottomrule
+								\end{tabular}
+							\end{table}
