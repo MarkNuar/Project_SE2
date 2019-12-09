@@ -1,0 +1,17 @@
+	\chapter{Architectural description}
+		\section{Overview}
+			\paragraph{}
+				The product is a distributed application based on the three logic layers of
+				\begin{quote}
+					\begin{description}
+						\item[Presentation] manages the user's interaction with the system
+						\item[Application] handles the logic of the system
+						\item[Data] manages the information.
+					\end{description}
+				\end{quote}				 
+			\paragraph{}
+				Those three layers are divided onto four different physical tiers. As shown \ref{fig:tiers}, Presentation and Data levels reside on a single tier, while Application level is split into two tiers. The first one is the Web Server, responsible for the forwarding of requests from the clients and for the caching of static contents, while the second one is the Application Server, which contains the logic of the system.
+				\begin{figure}
+					\caption{Layers and tiers}
+					\
+				\end{figure}
