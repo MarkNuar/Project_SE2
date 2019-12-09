@@ -1,0 +1,100 @@
+	\chapter{Introduction}
+		\section{Purpose}
+			\paragraph{}
+					This document is the Design Document (DD) of the SafeStreets system. Its purpose is to completely describe the logical and physical architecture of the system.
+					
+					It's written for project managers, developers, testers and Quality Assurance people.
+					
+					This document describes	the	components forming part of the	system with the related run-time processes.
+					
+					All the	design choices are listed and motivated. In particular, this document contains:
+						\begin{itemize}
+							\item  High-level architecture
+							\item Main	components, their interfaces and deployment
+							\item Runtime behavior
+							\item Chosen design	patterns
+							\item Details about	the	user interface and its flow
+							\item Mapping of the requirements on the architecture's components
+							\item Implementation, integration and testing plan
+						\end{itemize}
+
+		\section{Scope}
+			\paragraph{}
+				SafeStreets is a crowd-­sourced application that intends to provide users with the possibility to notify authorities when traffic violations occur, and in particular parking violations.
+				
+			\paragraph{}
+				The system addresses to:
+				\begin{itemize}
+					\item \textbf{Generic people}:Registered and Unregistered User
+					\item \textbf{Authorities}: Local Officer and Municipal Employee
+				\end{itemize}
+				
+			\paragraph{}
+				An unregistered user must be able to register to the service, becoming a registered user.
+			\paragraph{}
+				A registered user must be able to send reports about parking violation (which include date, time, position, type of violations and a picture of the vehicle), to see his/her past reports and to see valid violations occurred in a certain area (unsafe area).
+			\paragraph{}
+				An authority must be able to mine reports concerning his/her municipality and retrieve statistics about reports and issued tickets. 
+			In particular, a municipal employee must also be able to get informations about possible improvements to be realized on the municipal territory (starting from reports and accidents occurred) and to eventually set them or some of them as "done", while a local officer must be able also to validate reports.
+			\paragraph{}
+				SafeStreets data about valid reports are shared with the municipal ticket service in order to issue tickets, so the system must guarantee that the chain of custody of the information coming from the users is never broken.
+	
+		\section{Definitions, Acronyms, Abbreviations}
+			\subsection{Definitions}
+				\begin{itemize}
+					\item \textbf{Report:} Collection of data that represents a violation, in particular
+						\begin{itemize}
+							\item Picture: a photo of the vehicle that has been found committing a violation
+							\item Date: the date when the picture has been taken
+							\item Time: the hour when the picture has been taken
+							\item Position: the place, formatted using GPS location, of the vehicle that has been found committing a violation.
+						\end{itemize}
+					\item \textbf{Improvement:} a possible road intervention finalized to the development of the road and to achieve a safer environment
+					\item \textbf{Token:} string provided to the client as an answer to the login request, which contains information about the user and will always be part of the following requests
+					\item \textbf{Pseudo-report:} report containing only violation type, position, date and time
+				\end{itemize}
+			\subsection{Acronyms}
+				\begin{itemize}
+					\item UU = Unregistered User;
+					\item RU = Registered User;
+					\item ME = Municipal Employee;
+					\item LO = Local Officer;
+					\item S2B = Software to Be;
+					\item TS = Ticket Service;
+					\item MS = Map Service;
+					\item MAS = Municipal Accident Service;
+					\item OCRS = OCR Service;
+					\item VT = Violation type;
+					\item DMZ = demilitarized zone;
+					\item DBMS = database management system;
+					\item I\&T = implementation and testing;
+					\item DMS = degrees minutes seconds;
+				\end{itemize}
+					
+			\subsection{Abbreviations}
+				\begin{itemize}
+					\item {[Rn]} : n-th functional requirement
+				\end{itemize}
+		\section{Revision history}
+			\begin{itemize}
+				\item Version 1.0
+					\begin{itemize}
+						\item Initial release
+					\end{itemize}
+			\end{itemize}
+		\section{Reference documents}
+			\begin{itemize}
+				\item \textit{Specification document:} "Mandatory Project Assignment AY 2019/2020"
+			\end{itemize}
+		\section{Document structure}
+			\paragraph{}
+				The DD document is composed by seven chapters:
+			\begin{description}
+				\item[Chapter 1]is an introduction and describes the purpose of the document and defines the scope of the system. It also contains the description of definitions, acronyms and abbreviations used inside the document.
+				\item[Chapter 2] describes the architectural design of the system. It's the core section of the document and contains a description of the high-level components and their interactions, the deployment of the system along with some dynamical views of the components, the selected design patterns and architectural styles and other design decisions.
+				\item[Chapter 3] describes a UX model for the user interface (presented in RASD) for normal users and authorities
+				\item[Chapter 4]provides the requirements traceability, specifying how the requirements identified in the RASD are linked to the design elements (components and architectural decisions) defined in this document
+				\item[Chapter 5] includes the description of the implementation plan, the integration plan and the testing	plan, specifying how all these phases are thought to be executed
+				\item[Chapter 6] shows the effort which each member of the group has spent working on the project
+				\item[Chapter 7] contains eventual references used during the writing of the document
+			\end{description}
