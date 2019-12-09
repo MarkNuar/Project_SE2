@@ -1394,7 +1394,7 @@ reportID, issued by the requesting user.
 **getUnsafeAreas**
 
 This method is used for fetching from the database all the pseudoreports issued within 300 meters from the 
-given position. A pseudoreport is like a report, but containing only info about violation's type, date and time of issuing. 
+given position. A pseudoreport is like a report, but containing only info about violation's type, date, time and position. 
 
 **Parameters**
 
