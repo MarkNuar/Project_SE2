@@ -1834,9 +1834,9 @@ database, issued in the municipality specified by the municipalityID, which have
 									\end{tabular}
 								\end{table}
 
-				\subsubsection{getUserReport}
+				\subsubsection{ManageReportMining}
 					\paragraph{}
-							\textbf{retrieveReport}: this method is used for fetching, from the database, the report with the given reportID, issued by the requesting user.
+							\textbf{getUserReport}: this method is used for fetching, from the database, the report with the given reportID, issued by the requesting user.
 							\subparagraph{}
 							\textit{\textbf{Parameters}}
 								\begin{table}[!h]
@@ -1872,4 +1872,265 @@ database, issued in the municipality specified by the municipalityID, which have
 									\end{tabular}
 								\end{table}
 								
+					\paragraph{}
+							\textbf{getUnsafeAreas}: this method is used for fetching from the database all the pseudoreports issued within 300 meters from the 
+given position. A pseudoreport is like a report, but containing only info about violation's type, date and time of issuing. 
+							\subparagraph{}
+							\textit{\textbf{Parameters}}
+								\begin{table}[!h]
+									\begin{tabular}{L{0.2\textwidth}L{0.2\textwidth}L{0.2\textwidth}}
+										\toprule
+										Name & Type & Description \\
+										\midrule
+								  		position & Position & The position indicated by the user from which find violations \\
+								  		token & Token & The token that identifies the user in the system \\
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+							\subparagraph{}
+								\textit{\textbf{Return}}
+									\begin{table}[!h]
+									\begin{tabular}{L{0.3\textwidth}L{0.3\textwidth}}
+										\toprule
+										Type & Description \\
+										\midrule
+								  		List<PseudoReport> & The list containing the violations occurred within 300 meters from the given position, with their date and time \\
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+							
+				\paragraph{}
+							\textbf{getReports}: This method is used for retrieving all valid reports issued in the municipality specified by the municipalityID. Eventually some condition of mining can be applied. In particular is possible to mine a subset of the previous reports, by defining one of the following property:
+							\begin{itemize}
+								\item AREA: only the reports within a given radius from a given position are fetched.
+								\item VIOLATION: only the reports with the given violation are fetched
+								\item DATE: only the reports issued in the specified date are fetched
+								\item TIME: only the reports issued in the specified time are fetched
+							\end{itemize}
+							The necessary parameters are contained in the "requestField" field. 
+							\subparagraph{}
+							\textit{\textbf{Parameters}}
+								\begin{table}[!h]
+									\begin{tabular}{L{0.2\textwidth}L{0.2\textwidth}L{0.2\textwidth}}
+										\toprule
+										Name & Type & Description \\
+										\midrule
+								  		requestType & RequestType & The type of mining, can be "ALL", "AREA", "VIOLATION", "DATE", "TIME" \\
+								  		requestField & String & The necessary parameters for the request \\
+								  		token & Token & The token that identifies the authority in the system \\
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+							\subparagraph{}
+								\textit{\textbf{Return}}
+									\begin{table}[!h]
+									\begin{tabular}{L{0.3\textwidth}L{0.3\textwidth}}
+										\toprule
+										Type & Description \\
+										\midrule
+								  		List<Report> & List of valid reports retrieved from the database \\
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+							\subparagraph{}
+								\textit{\textbf{Exceptions}}
+									\begin{table}[!h]
+									\begin{tabular}{L{0.3\textwidth}L{0.3\textwidth}}
+										\toprule
+										Name & Description \\
+										\midrule
+								  	UserNotAuthorizedException & The id of the municipality and the token of the user have been analyzed. It was found that the user was not an LO or the LO's  municipality was not the one of the reports requested  \\
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+
+				\subsubsection{ManageImprovements}
+					\paragraph{}
+							\textbf{getNotDoneImprovements}: this method is used for retrieving all the improvements with the status set to "NOT DONE" from the database
+							\subparagraph{}
+							\textit{\textbf{Parameters}}
+								\begin{table}[!h]
+									\begin{tabular}{L{0.2\textwidth}L{0.2\textwidth}L{0.2\textwidth}}
+										\toprule
+										Name & Type & Description \\
+										\midrule
+								  		token & Token & The token that identifies the authority in the system \\
+municipalityID & String & The municipality of the requesting local officer \\
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+							\subparagraph{}
+								\textit{\textbf{Return}}
+									\begin{table}[!h]
+									\begin{tabular}{L{0.3\textwidth}L{0.3\textwidth}}
+										\toprule
+										Type & Description \\
+										\midrule
+								  		List<Improvement> & List of not done improvements \\
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+							\subparagraph{}
+								\textit{\textbf{Exceptions}}
+									\begin{table}[!h]
+									\begin{tabular}{L{0.3\textwidth}L{0.3\textwidth}}
+										\toprule
+										Name & Description \\
+										\midrule
+								  		UserNotAuthorizedException & The id of the municipality and the token of the user have been analyzed. It was found that the user was not an LO or the LO's  municipality was not the one of the reports requested  \\
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+					
+					\paragraph{}
+							\textbf{updateImprovements}: this method is used for updating the improvements saved in the database. In particular data coming from the MAS and the reports fetched via the ReportMiner are used. Every new improvement found has the status set to "NOT DONE" by default and is saved in the database.
+							\subparagraph{}
+							\textit{\textbf{Parameters}}
+								\begin{table}[!h]
+									\begin{tabular}{L{0.2\textwidth}L{0.2\textwidth}L{0.2\textwidth}}
+										\toprule
+										Name & Type & Description \\
+										\midrule
+								  		token & Token & The token that identifies the authority in the system \\
+								  		municipalityID & String & The municipality of the requesting local officer \\
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+							
+					\paragraph{}
+							\textbf{setImprovementStatus}: this method is used for setting the status of an improvement, given its ID, from "NOT DONE" to "DONE".
+							\subparagraph{}
+							\textit{\textbf{Parameters}}
+								\begin{table}[!h]
+									\begin{tabular}{L{0.2\textwidth}L{0.2\textwidth}L{0.2\textwidth}}
+										\toprule
+										Name & Type & Description \\
+										\midrule
+								  		token & Token & The token that identifies the authority in the system \\
+								  		municipalityID & String & The municipality of the requesting local officer \\
+								  		improvementID & String & The ID of the improvement which status has to be changed to done \\
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+							\subparagraph{}
+								\textit{\textbf{Return}}
+									\begin{table}[!h]
+									\begin{tabular}{L{0.3\textwidth}L{0.3\textwidth}}
+										\toprule
+										Type & Description \\
+										\midrule
+								  		Boolean & A boolean which is true if the operation of changing status goes correctly \\
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+							\subparagraph{}
+								\textit{\textbf{Exceptions}}
+									\begin{table}[!h]
+									\begin{tabular}{L{0.3\textwidth}L{0.3\textwidth}}
+										\toprule
+										Name & Description \\
+										\midrule
+								  	UserNotAuthorizedException & The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's municipality was not the one of the reports requested \\
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+					
+				\subsubsection{ManageStatisticsComputation}
+					\paragraph{}
+							\textbf{getStatistics}: this method is used for calculating the current statistics, based on the data coming the TS and the reports fetched via the ReportMiner.
+							\subparagraph{}
+							\textit{\textbf{Parameters}}
+								\begin{table}[!h]
+									\begin{tabular}{L{0.2\textwidth}L{0.2\textwidth}L{0.2\textwidth}}
+										\toprule
+										Name & Type & Description \\
+										\midrule
+								  		token & Token & The token that identifies the authority in the system \\
+								  		municipalityID & String & The municipality of the requesting local officer \\
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+							\subparagraph{}
+								\textit{\textbf{Return}}
+									\begin{table}[!h]
+									\begin{tabular}{L{0.3\textwidth}L{0.3\textwidth}}
+										\toprule
+										Type & Description \\
+										\midrule
+								  		Statistic & A statistic object containing the new statistics created \\
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+							\subparagraph{}
+								\textit{\textbf{Exceptions}}
+									\begin{table}[!h]
+									\begin{tabular}{L{0.3\textwidth}L{0.3\textwidth}}
+										\toprule
+										Name & Description \\
+										\midrule
+								  	UserNotAuthorizedException & The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's  municipality was not the one of the reports requested  \\
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+
+				\subsubsection{ManageStatisticsDownload}
+					\paragraph{}
+							\textbf{getStatisticsFile}: this method is used for getting a file containing the current statistics, based on the data coming the TS and the reports fetched via the ReportMiner
+							\subparagraph{}
+							\textit{\textbf{Parameters}}
+								\begin{table}[!h]
+									\begin{tabular}{L{0.2\textwidth}L{0.2\textwidth}L{0.2\textwidth}}
+										\toprule
+										Name & Type & Description \\
+										\midrule
+								  		token & Token & The token that identifies the authority in the system \\
+								  		municipalityID & String & The municipality of the requesting local officer \\
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+							\subparagraph{}
+								\textit{\textbf{Return}}
+									\begin{table}[!h]
+									\begin{tabular}{L{0.3\textwidth}L{0.3\textwidth}}
+										\toprule
+										Type & Description \\
+										\midrule
+								  		Object & An object containing the new file containing the statistics created \\
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+							\subparagraph{}
+								\textit{\textbf{Exceptions}}
+									\begin{table}[!h]
+									\begin{tabular}{L{0.3\textwidth}L{0.3\textwidth}}
+										\toprule
+										Name & Description \\
+										\midrule
+								  		UserNotAuthorizedException & The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's  municipality was not the one of the reports requested  \\
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
 								
+		\section{Selected architectural styles and patterns}
+			\paragraph{}
+				To build the system a number of different architectural style choices have been made. Between all possible alternatives the following are the one that was decided to use:
+					\begin{description}
+						\item [Client-Server] : The client server style will be the one chosen in the system for the interaction between the user and the server components. This architectural style supports the request-response pattern, that is the one that mostly fits the way actors interact with the system: they make requests invoking some services provided by the server, and the server provides a response according to the received request.
+						\item [Four tier architecture]: The architecture of the whole system has been organized in four tiers such as Presentation, Application 1, Application 2 and Data access. In the first tier, the presentation one, there will be both the user's app and the authority's web app. The presentation tier won't be responsible for almost any computations (only the logic behind the request and the display of the UI will be handled) forwarding all data request onto the two following tiers. The first application tier, Application 1, will be responsible of receiving the request from all users (RU, ME and LO) and will eventually forward the requests to the Application 2 layer which will be the one really in charge of computation. The Application 1 tier will also protect the following layer from malicious attacks limiting the requests that really reach Application 2, in fact Application 1 will also work as a proxy, directly answering the clients request if it already possess all necessary data in its cache. The Data access tier will be the one responsible to hold all information, its role it's a vital one since it will allow to reach a stateless architecture.  
+						\item [RESTful APIs]: Both the communication form and to both users, authorities and municipal services will be numerous and will need immediate response. For that purpose REST was adopted to work as the mean to communicate between parties.  The RESTful APIs will be implemented over the HTTPS protocol, both because its use is standard in these cases, for its ease of understanding and maintenance, and because it will grant added security onto the data transfer. The content of the messages will be formatted using XML, this format was preferred because of its ease of use when transmitting images. The choice of REST over SOAP was done to fully utilize the database to create a stateless architecture, its advantages can be seen in the reduction of workload on the server will permit to handle multiple simultaneous communication sessions with both users and services with a little number of threads. This way the cost of the server will remain contained while ensuring good performances.
+					\end{description}
+
+		\section{Other design decisions}
+			\subsection{Framework selection}
+				\paragraph{}
+					Java Enterprise Edition was selected for the implementation of the server components, because it can be used to build reliable and scalable application, modeling the components as Enterprise Java Beans, and using Java Server Pages for building dynamical user interfaces. Moreover, Java Persistence APIs can be used for the interaction with the DBMS.
+			\subsection{Security}
+				\paragraph{}
+					Some security measures have been taken to guarantee legitimacy of data and requests:
+						\begin{itemize}
+							\item Passwords, personal email addresses and username sent to and from the server won't be in plain text. Such information will be hashed and salted with strong cryptographic functions.
+							\item The mechanism of the token used during communication between client and server will guarantee secrecy over the identity of the user who's making a request, it won't be possible to extract any information from it. 
+						\end{itemize}
+			\subsection{Service providers}
+				\paragraph{}
+					For the MS, Google Maps has been chosen. This was decided thanks to its reliability and ease of use.

@@ -235,21 +235,87 @@
 \contentsline {subparagraph}{}{52}%
 \contentsline {subparagraph}{}{52}%
 \contentsline {subparagraph}{}{52}%
-\contentsline {chapter}{\numberline {3}Requirement traceability}{53}%
-\contentsline {section}{\numberline {3.1}Sign up}{53}%
-\contentsline {section}{\numberline {3.2}Login}{53}%
-\contentsline {section}{\numberline {3.3}Add report}{53}%
-\contentsline {section}{\numberline {3.4}Get my reports}{55}%
-\contentsline {section}{\numberline {3.5}Get unsafe areas}{55}%
-\contentsline {section}{\numberline {3.6}Mine reports}{55}%
-\contentsline {section}{\numberline {3.7}Validate reports}{56}%
-\contentsline {section}{\numberline {3.8}Retrieve statistics}{56}%
-\contentsline {section}{\numberline {3.9}Get improvements}{56}%
-\contentsline {chapter}{\numberline {4}Implementation, integration and test plan}{58}%
+\contentsline {paragraph}{}{53}%
+\contentsline {subparagraph}{}{53}%
+\contentsline {subparagraph}{}{53}%
+\contentsline {subparagraph}{}{53}%
+\contentsline {subsubsection}{\numberline {2.5.6.5}ManageReportMining}{54}%
+\contentsline {paragraph}{}{54}%
+\contentsline {subparagraph}{}{54}%
+\contentsline {subparagraph}{}{54}%
+\contentsline {subparagraph}{}{54}%
+\contentsline {paragraph}{}{54}%
+\contentsline {subparagraph}{}{54}%
+\contentsline {subparagraph}{}{54}%
+\contentsline {paragraph}{}{55}%
+\contentsline {subparagraph}{}{55}%
+\contentsline {subparagraph}{}{55}%
+\contentsline {subparagraph}{}{55}%
+\contentsline {subsubsection}{\numberline {2.5.6.6}ManageImprovements}{55}%
+\contentsline {paragraph}{}{55}%
+\contentsline {subparagraph}{}{55}%
+\contentsline {subparagraph}{}{55}%
+\contentsline {subparagraph}{}{55}%
+\contentsline {paragraph}{}{56}%
+\contentsline {subparagraph}{}{57}%
+\contentsline {paragraph}{}{57}%
+\contentsline {subparagraph}{}{57}%
+\contentsline {subparagraph}{}{57}%
+\contentsline {subparagraph}{}{57}%
+\contentsline {subsubsection}{\numberline {2.5.6.7}ManageStatisticsComputation}{57}%
+\contentsline {paragraph}{}{57}%
+\contentsline {subparagraph}{}{57}%
+\contentsline {subparagraph}{}{57}%
+\contentsline {subparagraph}{}{57}%
+\contentsline {subsubsection}{\numberline {2.5.6.8}ManageStatisticsDownload}{58}%
 \contentsline {paragraph}{}{58}%
-\contentsline {paragraph}{}{58}%
-\contentsline {paragraph}{}{58}%
-\contentsline {paragraph}{}{58}%
+\contentsline {subparagraph}{}{59}%
+\contentsline {subparagraph}{}{59}%
+\contentsline {subparagraph}{}{59}%
+\contentsline {section}{\numberline {2.6}Selected architectural styles and patterns}{59}%
 \contentsline {paragraph}{}{59}%
-\contentsline {paragraph}{}{59}%
+\contentsline {section}{\numberline {2.7}Other design decisions}{61}%
+\contentsline {subsection}{\numberline {2.7.1}Framework selection}{61}%
 \contentsline {paragraph}{}{61}%
+\contentsline {subsection}{\numberline {2.7.2}Security}{61}%
+\contentsline {paragraph}{}{61}%
+\contentsline {subsection}{\numberline {2.7.3}Service providers}{61}%
+\contentsline {paragraph}{}{61}%
+\contentsline {chapter}{\numberline {3}User interface design}{62}%
+\contentsline {section}{\numberline {3.1}User flow}{62}%
+\contentsline {subsection}{\numberline {3.1.1}User simple flow}{62}%
+\contentsline {subsection}{\numberline {3.1.2}User flow with mockups}{62}%
+\contentsline {section}{\numberline {3.2}Authority flow}{63}%
+\contentsline {subsection}{\numberline {3.2.1}Authority simple flow}{63}%
+\contentsline {subsection}{\numberline {3.2.2}Authority flow with mockups}{63}%
+\contentsline {subsection}{\numberline {3.2.3}Municipal Employee flow}{64}%
+\contentsline {subsection}{\numberline {3.2.4}Local Officer flow}{64}%
+\contentsline {chapter}{\numberline {4}Requirement traceability}{66}%
+\contentsline {section}{\numberline {4.1}Sign up}{66}%
+\contentsline {section}{\numberline {4.2}Login}{66}%
+\contentsline {section}{\numberline {4.3}Add report}{66}%
+\contentsline {section}{\numberline {4.4}Get my reports}{68}%
+\contentsline {section}{\numberline {4.5}Get unsafe areas}{68}%
+\contentsline {section}{\numberline {4.6}Mine reports}{68}%
+\contentsline {section}{\numberline {4.7}Validate reports}{69}%
+\contentsline {section}{\numberline {4.8}Retrieve statistics}{69}%
+\contentsline {section}{\numberline {4.9}Get improvements}{69}%
+\contentsline {chapter}{\numberline {5}Implementation, integration and test plan}{71}%
+\contentsline {paragraph}{}{71}%
+\contentsline {paragraph}{}{71}%
+\contentsline {paragraph}{}{71}%
+\contentsline {paragraph}{}{71}%
+\contentsline {paragraph}{}{72}%
+\contentsline {paragraph}{}{72}%
+\contentsline {paragraph}{}{74}%
+\contentsline {paragraph}{}{74}%
+\contentsline {paragraph}{}{74}%
+\contentsline {paragraph}{}{74}%
+\contentsline {paragraph}{}{74}%
+\contentsline {paragraph}{}{74}%
+\contentsline {paragraph}{}{74}%
+\contentsline {paragraph}{}{74}%
+\contentsline {paragraph}{}{74}%
+\contentsline {paragraph}{}{74}%
+\contentsline {chapter}{\numberline {6}Effort spent}{79}%
+\contentsline {chapter}{\numberline {7}References}{80}%
