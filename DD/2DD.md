@@ -1593,6 +1593,9 @@ the server will permit to handle multiple simultaneous communication sessions wi
 Java Enterprise Edition was selected for the implementation of the server components, because it can be used to build reliable and scalable application, modeling the components as Enterprise Java Beans, and using Java Server Pages
 for building dynamical user interfaces. Moreover, Java Persistence APIs can be used for the interaction with the DBMS. (alberto non sapevo che scrivere)
 
+nginex
+
+glassfish
 
 ### DBMS selection
 
