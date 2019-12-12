@@ -217,24 +217,24 @@
 					For the Web server interface and the Report interface a RESTful API has been chosen. Since both interfaces are a vital part of the system and the components that they connect belongs to the part that will be implemented, they will be discussed in depth.
 				\subsubsection{REST table of resources}
 					\paragraph{}
-						The following table represents the logic structures of the resources of the system and the operation that can be done on them.
+						The following table represents the logic structures of the resources of the system and the operation that can be done on them (none of them admits DELETE).
 						\begin{table}[!h]
 							\centering
-							\begin{tabular}{lcccc}
+							\begin{tabular}{L{0.5\textwidth}ccc}
 								\toprule
-								\textbf{URI}	& \textbf{POST} & \textbf{GET} & \textbf{PUT} & \textbf{DELETE} \\
+								\textbf{URI}	& \textbf{POST} & \textbf{GET} & \textbf{PUT} \\
 								\midrule
-								/users/registration/?id=xxx & X & - & - & - \\
-								/users/login/?id=xxx & - & X & - & - \\
-								/users/authorities/login/?id=xxx & - & X & - & - \\
-								/reports/default & X & - & - & - \\
-								/reports/default/?id=xxx & - & X & - & - \\
-								/reports/default/unsafearea & - & X & - & - \\
-								/reports/notverified/?id=xxx & - & X & X & - \\
-								/reports/valid/?id=xxx & - & X & - & - \\
-								/improvements/?id=xxx & - & X & X & - \\
-								/statistics/visualize/?id=xxx & - & X & - & - \\
-								/statistics/download/?id=xxx & - & X & - & - \\
+								{\ttfamily /users/registration/?id=xxx} & X & - & - \\
+								{\ttfamily /users/login/?id=xxx} & - & X & - \\
+								{\ttfamily /users/authorities/login/?id=xxx} & - & X & - \\
+								{\ttfamily /reports/default} & X & - & - \\
+								{\ttfamily /reports/default/?id=xxx} & - & X & - \\
+								{\ttfamily /reports/default/unsafearea} & - & X & - \\
+								{\ttfamily /reports/notverified/?id=xxx} & - & X & X \\
+								{\ttfamily /reports/valid/?id=xxx} & - & X & - \\
+								{\ttfamily /improvements/?id=xxx} & - & X & X \\
+								{\ttfamily /statistics/visualize/?id=xxx} & - & X & - \\
+								{\ttfamily /statistics/download/?id=xxx} & - & X & - \\
 							\end{tabular}
 							\caption{REST table of resources}
 						\end{table}
@@ -246,12 +246,12 @@
 					\paragraph{}
 						Here a quick description of the resources group:
 						\begin{itemize}
-							\item \textit{\textbf{/users/*}} represents the information related to the users, in particular their account information
-							\item \textit{\textbf{/reports/default/*}} represents the resources accessible by the RU, in particular reports and "pseudo report" for the unsafe areas. These resources will be greatly used by the mobile app.
-							\item \textit{\textbf{/reports/notverified/*}} contains all the received reports that haven't been immediately discarded by the OCRS but are still on impending evaluation by a LO
-							\item \textit{\textbf{/reports/valid/*}} contains all the received reports that have been judged as valid by a LO
-							\item \textit{\textbf{/improvements/*}} contains the improvements suggested to a municipality that can be retrieved by a ME
-							\item \textit{\textbf{/statistics/*}} contains the statistics that can be retrieved by an authority
+							\item {\ttfamily /users/*} represents the information related to the users, in particular their account information
+							\item {\ttfamily /reports/default/*} represents the resources accessible by the RU, in particular reports and "pseudo report" for the unsafe areas. These resources will be greatly used by the mobile app.
+							\item {\ttfamily /reports/notverified/*} contains all the received reports that haven't been immediately discarded by the OCRS but are still on impending evaluation by a LO
+							\item {\ttfamily /reports/valid/*} contains all the received reports that have been judged as valid by a LO
+							\item {\ttfamily /improvements/*} contains the improvements suggested to a municipality that can be retrieved by a ME
+							\item {\ttfamily /statistics/*} contains the statistics that can be retrieved by an authority
 						\end{itemize}
 				\subsubsection{General request description}
 					\paragraph{}
@@ -266,15 +266,17 @@
 						\end{itemize}
 				\clearpage
 				\subsubsection{Detailed requests}
-					\paragraph{}
-						\textbf{POST} /users/registration/?id={id}
-						
+					\begin{figure}[!h]
+						\includegraphics[width=\textwidth]{images/Restful/UserRegistration}
+					\end{figure}
+						\paragraph{}
+						\vspace{-7.5mm}
 						This request is used to register a user
 					\paragraph{}
-						\textit{\textbf{Parameters}}
+						\textcolor{myBlue}{\textit{\textbf{Parameters}}}
 						\vspace{-2mm}
 						\begin{table}[!h]
-							\begin{tabular}{L{0.2\textwidth}L{0.2\textwidth}L{0.4\textwidth}}
+							\begin{tabular}{L{0.2\textwidth}L{0.2\textwidth}L{0.48\textwidth}}
 								\toprule
 								\textbf{Field} & \textbf{Type} & \textbf{Description} \\
 								\midrule
@@ -284,10 +286,11 @@
 						\end{table}
 					\vspace{-5mm}
 					\paragraph{}
-						\textit{\textbf{Fields}}
+						\textcolor{myBlue}{\textit{\textbf{Fields}}}
 						\vspace{-2mm}
 						\begin{table}[!h]
-							\begin{tabular}{L{0.25\textwidth}L{0.15\textwidth}L{0.4\textwidth}}
+							\centering
+							\begin{tabular}{L{0.25\textwidth}L{0.15\textwidth}L{0.48\textwidth}}
 								\toprule
 								\textbf{Field} & \textbf{Type} & \textbf{Description} \\
 								\midrule
@@ -298,12 +301,12 @@
 							\end{tabular}
 						\end{table}
 					\paragraph{}
-						\textit{\textbf{Success 201}} (resource created)
+						\textcolor{myGreen}{\textit{\textbf{Success 201}}} (resource created)
 					\paragraph{}
-						\textit{\textbf{Error 401}}
+						\textcolor{myRed}{\textit{\textbf{Error 401}}}
 						\vspace{-2mm}
 						\begin{table}[!h]
-							\begin{tabular}{L{0.3\textwidth}L{0.5\textwidth}}
+							\begin{tabular}{L{0.3\textwidth}L{0.62\textwidth}}
 								\toprule
 								\textbf{Field} & \textbf{Description} \\
 								\midrule
@@ -313,16 +316,18 @@
 								 \bottomrule
 							\end{tabular}
 						\end{table}
-						
+						\clearpage
+						\begin{figure}[!h]
+							\includegraphics[width=\textwidth]{images/Restful/RULogin}
+						\end{figure}
 						\paragraph{}
-						\textbf{GET} /users/login/?id={id}
-						
+						\vspace{-7.5mm}
 						This request allows a RU to login
 						\paragraph{}
-							\textit{\textbf{Parameters}}
+							\textcolor{myBlue}{\textit{\textbf{Parameters}}}
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.2\textwidth}L{0.2\textwidth}L{0.4\textwidth}}
+								\begin{tabular}{L{0.15\textwidth}L{0.15\textwidth}L{0.58\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Type} & \textbf{Description} \\
 									\midrule
@@ -330,12 +335,11 @@
 								 	\bottomrule
 								\end{tabular}
 							\end{table}
-						\clearpage
 						\paragraph{}
-							\textit{\textbf{Fields}}
+							\textcolor{myBlue}{\textit{\textbf{Fields}}}
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.25\textwidth}L{0.15\textwidth}L{0.4\textwidth}}
+								\begin{tabular}{L{0.25\textwidth}L{0.15\textwidth}L{0.48\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Type} & \textbf{Description} \\
 									\midrule
@@ -345,10 +349,10 @@
 								\end{tabular}
 							\end{table}
 						\paragraph{}
-							\textit{\textbf{Success 200}} (request ok)
+							\textcolor{myGreen}{\textit{\textbf{Success 200}}} (request ok)
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.2\textwidth}L{0.2\textwidth}L{0.4\textwidth}}
+								\begin{tabular}{L{0.2\textwidth}L{0.15\textwidth}L{0.53\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Type} & \textbf{Description} \\
 									\midrule
@@ -359,10 +363,10 @@
 							\end{table}
 						\vspace{-5mm}
 						\paragraph{}
-							\textit{\textbf{Error 401}} (Unauthorized)
+							\textcolor{myRed}{\textit{\textbf{Error 401}}} (Unauthorized)
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.4\textwidth}L{0.4\textwidth}}
+								\begin{tabular}{L{0.4\textwidth}L{0.52\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Description} \\
 									\midrule
@@ -371,15 +375,18 @@
 								\end{tabular}
 							\end{table}
 							
+						\clearpage
+						\begin{figure}[!h]
+							\includegraphics[width=\textwidth]{images/Restful/AuthorityLogin}
+						\end{figure}
 						\paragraph{}
-						\textbf{GET} /users/authorities/login/?id={id}
-						
+						\vspace{-7.5mm}
 						This request allows a ME or LO to login
 						\paragraph{}
-							\textit{\textbf{Parameters}}
+							\textcolor{myBlue}{\textit{\textbf{Parameters}}}
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.2\textwidth}L{0.2\textwidth}L{0.4\textwidth}}
+								\begin{tabular}{L{0.2\textwidth}L{0.2\textwidth}L{0.48\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Type} & \textbf{Description} \\
 									\midrule
@@ -389,10 +396,10 @@
 							\end{table}
 						\paragraph{}
 							\vspace{-5mm}
-							\textit{\textbf{Fields}}
+							\textcolor{myBlue}{\textit{\textbf{Fields}}}
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.25\textwidth}L{0.15\textwidth}L{0.4\textwidth}}
+								\begin{tabular}{L{0.25\textwidth}L{0.15\textwidth}L{0.48\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Type} & \textbf{Description} \\
 									\midrule
@@ -402,12 +409,11 @@
 								 	\bottomrule
 								\end{tabular}
 							\end{table}
-						\clearpage
 						\paragraph{}
-							\textit{\textbf{Success 200}} (request ok)
+							\textcolor{myGreen}{\textit{\textbf{Success 200}}} (request ok)
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.25\textwidth}L{0.1\textwidth}L{0.45\textwidth}}
+								\begin{tabular}{L{0.25\textwidth}L{0.1\textwidth}L{0.53\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Type} & \textbf{Description} \\
 									\midrule
@@ -418,10 +424,10 @@
 							\end{table}
 						\vspace{-5mm}
 						\paragraph{}
-							\textit{\textbf{Error 401}} (Unauthorized)
+							\textcolor{myRed}{\textit{\textbf{Error 401}}} (Unauthorized)
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.4\textwidth}L{0.4\textwidth}}
+								\begin{tabular}{L{0.4\textwidth}L{0.52\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Description} \\
 									\midrule
@@ -430,39 +436,42 @@
 								 	\bottomrule
 								\end{tabular}
 							\end{table}
+							
+						\clearpage
+						\begin{figure}[!h]
+						\includegraphics[width=\textwidth]{images/Restful/AddReport}
+						\end{figure}
 						\paragraph{}
-						\textbf{POST} /reports/default
-						
+						\vspace{-7.5mm}
 						This request adds a report to the system
 						\paragraph{}
-							\textit{\textbf{Fields}}
+							\textcolor{myBlue}{\textit{\textbf{Fields}}}
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.23\textwidth}L{0.15\textwidth}L{0.42\textwidth}}
+								\begin{tabular}{L{0.3\textwidth}L{0.15\textwidth}L{0.43\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Type} & \textbf{Description} \\
 									\midrule
 								 	vehicle & Object & The vehicle information \\
-								 	\hspace{2.5mm}licensePlate & String & The license plate of the vehicle \\
+								 	\hspace{2.5mm}$\hookrightarrow$ licensePlate & String & The license plate of the vehicle \\
 								 	position & Object & The position, expressed in DMS, of the vehicle when the report was submitted  \\
-								 	\hspace{2.5mm}latitude & String & The latitude where the vehicle was recorded to be \\
-								 	\hspace{3mm}longitude & String & The longitude where the vehicle was recorded to be \\
+								 	\hspace{2.5mm}$\hookrightarrow$ latitude & String & The latitude where the vehicle was recorded to be \\
+								 	\hspace{2.5mm}$\hookrightarrow$ longitude & String & The longitude where the vehicle was recorded to be \\
 								 	picture & Object & Representation of the image of the vehicle \\
 								 	violation & Object[] & An array of the type of violation \\
-								 	\hspace{2.5mm}violationType & String & The type of violation \\
+								 	\hspace{2.5mm}$\hookrightarrow$ violationType & String & The type of violation \\
 								 	date & String & The datetime in \newline dd-MM-yyyyThh:mm:ss format \\
 								 	highlightVertexes & Object & The coordinates on the picture of where the license plate is located \\
-								 	\hspace{2.5mm}vertexOne & Number[] & The coordinates (on the picure) of the top-left vertex \\
-								 	\hspace{2.5mm}vertexTwo & Number[] & The coordinates (on the picture) of the bottom-right vertex \\
+								 	\hspace{2.5mm}$\hookrightarrow$ vertexOne & Number[] & The coordinates (on the picure) of the top-left vertex \\
+								 	\hspace{2.5mm}$\hookrightarrow$ vertexTwo & Number[] & The coordinates (on the picture) of the bottom-right vertex \\
 								 	\bottomrule
 								\end{tabular}
 							\end{table}
-						\clearpage
 						\paragraph{}
-							\textit{\textbf{Success 201}} (resource created)
+							\textcolor{myGreen}{\textit{\textbf{Success 201}}} (resource created)
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.2\textwidth}L{0.2\textwidth}L{0.4\textwidth}}
+								\begin{tabular}{L{0.15\textwidth}L{0.15\textwidth}L{0.58\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Type} & \textbf{Description} \\
 									\midrule
@@ -471,15 +480,18 @@
 								\end{tabular}
 							\end{table}
 						
+						\clearpage
+						\begin{figure}[!h]
+							\includegraphics[width=\textwidth]{images/Restful/RetrieveReport}
+						\end{figure}
 						\paragraph{}
-						\textbf{GET} /reports/default/?id={id}
-						
+						\vspace{-7.5mm}
 						This request retrieves a report form the system.
 						\paragraph{}
-							\textbf{\textit{Parameters}}
+							\textcolor{myBlue}{\textbf{\textit{Parameters}}}
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.2\textwidth}L{0.2\textwidth}L{0.4\textwidth}}
+								\begin{tabular}{L{0.15\textwidth}L{0.15\textwidth}L{0.58\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Type} & \textbf{Description} \\
 									\midrule
@@ -488,34 +500,33 @@
 								\end{tabular}
 							\end{table}
 						\paragraph{}
-							\textit{\textbf{Success 200}} (request ok)
+							\textcolor{myGreen}{\textit{\textbf{Success 200}}} (request ok)
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.23\textwidth}L{0.15\textwidth}L{0.42\textwidth}}
+								\begin{tabular}{L{0.3\textwidth}L{0.15\textwidth}L{0.43\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Type} & \textbf{Description} \\
 									\midrule
 								 	vehicle & Object & The vehicle information \\
-								 	\hspace{2.5mm}licensePlate & String & The license plate of the vehicle \\
+								 	\hspace{2.5mm}$\hookrightarrow$licensePlate & String & The license plate of the vehicle \\
 								 	position & Object & The position, expressed in DMS, of the vehicle when the report was submitted  \\
-								 	\hspace{2.5mm}latitude & String & The latitude where the vehicle was recorded to be \\
-								 	\hspace{3mm}longitude & String & The longitude where the vehicle was recorded to be \\
+								 	\hspace{2.5mm}$\hookrightarrow$latitude & String & The latitude where the vehicle was recorded to be \\
+								 	\hspace{2.5mm}$\hookrightarrow$longitude & String & The longitude where the vehicle was recorded to be \\
 								 	picture & Object & Representation of the image of the vehicle \\
 								 	violation & Object[] & An array of the type of violation \\
-								 	\hspace{2.5mm}violationType & String & The type of violation \\
+								 	\hspace{2.5mm}$\hookrightarrow$violationType & String & The type of violation \\
 								 	date & String & The datetime in \newline dd-MM-yyyyThh:mm:ss format \\
 								 	highlightVertexes & Object & The coordinates on the picture of where the license plate is located \\
-								 	\hspace{2.5mm}vertexOne & Number[] & The coordinates (on the picure) of the top-left vertex \\
-								 	\hspace{2.5mm}vertexTwo & Number[] & The coordinates (on the picture) of the bottom-right vertex \\
+								 	\hspace{2.5mm}$\hookrightarrow$vertexOne & Number[] & The coordinates (on the picure) of the top-left vertex \\
+								 	\hspace{2.5mm}$\hookrightarrow$vertexTwo & Number[] & The coordinates (on the picture) of the bottom-right vertex \\
 								 	\bottomrule
 								\end{tabular}
 							\end{table}
-						\clearpage
 						\paragraph{}
-							\textit{\textbf{Error 403}} (Forbidden)
+							\textcolor{myRed}{\textit{\textbf{Error 403}}} (Forbidden)
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.4\textwidth}L{0.4\textwidth}}
+								\begin{tabular}{L{0.35\textwidth}L{0.57\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Description} \\
 									\midrule
@@ -524,57 +535,10 @@
 								\end{tabular}
 							\end{table}
 	
-						\paragraph{}
-						\textbf{GET} /reports/default/unsafearea
-						
-						This request retrieves the type of violations in certain area
-						\paragraph{}
-							\textit{\textbf{Fields}}
-							\vspace{-2mm}
-							\begin{table}[!h]
-								\begin{tabular}{L{0.23\textwidth}L{0.15\textwidth}L{0.42\textwidth}}
-									\toprule
-									\textbf{Field} & \textbf{Type} & \textbf{Description} \\
-									\midrule
-								 	 position & Object & The position, expressed in DMS, of the center of the area which the RU wants to know about \\
-								 	 \hspace{2.5mm} latitude & String & The latitude where the vehicle was recorded to be \\
-								 	 \hspace{2.5mm} longitude & String & The longitude where the vehicle was recorded to be \\
-								 	\bottomrule
-								\end{tabular}
-							\end{table}
-						\paragraph{}
-							\textit{\textbf{Success 200}} (request ok)
-							\vspace{-2mm}
-							\begin{table}[!h]
-								\begin{tabular}{L{0.23\textwidth}L{0.15\textwidth}L{0.42\textwidth}}
-									\toprule
-									\textbf{Field} & \textbf{Type} & \textbf{Description} \\
-									\midrule
-									pseudoReport & Object[] & The list of partial reports that can be seen bya a RU \\
-									\hspace{2.5mm} position & Object & The position, expressed in DMS, of the vehicle when the report was submitted  \\
-									\hspace{5mm} latitude & String & The latitude where the vehicle was recorded to be \\
-									\hspace{5mm} longitude & String & The longitude where the vehicle was recorded to be \\
-									\hspace{2.5mm}violation & Object[] & An array of the type of violation \\
-									\hspace{5mm}violationType & String & The type of violation  \\
-								 	\bottomrule
-								\end{tabular}
-							\end{table}
-						\clearpage
-						\paragraph{}
-							\textit{\textbf{Error 404}} (Resource not found)
-							\vspace{-2mm}
-							\begin{table}[!h]
-								\begin{tabular}{L{0.4\textwidth}L{0.4\textwidth}}
-									\toprule
-									\textbf{Field} & \textbf{Description} \\
-									\midrule
-								  	NoReportError & The requested resource caused an error on the database, this could both mean that the resource was not found on the database or that the database had internal error or an error on the connection \\
-								 	\bottomrule
-								\end{tabular}
-							\end{table}
-							
-							\paragraph{}
-						\textbf{GET} /reports/default/unsafearea
+							\clearpage
+							\begin{figure}[!h]
+								\includegraphics[width=\textwidth]{images/Restful/GetUnsafeAreas}
+							\end{figure}
 						
 						This request retrieves the type of violations in certain area.
 						\paragraph{}

@@ -68,9 +68,6 @@
 \contentsline {paragraph}{}{23}%
 \contentsline {paragraph}{}{23}%
 \contentsline {paragraph}{}{23}%
-\contentsline {paragraph}{}{23}%
-\contentsline {paragraph}{}{23}%
-\contentsline {paragraph}{}{24}%
 \contentsline {paragraph}{}{24}%
 \contentsline {paragraph}{}{24}%
 \contentsline {paragraph}{}{24}%
@@ -80,7 +77,7 @@
 \contentsline {paragraph}{}{25}%
 \contentsline {paragraph}{}{25}%
 \contentsline {paragraph}{}{25}%
-\contentsline {paragraph}{}{26}%
+\contentsline {paragraph}{}{25}%
 \contentsline {paragraph}{}{26}%
 \contentsline {paragraph}{}{26}%
 \contentsline {paragraph}{}{26}%
@@ -88,8 +85,6 @@
 \contentsline {paragraph}{}{27}%
 \contentsline {paragraph}{}{27}%
 \contentsline {paragraph}{}{27}%
-\contentsline {paragraph}{}{28}%
-\contentsline {paragraph}{}{28}%
 \contentsline {paragraph}{}{28}%
 \contentsline {paragraph}{}{28}%
 \contentsline {paragraph}{}{29}%
