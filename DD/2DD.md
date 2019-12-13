@@ -56,6 +56,7 @@ It is important to note that statistics are always crunched on request and never
 * **StatisticsDownloadManager**: this component is responsible for creating a non materialized document (which means it is not saved on server side, but only generated
 and sent) about the statistics, belonging to the requesting authority's municipality, 
 by fetching them from the StatisticsComputationManager. The resulting document is returned to the caller.
+* **QueryManager**: this component exploits database functionality in order to offer simple interfaces to server's components.
 ## Deployment view
 ![DeploymentView](./images/exported/DeploymentView.svg) 
 
