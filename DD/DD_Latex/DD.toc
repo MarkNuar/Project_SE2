@@ -1,38 +1,38 @@
-\contentsline {chapter}{\numberline {1}Introduction}{2}%
-\contentsline {section}{\numberline {1.1}Purpose}{2}%
-\contentsline {paragraph}{}{2}%
-\contentsline {section}{\numberline {1.2}Scope}{2}%
-\contentsline {paragraph}{}{2}%
-\contentsline {paragraph}{}{2}%
-\contentsline {paragraph}{}{2}%
+\contentsline {chapter}{\numberline {1}Introduction}{3}%
+\contentsline {section}{\numberline {1.1}Purpose}{3}%
+\contentsline {paragraph}{}{3}%
+\contentsline {section}{\numberline {1.2}Scope}{3}%
 \contentsline {paragraph}{}{3}%
 \contentsline {paragraph}{}{3}%
 \contentsline {paragraph}{}{3}%
-\contentsline {section}{\numberline {1.3}Definitions, Acronyms, Abbreviations}{3}%
-\contentsline {subsection}{\numberline {1.3.1}Definitions}{3}%
-\contentsline {subsection}{\numberline {1.3.2}Acronyms}{3}%
-\contentsline {subsection}{\numberline {1.3.3}Abbreviations}{4}%
-\contentsline {section}{\numberline {1.4}Revision history}{4}%
-\contentsline {section}{\numberline {1.5}Reference documents}{4}%
-\contentsline {section}{\numberline {1.6}Document structure}{4}%
 \contentsline {paragraph}{}{4}%
-\contentsline {chapter}{\numberline {2}Architectural description}{6}%
-\contentsline {section}{\numberline {2.1}Overview}{6}%
-\contentsline {paragraph}{}{6}%
-\contentsline {paragraph}{}{6}%
-\contentsline {paragraph}{}{6}%
+\contentsline {paragraph}{}{4}%
+\contentsline {paragraph}{}{4}%
+\contentsline {section}{\numberline {1.3}Definitions, Acronyms, Abbreviations}{4}%
+\contentsline {subsection}{\numberline {1.3.1}Definitions}{4}%
+\contentsline {subsection}{\numberline {1.3.2}Acronyms}{4}%
+\contentsline {subsection}{\numberline {1.3.3}Abbreviations}{5}%
+\contentsline {section}{\numberline {1.4}Revision history}{5}%
+\contentsline {section}{\numberline {1.5}Reference documents}{5}%
+\contentsline {section}{\numberline {1.6}Document structure}{5}%
+\contentsline {paragraph}{}{5}%
+\contentsline {chapter}{\numberline {2}Architectural description}{7}%
+\contentsline {section}{\numberline {2.1}Overview}{7}%
 \contentsline {paragraph}{}{7}%
-\contentsline {section}{\numberline {2.2}Component view}{8}%
+\contentsline {paragraph}{}{7}%
+\contentsline {paragraph}{}{7}%
 \contentsline {paragraph}{}{8}%
-\contentsline {section}{\numberline {2.3}Deployment view}{10}%
-\contentsline {paragraph}{}{10}%
-\contentsline {section}{\numberline {2.4}Runtime view}{11}%
+\contentsline {section}{\numberline {2.2}Component view}{9}%
+\contentsline {paragraph}{}{9}%
+\contentsline {section}{\numberline {2.3}Deployment view}{11}%
 \contentsline {paragraph}{}{11}%
-\contentsline {subsection}{\numberline {2.4.1}Registered User}{11}%
-\contentsline {subsubsection}{\numberline {2.4.1.1}Add report}{11}%
-\contentsline {paragraph}{}{11}%
-\contentsline {subsubsection}{\numberline {2.4.1.2}Get my reports}{12}%
+\contentsline {section}{\numberline {2.4}Runtime view}{12}%
 \contentsline {paragraph}{}{12}%
+\contentsline {subsection}{\numberline {2.4.1}Registered User}{12}%
+\contentsline {subsubsection}{\numberline {2.4.1.1}Add report}{12}%
+\contentsline {paragraph}{}{12}%
+\contentsline {subsubsection}{\numberline {2.4.1.2}Get my reports}{13}%
+\contentsline {paragraph}{}{13}%
 \contentsline {subsubsection}{\numberline {2.4.1.3}Get unsafe areas}{14}%
 \contentsline {paragraph}{}{14}%
 \contentsline {subsection}{\numberline {2.4.2}Authority}{15}%
@@ -45,7 +45,7 @@
 \contentsline {paragraph}{}{17}%
 \contentsline {subsection}{\numberline {2.4.4}Municipal Employee}{18}%
 \contentsline {subsubsection}{\numberline {2.4.4.1}Get improvements}{18}%
-\contentsline {paragraph}{}{18}%
+\contentsline {paragraph}{}{19}%
 \contentsline {subsection}{\numberline {2.4.5}Extra cases}{19}%
 \contentsline {subsubsection}{\numberline {2.4.5.1}Database access error}{19}%
 \contentsline {paragraph}{}{19}%
@@ -287,6 +287,7 @@
 \contentsline {paragraph}{}{66}%
 \contentsline {paragraph}{}{67}%
 \contentsline {paragraph}{}{67}%
+\contentsline {paragraph}{}{69}%
 \contentsline {paragraph}{}{69}%
 \contentsline {paragraph}{}{69}%
 \contentsline {paragraph}{}{70}%
