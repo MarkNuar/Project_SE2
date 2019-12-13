@@ -65,6 +65,7 @@
 					 2 & StatisticsComputationManager & See statistics for ME/LO \\
 					 3 & StatisticsDownloadManager & Download statistics for ME/LO \\
 					 4 & Router & No specific user feature \\
+					 4 & QueryManager & No specific user feature \\
 					 4 & SignUpManager & SignUp and Login \\
 					 4 & LoginManager & SignUp and Login \\
 					 5 & WebServer & No specific user feature \\
@@ -83,14 +84,14 @@
 						\item SignUpManager: responsible for registering new users
 						\item LoginManager: responsible for recognizing registered users and authorities
 					\end{itemize}
-				\item [Add a report for RU]: this feature is realized through the component \textit{ReportReceiver}, which receives the report, submits it to the \textit{OCRS}, in order to get its validity status and the eventual vehicle plate, and saves it in the database through the \textit{DBMS}.
-				\item [Retrieve reports for RU]: this feature is realized through the component \textit{ReportMiner}, which receives the request, coming from the \textit{Router}, asks the database through the \textit{DBMS} and returns the all the reports composed by the requesting user.
-				\item [Get unsafe area for RU]: this feature is realized through the component \textit{ReportMiner}, which receives the request, coming from the \textit{Router}, asks the database through the \textit{DBMS} and returns violations type, date and time of valid reports issued in the requested area
-				\item [Mine reports for ME/LO]: this feature is realized through the component \textit{ReportMiner}, which receives the request, coming from the \textit{Router}, asks the database through the \textit{DBMS} and returns the valid reports issued in the authority's municipality that satisfy the requested condition (All, Date, Time, Violation Type, Area)
-				\item [See statistics for ME/LO]: this feature is realized through the component \textit{StatisticsComputationManager}, which receives the request coming from the \textit{Router}, asks the database through the \textit{DBMS} for valid reports and retrieves data about issued tickets through the \textit{TS}, crosses them, produces and returns statistics to the requesting authority
+				\item [Add a report for RU]: this feature is realized through the component \textit{ReportReceiver}, which receives the report, submits it to the \textit{OCRS}, in order to get its validity status and the eventual vehicle plate, and saves it in the database through the \textit{QueryManager}.
+				\item [Retrieve reports for RU]: this feature is realized through the component \textit{ReportMiner}, which receives the request, coming from the \textit{Router}, asks the database through the \textit{QueryManager} and returns the all the reports composed by the requesting user.
+				\item [Get unsafe area for RU]: this feature is realized through the component \textit{ReportMiner}, which receives the request, coming from the \textit{Router}, asks the database through the \textit{QueryManager} and returns violations type, date and time of valid reports issued in the requested area
+				\item [Mine reports for ME/LO]: this feature is realized through the component \textit{ReportMiner}, which receives the request, coming from the \textit{Router}, asks the database through the \textit{QueryManager} and returns the valid reports issued in the authority's municipality that satisfy the requested condition (All, Date, Time, Violation Type, Area)
+				\item [See statistics for ME/LO]: this feature is realized through the component \textit{StatisticsComputationManager}, which receives the request coming from the \textit{Router}, asks the database through the \textit{QueryManager} for valid reports and retrieves data about issued tickets through the \textit{TS}, crosses them, produces and returns statistics to the requesting authority
 				\item [Download statistics for ME/LO]: this feature is realized through component \textit{StatisticsDownloadManager}, which asks \textit{StatisticsComputationManager} for statistics, generate a non materialized document and returns it to the requesting authority
 				\item [Validate reports for LO]: this feature is realized through the component \textit{ReportValidator}, which is able to retrieve not verified reports belonging to the LO's municipality from the database through the \textit{DBMS} and let the LO setting their validity
-				\item [Get improvements for ME]: this feature is realized through the component \textit{ImprovementsManager}, which is able to get valid reports, issued in the ME's municipality, from the database through the \textit{DBMS} and cross their data with the information coming from the \textit{MAS}, in order to generate new possible improvements. Then, they are presented to the ME, along with previously generated improvements, saved in the database, still not completed. Finally the ME can set the status of the improvements received
+				\item [Get improvements for ME]: this feature is realized through the component \textit{ImprovementsManager}, which is able to get valid reports, issued in the ME's municipality, from the database through the \textit{QueryManager} and cross their data with the information coming from the \textit{MAS}, in order to generate new possible improvements. Then, they are presented to the ME, along with previously generated improvements, saved in the database, still not completed. Finally the ME can set the status of the improvements received
 				\item [Functional mobile app for RU]: this feature is realized through the implementation, testing and integration of the \textit{UserMobileApp}
 				\item [Functional web app for LO]: this feature is realized through the implementation, testing and integration of the \textit{LocalOfficerWebApp}
 				\item [Functional web app for ME]: this feature is realized through the implementation, testing and integration of the \textit{MunicipalEmployeeWebApp};
@@ -108,6 +109,13 @@
 						\centering
 						\includegraphics[width=0.75\textwidth]{images/Integration/ReportReceiverIntegration.pdf}
 						\caption{Report receiver integration}
+					\end{figure}
+			\paragraph{}
+				\textbf{QueryManagerIntegration}
+					\begin{figure}[!h]
+						\centering
+						\includegraphics[width=0.75\textwidth]{images/Integration/QueryManagerIntegration.pdf}
+						\caption{QueryManager integration}
 					\end{figure}
 			\clearpage
 			\paragraph{}
