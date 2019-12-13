@@ -107,7 +107,7 @@
 					\paragraph{}
 						In this sequence diagram the process through which a RU adds a report to the system is shown. 
 						
-						At first the RU chooses the "Add report" functionality on the UserMobileApp and composes the report. The app fetches a map from the MS and forwards the request to the Web Server, which contacts the Router. The Router forwards the request to the ReportReceiver, which tries to recognize the plate with the help of the OCRS, gets the municipality where the report has been issued through the MS and, finally, adds the report to the database through the DBMS.
+						At first the RU chooses the "Add report" functionality on the UserMobileApp and composes the report. The app fetches a map from the MS and forwards the request to the Web Server, which contacts the Router. The Router forwards the request to the ReportReceiver, which tries to recognize the plate with the help of the OCRS, gets the municipality where the report has been issued through the MS and, finally, adds the report to the database through the QueryManager.
 				\subsubsection{Get my reports}
 					\begin{figure}[!h]
 						\centering
@@ -117,7 +117,7 @@
 					\paragraph{}
 						In this sequence diagram the process through which a RU gets all the reports he/she has issued is shown.
 						
-						At first the RU chooses the "Get my reports" functionality on the UserMobileApp. Then the app starts fetching all the reports issued by the user. In particular, every request passes through the WebServer, Router, ReportMiner and finally the DBMS, then it goes back to the UserMobileApp. Once all the reports have been fetched, they are presented to the RU.
+						At first the RU chooses the "Get my reports" functionality on the UserMobileApp. Then the app starts fetching all the reports issued by the user. In particular, every request passes through the WebServer, Router, ReportMiner and finally the QueryManager, then it goes back to the UserMobileApp. Once all the reports have been fetched, they are presented to the RU.
 				\clearpage
 				\subsubsection{Get unsafe areas}
 					\begin{figure}[!h]
@@ -128,7 +128,7 @@
 					\paragraph{}
 						In this sequence diagram is displayed the process which permits a RU to discover all the types, dates and times of reports issued in a selected area. 
 						
-						This starts with the request, by the RU, that gets sent to the Web Server which will forward it to the Router. The Router will call "getUnsafeAreas" on the ReportMiner component that will query the database. When the response is ready it will go back through the same path.
+						This starts with the request, by the RU, that gets sent to the Web Server which will forward it to the Router. The Router will call "getUnsafeAreas" on the ReportMiner component that will query the database, through the QueryManager. When the response is ready it will go back through the same path.
 			\clearpage
 			\subsection{Authority}
 				\subsubsection{Get statistics}
@@ -138,7 +138,7 @@
 						\caption{Get statistics runtime view diagram}
 					\end{figure}
 					\paragraph{}
-						In this sequence diagram the request gets sent to the WebServer and forwarded to the Router. Here, the StatisticsComputationManager is called. This component requests tickets data from the TS and then uses the ReportMiner component to access the database. If there are enough data, the StatisticsComputationManager generates new statistics. If the request from the authority was to only visualize the statistics, the StaticsComputationManager will send them back to the Router and to the authority, otherwise, by starting a new request, the StatisticsDownloadManager asks the StaticsComputationManager for new statistics, creates a non-materalized document and sends it back through the Router.
+						In this sequence diagram the request gets sent to the WebServer and forwarded to the Router. Here, the StatisticsComputationManager is called. This component requests tickets data from the TS and then uses the ReportMiner component to get reports, through the QueryManager. If there are enough data, the StatisticsComputationManager generates new statistics. If the request from the authority was to only visualize the statistics, the StaticsComputationManager will send them back to the Router and to the authority, otherwise, by starting a new request, the StatisticsDownloadManager asks the StaticsComputationManager for new statistics, creates a non{-}materalized document and sends it back through the Router.
 				\clearpage
 				\subsubsection{Mine reports}
 					\begin{figure}[!h]
@@ -149,7 +149,7 @@
 					\paragraph{}
 						This sequence diagram shows how the authorities can mine the reports. 
 						
-						At first all the reports in the authority's municipality are fetched through the following procedure. The mine request gets sent from the Web App to the Web Server which sends it forward to the Router. The ReportMiner gets called, it queries the database and, if enough reports are found, the list containing them is created and sent back to Web App. When there are less reports than needed, an error message will reach the authority. When the Web App receives the list of reports, it uses the MS to display them. 
+						At first all the reports in the authority's municipality are fetched through the following procedure. The mine request gets sent from the Web App to the Web Server which sends it forward to the Router. The ReportMiner gets called, it queries the database, through the QueryManager, and, if enough reports are found, the list containing them is created and sent back to Web App. When there are less reports than needed, an error message will reach the authority. When the Web App receives the list of reports, it uses the MS to display them. 
 						
 						Now the requester is able to decide a filter to the search, choosing between the ones described in the ReportMiner component description. In order to fetch the filtered reports, the same procedure described before is used, but the requestType will be different from "ALL".
 			\clearpage
@@ -161,8 +161,8 @@
 						\caption{Validate reports runtime view diagram}
 					\end{figure}
 					\paragraph{}
-						The request gets sent with the standard route until the ReportValidator gets reached. Report validator queries the DBMS for reports to be validated, if there are none an error message is shown back to the Web App, otherwise the reports are sent back to the Web App, where they are displayed also thanks to of the MS.
-						The LO can at this point start to validate the reports. When a report gets validated, with any result of validation, it gets sent back to the ReportValidator component which updates the database and, if the report is set as "VALID", it is also sent to the TS with a POST request. The process continues until the LO stops to validate reports.
+						The request gets sent with the standard route until the ReportValidator gets reached. ReportValidator queries the QueryManager for reports to be validated, if there are none an error message is shown back to the Web App, otherwise the reports are sent back to the Web App, where they are displayed also thanks to the MS.
+						The LO can at this point start to validate the reports. When a report gets validated, with any result of validation, it gets sent back to the ReportValidator component which updates the database, through the QueryManager, and, if the report is set as "VALID", it is also sent to the TS with a POST request. The process continues until the LO stops to validate reports.
 			\clearpage
 			\subsection{Municipal Employee}
 				\subsubsection{Get improvements}
@@ -174,9 +174,9 @@
 					\paragraph{}
 						This sequence diagram shows the request of improvements from a ME. 
 						
-						Using the standard route, the request reaches the ImprovementManager, which gets from the MAS, through a GET request, the list of accidents that took place in the ME's municipality. The ReportMiner then is tasked to obtain, from the DBMS, the list of reports of the Municipality, retuning them, in case of success or returning an error to the Web App, in case of failure. 
+						Using the standard route, the request reaches the ImprovementManager, which gets from the MAS, through a GET request, the list of accidents that took place in the ME's municipality. The ReportMiner then is tasked to obtain, from the QueryManager, the list of reports of the municipality, retuning them in case of success, or returning an error to the Web App in case of failure. 
 						
-						With the data received from the MAS and the ReportMiner, the ImprovementManager computes all possible improvements that, in a loop, are sent and memorized by the DBMS only if they were not already present. Finished the update, the ImprovementManager retrieves from the database, using the "retrieveImprovements" function, all possible "NOT DONE" improvements for the ME's municipality. The list of improvements is then sent back through the Router to the Web App where the ME can visualize and eventually set them as "DONE". 
+						With the data received from the MAS and the ReportMiner, the ImprovementManager computes all possible improvements that, in a loop, are sent and memorized on the database only if they were not already present. Finished the update, the ImprovementManager retrieves from the database, using the "retrieveImprovements" function of the QueryManager, all possible "NOT DONE" improvements for the ME's municipality. The list of improvements is then sent back through the Router to the Web App where the ME can visualize and eventually set them as "DONE". 
 						
 						When at least one improvement gets its status changed, the Web App sends a request back to the Web Server and the Router. The ImprovementManager is then called by the Router to update the status of the improvement on the database.
 			\subsection{Extra cases}
@@ -1001,7 +1001,7 @@
 			\clearpage
 			\subsection{TS interface and MAS interface}
 				\paragraph{}
-					Since both the TS and the MAS are optional external services which are not completely specified it will be assumed that their communication interfaces will be provided trough RESTful API given the fact that a stateless communication will ease the load on both our system and the Municipality's system. There will be assumptions only on the expected response for the GET requests and for the POST only the field of the message will be described. Both the URIs, controls on accesses and security will be overlooked.
+					Since both the TS and the MAS are external services their communication interfaces will be provided trough RESTful APIs, given the fact that a stateless communication will ease the load on both our system and the municipality's system. Both the URIs, controls on accesses and security will be overlooked.
 				\subsubsection{Request of data about accidents from the MAS}
 				This request will be structured as a GET and the expected success message will be structured as follows.
 					\begin{table}[!h]
@@ -1058,555 +1058,14 @@
 			\clearpage
 			\subsection{DBMS interface}
 				\paragraph{}
-					The communication between the database and our system will be handled by a set of interfaces, implemented by the components, organized in two families characterized by the table that they manage. 
+					The communication between the database and our system will be handled by the DBMS communicating with QueryManager component. 
 					
-					In the database there will be four different tables: the table of the reports, the table of the users, the table of the authorities and the table of the improvements which will be respectively handled with the interfaces PostgreSQLReportHandler, PostgreSQLUsersHandler, PostgreSQLAuthorityHandler and PostgreSQLImprovementsHandler.
-				\subsubsection{PostgreSQLReportHandler}
-					\paragraph{}
-						This interface will expose six methods that will all establish a connection with the server where the database is hosted. The parameters for the connection (URL of the server, user and password) will be available in a class called PostgreSQLUtilities. The methods will then try to send a query to the database, in case of success the connection will be closed and the method will return, otherwise the exception launched by the connection will be handled launching an exception on the upper level.
-						
-						The methods are:
-						
-						\paragraph{}
-							\textbf{createTable}: this method will create a new report table on the database, if one is already existing this function won't have any effect
-							\subparagraph{}	
-							\textit{\textbf{Exceptions}}
-							\vspace{-2mm}
-								\begin{table}[!h]
-									\begin{tabular}{L{0.35\textwidth}L{0.45\textwidth}}
-										\toprule
-										\textbf{Name} & \textbf{Description} \\
-										\midrule
-								  		DataBaseErrorException & An error has occurred in database \\
-								 		\bottomrule
-									\end{tabular}
-								\end{table}
-						\paragraph{}
-							\textbf{insertNewReport}: this method will add a new report on the database
-							\subparagraph{}
-							\textit{\textbf{Parameters}}
-							\vspace{-2mm}
-								\begin{table}[!h]
-									\begin{tabular}{L{0.15\textwidth}L{0.15\textwidth}L{0.5\textwidth}}
-										\toprule
-										\textbf{Name} & \textbf{Type} & \textbf{Description} \\
-										\midrule
-								  		report & Report & The report that will have to be uploaded to the database \\
-								 		\bottomrule
-									\end{tabular}
-								\end{table}
-							\vspace{-6mm}
-							\subparagraph{}
-							\textit{\textbf{Exceptions}}
-							\vspace{-2mm}
-								\begin{table}[!h]
-									\begin{tabular}{L{0.35\textwidth}L{0.45\textwidth}}
-										\toprule
-										\textbf{Name} & \textbf{Description} \\
-										\midrule
-								  		DataBaseErrorException & An error has occurred in database \\
-								 		\bottomrule
-									\end{tabular}
-								\end{table}
-						\clearpage
-						\paragraph{}
-							\textbf{retrieveReport}: this method will get a report from the database
-							\subparagraph{}
-							\textit{\textbf{Parameters}}
-							\vspace{-2mm}
-								\begin{table}[!h]
-									\begin{tabular}{L{0.15\textwidth}L{0.15\textwidth}L{0.5\textwidth}}
-										\toprule
-										\textbf{Name} & \textbf{Type} & Description \\
-										\midrule
-								  		reportId & String & The id of the report that will be retrieved from the database \\
-								 		\bottomrule
-									\end{tabular}
-								\end{table}
-							\vspace{-6mm}
-							\subparagraph{}
-								\textit{\textbf{Return}}
-								\vspace{-2mm}
-									\begin{table}[!h]
-									\begin{tabular}{L{0.2\textwidth}L{0.6\textwidth}}
-										\toprule
-										Type & Description \\
-										\midrule
-								  	Report & The report taken from the database \\
-								 		\bottomrule
-									\end{tabular}
-								\end{table}
-							\vspace{-6mm}
-							\subparagraph{}
-								\textit{\textbf{Exceptions}}
-								\vspace{-2mm}
-									\begin{table}[!h]
-									\begin{tabular}{ll}
-										\toprule
-										\textbf{Name} & \textbf{Description} \\
-										\midrule
-								  		DataBaseErrorException & An error has occurred in the database \\ 
-								 		\bottomrule
-									\end{tabular}
-								\end{table}
-						
-						\paragraph{}
-							\textbf{retrieveNotVerifiedReports}: this method will get all the reports which state is set as "NOT VERIFIED" and the id of the municipality where the report has been composed is equal to the one in the parameters
-							\subparagraph{}
-							\textit{\textbf{Parameters}}
-							\vspace{-2mm}
-								\begin{table}[!h]
-									\begin{tabular}{L{0.2\textwidth}L{0.15\textwidth}L{0.45\textwidth}}
-										\toprule
-										\textbf{Name} & \textbf{Type} & Description \\
-										\midrule
-								  		municipalityId & String & The id of the municipality in charge of the report \\
-								 		\bottomrule
-									\end{tabular}
-								\end{table}
-							\vspace{-6mm}
-							\subparagraph{}
-								\textit{\textbf{Return}}
-								\vspace{-2mm}
-									\begin{table}[!h]
-									\begin{tabular}{L{0.35\textwidth}L{0.45\textwidth}}
-										\toprule
-										\textbf{Type} & \textbf{Description} \\
-										\midrule
-								  	List<Report> & The list of reports taken from the database which satisfy the query \\
-								 		\bottomrule
-									\end{tabular}
-								\end{table}
-							\vspace{-6mm}
-							\subparagraph{}
-								\textit{\textbf{Exceptions}}
-								\vspace{-2mm}
-									\begin{table}[!h]
-									\begin{tabular}{ll}
-										\toprule
-										\textbf{Name} & \textbf{Description} \\
-										\midrule
-								  		DataBaseErrorException & An error has occurred in the database \\
-								 		\bottomrule
-									\end{tabular}
-								\end{table}
-					
-					\clearpage	
-					\paragraph{}
-							\textbf{updateReportStatus}: this method will update, changing the status of the report to the one in the parameters, the tuple where the reportId is the same as the one in the parameters
-							\subparagraph{}
-							\textit{\textbf{Parameters}}
-							\vspace{-2mm}
-								\begin{table}[!h]
-									\begin{tabular}{L{0.22\textwidth}L{0.22\textwidth}L{0.4\textwidth}}
-										\toprule
-										\textbf{Name} & \textbf{Type} & \textbf{Description} \\
-										\midrule
-								  		reportId & String & The id of report that will have its status changed \\
-								  		newReportStatus & ReportStatus & The new status that the report will have \\
-								 		\bottomrule
-									\end{tabular}
-								\end{table}
-							\vspace{-6mm}
-							\subparagraph{}
-								\textit{\textbf{Exceptions}}
-								\vspace{-2mm}
-									\begin{table}[!h]
-									\begin{tabular}{ll}
-										\toprule
-										\textbf{Name} & \textbf{Description} \\
-										\midrule
-								  		DataBaseErrorException & An error has occurred in the database \\
-								 		\bottomrule
-									\end{tabular}
-								\end{table}
-						
-					\paragraph{}
-							\textbf{retrieveValidReports}: this method will get all the reports which state is set as "VALID" and where the id in the parameters is equal to the one of the municipality where the report has been composed.
-							
-							There will be a different query for each type of RequestType and requestField will contain the requirements of the search.
-							\subparagraph{}
-							\textit{\textbf{Parameters}}
-							\vspace{-2mm}
-								\begin{table}[!h]
-									\begin{tabular}{L{0.2\textwidth}L{0.2\textwidth}L{0.4\textwidth}}
-										\toprule
-										\textbf{Name} & \textbf{Type} & \textbf{Description} \\
-										\midrule
-								  		municipalityId & String & The id of the municipality in charge of the report \\
-								  		requestType & RequestType & The type of request, it may be "ALL", "TYPE", "AREA", "DATE" and "TIME" \\
-								  		requestField & String & The requirements of the research \\
-								 		\bottomrule
-									\end{tabular}
-								\end{table}
-							\vspace{-6mm}
-							\subparagraph{}
-								\textit{\textbf{Return}}
-								\vspace{-2mm}
-									\begin{table}[!h]
-									\begin{tabular}{L{0.25\textwidth}L{0.5\textwidth}}
-										\toprule
-										\textbf{Type} & \textbf{Description} \\
-										\midrule
-								  		List<Report> & The list of reports which satisfy the condition of the query \\
-								 		\bottomrule
-									\end{tabular}
-								\end{table}
-							\vspace{-6mm}
-							\subparagraph{}
-								\textit{\textbf{Exceptions}}
-								\vspace{-2mm}
-									\begin{table}[!h]
-									\begin{tabular}{ll}
-										\toprule
-										\textbf{Name} & \textbf{Description} \\
-										\midrule
-								  		DataBaseErrorException & An error has occurred in the database \\ 
-								 		\bottomrule
-									\end{tabular}
-								\end{table}
-				\clearpage
-				\subsubsection{PostgreSQLUsersHandler}
-					\paragraph{}
-						This interface will expose three methods dedicated to the management of the users's data. These methods will try to establish the connection to the database with the same procedure as the methods of PostgreSQLReportHandler, the handling of the exceptions will also be the same. The methods are:
-					
-						\paragraph{}
-						\vspace{-1.5mm}
-							\textbf{createUserTable}: this method will create a new table of the users on the database, if one is already existing this function won't have any effect.
-							\subparagraph{}
-							\vspace{-3mm}
-								\textit{\textbf{Exceptions}}
-								\vspace{-2mm}
-									\begin{table}[!h]
-									\begin{tabular}{ll}
-										\toprule
-										\textbf{Name} & \textbf{Description} \\
-										\midrule
-								  		DataBaseErrorException & An error has occurred in the database \\ 
-								 		\bottomrule
-									\end{tabular}
-								\end{table}
-					
-					\paragraph{}
-					\vspace{-2mm}
-							\textbf{addUserData}: this method will register on the database the data of a new user
-							\subparagraph{}
-							\vspace{-3mm}
-							\textit{\textbf{Parameters}}
-							\vspace{-2mm}
-								\begin{table}[!h]
-									\begin{tabular}{L{0.2\textwidth}L{0.15\textwidth}L{0.45\textwidth}}
-										\toprule
-										\textbf{Name} & \textbf{Type} & \textbf{Description} \\
-										\midrule
-								  		username & String & The username of the new user \\
-								  		password & String & The password of the new user \\
-								 		\bottomrule
-									\end{tabular}
-								\end{table}
-							\vspace{-6mm}
-							\subparagraph{}
-								\textit{\textbf{Exceptions}}
-								\vspace{-2mm}
-									\begin{table}[!h]
-									\begin{tabular}{ll}
-										\toprule
-										\textbf{Name} & \textbf{Description} \\
-										\midrule
-								  		DataBaseErrorException & An error has occurred in the database \\ 
-								 		\bottomrule
-									\end{tabular}
-								\end{table}
-					
-					\paragraph{}
-					\vspace{-2mm}
-							\textbf{retrieveUserData}: This method will be used during the login phase. The username, that i assured to be unique, will be used to search for the password of the user
-							\subparagraph{}
-							\vspace{-3mm}
-							\textit{\textbf{Parameters}}
-							\vspace{-2mm}
-								\begin{table}[!h]
-									\begin{tabular}{L{0.2\textwidth}L{0.15\textwidth}L{0.45\textwidth}}
-										\toprule
-										\textbf{Name} & \textbf{Type} & \textbf{Description} \\
-										\midrule
-								  		username & String & The username of the user that is trying to login \\
-								 		\bottomrule
-									\end{tabular}
-								\end{table}
-							\vspace{-6mm}
-							\subparagraph{}
-								\textit{\textbf{Return}}
-								\vspace{-2mm}
-									\begin{table}[!h]
-									\begin{tabular}{ll}
-										\toprule
-										\textbf{Type} & \textbf{Description} \\
-										\midrule
-								  		String & The password of the user \\
-								 		\bottomrule
-									\end{tabular}
-								\end{table}
-							\vspace{-6mm}
-							\subparagraph{}
-								\textit{\textbf{Exceptions}}
-								\vspace{-2mm}
-									\begin{table}[!h]
-									\begin{tabular}{ll}
-										\toprule
-										\textbf{Name} & \textbf{Description} \\
-										\midrule
-								  		DataBaseErrorException & An error has occurred in the database \\ 
-								 		\bottomrule
-									\end{tabular}
-								\end{table}
-
-				\subsubsection{PostgreSQLAuthorityHandler}
-					\paragraph{}
-						This interface will expose two methods dedicated to the management of the authorities' data. These methods will try to establish the connection to the database with the same procedure as the methods of PostgreSQLReportHandler, the handling of the exceptions will also be the same. The methods are:
-							
-							\paragraph{}
-							\textbf{createAuthorityTable}: This method will create a new table of the authorities on the database, if one is already existing this function won't have any effect
-							\subparagraph{}
-							\vspace{-3mm}
-								\textit{\textbf{Exceptions}}
-								\vspace{-2mm}
-									\begin{table}[!h]
-									\begin{tabular}{ll}
-										\toprule
-										\textbf{Name} & \textbf{Description} \\
-										\midrule
-								  		DataBaseErrorException & An error has occurred in the database \\ 
-								 		\bottomrule
-									\end{tabular}
-								\end{table}
-								
-					\paragraph{}
-							\textbf{retrieveAuthorityData}: this methods works in the same way as \newline retrieveUsersData, sending a username and receiving the password and workRole of the associated authority
-							\subparagraph{}
-							\vspace{-3mm}
-							\textit{\textbf{Parameters}}
-							\vspace{-2mm}
-								\begin{table}[!h]
-									\begin{tabular}{L{0.15\textwidth}L{0.15\textwidth}L{0.5\textwidth}}
-										\toprule
-										\textbf{Name} & \textbf{Type} & \textbf{Description} \\
-										\midrule
-								  		username & String & The username of the user that is trying to login \\
-								 		\bottomrule
-									\end{tabular}
-								\end{table}
-							\subparagraph{}
-							\vspace{-6mm}
-								\textit{\textbf{Return}}
-								\vspace{-2mm}
-									\begin{table}[!h]
-									\begin{tabular}{ll}
-										\toprule
-										\textbf{Type} & \textbf{Description} \\
-										\midrule
-								  		String & The password of the authority \\
-								  		String & The workRole of the authority \\
-								 		\bottomrule
-									\end{tabular}
-								\end{table}
-							\subparagraph{}
-							\vspace{-6mm}
-								\textit{\textbf{Exceptions}}
-								\vspace{-2mm}
-									\begin{table}[!h]
-									\begin{tabular}{ll}
-										\toprule
-										\textbf{Name} & \textbf{Description} \\
-										\midrule
-								  		DataBaseErrorException & An error has occurred in the database \\ 
-								 		\bottomrule
-									\end{tabular}
-								\end{table}
-				\clearpage
-				\subsubsection{PostgreSQLImprovementHandler}
-					\paragraph{}
-						This interface will expose four methods dedicated to the retrieval and insertion of improvements into the database. These methods will try to establish the connection to the database with the same procedure as the methods of PostgreSQLReportHandler, the handling of the exceptions will also be the same.
-						
-						The methods are:
-							\paragraph{}
-							\textbf{createImprovementTable}: this method will create a new table of the authorities on the database, if one is already existing this function won't have any effect
-							\subparagraph{}
-							\vspace{-3mm}
-								\textit{\textbf{Exceptions}}
-								\vspace{-2mm}
-									\begin{table}[!h]
-									\begin{tabular}{ll}
-										\toprule
-										\textbf{Name} & \textbf{Description} \\
-										\midrule
-								  		DataBaseErrorException & An error has occurred in the database \\ 
-								 		\bottomrule
-									\end{tabular}
-								\end{table}
-								
-					\paragraph{}
-							\textbf{addNewImprovement}: this method will add a new improvement to the database
-							\subparagraph{}
-							\vspace{-3mm}
-							\textit{\textbf{Parameters}}
-							\vspace{-2mm}
-								\begin{table}[!h]
-									\begin{tabular}{L{0.2\textwidth}L{0.2\textwidth}L{0.4\textwidth}}
-										\toprule
-										\textbf{Name} & \textbf{Type} & \textbf{Description} \\
-										\midrule
-								  		improvement & Improvement & The new improvement that has been calculated and was not already on the database \\
-								 		\bottomrule
-									\end{tabular}
-								\end{table}
-							\subparagraph{}
-							\vspace{-6mm}
-								\textit{\textbf{Exceptions}}
-								\vspace{-2mm}
-									\begin{table}[!h]
-									\begin{tabular}{ll}
-										\toprule
-										\textbf{Name} & \textbf{Description} \\
-										\midrule
-								  		DataBaseErrorException & An error has occurred in the database \\ 
-								 		\bottomrule
-									\end{tabular}
-								\end{table}
-								
-					\paragraph{}
-							\textbf{retrieveImprovements}: this methods retrieves the list of improvements that are suggested for a municipality which id is the same of the one in the parameters  and the state is set as "NOT DONE"
-							\subparagraph{}
-							\vspace{-3mm}
-							\textit{\textbf{Parameters}}
-								\begin{table}[!h]
-									\begin{tabular}{L{0.2\textwidth}L{0.15\textwidth}L{0.45\textwidth}}
-										\toprule
-										\textbf{Name} & \textbf{Type} & \textbf{Description} \\
-										\midrule
-								  		municipalityId & String & The id of the municipality in charge of the report \\
-								 		\bottomrule
-									\end{tabular}
-								\end{table}
-							\subparagraph{}
-							\vspace{-6mm}
-								\textit{\textbf{Return}}
-								\vspace{-2mm}
-									\begin{table}[!h]
-									\begin{tabular}{L{0.3\textwidth}L{0.5\textwidth}}
-										\toprule
-										\textbf{Type} & \textbf{Description} \\
-										\midrule
-								  		List<Improvements> & The list of improvements that are suggested for a municipality \\
-								 		\bottomrule
-									\end{tabular}
-								\end{table}
-							\clearpage
-							\subparagraph{}
-								\textit{\textbf{Exceptions}}
-								\vspace{-2mm}
-									\begin{table}[!h]
-									\begin{tabular}{ll}
-										\toprule
-										\textbf{Name} & \textbf{Description} \\
-										\midrule
-								  		DataBaseErrorException & An error has occurred in the database \\ 
-								 		\bottomrule
-									\end{tabular}
-								\end{table}
-								
-						\paragraph{}
-							\textbf{updateImprovementStatus}: this method will update to "DONE" the state of the improvement that has its id equal to the one in the parameter
-							\subparagraph{}
-							\vspace{-3mm}
-							\textit{\textbf{Parameters}}
-							\vspace{-2mm}
-								\begin{table}[!h]
-									\begin{tabular}{L{0.22\textwidth}L{0.15\textwidth}L{0.43\textwidth}}
-										\toprule
-										\textbf{Name} & \textbf{Type} & \textbf{Description} \\
-										\midrule
-								  		improvementId & String & The id of the improvement which completion state has been set to "DONE" \\
-								 		\bottomrule
-									\end{tabular}
-								\end{table}
-							\subparagraph{}
-							\vspace{-6mm}
-								\textit{\textbf{Exceptions}}
-								\vspace{-2mm}
-									\begin{table}[!h]
-									\begin{tabular}{ll}
-										\toprule
-										\textbf{Name} & \textbf{Description} \\
-										\midrule
-								  		DataBaseErrorException & An error has occurred in the database \\ 
-								 		\bottomrule
-									\end{tabular}
-								\end{table}
-								
+					In the database there will be four different tables: the table of the reports, the table of the users, the table of the authorities and the table of the improvements.
+				
 			\subsection{Map Service interface}
 				\paragraph{}
-					The map service that will be adopted is the one provided by Google, in particular the Geocoding api and the SDK maps api will be used. The interface will possess methods for both APIs.
+					The map service that will be adopted is the one provided by Google, in particular the Geocoding API and the SDK maps API will be used.
 					
-					\paragraph{}
-							\textbf{getGeocodedLocation}: this method converts the address given from the user, this happens in case the ME wants to mine reports inserting the address where to execute the search
-							\subparagraph{}
-							\vspace{-3mm}
-							\textit{\textbf{Parameters}}
-							\vspace{-2mm}
-								\begin{table}[!h]
-									\begin{tabular}{L{0.15\textwidth}L{0.15\textwidth}L{0.5\textwidth}}
-										\toprule
-										\textbf{Name} & \textbf{Type} & \textbf{Description} \\
-										\midrule
-								  		address & String & The address inserted by the ME \\
-								 		\bottomrule
-									\end{tabular}
-								\end{table}
-							\subparagraph{}
-							\vspace{-6mm}
-								\textit{\textbf{Return}}
-								\vspace{-2mm}
-									\begin{table}[!h]
-									\begin{tabular}{L{0.15\textwidth}L{0.65\textwidth}}
-										\toprule
-										\textbf{Type} & \textbf{Description} \\
-										\midrule
-								  		Position & The corresponding position to the address in the parameters \\
-								 		\bottomrule
-									\end{tabular}
-								\end{table}
-					\clearpage
-					\paragraph{}
-							\textbf{getMunicipalityFromCoordinates}
-							\subparagraph{}
-							\vspace{-3mm}
-							\textit{\textbf{Parameters}}
-							\vspace{-2mm}
-								\begin{table}[!h]
-									\begin{tabular}{L{0.15\textwidth}L{0.15\textwidth}L{0.5\textwidth}}
-										\toprule
-										\textbf{Name} & \textbf{Type} & \textbf{Description} \\
-										\midrule
-								  		latitude & String & The latitude of the position which the belonging municipality is needed \\
-								  		longitude & String & The longitude of the position which the belonging municipality is needed \\
-								 		\bottomrule
-									\end{tabular}
-								\end{table}
-							\subparagraph{}
-							\vspace{-6mm}
-								\textit{\textbf{Return}}
-								\vspace{-2mm}
-									\begin{table}[!h]
-									\begin{tabular}{L{0.15\textwidth}L{0.65\textwidth}}
-										\toprule
-										\textbf{Type} & \textbf{Description} \\
-										\midrule
-								  		String & The municipalityId of the municipality which the position belongs to \\
-								 		\bottomrule
-									\end{tabular}
-								\end{table}
-							
 			\subsection{OCRS interface}
 				\paragraph{}
 					The OCRS is a bought component imported in our system. It exposes only one method, used for recognizing car plates from an image and an highlighted area on it, added by the user.
@@ -2318,6 +1777,425 @@ municipalityID & String & The municipality of the requesting local officer \\
 										\textbf{Name} & \textbf{Description} \\
 										\midrule
 								  		UserNotAuthorizedException & The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's  municipality was not the one of the reports requested  \\
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+				\subsubsection{UserHandler}
+					\paragraph{}
+					\vspace{-2mm}
+							\textbf{verifyUsername}: this method will check if the username is still available
+							\subparagraph{}
+							\vspace{-3mm}
+							\textit{\textbf{Parameters}}
+							\vspace{-2mm}
+								\begin{table}[!h]
+									\begin{tabular}{L{0.2\textwidth}L{0.15\textwidth}L{0.45\textwidth}}
+										\toprule
+										\textbf{Name} & \textbf{Type} & \textbf{Description} \\
+										\midrule
+								  		username & String & The username of the new user \\
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+							\vspace{-6mm}
+							\subparagraph{}
+							\vspace{-3mm}
+							\textit{\textbf{Return}}
+							\vspace{-2mm}
+								\begin{table}[!h]
+									\begin{tabular}{L{0.15\textwidth}L{0.45\textwidth}}
+										\toprule
+									 	\textbf{Type} & \textbf{Description} \\
+										\midrule
+								  		Boolean & The result of the check: true if available, false otherwise\\
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+							\vspace{-6mm}
+					
+					\paragraph{}
+					\vspace{-2mm}
+							\textbf{verifyEmail}: this method will check if the email is already used
+							\subparagraph{}
+							\vspace{-3mm}
+							\textit{\textbf{Parameters}}
+							\vspace{-2mm}
+								\begin{table}[!h]
+									\begin{tabular}{L{0.2\textwidth}L{0.15\textwidth}L{0.45\textwidth}}
+										\toprule
+										\textbf{Name} & \textbf{Type} & \textbf{Description} \\
+										\midrule
+								  		email & String & The email address of the new user \\
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+							\vspace{-6mm}
+							\subparagraph{}
+							\vspace{-3mm}
+							\textit{\textbf{Return}}
+							\vspace{-2mm}
+								\begin{table}[!h]
+									\begin{tabular}{L{0.15\textwidth}L{0.45\textwidth}}
+										\toprule
+									 	\textbf{Type} & \textbf{Description} \\
+										\midrule
+								  		Boolean & The result of the check: true if not used, false otherwise\\
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+							\vspace{-6mm}
+							
+					\paragraph{}
+					\vspace{-2mm}
+							\textbf{addUserData}: this method will send to the database the data of a new user, in order to register him/her
+							\subparagraph{}
+							\vspace{-3mm}
+							\textit{\textbf{Parameters}}
+							\vspace{-2mm}
+								\begin{table}[!h]
+									\begin{tabular}{L{0.2\textwidth}L{0.15\textwidth}L{0.45\textwidth}}
+										\toprule
+										\textbf{Name} & \textbf{Type} & \textbf{Description} \\
+										\midrule
+								  		username & String & The username of the new user \\
+								  		email & String & The email address of the new user \\
+								  		password & String & The password of the new user \\
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+					
+					\paragraph{}
+					\vspace{-2mm}
+							\textbf{verifyUserCredentials}: This method will be used during the login phase to verify the correctness of the inserted credentials. The QueryManager will automatically attach the WorkRole "RU" to the request to the DBMS while executing this method.
+							\subparagraph{}
+							\vspace{-3mm}
+							\textit{\textbf{Parameters}}
+							\vspace{-2mm}
+								\begin{table}[!h]
+									\begin{tabular}{L{0.2\textwidth}L{0.15\textwidth}L{0.45\textwidth}}
+										\toprule
+										\textbf{Name} & \textbf{Type} & \textbf{Description} \\
+										\midrule
+								  		loginInformation & String & The username or the email address of the user that is trying to login \\
+								  		password & String & The password of the user that is trying to login \\
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+							\vspace{-6mm}
+							\subparagraph{}
+								\textit{\textbf{Return}}
+								\vspace{-2mm}
+									\begin{table}[!h]
+									\begin{tabular}{ll}
+										\toprule
+										\textbf{Type} & \textbf{Description} \\
+										\midrule
+								  		Token & The new token of the user \\
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+							\vspace{-6mm}
+							\subparagraph{}
+								\textit{\textbf{Exceptions}}
+								\vspace{-2mm}
+									\begin{table}[!h]
+									\begin{tabular}{ll}
+										\toprule
+										\textbf{Name} & \textbf{Description} \\
+										\midrule
+								  		InvalidCredentialsException & The inserted credentials are not valid \\ 
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+								
+				\clearpage
+				\subsubsection{AuthorityHandler}	
+					\paragraph{}
+							\textbf{verifyAuthorityCredentials}: this method will be used while loggin in an authority, in order to verify the correctness of the inserted credentials
+							\subparagraph{}
+							\vspace{-3mm}
+							\textit{\textbf{Parameters}}
+							\vspace{-2mm}
+								\begin{table}[!h]
+									\begin{tabular}{L{0.15\textwidth}L{0.15\textwidth}L{0.5\textwidth}}
+										\toprule
+										\textbf{Name} & \textbf{Type} & \textbf{Description} \\
+										\midrule
+								  		username & String & The username of the authority that is trying to login \\
+										password & String & The password of the authority that is trying to login \\
+										workRole & WorkRole & The role of the authority that is trying to login (ME or LO) \\
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+							\subparagraph{}
+							\vspace{-6mm}
+								\textit{\textbf{Return}}
+								\vspace{-2mm}
+									\begin{table}[!h]
+									\begin{tabular}{ll}
+										\toprule
+										\textbf{Type} & \textbf{Description} \\
+										\midrule
+								  		Token & The new token of the authority \\
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+							\subparagraph{}
+							\vspace{-6mm}
+								\textit{\textbf{Exceptions}}
+								\vspace{-2mm}
+									\begin{table}[!h]
+									\begin{tabular}{ll}
+										\toprule
+										\textbf{Name} & \textbf{Description} \\
+										\midrule
+								  		InvalidCredentilsException & The inserted credentials are not valid \\ 
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+								
+				\subsubsection{ReportHandler}
+					\paragraph{}
+							\textbf{insertNewReport}: this method will add a new report on the database
+							\subparagraph{}
+							\textit{\textbf{Parameters}}
+							\vspace{-2mm}
+								\begin{table}[!h]
+									\begin{tabular}{L{0.15\textwidth}L{0.15\textwidth}L{0.5\textwidth}}
+										\toprule
+										\textbf{Name} & \textbf{Type} & \textbf{Description} \\
+										\midrule
+								  		report & Report & The report that will have to be uploaded to the database \\
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+							\vspace{-6mm}
+							\subparagraph{}
+							\textit{\textbf{Exceptions}}
+							\vspace{-2mm}
+								\begin{table}[!h]
+									\begin{tabular}{L{0.35\textwidth}L{0.45\textwidth}}
+										\toprule
+										\textbf{Name} & \textbf{Description} \\
+										\midrule
+								  		DataBaseErrorException & An error has occurred in database \\
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+								
+						\paragraph{}
+							\textbf{retrieveReport}: this method will get a report from the database
+							\subparagraph{}
+							\textit{\textbf{Parameters}}
+							\vspace{-2mm}
+								\begin{table}[!h]
+									\begin{tabular}{L{0.15\textwidth}L{0.15\textwidth}L{0.5\textwidth}}
+										\toprule
+										\textbf{Name} & \textbf{Type} & Description \\
+										\midrule
+								  		reportId & String & The id of the report that will be retrieved from the database \\
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+							\vspace{-6mm}
+							\subparagraph{}
+								\textit{\textbf{Return}}
+								\vspace{-2mm}
+									\begin{table}[!h]
+									\begin{tabular}{L{0.2\textwidth}L{0.6\textwidth}}
+										\toprule
+										Type & Description \\
+										\midrule
+										Report & The report taken from the database \\
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+							\vspace{-6mm}
+							\subparagraph{}
+								\textit{\textbf{Exceptions}}
+								\vspace{-2mm}
+									\begin{table}[!h]
+									\begin{tabular}{ll}
+										\toprule
+										\textbf{Name} & \textbf{Description} \\
+										\midrule
+								  		NoReportException & The report with the requested id does not exist \\ 
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+						
+						\paragraph{}
+							\textbf{retrieveNotVerifiedReports}: this method will get all the reports which state is set as "NOT VERIFIED" and the id of the municipality where the report has been composed is equal to the one in the parameters
+							\subparagraph{}
+							\textit{\textbf{Parameters}}
+							\vspace{-2mm}
+								\begin{table}[!h]
+									\begin{tabular}{L{0.2\textwidth}L{0.15\textwidth}L{0.45\textwidth}}
+										\toprule
+										\textbf{Name} & \textbf{Type} & Description \\
+										\midrule
+								  		municipalityId & String & The id of the municipality in charge of the report \\
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+							\vspace{-6mm}
+							\subparagraph{}
+								\textit{\textbf{Return}}
+								\vspace{-2mm}
+									\begin{table}[!h]
+									\begin{tabular}{L{0.35\textwidth}L{0.45\textwidth}}
+										\toprule
+										\textbf{Type} & \textbf{Description} \\
+										\midrule
+										List<Report> & The list of reports taken from the database which satisfy the query \\
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+							\vspace{-6mm}
+							\subparagraph{}
+								\textit{\textbf{Exceptions}}
+								\vspace{-2mm}
+									\begin{table}[!h]
+									\begin{tabular}{ll}
+										\toprule
+										\textbf{Name} & \textbf{Description} \\
+										\midrule
+								  		NoReportExcpetion & There are no reports satisfying the request \\
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+					
+					\paragraph{}
+							\textbf{updateReportStatus}: this method will update, changing the status of the report to the one in the parameters, the tuple where the reportId is the same as the one in the parameters
+							\subparagraph{}
+							\textit{\textbf{Parameters}}
+							\vspace{-2mm}
+								\begin{table}[!h]
+									\begin{tabular}{L{0.22\textwidth}L{0.22\textwidth}L{0.4\textwidth}}
+										\toprule
+										\textbf{Name} & \textbf{Type} & \textbf{Description} \\
+										\midrule
+								  		reportId & String & The id of report that will have its status changed \\
+								  		newReportStatus & ReportStatus & The new status that the report will have \\
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+						
+					\paragraph{}
+							\textbf{retrieveValidReports}: this method will get all the reports which state is set as "VALID" and where the id in the parameters is equal to the one of the municipality where the report has been composed.
+							
+							There will be a different query for each type of RequestType and requestField will contain the requirements of the search.
+							\subparagraph{}
+							\textit{\textbf{Parameters}}
+							\vspace{-2mm}
+								\begin{table}[!h]
+									\begin{tabular}{L{0.2\textwidth}L{0.2\textwidth}L{0.4\textwidth}}
+										\toprule
+										\textbf{Name} & \textbf{Type} & \textbf{Description} \\
+										\midrule
+								  		municipalityId & String & The id of the municipality in charge of the report \\
+								  		requestType & RequestType & The type of request, it may be "ALL", "TYPE", "AREA", "DATE" and "TIME" \\
+								  		requestField & RequestField & The requirements of the research \\
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+							\vspace{-6mm}
+							\subparagraph{}
+								\textit{\textbf{Return}}
+								\vspace{-2mm}
+									\begin{table}[!h]
+									\begin{tabular}{L{0.25\textwidth}L{0.5\textwidth}}
+										\toprule
+										\textbf{Type} & \textbf{Description} \\
+										\midrule
+								  		List<Report> & The list of reports which satisfy the condition of the query \\
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+							\vspace{-6mm}
+							\subparagraph{}
+								\textit{\textbf{Exceptions}}
+								\vspace{-2mm}
+									\begin{table}[!h]
+									\begin{tabular}{ll}
+										\toprule
+										\textbf{Name} & \textbf{Description} \\
+										\midrule
+								  		NoReportExcpetion & There are no reports satisfying the request \\ 
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+
+				\subsubsection{ImprovementHandler}
+					\paragraph{}
+							\textbf{addNewImprovement}: this method will add a new improvement to the database
+							\subparagraph{}
+							\vspace{-3mm}
+							\textit{\textbf{Parameters}}
+							\vspace{-2mm}
+								\begin{table}[!h]
+									\begin{tabular}{L{0.2\textwidth}L{0.2\textwidth}L{0.4\textwidth}}
+										\toprule
+										\textbf{Name} & \textbf{Type} & \textbf{Description} \\
+										\midrule
+								  		improvement & Improvement & The new improvement that has been calculated and was not already on the database \\
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+								
+					\paragraph{}
+							\textbf{retrieveImprovements}: this methods retrieves the list of improvements that are suggested for a municipality which id is the same of the one in the parameters  and the state is set as "NOT DONE"
+							\subparagraph{}
+							\vspace{-3mm}
+							\textit{\textbf{Parameters}}
+								\begin{table}[!h]
+									\begin{tabular}{L{0.2\textwidth}L{0.15\textwidth}L{0.45\textwidth}}
+										\toprule
+										\textbf{Name} & \textbf{Type} & \textbf{Description} \\
+										\midrule
+								  		municipalityId & String & The id of the municipality in charge of the report \\
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+							\subparagraph{}
+							\vspace{-6mm}
+								\textit{\textbf{Return}}
+								\vspace{-2mm}
+									\begin{table}[!h]
+									\begin{tabular}{L{0.3\textwidth}L{0.5\textwidth}}
+										\toprule
+										\textbf{Type} & \textbf{Description} \\
+										\midrule
+								  		List<Improvement> & The list of improvements that are suggested for a municipality \\
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+							\clearpage
+							\subparagraph{}
+								\textit{\textbf{Exceptions}}
+								\vspace{-2mm}
+									\begin{table}[!h]
+									\begin{tabular}{ll}
+										\toprule
+										\textbf{Name} & \textbf{Description} \\
+										\midrule
+								  		NoImprovementException & There are no improvements to be suggested to the requiring municipality \\ 
+								 		\bottomrule
+									\end{tabular}
+								\end{table}
+								
+						\paragraph{}
+							\textbf{updateImprovementStatus}: this method will update to "DONE" the state of the improvement that has its id equal to the one in the parameter
+							\subparagraph{}
+							\vspace{-3mm}
+							\textit{\textbf{Parameters}}
+							\vspace{-2mm}
+								\begin{table}[!h]
+									\begin{tabular}{L{0.22\textwidth}L{0.15\textwidth}L{0.43\textwidth}}
+										\toprule
+										\textbf{Name} & \textbf{Type} & \textbf{Description} \\
+										\midrule
+								  		improvementId & String & The id of the improvement which completion state has been set to "DONE" \\
 								 		\bottomrule
 									\end{tabular}
 								\end{table}
