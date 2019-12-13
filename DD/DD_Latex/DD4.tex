@@ -1,0 +1,126 @@
+	\chapter{Requirement traceability}
+		\section{Sign up}
+				{[R1]} A user must be able to sign up to the system with a unique personal username and password
+					\begin{itemize}
+						\item \textit{SignUpManager:} this component receives email address, username and password of a new user, registers them in the database and notifies the user of the success, in case of no errors. Otherwise, the registration fails and the user is notified by an error message.
+					\end{itemize}
+		\section{Login}
+			{[R2]} The system must allow only registered users to login with their username and password
+					\begin{itemize}
+						\item \textit{LoginManager}: this component receives user's username and password and, in case there is a match in the database, it  returns a token used for further identified communication.
+					\end{itemize}
+			{[R3]} The system must allow only municipal authorities to login with their username and password
+					\begin{itemize}
+						\item \textit{LoginManager}: this component receives authority's username and password and, in case there is a match in the database, returns a token used for further identified communication.  
+					\end{itemize}
+			{[R4]} A users, municipal employee or local officer must be uniquely identified by his/her username
+					\begin{itemize}
+						\item \textit{SignUpManager}: this component prevents that, during registration, no two users have the same username, while, for authorities, this requirement holds a priori.
+					\end{itemize}
+				
+		\section{Add report}
+			{[R5]} When composing the report, the system must be able to access the user's device camera and GPS sensor
+					\begin{itemize}
+						\item \textit{UserMobileApp}: the application is able to access user's device camera
+					\end{itemize}
+			{[R6]} When composing the report, a user must take a picture from the device's camera and highlight the license plate
+					\begin{itemize}
+						\item \textit{UserMobileApp}: the application let user take a picture only from the device's camera and highlight the license plate
+					\end{itemize}
+			{[R7]} When composing the report, time and date get automatically retrieved from the internet
+					\begin{itemize}
+						\item \textit{UserMobileApp}:  the application automatically retrieves time and date from the internet as soon the picture for the report has been confirmed
+					\end{itemize}
+			{[R8]} When composing the report, position gets automatically retrieved from the device's GPS
+					\begin{itemize}
+						\item \textit{UserMobileApp}: the application automatically retrieves position from the device's GPS as soon the picture for the report has been confirmed.
+					\end{itemize}
+			{[R9]} When composing the report, a user can choose at least one type of violation
+					\begin{itemize}
+						\item \textit{UserMobileApp}: the application let the user choosing at least one type of violation
+					\end{itemize}
+			{[R10]} When composing the report, a user can't add the same violation type two times in the same report
+					\begin{itemize}
+						\item \textit{UserMobileApp}: the application does not let the user add twice the same type of violation in the same report
+					\end{itemize}
+			{[R11]} When composing the report, a user can revert each phase of the creation of the report at any time, before sending it
+					\begin{itemize}
+						\item \textit{UserMobileApp}: the application let the user revert each phase of the creation of the report at any time, before sending it
+					\end{itemize}
+			{[R12]} When composing the report, a user can abort the creation of the report at any time, before sending it
+					\begin{itemize}
+						\item \textit{UserMobileApp}:the application let the user abort the creation of the report at any time, before sending it
+					\end{itemize}
+			{[R13]} Once a report has been sent, it can't be aborted or reverted
+					\begin{itemize}
+						\item \textit{UserMobileApp}: the application does not let the user abort or revert the report, after sending it
+					\end{itemize}
+			{[R14]} When receiving a report, the system must store it, recognize the car plate, if possible, and marked as unchecked
+					\begin{itemize}
+						\item \textit{ReportReceiver}: this component receives the report and does the following actions:
+							\begin{itemize}
+								\item retrieving of the municipality where the report has been created, by employing the MS APIs
+								\item recognizing the vehicle's plate in the picture, by employing the OCRS apis. In case of an unrecognizable plate, the report status is set to "NOT VALID" by default, otherwise is set to "NOT VERIFIED" by default(which means that a local officer has still to prove its validity)
+								\item saving the report in the system's database
+							\end{itemize}
+					\end{itemize}
+
+		\section{Get my reports}
+			{[R15]} When a user asks for his/her reports, the system must provide the saved reports sent by that user
+					\begin{itemize}
+						\item \textit{ReportMiner}: this component can fetch, from the database, all the reports sent by the requesting user and return them
+					\end{itemize}
+		\section{Get unsafe areas}
+			{[R16]} When getting the valid reports by area, a user can choose a position, or automatically get his/her from the GPS
+					\begin{itemize}
+						\item \textit{UserMobileApp}: the application, when getting the valid reports by area, let the user the possibility to choose between setting manually the position or fetching it via GPS
+					\end{itemize}
+			{[R17]} When getting the valid reports by area, the system must provide all the valid reports near the position given by the user and display their violation type through the MS
+					\begin{itemize}
+						\item \textit{ReportMiner}: this component can fetch, from the database, all the reports issued within 300 meters from the position received from the user and returns them
+					\end{itemize}
+		\section{Mine reports}
+			{[R18]} When mining the information, a municipal employee or a local officer can access only to violations type and date and time of reports occurred in his/her municipality
+				\begin{itemize}
+						\item \textit{ReportMiner}: this component fetches, from the database, only the reports issued in the same municipality of the requesting authority
+					\end{itemize}
+			{[R19]} When mining the information, a municipal employee or a local officer can filter reports by area, date, time or type of violation
+					\begin{itemize}
+						\item \textit{ReportMiner}: this component let the requesting authority fetching reports. If no filter is applied, then all the reports issued in the same municipality of the requesting authority are returned. Otherwise, a subset of them is chosen, according to one of the following chosen filter:
+							\begin{itemize}
+								\item by area: only reports issued within the given radius from the given position are returned
+								\item by date: only reports issued in the given date are returned
+								\item by time: only reports issued in the given time, regardless the date, are returned
+								\item by type of violation: only reports having the given type of violation are returned.
+							\end{itemize}
+					\end{itemize}
+		\section{Validate reports}
+			{[R20]} A municipal officer must be able to mark a report as valid or not valid
+				\begin{itemize}
+					\item \textit{ReportValidator}: this component can fetch "NOT VALID" reports, from the database, and let a local officer setting their status to "VALID" or "NOT VALID".
+				\end{itemize}
+		\section{Retrieve statistics}
+			{[R21]} When retrieving statistics, a municipal employee or a local officer can access only to reports of violations that occurred in his/her municipality
+				\begin{itemize}
+					\item \textit{StatisticsComputationManager} : this component, in order to compute statistics, makes a request to the component ReportMiner, with no filter applied (the type of the request is "all"), passing the token of the requesting authority. Thanks to the token, the ReportMiner is able to get the municipality with which filtering the reports
+				\end{itemize}
+			{[R22]} The system must be able to calculate statistics from the reports of violations and issued tickets of the municipal employee or local officer's municipality
+				\begin{itemize}
+					\item \textit{StatisticsComputationManager}: this component, once received the reports from the ReportMiner, cross them with the data coming form the TS and produce statistic, which are returned to the requesting authority, or component, in form of data
+					\item \textit{StatisticsDownloadManager}: this component let the requesting authority download a non materialized document of the statistics. The necessary data are obtained from the StatisticsComputationManager, by passing to it the token of the authority, with the approach described in the previous component description
+				\end{itemize}
+				
+		\section{Get improvements}
+			{[R23]} When getting improvements, a municipal employee can access only to data of reports occurred in his/her municipality
+				\begin{itemize}
+					\item \textit{ImprovementsManager}: this component, in order to compute improvements, makes a request to the component ReportMiner, with no filter applied (the type of the request is "all"), passing the token of the requesting authority. Thanks to the token, the ReportMiner is able to get the municipality with which filtering the reports
+				\end{itemize}
+			{[R24]} The system must be able to retrieve information about accidents from the MAS (municipal accident system)
+				\begin{itemize}
+					\item \textit{ImprovementsManager}: this component is able to asks the MAS for fetching data about happened accidents
+				\end{itemize}
+		{[R25]} The system must be able to identify the possible unsafe areas of the municipal employee or local officer's municipality from the reports of violations and data coming the MAS
+			\begin{itemize}
+				\item  ImprovementsManager: this component, by crossing the data coming from the MAS and from the ReportMiner, is able to compute new improvements, set as "NOT DONE" by default, and propose them, in addition to already computed "NOT DONE" improvements, obtained after previous requests and saved in the database.
+			\end{itemize}
+				

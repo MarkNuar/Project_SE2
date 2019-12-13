@@ -33,45 +33,36 @@
 \contentsline {paragraph}{}{11}%
 \contentsline {subsubsection}{\numberline {2.4.1.2}Get my reports}{12}%
 \contentsline {paragraph}{}{12}%
-\contentsline {subsubsection}{\numberline {2.4.1.3}Get unsafe areas}{13}%
-\contentsline {paragraph}{}{13}%
-\contentsline {subsection}{\numberline {2.4.2}Authority}{14}%
-\contentsline {subsubsection}{\numberline {2.4.2.1}Get statistics}{14}%
+\contentsline {subsubsection}{\numberline {2.4.1.3}Get unsafe areas}{14}%
 \contentsline {paragraph}{}{14}%
-\contentsline {subsubsection}{\numberline {2.4.2.2}Mine reports}{15}%
+\contentsline {subsection}{\numberline {2.4.2}Authority}{15}%
+\contentsline {subsubsection}{\numberline {2.4.2.1}Get statistics}{15}%
 \contentsline {paragraph}{}{15}%
-\contentsline {subsection}{\numberline {2.4.3}Local Officer}{16}%
-\contentsline {subsubsection}{\numberline {2.4.3.1}Validate reports}{16}%
+\contentsline {subsubsection}{\numberline {2.4.2.2}Mine reports}{16}%
 \contentsline {paragraph}{}{16}%
-\contentsline {subsection}{\numberline {2.4.4}Municipal Employee}{17}%
-\contentsline {subsubsection}{\numberline {2.4.4.1}Get improvements}{17}%
+\contentsline {subsection}{\numberline {2.4.3}Local Officer}{17}%
+\contentsline {subsubsection}{\numberline {2.4.3.1}Validate reports}{17}%
 \contentsline {paragraph}{}{17}%
-\contentsline {subsection}{\numberline {2.4.5}Extra cases}{18}%
-\contentsline {subsubsection}{\numberline {2.4.5.1}Database access error}{18}%
+\contentsline {subsection}{\numberline {2.4.4}Municipal Employee}{18}%
+\contentsline {subsubsection}{\numberline {2.4.4.1}Get improvements}{18}%
 \contentsline {paragraph}{}{18}%
-\contentsline {subsubsection}{\numberline {2.4.5.2}Invalid token}{19}%
+\contentsline {subsection}{\numberline {2.4.5}Extra cases}{19}%
+\contentsline {subsubsection}{\numberline {2.4.5.1}Database access error}{19}%
 \contentsline {paragraph}{}{19}%
-\contentsline {section}{\numberline {2.5}Component interfaces}{19}%
-\contentsline {paragraph}{}{19}%
-\contentsline {paragraph}{}{19}%
-\contentsline {subsection}{\numberline {2.5.1}Web Server interface and Report interface}{20}%
+\contentsline {subsubsection}{\numberline {2.4.5.2}Invalid token}{20}%
 \contentsline {paragraph}{}{20}%
-\contentsline {subsubsection}{\numberline {2.5.1.1}REST table of resources}{20}%
+\contentsline {section}{\numberline {2.5}Component interfaces}{20}%
 \contentsline {paragraph}{}{20}%
 \contentsline {paragraph}{}{20}%
+\contentsline {subsection}{\numberline {2.5.1}Web Server interface and Report interface}{21}%
 \contentsline {paragraph}{}{21}%
-\contentsline {subsubsection}{\numberline {2.5.1.2}General request description}{21}%
-\contentsline {paragraph}{}{21}%
-\contentsline {subsubsection}{\numberline {2.5.1.3}Detailed requests}{21}%
+\contentsline {subsubsection}{\numberline {2.5.1.1}REST table of resources}{21}%
 \contentsline {paragraph}{}{21}%
 \contentsline {paragraph}{}{21}%
 \contentsline {paragraph}{}{22}%
+\contentsline {subsubsection}{\numberline {2.5.1.2}General request description}{22}%
 \contentsline {paragraph}{}{22}%
-\contentsline {paragraph}{}{22}%
-\contentsline {paragraph}{}{22}%
-\contentsline {paragraph}{}{22}%
-\contentsline {paragraph}{}{22}%
-\contentsline {paragraph}{}{23}%
+\contentsline {subsubsection}{\numberline {2.5.1.3}Detailed requests}{23}%
 \contentsline {paragraph}{}{23}%
 \contentsline {paragraph}{}{23}%
 \contentsline {paragraph}{}{23}%
@@ -80,12 +71,231 @@
 \contentsline {paragraph}{}{24}%
 \contentsline {paragraph}{}{24}%
 \contentsline {paragraph}{}{24}%
+\contentsline {paragraph}{}{24}%
+\contentsline {paragraph}{}{24}%
 \contentsline {paragraph}{}{25}%
 \contentsline {paragraph}{}{25}%
 \contentsline {paragraph}{}{25}%
 \contentsline {paragraph}{}{25}%
-\contentsline {paragraph}{}{26}%
+\contentsline {paragraph}{}{25}%
 \contentsline {paragraph}{}{26}%
 \contentsline {paragraph}{}{26}%
 \contentsline {paragraph}{}{26}%
 \contentsline {paragraph}{}{27}%
+\contentsline {paragraph}{}{27}%
+\contentsline {paragraph}{}{27}%
+\contentsline {paragraph}{}{27}%
+\contentsline {paragraph}{}{28}%
+\contentsline {paragraph}{}{28}%
+\contentsline {paragraph}{}{28}%
+\contentsline {paragraph}{}{28}%
+\contentsline {paragraph}{}{29}%
+\contentsline {paragraph}{}{29}%
+\contentsline {paragraph}{}{29}%
+\contentsline {paragraph}{}{29}%
+\contentsline {paragraph}{}{30}%
+\contentsline {paragraph}{}{30}%
+\contentsline {paragraph}{}{30}%
+\contentsline {paragraph}{}{30}%
+\contentsline {paragraph}{}{31}%
+\contentsline {paragraph}{}{31}%
+\contentsline {paragraph}{}{31}%
+\contentsline {paragraph}{}{31}%
+\contentsline {paragraph}{}{32}%
+\contentsline {paragraph}{}{32}%
+\contentsline {paragraph}{}{33}%
+\contentsline {paragraph}{}{33}%
+\contentsline {paragraph}{}{33}%
+\contentsline {paragraph}{}{33}%
+\contentsline {paragraph}{}{33}%
+\contentsline {paragraph}{}{34}%
+\contentsline {paragraph}{}{34}%
+\contentsline {paragraph}{}{34}%
+\contentsline {paragraph}{}{34}%
+\contentsline {paragraph}{}{35}%
+\contentsline {paragraph}{}{35}%
+\contentsline {paragraph}{}{35}%
+\contentsline {paragraph}{}{35}%
+\contentsline {paragraph}{}{35}%
+\contentsline {paragraph}{}{36}%
+\contentsline {paragraph}{}{36}%
+\contentsline {paragraph}{}{36}%
+\contentsline {paragraph}{}{36}%
+\contentsline {paragraph}{}{36}%
+\contentsline {subsection}{\numberline {2.5.2}TS interface and MAS interface}{37}%
+\contentsline {paragraph}{}{37}%
+\contentsline {subsubsection}{\numberline {2.5.2.1}Request of data about accidents from the MAS}{37}%
+\contentsline {subsubsection}{\numberline {2.5.2.2}Request of data about tickets from the TS}{37}%
+\contentsline {subsubsection}{\numberline {2.5.2.3}Forwarding of data about valid reports to the TS}{38}%
+\contentsline {subsection}{\numberline {2.5.3}DBMS interface}{39}%
+\contentsline {paragraph}{}{39}%
+\contentsline {subsection}{\numberline {2.5.4}Map Service interface}{39}%
+\contentsline {paragraph}{}{39}%
+\contentsline {subsection}{\numberline {2.5.5}OCRS interface}{39}%
+\contentsline {paragraph}{}{39}%
+\contentsline {paragraph}{}{39}%
+\contentsline {subparagraph}{}{39}%
+\contentsline {subparagraph}{}{39}%
+\contentsline {subparagraph}{}{40}%
+\contentsline {subsection}{\numberline {2.5.6}Web and Application Server interfaces}{40}%
+\contentsline {paragraph}{}{40}%
+\contentsline {subsubsection}{\numberline {2.5.6.1}WebServerInterface}{40}%
+\contentsline {paragraph}{}{40}%
+\contentsline {subparagraph}{}{40}%
+\contentsline {subparagraph}{}{40}%
+\contentsline {subparagraph}{}{40}%
+\contentsline {subsubsection}{\numberline {2.5.6.2}RouterInterface}{41}%
+\contentsline {paragraph}{}{41}%
+\contentsline {subparagraph}{}{41}%
+\contentsline {subparagraph}{}{41}%
+\contentsline {subparagraph}{}{41}%
+\contentsline {subsubsection}{\numberline {2.5.6.3}ManageAccess}{41}%
+\contentsline {paragraph}{}{41}%
+\contentsline {subparagraph}{}{41}%
+\contentsline {subparagraph}{}{41}%
+\contentsline {subparagraph}{}{42}%
+\contentsline {paragraph}{}{42}%
+\contentsline {subparagraph}{}{42}%
+\contentsline {subparagraph}{}{42}%
+\contentsline {subparagraph}{}{42}%
+\contentsline {paragraph}{}{42}%
+\contentsline {subparagraph}{}{42}%
+\contentsline {subparagraph}{}{43}%
+\contentsline {subparagraph}{}{43}%
+\contentsline {subsubsection}{\numberline {2.5.6.4}ManageReport}{43}%
+\contentsline {paragraph}{}{43}%
+\contentsline {subparagraph}{}{43}%
+\contentsline {subparagraph}{}{43}%
+\contentsline {paragraph}{}{43}%
+\contentsline {subparagraph}{}{44}%
+\contentsline {subparagraph}{}{44}%
+\contentsline {subparagraph}{}{44}%
+\contentsline {paragraph}{}{44}%
+\contentsline {subparagraph}{}{44}%
+\contentsline {subparagraph}{}{44}%
+\contentsline {subparagraph}{}{45}%
+\contentsline {subsubsection}{\numberline {2.5.6.5}ManageReportMining}{45}%
+\contentsline {paragraph}{}{45}%
+\contentsline {subparagraph}{}{45}%
+\contentsline {subparagraph}{}{45}%
+\contentsline {subparagraph}{}{45}%
+\contentsline {paragraph}{}{45}%
+\contentsline {subparagraph}{}{46}%
+\contentsline {subparagraph}{}{46}%
+\contentsline {paragraph}{}{46}%
+\contentsline {subparagraph}{}{46}%
+\contentsline {subparagraph}{}{46}%
+\contentsline {subparagraph}{}{47}%
+\contentsline {subsubsection}{\numberline {2.5.6.6}ManageImprovements}{47}%
+\contentsline {paragraph}{}{47}%
+\contentsline {subparagraph}{}{47}%
+\contentsline {subparagraph}{}{47}%
+\contentsline {subparagraph}{}{47}%
+\contentsline {paragraph}{}{47}%
+\contentsline {subparagraph}{}{48}%
+\contentsline {paragraph}{}{48}%
+\contentsline {subparagraph}{}{48}%
+\contentsline {subparagraph}{}{48}%
+\contentsline {subparagraph}{}{48}%
+\contentsline {subsubsection}{\numberline {2.5.6.7}ManageStatisticsComputation}{48}%
+\contentsline {paragraph}{}{48}%
+\contentsline {subparagraph}{}{49}%
+\contentsline {subparagraph}{}{49}%
+\contentsline {subparagraph}{}{49}%
+\contentsline {subsubsection}{\numberline {2.5.6.8}ManageStatisticsDownload}{49}%
+\contentsline {paragraph}{}{49}%
+\contentsline {subparagraph}{}{49}%
+\contentsline {subparagraph}{}{49}%
+\contentsline {subparagraph}{}{50}%
+\contentsline {subsubsection}{\numberline {2.5.6.9}UserHandler}{50}%
+\contentsline {paragraph}{}{50}%
+\contentsline {subparagraph}{}{50}%
+\contentsline {subparagraph}{}{50}%
+\contentsline {paragraph}{}{50}%
+\contentsline {subparagraph}{}{50}%
+\contentsline {subparagraph}{}{50}%
+\contentsline {paragraph}{}{50}%
+\contentsline {subparagraph}{}{50}%
+\contentsline {paragraph}{}{50}%
+\contentsline {subparagraph}{}{50}%
+\contentsline {subparagraph}{}{50}%
+\contentsline {subparagraph}{}{50}%
+\contentsline {subsubsection}{\numberline {2.5.6.10}AuthorityHandler}{52}%
+\contentsline {paragraph}{}{52}%
+\contentsline {subparagraph}{}{52}%
+\contentsline {subparagraph}{}{52}%
+\contentsline {subparagraph}{}{52}%
+\contentsline {subsubsection}{\numberline {2.5.6.11}ReportHandler}{52}%
+\contentsline {paragraph}{}{52}%
+\contentsline {subparagraph}{}{52}%
+\contentsline {subparagraph}{}{52}%
+\contentsline {paragraph}{}{52}%
+\contentsline {subparagraph}{}{52}%
+\contentsline {subparagraph}{}{52}%
+\contentsline {subparagraph}{}{52}%
+\contentsline {paragraph}{}{52}%
+\contentsline {subparagraph}{}{52}%
+\contentsline {subparagraph}{}{53}%
+\contentsline {subparagraph}{}{53}%
+\contentsline {paragraph}{}{53}%
+\contentsline {subparagraph}{}{53}%
+\contentsline {paragraph}{}{53}%
+\contentsline {subparagraph}{}{53}%
+\contentsline {subparagraph}{}{53}%
+\contentsline {subparagraph}{}{53}%
+\contentsline {subsubsection}{\numberline {2.5.6.12}ImprovementHandler}{54}%
+\contentsline {paragraph}{}{54}%
+\contentsline {subparagraph}{}{54}%
+\contentsline {paragraph}{}{54}%
+\contentsline {subparagraph}{}{54}%
+\contentsline {subparagraph}{}{54}%
+\contentsline {subparagraph}{}{55}%
+\contentsline {paragraph}{}{55}%
+\contentsline {subparagraph}{}{55}%
+\contentsline {section}{\numberline {2.6}Selected architectural styles and patterns}{55}%
+\contentsline {paragraph}{}{55}%
+\contentsline {section}{\numberline {2.7}Other design decisions}{56}%
+\contentsline {subsection}{\numberline {2.7.1}Framework selection}{56}%
+\contentsline {paragraph}{}{56}%
+\contentsline {subsection}{\numberline {2.7.2}Security}{56}%
+\contentsline {paragraph}{}{56}%
+\contentsline {subsection}{\numberline {2.7.3}Service providers}{56}%
+\contentsline {paragraph}{}{56}%
+\contentsline {chapter}{\numberline {3}User interface design}{57}%
+\contentsline {section}{\numberline {3.1}User flow}{57}%
+\contentsline {subsection}{\numberline {3.1.1}User simple flow}{57}%
+\contentsline {subsection}{\numberline {3.1.2}User flow with mockups}{57}%
+\contentsline {section}{\numberline {3.2}Authority flow}{58}%
+\contentsline {subsection}{\numberline {3.2.1}Authority simple flow}{58}%
+\contentsline {subsection}{\numberline {3.2.2}Authority flow with mockups}{58}%
+\contentsline {subsection}{\numberline {3.2.3}Municipal Employee flow}{59}%
+\contentsline {subsection}{\numberline {3.2.4}Local Officer flow}{60}%
+\contentsline {chapter}{\numberline {4}Requirement traceability}{61}%
+\contentsline {section}{\numberline {4.1}Sign up}{61}%
+\contentsline {section}{\numberline {4.2}Login}{61}%
+\contentsline {section}{\numberline {4.3}Add report}{61}%
+\contentsline {section}{\numberline {4.4}Get my reports}{63}%
+\contentsline {section}{\numberline {4.5}Get unsafe areas}{63}%
+\contentsline {section}{\numberline {4.6}Mine reports}{63}%
+\contentsline {section}{\numberline {4.7}Validate reports}{64}%
+\contentsline {section}{\numberline {4.8}Retrieve statistics}{64}%
+\contentsline {section}{\numberline {4.9}Get improvements}{64}%
+\contentsline {chapter}{\numberline {5}Implementation, integration and test plan}{66}%
+\contentsline {paragraph}{}{66}%
+\contentsline {paragraph}{}{66}%
+\contentsline {paragraph}{}{66}%
+\contentsline {paragraph}{}{66}%
+\contentsline {paragraph}{}{67}%
+\contentsline {paragraph}{}{67}%
+\contentsline {paragraph}{}{69}%
+\contentsline {paragraph}{}{69}%
+\contentsline {paragraph}{}{70}%
+\contentsline {paragraph}{}{70}%
+\contentsline {paragraph}{}{71}%
+\contentsline {paragraph}{}{71}%
+\contentsline {paragraph}{}{71}%
+\contentsline {paragraph}{}{72}%
+\contentsline {paragraph}{}{73}%
+\contentsline {paragraph}{}{73}%
+\contentsline {chapter}{\numberline {6}Effort spent}{74}%
+\contentsline {chapter}{\numberline {7}References}{75}%
