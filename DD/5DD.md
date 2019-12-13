@@ -49,6 +49,7 @@ It is important to note that, components enlisted in the same "Phase of I&T" hav
 | 2 | StatisticsComputationManager | See statistics for ME/LO |
 | 3 | StatisticsDownloadManager | Download statistics for ME/LO |
 | 4 | Router | No specific user feature |
+| 4 | QueryManager | No specific user feature |
 | 4 | SignUpManager | SignUp and Login |
 | 4 | LoginManager | SignUp and Login |
 | 5 | WebServer | No specific user feature |
