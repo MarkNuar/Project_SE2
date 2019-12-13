@@ -174,11 +174,11 @@
 					\paragraph{}
 						This sequence diagram shows the request of improvements from a ME. 
 						
-						Using the standard route, the request reaches the ImprovementManager, which gets from the MAS, through a GET request, the list of accidents that took place in the ME's municipality. The ReportMiner then is tasked to obtain, from the QueryManager, the list of reports of the municipality, retuning them in case of success, or returning an error to the Web App in case of failure. 
+						Using the standard route, the request reaches the ImprovementManager, which gets from the MAS, through a GET request, the list of accidents that took place in the ME's municipality. The ReportMiner then is tasked to obtain, from the QueryManager, the list of valid reports of the municipality, retuning them in case of success. With the data received from the MAS and the ReportMiner, the ImprovementManager computes all possible improvements that, in a loop, are sent and memorized on the database only if they were not already present.
 						
-						With the data received from the MAS and the ReportMiner, the ImprovementManager computes all possible improvements that, in a loop, are sent and memorized on the database only if they were not already present. Finished the update, the ImprovementManager retrieves from the database, using the "retrieveImprovements" function of the QueryManager, all possible "NOT DONE" improvements for the ME's municipality. The list of improvements is then sent back through the Router to the Web App where the ME can visualize and eventually set them as "DONE". 
+						If no reports are received, the possible improvements are not updated.  Finished the update, the ImprovementManager retrieves from the database, using the "retrieveImprovements" function of the QueryManager, all possible "NOT DONE" improvements for the ME's municipality. The list of improvements is then sent back through the Router to the Web App where the ME can visualize and eventually set them as "DONE". When at least one improvement gets its status changed, the Web App sends a request back to the Web Server and the Router. The ImprovementManager is then called by the Router to update the status of the improvement on the database.
 						
-						When at least one improvement gets its status changed, the Web App sends a request back to the Web Server and the Router. The ImprovementManager is then called by the Router to update the status of the improvement on the database.
+						If no improvements are received, an error message is displayed to the authority, saying that there are no possible improvements.
 			\subsection{Extra cases}
 				\subsubsection{Database access error}
 					\begin{figure}[!h]
@@ -1005,57 +1005,56 @@
 				\subsubsection{Request of data about accidents from the MAS}
 				This request will be structured as a GET and the expected success message will be structured as follows.
 					\begin{table}[!h]
-						\begin{tabular}{L{0.23\textwidth}L{0.15\textwidth}L{0.42\textwidth}}
+						\begin{tabular}{L{0.3\textwidth}L{0.15\textwidth}L{0.43\textwidth}}
 							\toprule
 							\textbf{Field} & \textbf{Type} & \textbf{Description} \\
 							\midrule
 									accidents & Object[] & The list of accidents that a Municipality can provide \\
-									\hspace{2.5mm}date & String & The datetime in \newline dd-MM-yyyyThh:mm:ss format \\
-									\hspace{2.5mm}position & Object & The position, expressed in DMS, where the accident happened \\
-									\hspace{5mm}latitude & String & The latitude where the accident was recorded to have happened \\
-									\hspace{5mm}longitude & String & The longitude where the vehicle was recorded to have happened \\
-									\hspace{2.5mm}vehicles & Object[] & The vehicles that were involved in the accident \\
-									\hspace{5mm}licensePlate & String & The license plate of the vehicle \\
+									\hspace{2.5mm}$\hookrightarrow$date & String & The datetime in \newline dd-MM-yyyyThh:mm:ss format \\
+									\hspace{2.5mm}$\hookrightarrow$position & Object & The position, expressed in DMS, where the accident happened \\
+									\hspace{6.5mm}$\hookrightarrow$latitude & String & The latitude where the accident was recorded to have happened \\
+									\hspace{6.5mm}$\hookrightarrow$longitude & String & The longitude where the vehicle was recorded to have happened \\
+									\hspace{2.5mm}$\hookrightarrow$vehicles & Object[] & The vehicles that were involved in the accident \\
+									\hspace{6.5mm}$\hookrightarrow$licensePlate & String & The license plate of the vehicle \\
 								 	\bottomrule
 								\end{tabular}
 							\end{table}
 				\subsubsection{Request of data about tickets from the TS}
 					This request will be structured as a GET, the expected success message will be structured as follows.
 					\begin{table}[!h]
-						\begin{tabular}{L{0.22\textwidth}L{0.15\textwidth}L{0.43\textwidth}}
+						\begin{tabular}{L{0.3\textwidth}L{0.15\textwidth}L{0.43\textwidth}}
 							\toprule
 							\textbf{Field} & \textbf{Type} & \textbf{Description} \\
 							\midrule
 							tickets & Object[] & The tickets issued in a certain Municipality \\
-							\hspace{2.5mm}vehicle & Object & The vehicle information \\
-							\hspace{5mm}licensePlate & String & The license plate of the vehicle \\
-							\hspace{2.5mm}position & Object & The position, expressed in DMS, of the vehicle when the ticket was issued  \\
-							\hspace{5mm}latitude & String & The latitude where the vehicle was recorded to be \\
-							\hspace{5mm}longitude & String & The longitude where the vehicle was recorded to be \\
-							\hspace{2.5mm}violation & Object[] & An array of the type of violation \\
+							\hspace{2.5mm}$\hookrightarrow$vehicle & Object & The vehicle information \\
+							\hspace{6.5mm}$\hookrightarrow$licensePlate & String & The license plate of the vehicle \\
+							\hspace{2.5mm}$\hookrightarrow$position & Object & The position, expressed in DMS, of the vehicle when the ticket was issued  \\
+							\hspace{6.5mm}$\hookrightarrow$latitude & String & The latitude where the vehicle was recorded to be \\
+							\hspace{6.5mm}$\hookrightarrow$longitude & String & The longitude where the vehicle was recorded to be \\
+							\hspace{2.5mm}$\hookrightarrow$violation & Object[] & An array of the type of violation \\
 							\hspace{5mm}violationType & String & The type of violation \\
-							\hspace{2.5mm}date & String & The datetime in \newline dd-MM-yyyyThh:mm:ss format \\								 	\bottomrule
+							\hspace{2.5mm}$\hookrightarrow$date & String & The datetime in \newline dd-MM-yyyyThh:mm:ss format \\								 	\bottomrule
 								\end{tabular}
 							\end{table}
-					\subsubsection{Forwarding of data about valid reports to the TS}
+					\subsubsection{Forwarding data about valid reports to the TS}
 						The request will structured as a POST, the content of the sent message will be as follows.
 						\begin{table}[!h]
-						\begin{tabular}{L{0.23\textwidth}L{0.15\textwidth}L{0.42\textwidth}}
+						\begin{tabular}{L{0.3\textwidth}L{0.15\textwidth}L{0.43\textwidth}}
 							\toprule
 							\textbf{Field} & \textbf{Type} & \textbf{Description} \\
 							\midrule
 							vehicle & Object & The vehicle information \\
-							\hspace{2.5mm}licensePlate & String & The license plate of the vehicle \\
+							\hspace{2.5mm}$\hookrightarrow$licensePlate & String & The license plate of the vehicle \\
 							position & Object & The position, expressed in DMS, of the vehicle when the ticket was issued  \\
-							\hspace{2.5mm}latitude & String & The latitude where the vehicle was recorded to be \\
-							\hspace{2.5mm}longitude & String & The longitude where the vehicle was recorded to be \\
+							\hspace{2.5mm}$\hookrightarrow$latitude & String & The latitude where the vehicle was recorded to be \\
+							\hspace{2.5mm}$\hookrightarrow$longitude & String & The longitude where the vehicle was recorded to be \\
 							violation & Object[] & An array of the type of violation \\
-							\hspace{2.5mm}violationType & String & The type of violation \\
+							\hspace{2.5mm}$\hookrightarrow$violationType & String & The type of violation \\
 							date & String & The datetime in \newline dd-MM-yyyyThh:mm:ss format \\
 								 	\bottomrule
 								\end{tabular}
 							\end{table}
-			\clearpage
 			\subsection{DBMS interface}
 				\paragraph{}
 					The communication between the database and our system will be handled by the DBMS communicating with QueryManager component. 
@@ -1066,6 +1065,7 @@
 				\paragraph{}
 					The map service that will be adopted is the one provided by Google, in particular the Geocoding API and the SDK maps API will be used.
 					
+			\clearpage
 			\subsection{OCRS interface}
 				\paragraph{}
 					The OCRS is a bought component imported in our system. It exposes only one method, used for recognizing car plates from an image and an highlighted area on it, added by the user.
@@ -1074,26 +1074,26 @@
 							\textbf{recognizePlate}: This method is used for recognizing a vehicle's plate given its picture and an highlighted area on it. The highlighted area is defined by a rectangle, which is represented by its vertexes' coordinates. 
 							\subparagraph{}
 							\vspace{-3mm}
-							\textit{\textbf{Parameters}}
+							\textcolor{myBlue}{\textit{\textbf{Parameters}}}
 							\vspace{-2mm}
 								\begin{table}[!h]
-									\begin{tabular}{L{0.25\textwidth}L{0.2\textwidth}L{0.35\textwidth}}
+									\begin{tabular}{L{0.3\textwidth}L{0.15\textwidth}L{0.43\textwidth}}
 										\toprule
 										\textbf{Name} & \textbf{Type} & \textbf{Description} \\
 										\midrule
 								  		picture & Object & Representation of the image of the vehicle \\
 								  		highlightVertexes & Object & The coordinates on the picture of where the license plate is located \\
-								  		\hspace{2.5mm}vertexOne & Number[] & The coordinates of the \newline top-left vertex \\
-								  		\hspace{2.5mm}vertexTwo & Number[] & The coordinates of the \newline bottom-right vertex \\
+								  		\hspace{2.5mm}$\hookrightarrow$vertexOne & Number[] & The coordinates of the \newline top-left vertex \\
+								  		\hspace{2.5mm}$\hookrightarrow$vertexTwo & Number[] & The coordinates of the \newline bottom-right vertex \\
 								 		\bottomrule
 									\end{tabular}
 								\end{table}
 							\subparagraph{}
-							\vspace{-6mm}
-								\textit{\textbf{Return}}
+							\vspace{-4mm}
+								\textcolor{myGreen}{\textit{\textbf{Return}}}
 								\vspace{-2mm}
 									\begin{table}[!h]
-									\begin{tabular}{L{0.15\textwidth}L{0.65\textwidth}}
+									\begin{tabular}{L{0.15\textwidth}L{0.73\textwidth}}
 										\toprule
 										\textbf{Type} & \textbf{Description} \\
 										\midrule
@@ -1101,34 +1101,34 @@
 								 		\bottomrule
 									\end{tabular}
 								\end{table}
-							\clearpage
 							\subparagraph{}
-								\textit{\textbf{Exceptions}}
+								\vspace{-5mm}
+								\textcolor{myRed}{\textit{\textbf{Exceptions}}}
 								\vspace{-2mm}
 									\begin{table}[!h]
-									\begin{tabular}{lL{0.4\textwidth}}
+									\begin{tabular}{L{0.4\textwidth}L{0.52\textwidth}}
 										\toprule
 										\textbf{Name} & \textbf{Description} \\
 										\midrule
 								  		PlateNotRecognizedException & This exception is thrown when the plate is not recognizable from the given picture \\
 								 		\bottomrule
 									\end{tabular}
-								\end{table}
-								
+								\end{table}		
 			\subsection{Web and Application Server interfaces}
 				\paragraph{}
 					The Web server has one interface, responsible for receiving REST requests and handle them by responding directly, if the request comes from a WebApplication and the response is cached, otherwise by forwarding to the router through the RouterInterface. 
 					
 					The Application server has one external interface, the RouterInterface, and has more internal interface, for each one of its components, as described below.
+				\clearpage
 				\subsubsection{WebServerInterface}
 					\paragraph{}
-							\textbf{handleRequest}: This method is used for handling the REST requests coming from the clients. In particular, if the WebServer has the response, returns directly it, otherwise forward the request to the RouterInterface.
+							\textbf{handleRequest}: this method is used for handling the REST requests coming from the clients. In particular, if the WebServer has the response, returns directly it, otherwise forward the request to the RouterInterface.
 							\subparagraph{}
 							\vspace{-3mm}
-							\textit{\textbf{Parameters}}
+							\textcolor{myBlue}{\textit{\textbf{Parameters}}}
 							\vspace{-2mm}
 								\begin{table}[!h]
-									\begin{tabular}{L{0.15\textwidth}L{0.15\textwidth}L{0.5\textwidth}}
+									\begin{tabular}{L{0.15\textwidth}L{0.15\textwidth}L{0.58\textwidth}}
 										\toprule
 										\textbf{Name} & \textbf{Type} & \textbf{Description} \\
 										\midrule
@@ -1138,10 +1138,10 @@
 								\end{table}
 							\subparagraph{}
 							\vspace{-6mm}
-								\textit{\textbf{Return}}
+								\textcolor{myGreen}{\textit{\textbf{Return}}}
 								\vspace{-2mm}
 									\begin{table}[!h]
-									\begin{tabular}{L{0.15\textwidth}L{0.65\textwidth}}
+									\begin{tabular}{L{0.15\textwidth}L{0.77\textwidth}}
 										\toprule
 										\textbf{Type} & \textbf{Description} \\
 										\midrule
@@ -1151,27 +1151,26 @@
 								\end{table}
 							\subparagraph{}
 							\vspace{-6mm}
-								\textit{\textbf{Exceptions}}
+								\textcolor{myRed}{\textit{\textbf{Exceptions}}}
 								\vspace{-2mm}
 									\begin{table}[!h]
-									\begin{tabular}{L{0.15\textwidth}L{0.65\textwidth}}
+									\begin{tabular}{L{0.15\textwidth}L{0.77\textwidth}}
 										\toprule
 										\textbf{Name} & \textbf{Description} \\
 										\midrule
 								  		Exception & When an error occurs on Server's side, an xml file containing the description of the exception is returned \\ 
 								 		\bottomrule
 									\end{tabular}
-								\end{table}
-				\clearpage		
+								\end{table}	
 				\subsubsection{RouterInterface}
 					\paragraph{}
 							\textbf{forwardRequest}: this method is used for handling the REST requests coming from the WebServer. In particular it forward the requests to the correct component.
 							\subparagraph{}
 							\vspace{-3mm}
-							\textit{\textbf{Parameters}}
+							\textcolor{myBlue}{\textit{\textbf{Parameters}}}
 							\vspace{-2mm}
 								\begin{table}[!h]
-									\begin{tabular}{L{0.15\textwidth}L{0.15\textwidth}L{0.5\textwidth}}
+									\begin{tabular}{L{0.15\textwidth}L{0.15\textwidth}L{0.58\textwidth}}
 										\toprule
 										\textbf{Name} & \textbf{Type} & \textbf{Description} \\
 										\midrule
@@ -1181,10 +1180,10 @@
 								\end{table}
 							\subparagraph{}
 							\vspace{-6mm}
-								\textit{\textbf{Return}}
+								\textcolor{myGreen}{\textit{\textbf{Return}}}
 								\vspace{-2mm}
 									\begin{table}[!h]
-									\begin{tabular}{L{0.2\textwidth}L{0.6\textwidth}}
+									\begin{tabular}{L{0.15\textwidth}L{0.77\textwidth}}
 										\toprule
 										\textbf{Type} & \textbf{Description} \\
 										\midrule
@@ -1194,10 +1193,10 @@
 								\end{table}
 							\subparagraph{}
 							\vspace{-6mm}
-								\textit{\textbf{Exceptions}}
+								\textcolor{myRed}{\textit{\textbf{Exceptions}}}
 								\vspace{-2mm}
 									\begin{table}[!h]
-									\begin{tabular}{L{0.2\textwidth}L{0.6\textwidth}}
+									\begin{tabular}{L{0.2\textwidth}L{0.72\textwidth}}
 										\toprule
 										\textbf{Name} & \textbf{Description} \\
 										\midrule
@@ -1205,16 +1204,16 @@
 								 		\bottomrule
 									\end{tabular}
 								\end{table}
-						
+				\clearpage	
 				\subsubsection{ManageAccess}
 					\paragraph{}
 							\textbf{signUpUser}: this method is used for registering a user in the system
 							\subparagraph{}
 							\vspace{-3mm}
-							\textit{\textbf{Parameters}}
+							\textcolor{myBlue}{\textit{\textbf{Parameters}}}
 							\vspace{-2mm}
 								\begin{table}[!h]
-									\begin{tabular}{L{0.2\textwidth}L{0.2\textwidth}L{0.4\textwidth}}
+									\begin{tabular}{L{0.2\textwidth}L{0.15\textwidth}L{0.43\textwidth}}
 										\toprule
 										\textbf{Name} & \textbf{Type} & \textbf{Description} \\
 										\midrule
@@ -1226,11 +1225,11 @@
 									\end{tabular}
 								\end{table}
 							\subparagraph{}
-							\vspace{-6mm}
-								\textit{\textbf{Return}}
+							\vspace{-7mm}
+								\textcolor{myGreen}{\textit{\textbf{Return}}}
 								\vspace{-2mm}
 									\begin{table}[!h]
-									\begin{tabular}{L{0.15\textwidth}L{0.65\textwidth}}
+									\begin{tabular}{L{0.15\textwidth}L{0.77\textwidth}}
 										\toprule
 										\textbf{Type} & \textbf{Description} \\
 										\midrule
@@ -1238,12 +1237,12 @@
 								 		\bottomrule
 									\end{tabular}
 								\end{table}
-							\clearpage
 							\subparagraph{}
-								\textit{\textbf{Exceptions}}
+							\vspace{-7mm}
+								\textcolor{myRed}{\textit{\textbf{Exceptions}}}
 								\vspace{-2mm}
 									\begin{table}[!h]
-									\begin{tabular}{L{0.4\textwidth}L{0.4\textwidth}}
+									\begin{tabular}{L{0.4\textwidth}L{0.52\textwidth}}
 										\toprule
 										\textbf{Name} & \textbf{Description} \\
 										\midrule
@@ -1255,13 +1254,14 @@
 								\end{table}
 							
 					\paragraph{}
+					\vspace{-1mm}
 							\textbf{loginUser}: this method is used for logging a user in the system, by providing it a token used for further validation
 							\subparagraph{}
 							\vspace{-3mm}
-							\textit{\textbf{Parameters}}
+							\textcolor{myBlue}{\textit{\textbf{Parameters}}}
 							\vspace{-2mm}
 								\begin{table}[!h]
-									\begin{tabular}{L{0.2\textwidth}L{0.15\textwidth}L{0.45\textwidth}}
+									\begin{tabular}{L{0.2\textwidth}L{0.15\textwidth}L{0.53\textwidth}}
 										\toprule
 										\textbf{Name} & \textbf{Type} & \textbf{Description} \\
 										\midrule
@@ -1271,11 +1271,11 @@
 									\end{tabular}
 								\end{table}
 							\subparagraph{}
-							\vspace{-6mm}
-								\textit{\textbf{Return}}
+							\vspace{-7mm}
+								\textcolor{myGreen}{\textit{\textbf{Return}}}
 								\vspace{-2mm}
 									\begin{table}[!h]
-									\begin{tabular}{L{0.15\textwidth}L{0.65\textwidth}}
+									\begin{tabular}{L{0.15\textwidth}L{0.77\textwidth}}
 										\toprule
 										\textbf{Type} & \textbf{Description} \\
 										\midrule
@@ -1284,11 +1284,11 @@
 									\end{tabular}
 								\end{table}
 							\subparagraph{}
-							\vspace{-6mm}
-								\textit{\textbf{Exceptions}}
+							\vspace{-7mm}
+								\textcolor{myRed}{\textit{\textbf{Exceptions}}}
 								\vspace{-2mm}
 									\begin{table}[!h]
-									\begin{tabular}{L{0.5\textwidth}L{0.3\textwidth}}
+									\begin{tabular}{L{0.5\textwidth}L{0.42\textwidth}}
 										\toprule
 										\textbf{Name} & \textbf{Description} \\
 										\midrule
@@ -1296,15 +1296,15 @@
 								 		\bottomrule
 									\end{tabular}
 								\end{table}
-								
+					\clearpage			
 					\paragraph{}
 							\textbf{loginAuthority}: this method is used for logging an authority in the system, by providing it a token used for further validation
 							\subparagraph{}
 							\vspace{-3mm}
-							\textit{\textbf{Parameters}}
+							\textcolor{myBlue}{\textit{\textbf{Parameters}}}
 							\vspace{-2mm}
 								\begin{table}[!h]
-									\begin{tabular}{L{0.2\textwidth}L{0.15\textwidth}L{0.45\textwidth}}
+									\begin{tabular}{L{0.15\textwidth}L{0.15\textwidth}L{0.53\textwidth}}
 										\toprule
 										\textbf{Name} & \textbf{Type} & \textbf{Description} \\
 										\midrule
@@ -1314,12 +1314,12 @@
 								 		\bottomrule
 									\end{tabular}
 								\end{table}
-							\clearpage
 							\subparagraph{}
-								\textit{\textbf{Return}}
+							\vspace{-6mm}
+								\textcolor{myGreen}{\textit{\textbf{Return}}}
 								\vspace{-2mm}
 									\begin{table}[!h]
-									\begin{tabular}{L{0.2\textwidth}L{0.6\textwidth}}
+									\begin{tabular}{L{0.15\textwidth}L{0.77\textwidth}}
 										\toprule
 										\textbf{Type} & \textbf{Description} \\
 										\midrule
@@ -1329,10 +1329,10 @@
 								\end{table}
 							\subparagraph{}
 							\vspace{-6mm}
-								\textit{\textbf{Exceptions}}
+								\textcolor{myRed}{\textit{\textbf{Exceptions}}}
 								\vspace{-2mm}
 									\begin{table}[!h]
-									\begin{tabular}{L{0.5\textwidth}L{0.3\textwidth}}
+									\begin{tabular}{L{0.5\textwidth}L{0.42\textwidth}}
 										\toprule
 										\textbf{Name} & \textbf{Description} \\
 										\midrule
@@ -1347,10 +1347,10 @@
 							\textbf{addReport}: this method is used for adding a new Report. In particular it tries to recognize the  plate with the help of the OCRS and, if the plate is not recognized, the status of the report is set to "NOT VALID", otherwise is set to "NOT VERIFIED". Then saves the report in the database. The returned string is the identifier of the report, used for further requests made by the user. 
 							\subparagraph{}
 							\vspace{-3mm}
-							\textit{\textbf{Parameters}}
+							\textcolor{myBlue}{\textit{\textbf{Parameters}}}
 							\vspace{-2mm}
 								\begin{table}[!h]
-									\begin{tabular}{L{0.15\textwidth}L{0.15\textwidth}L{0.5\textwidth}}
+									\begin{tabular}{L{0.15\textwidth}L{0.15\textwidth}L{0.58\textwidth}}
 										\toprule
 										\textbf{Name} & \textbf{Type} & \textbf{Description} \\
 										\midrule
@@ -1361,10 +1361,10 @@
 								\end{table}
 							\subparagraph{}
 							\vspace{-6mm}
-								\textit{\textbf{Return}}
+								\textcolor{myGreen}{\textit{\textbf{Return}}}
 								\vspace{-2mm}
 									\begin{table}[!h]
-									\begin{tabular}{L{0.15\textwidth}L{0.65\textwidth}}
+									\begin{tabular}{L{0.15\textwidth}L{0.77\textwidth}}
 										\toprule
 										\textbf{Type} & \textbf{Description} \\
 										\midrule
@@ -1372,11 +1372,10 @@
 								 		\bottomrule
 									\end{tabular}
 								\end{table}
-					
+					\clearpage
 					\paragraph{}
 							\textbf{getNotVerifiedReports}: this method is used for fetching all the reports in the
 database, issued in the municipality specified by the municipalityID, which have still to be verified
-							\clearpage
 							\subparagraph{}
 							\textit{\textbf{Parameters}}
 							\vspace{-2mm}
