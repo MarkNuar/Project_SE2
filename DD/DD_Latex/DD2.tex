@@ -770,15 +770,17 @@
 							\end{table}
 						
 						\clearpage
+						\begin{figure}[!h]
+							\includegraphics[width=\textwidth]{images/Restful/GetImprovements}
+						\end{figure}
 						\paragraph{}
-						\textbf{GET} /improvements/?id={id}
-						
+						\vspace{-7.5mm}
 						This request retrieves all the suggested improvements in a certain municipality
 						\paragraph{}
-							\textit{\textbf{Parameters}}
+							\textcolor{myBlue}{\textit{\textbf{Parameters}}}
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.2\textwidth}L{0.2\textwidth}L{0.4\textwidth}}
+								\begin{tabular}{L{0.15\textwidth}L{0.15\textwidth}L{0.58\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Type} & \textbf{Description} \\
 									\midrule
@@ -786,31 +788,30 @@
 								 	\bottomrule
 								\end{tabular}
 							\end{table}
-						\clearpage
 						\paragraph{}
-							\textit{\textbf{Success 200}} (request ok)
+							\textcolor{myGreen}{\textit{\textbf{Success 200}}} (request ok)
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.22\textwidth}L{0.15\textwidth}L{0.45\textwidth}}
+								\begin{tabular}{L{0.3\textwidth}L{0.15\textwidth}L{0.43\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Type} & \textbf{Description} \\
 									\midrule
 									improvements & Object[] & The list of suggested improvements \\
-									\hspace{2.5mm}type & String & The type of the improvement\\
-									\hspace{2.5mm}position & Object & The position of the improvement expresses in DMS \\
-									\hspace{5mm}latitude & String & The latitude where the suggested improvement will be expected to be \\
-									\hspace{5mm}longitude & String & The longitude where the suggested improvement will be expected to be  \\
-									\hspace{2.5mm}state & String & The status of the improvement, "DONE" or "NOT DONE" \\
-									\hspace{2.5mm}improvementId & String & The id that uniquely identifies the improvement on the database \\
+									\hspace{2.5mm}$\hookrightarrow$type & String & The type of the improvement\\
+									\hspace{2.5mm}$\hookrightarrow$position & Object & The position of the improvement expresses in DMS \\
+									\hspace{6.5mm}$\hookrightarrow$latitude & String & The latitude where the suggested improvement will be expected to be \\
+									\hspace{6.5mm}$\hookrightarrow$longitude & String & The longitude where the suggested improvement will be expected to be  \\
+									\hspace{2.5mm}$\hookrightarrow$state & String & The status of the improvement, "DONE" or "NOT DONE" \\
+									\hspace{2.5mm}$\hookrightarrow$improvementId & String & The id that uniquely identifies the improvement on the database \\
 								 	\bottomrule
 								\end{tabular}
 							\end{table}
 						\vspace{-5mm}
 						\paragraph{}
-							\textit{\textbf{Error 403}} (Forbidden)
+							\textcolor{myRed}{\textit{\textbf{Error 403}}} (Forbidden)
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.4\textwidth}L{0.4\textwidth}}
+								\begin{tabular}{L{0.3\textwidth}L{0.62\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Description} \\
 									\midrule
@@ -820,10 +821,10 @@
 							\end{table}
 						\vspace{-5mm}
 						\paragraph{}
-							\textit{\textbf{Error 404}} (Resource not found)
+							\textcolor{myRed}{\textit{\textbf{Error 404}}} (Resource not found)
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.3\textwidth}L{0.5\textwidth}}
+								\begin{tabular}{L{0.3\textwidth}L{0.62\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Description} \\
 									\midrule
@@ -832,15 +833,18 @@
 								\end{tabular}
 							\end{table}
 						
+						\clearpage
+						\begin{figure}[!h]
+							\includegraphics[width=\textwidth]{images/Restful/DoImprovement}
+						\end{figure}
 						\paragraph{}
-						\textbf{PUT} /improvements/?id={id}
-						
-						This request allows a ME or LO to login
+						\vspace{-7.5mm}
+						This request modifies the status of an improvement from "not done" to "done"
 						\paragraph{}
-							\textit{\textbf{Parameters}}
+							\textcolor{myBlue}{\textit{\textbf{Parameters}}}
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.2\textwidth}L{0.2\textwidth}L{0.4\textwidth}}
+								\begin{tabular}{L{0.15\textwidth}L{0.15\textwidth}L{0.58\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Type} & \textbf{Description} \\
 									\midrule
@@ -848,12 +852,12 @@
 								 	\bottomrule
 								\end{tabular}
 							\end{table}
-						\clearpage
 						\paragraph{}
-							\textit{\textbf{Fields}}
+						\vspace{-5mm}
+							\textcolor{myBlue}{\textit{\textbf{Fields}}}
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.2\textwidth}L{0.15\textwidth}L{0.45\textwidth}}
+								\begin{tabular}{L{0.2\textwidth}L{0.15\textwidth}L{0.53\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Type} & \textbf{Description} \\
 									\midrule
@@ -862,10 +866,10 @@
 								\end{tabular}
 							\end{table}
 						\paragraph{}
-							\textit{\textbf{Error 403}} (Forbidden)
+							\textcolor{myRed}{\textit{\textbf{Error 403}}} (Forbidden)
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.4\textwidth}L{0.4\textwidth}}
+								\begin{tabular}{L{0.3\textwidth}L{0.62\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Description} \\
 									\midrule
@@ -874,15 +878,18 @@
 								\end{tabular}
 							\end{table}
 							
+						\clearpage
+						\begin{figure}[!h]
+							\includegraphics[width=\textwidth]{images/Restful/GetStatistics}
+						\end{figure}
 						\paragraph{}
-						\textbf{GET} /statistics/visualize/?id={id}
-						
+						\vspace{-7.5mm}
 						This request gets the available statistics on a certain municipality and lets the ME visualize them.
 						\paragraph{}
-							\textit{\textbf{Parameters}}
+							\textcolor{myBlue}{\textit{\textbf{Parameters}}}
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.2\textwidth}L{0.2\textwidth}L{0.4\textwidth}}
+								\begin{tabular}{L{0.15\textwidth}L{0.15\textwidth}L{0.58\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Type} & \textbf{Description} \\
 									\midrule
@@ -891,27 +898,27 @@
 								\end{tabular}
 							\end{table}
 						\paragraph{}
-							\textit{\textbf{Success 200}} (request ok)
+							\textcolor{myGreen}{\textit{\textbf{Success 200}}} (request ok)
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.3\textwidth}L{0.15\textwidth}L{0.4\textwidth}}
+								\begin{tabular}{L{0.3\textwidth}L{0.15\textwidth}L{0.43\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Type} & \textbf{Description} \\
 									\midrule
 									statistics & Object[] & The various statistics \\
-									\hspace{2.5mm}firstFieldName & String & The name of the first field of the graph \\
-									\hspace{2.5mm}secondFieldName & String & The name of the second field of the graph \\
-									\hspace{2.5mm}firstFieldValues & Number[] & The values of the first field \\
-									\hspace{2.5mm}secondFieldValues & Number[] & The value of the second field \\
+									\hspace{2.5mm}$\hookrightarrow$firstFieldName & String & The name of the first field of the graph \\
+									\hspace{2.5mm}$\hookrightarrow$secondFieldName & String & The name of the second field of the graph \\
+									\hspace{2.5mm}$\hookrightarrow$firstFieldValues & Number[] & The values of the first field \\
+									\hspace{2.5mm}$\hookrightarrow$secondFieldValues & Number[] & The value of the second field \\
 								 	\bottomrule
 								\end{tabular}
 							\end{table}
-						\clearpage
 						\paragraph{}
-							\textit{\textbf{Error 403}} (Forbidden)
+							\vspace{-5mm}
+							\textcolor{myRed}{\textit{\textbf{Error 403}}} (Forbidden)
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.4\textwidth}L{0.4\textwidth}}
+								\begin{tabular}{L{0.3\textwidth}L{0.62\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Description} \\
 									\midrule
@@ -921,10 +928,10 @@
 							\end{table}
 						\vspace{-5mm}
 						\paragraph{}
-							\textit{\textbf{Error 404}} (Resource not found)
+							\textcolor{myRed}{\textit{\textbf{Error 404}}} (Resource not found)
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.3\textwidth}L{0.5\textwidth}}
+								\begin{tabular}{L{0.3\textwidth}L{0.62\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Description} \\
 									\midrule
@@ -933,15 +940,18 @@
 								\end{tabular}
 							\end{table}
 						
+						\clearpage
+						\begin{figure}
+							\includegraphics[width=\textwidth]{images/Restful/DownloadStatistics}
+						\end{figure}
 						\paragraph{}
-						\textbf{GET} /statistics/download/?id={id}
-						
+						\vspace{-7.5mm}
 						This request gets the url of the pdf file where the visualized statistics are written
 						\paragraph{}
-							\textit{\textbf{Parameters}}
+							\textcolor{myBlue}{\textit{\textbf{Parameters}}}
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.2\textwidth}L{0.2\textwidth}L{0.4\textwidth}}
+								\begin{tabular}{L{0.15\textwidth}L{0.15\textwidth}L{0.58\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Type} & \textbf{Description} \\
 									\midrule
@@ -950,10 +960,10 @@
 								\end{tabular}
 							\end{table}
 						\paragraph{}
-							\textit{\textbf{Success 200}} (request ok)
+							\textcolor{myGreen}{\textit{\textbf{Success 200}}} (request ok)
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.25\textwidth}L{0.1\textwidth}L{0.45\textwidth}}
+								\begin{tabular}{L{0.15\textwidth}L{0.15\textwidth}L{0.58\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Type} & \textbf{Description} \\
 									\midrule
@@ -961,12 +971,12 @@
 								 	\bottomrule
 								\end{tabular}
 							\end{table}
-						\clearpage
 						\paragraph{}
-							\textit{\textbf{Error 403}} (Forbidden)
+							\vspace{-5mm}
+							\textcolor{myRed}{\textit{\textbf{Error 403}}} (Forbidden)
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.4\textwidth}L{0.4\textwidth}}
+								\begin{tabular}{L{0.3\textwidth}L{0.62\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Description} \\
 									\midrule
@@ -976,10 +986,10 @@
 							\end{table}
 						\vspace{-5mm}
 						\paragraph{}
-							\textit{\textbf{Error 404}} (Resource not found)
+							\textcolor{myRed}{\textit{\textbf{Error 404}}} (Resource not found)
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.3\textwidth}L{0.5\textwidth}}
+								\begin{tabular}{L{0.35\textwidth}L{0.57\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Description} \\
 									\midrule
@@ -987,6 +997,7 @@
 								 	\bottomrule
 								\end{tabular}
 							\end{table}
+			\clearpage
 			\subsection{TS interface and MAS interface}
 				\paragraph{}
 					Since both the TS and the MAS are optional external services which are not completely specified it will be assumed that their communication interfaces will be provided trough RESTful API given the fact that a stateless communication will ease the load on both our system and the Municipality's system. There will be assumptions only on the expected response for the GET requests and for the POST only the field of the message will be described. Both the URIs, controls on accesses and security will be overlooked.
