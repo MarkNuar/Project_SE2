@@ -539,45 +539,45 @@
 							\begin{figure}[!h]
 								\includegraphics[width=\textwidth]{images/Restful/GetUnsafeAreas}
 							\end{figure}
-						
+						\paragraph{}
+						\vspace{-7.5mm}
 						This request retrieves the type of violations in certain area.
 						\paragraph{}
-							\textit{\textbf{Fields}}
+							\textcolor{myBlue}{\textit{\textbf{Fields}}}
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.2\textwidth}L{0.15\textwidth}L{0.45\textwidth}}
+								\begin{tabular}{L{0.2\textwidth}L{0.13\textwidth}L{0.56\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Type} & \textbf{Description} \\
 									\midrule
 								 	position & Object & The position, expressed in DMS, of the center of the area which the RU wants to know about \\
-								 	\hspace{2.5mm}latitude & String & The latitude where the vehicle was recorded to be \\
-								 	\hspace{2.5mm}longitude & String & The longitude where the vehicle was recorded to be \\
+								 	\hspace{2.5mm}$\hookrightarrow$latitude & String & The latitude where the vehicle was recorded to be \\
+								 	\hspace{2.5mm}$\hookrightarrow$longitude & String & The longitude where the vehicle was recorded to be \\
 								 	\bottomrule
 								\end{tabular}
 							\end{table}
 						\paragraph{}
-							\textit{\textbf{Success 200}} (request ok)
+							\textcolor{myGreen}{\textit{\textbf{Success 200}}} (request ok)
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.23\textwidth}L{0.15\textwidth}L{0.45\textwidth}}
+								\begin{tabular}{L{0.3\textwidth}L{0.15\textwidth}L{0.43\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Type} & \textbf{Description} \\
 									\midrule
 									pseudoReport & Object[] & The list of partial reports that can be seen bya a RU \\
-									\hspace{2.5mm}position & Object & The position, expressed in DMS, of the vehicle when the report was submitted  \\
-									\hspace{5mm}latitude & String & The latitude where the vehicle was recorded to be \\
-									\hspace{5mm}longitude & String & The longitude where the vehicle was recorded to be \\
-									\hspace{2.5mm}violation & Object[] & An array of the type of violation \\
-									\hspace{5mm}violationType & String & The type of violation \\
+									\hspace{2.5mm}$\hookrightarrow$position & Object & The position, expressed in DMS, of the vehicle when the report was submitted  \\
+									\hspace{6.5mm}$\hookrightarrow$latitude & String & The latitude where the vehicle was recorded to be \\
+									\hspace{6.5mm}$\hookrightarrow$longitude & String & The longitude where the vehicle was recorded to be \\
+									\hspace{2.5mm}$\hookrightarrow$violation & Object[] & An array of the type of violation \\
+									\hspace{6.5mm}$\hookrightarrow$violationType & String & The type of violation \\
 								 	\bottomrule
 								\end{tabular}
 							\end{table}
-						\clearpage
 						\paragraph{}
-							\textit{\textbf{Error 404}} (Resource not found)
+							\textcolor{myRed}{\textit{\textbf{Error 404}}} (Resource not found)
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.4\textwidth}L{0.4\textwidth}}
+								\begin{tabular}{L{0.3\textwidth}L{0.62\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Description} \\
 									\midrule
@@ -586,15 +586,18 @@
 								\end{tabular}
 							\end{table}
 						
+						\clearpage
+						\begin{figure}[!h]
+							\includegraphics[width=\textwidth]{images/Restful/ToValidate}
+						\end{figure}
 						\paragraph{}
-						\textbf{GET} /reports/notverified/?id={id}
-						
+						\vspace{-7.5mm}
 						This request retrieves the reports that are waiting for validation in a certain municipality.
 						\paragraph{}
-							\textit{\textbf{Parameters}}
+							\textcolor{myBlue}{\textit{\textbf{Parameters}}}
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.2\textwidth}L{0.2\textwidth}L{0.4\textwidth}}
+								\begin{tabular}{L{0.15\textwidth}L{0.15\textwidth}L{0.58\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Type} & \textbf{Description} \\
 									\midrule
@@ -603,33 +606,32 @@
 								\end{tabular}
 							\end{table}
 						\paragraph{}
-							\textit{\textbf{Success 200}} (request ok)
+							\textcolor{myGreen}{\textit{\textbf{Success 200}}} (request ok)
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.23\textwidth}L{0.15\textwidth}L{0.45\textwidth}}
+								\begin{tabular}{L{0.3\textwidth}L{0.15\textwidth}L{0.43\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Type} & \textbf{Description} \\
 									\midrule
 									reports & Object[] & A list of the valid reports of a certain municipality \\
-									\hspace{2.5mm}reportId & String & The string that uniquely identifies a report \\
-									\hspace{2.5mm}vehicle & Object & The vehicle information \\
-									\hspace{5mm}licensePlate & String & The license plate of the vehicle \\
-									\hspace{2.5mm}position & Object & The position, expressed in DMS, of the vehicle when the report was submitted  \\
-									\hspace{5mm}latitude & String & The latitude where the vehicle was recorded to be \\
-									\hspace{5mm}longitude & String & The longitude where the vehicle was recorded to be \\
-									\hspace{2.5mm}picture & Object & Representation of the image of the vehicle \\
-									\hspace{2.5mm}violation & Object[] & An array of the type of violation \\
-									\hspace{5mm}violationType & String & The type of violation \\
-									\hspace{2.5mm}date & String & The datetime in \newline dd-MM-yyyyThh:mm:ss format \\
+									\hspace{2.5mm}$\hookrightarrow$reportId & String & The string that uniquely identifies a report \\
+									\hspace{2.5mm}$\hookrightarrow$vehicle & Object & The vehicle information \\
+									\hspace{6.5mm}$\hookrightarrow$licensePlate & String & The license plate of the vehicle \\
+									\hspace{2.5mm}$\hookrightarrow$position & Object & The position, expressed in DMS, of the vehicle when the report was submitted  \\
+									\hspace{6.5mm}$\hookrightarrow$latitude & String & The latitude where the vehicle was recorded to be \\
+									\hspace{6.5mm}$\hookrightarrow$longitude & String & The longitude where the vehicle was recorded to be \\
+									\hspace{2.5mm}$\hookrightarrow$picture & Object & Representation of the image of the vehicle \\
+									\hspace{2.5mm}$\hookrightarrow$violation & Object[] & An array of the type of violation \\
+									\hspace{6.5mm}$\hookrightarrow$violationType & String & The type of violation \\
+									\hspace{2.5mm}$\hookrightarrow$date & String & The datetime in \newline dd-MM-yyyyThh:mm:ss format \\
 								 	\bottomrule
 								\end{tabular}
 							\end{table}
-						\clearpage
 						\paragraph{}
-							\textit{\textbf{Error 403}} (Forbidden)
+							\textcolor{myRed}{\textit{\textbf{Error 403}}} (Forbidden)
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.4\textwidth}L{0.4\textwidth}}
+								\begin{tabular}{L{0.3\textwidth}L{0.62\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Description} \\
 									\midrule
@@ -638,15 +640,18 @@
 								\end{tabular}
 							\end{table}
 							
-							\paragraph{}
-						\textbf{PUT} /reports/notverified/?id={id}
-						
+							\clearpage
+							\begin{figure}[!h]
+								\includegraphics[width=\textwidth]{images/Restful/ValidateReport}
+							\end{figure}
+						\paragraph{}
+						\vspace{-7.5mm}
 						This request modifies the status of a report
 						\paragraph{}
-							\textit{\textbf{Parameters}}
+							\textcolor{myBlue}{\textit{\textbf{Parameters}}}
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.2\textwidth}L{0.2\textwidth}L{0.4\textwidth}}
+								\begin{tabular}{L{0.15\textwidth}L{0.15\textwidth}L{0.58\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Type} & \textbf{Description} \\
 									\midrule
@@ -656,10 +661,10 @@
 							\end{table}
 						\vspace{-5mm}
 						\paragraph{}
-							\textit{\textbf{Fields}}
+							\textcolor{myBlue}{\textit{\textbf{Fields}}}
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.2\textwidth}L{0.15\textwidth}L{0.4\textwidth}}
+								\begin{tabular}{L{0.2\textwidth}L{0.15\textwidth}L{0.53\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Type} & \textbf{Description} \\
 									\midrule
@@ -669,10 +674,10 @@
 								\end{tabular}
 							\end{table}
 						\paragraph{}
-							\textit{\textbf{Error 403}} (Forbidden)
+							\textcolor{myRed}{\textit{\textbf{Error 403}}} (Forbidden)
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.4\textwidth}L{0.4\textwidth}}
+								\begin{tabular}{L{0.3\textwidth}L{0.62\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Description} \\
 									\midrule
@@ -682,15 +687,17 @@
 							\end{table}
 							
 						\clearpage
+						\begin{figure}[!h]
+							\includegraphics[width=\textwidth]{images/Restful/ValidReports}
+						\end{figure}
 						\paragraph{}
-						\textbf{GET} /reports/valid/?id={id}
-						
+						\vspace{-7.5mm}
 						This request gets all the valid reports in a certain municipality.
 						\paragraph{}
-							\textit{\textbf{Parameters}}
+							\textcolor{myBlue}{\textit{\textbf{Parameters}}}
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.2\textwidth}L{0.2\textwidth}L{0.4\textwidth}}
+								\begin{tabular}{L{0.1\textwidth}L{0.15\textwidth}L{0.63\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Type} & \textbf{Description} \\
 									\midrule
@@ -700,10 +707,10 @@
 							\end{table}
 						\vspace{-5mm}
 						\paragraph{}
-							\textit{\textbf{Fields}}
+							\textcolor{myBlue}{\textit{\textbf{Fields}}}
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.25\textwidth}L{0.15\textwidth}L{0.4\textwidth}}
+								\begin{tabular}{L{0.2\textwidth}L{0.15\textwidth}L{0.53\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Type} & \textbf{Description} \\
 									\midrule
@@ -713,33 +720,34 @@
 								\end{tabular}
 							\end{table}
 						\paragraph{}
-							\textit{\textbf{Success 200}} (request ok)
+							\textcolor{myGreen}{\textit{\textbf{Success 200}}} (request ok)
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.23\textwidth}L{0.15\textwidth}L{0.45\textwidth}}
+								\begin{tabular}{L{0.3\textwidth}L{0.15\textwidth}L{0.43\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Type} & \textbf{Description} \\
 									\midrule
 									reports & Object[] & A list of the valid reports of a certain municipality \\
-									\hspace{2.5mm}reportId & String & The string that uniquely identifies a report \\
-									\hspace{2.5mm}vehicle & Object & The vehicle information \\
+									\hspace{2.5mm}$\hookrightarrow$reportId & String & The string that uniquely identifies a report \\
+									\hspace{2.5mm}$\hookrightarrow$vehicle & Object & The vehicle information \\
 									\hspace{5mm}licensePlate & String & The license plate of the vehicle \\
-									\hspace{2.5mm}position & Object & The position, expressed in DMS, of the vehicle when the report was submitted  \\
-									\hspace{5mm}latitude & String & The latitude where the vehicle was recorded to be \\
-									\hspace{5mm}longitude & String & The longitude where the vehicle was recorded to be \\
-									\hspace{2.5mm}picture & Object & Representation of the image of the vehicle \\
-									\hspace{2.5mm}violation & Object[] & An array of the type of violation \\
-									\hspace{5mm}violationType & String & The type of violation \\
-									\hspace{2.5mm}date & String & The datetime in \newline dd-MM-yyyyThh:mm:ss format \\
+									\hspace{2.5mm}$\hookrightarrow$position & Object & The position, expressed in DMS, of the vehicle when the report was submitted  \\
+									\hspace{6.5mm}$\hookrightarrow$latitude & String & The latitude where the vehicle was recorded to be \\
+									\hspace{6.5mm}$\hookrightarrow$longitude & String & The longitude where the vehicle was recorded to be \\
+									\hspace{2.5mm}$\hookrightarrow$picture & Object & Representation of the image of the vehicle \\
+									\hspace{2.5mm}$\hookrightarrow$violation & Object[] & An array of the type of violation \\
+									\hspace{6.5mm}$\hookrightarrow$violationType & String & The type of violation \\
+									\hspace{2.5mm}$\hookrightarrow$date & String & The datetime in \newline dd-MM-yyyyThh:mm:ss format \\
 								 	\bottomrule
 								\end{tabular}
 							\end{table}
 						\clearpage
 						\paragraph{}
-							\textit{\textbf{Error 403}} (Forbidden)
+						\vspace{-5mm}
+							\textcolor{myRed}{\textit{\textbf{Error 403}}} (Forbidden)
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.4\textwidth}L{0.4\textwidth}}
+								\begin{tabular}{L{0.3\textwidth}L{0.62\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Description} \\
 									\midrule
@@ -749,10 +757,10 @@
 							\end{table}
 						\vspace{-5mm}
 						\paragraph{}
-							\textit{\textbf{Error 404}} (Resource not found)
+							\textcolor{myRed}{\textit{\textbf{Error 404}}} (Resource not found)
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.4\textwidth}L{0.4\textwidth}}
+								\begin{tabular}{L{0.25\textwidth}L{0.67\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Description} \\
 									\midrule
@@ -760,7 +768,8 @@
 								 	\bottomrule
 								\end{tabular}
 							\end{table}
-							
+						
+						\clearpage
 						\paragraph{}
 						\textbf{GET} /improvements/?id={id}
 						
