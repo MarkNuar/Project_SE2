@@ -1592,28 +1592,28 @@ the server will permit to handle multiple simultaneous communication sessions wi
 
 ### Framework selection
 Java Enterprise Edition was selected for the implementation of the server components, because it can be used to build reliable and scalable application, modeling the components as Enterprise Java Beans, and using Java Server Pages
-for building dynamical user interfaces. Moreover, Java Persistence APIs can be used for the interaction with the DBMS. (alberto non sapevo che scrivere)
+for building dynamical user interfaces. Moreover, Java Persistence APIs can be used for the interaction with the DBMS. 
 
-nginex
+GlassFish has been chosen for the "main" server because it can be used as both an application server, so it can manage Java EE applications, and a web server, to handle HTTP requests. The choice of using GlassFish over Apache Tomcat can be strictly traced back to the need of running a Java EE application on the server, in fact Tomcat is merely an HTTP server and Java servlet container while Glassfish is full-blown Java EE application servers, including an EJB container and all the other features of that stack. 
 
-glassfish
+The open source Nginex has been chosen to run on the first web server. This was preferred over Apache because the areas where Nginx can be seen as the better alternative
+perfectly aligns with the use that has been intended for the first server. These characteristics are a better overall speed using less resources, in fact Nginx, with its event-driven architecture, can handle thousands of connection (requests) within one processing thread, better process on static contexts (on dynamic context both options achieve the same performances), and better response as a proxy server (Nginex direcly passes requests as URI).   
+
 
 ### DBMS selection
 
-PostgreSQL
+PostgreSQL has been selected to run the database over MySQL. The motives if the choice can be seen in optimization and speed of the queries.
 
 ### Security
+
 Some security measures have been taken to guarantee legitimacy of data and requests:
-* Passwords, personal email addresses and username sent to and from the server won't be in plain text. Such information will be hashed and salted with strong cryptographic functions.
-* The mechanism of the token used during communication between client and server will guarantee secrecy over the identity of the user who's making a request, it won't be possible to extract any information from it. (BHO NON LO SO) 
+* Passwords, personal email addresses and username sent to and from the server won't be in plain text. Such information will be hashed and salted with strong cryptographic functions. The encryption will be achieved through the usage of public and private keys. 
+
+* Every report, sent by the user, is provided with a digital signature, which will make the server able to realize if unauthorized data manipulation has been performed during the data transfer. Thanks to these techniques the purpose of maintaining the chain of custody from the user up to the authorities will be fulfilled.
+* The mechanism of the token used during communication between client and server will guarantee secrecy over the identity of the user who's making a request, it won't be possible to extract any information from it. 
 
 ### Service providers
-For the MS, Google Maps has been chosen. This was decided thanks to its reliability and ease of use ( XD non è vero ) .
-
-
-
-
-
+For the MS, Google Maps has been chosen. This was decided thanks to its reliability and ease of use but mainly because it has become the most employed service for map visualization and the one with more support.
 
 
 
