@@ -269,8 +269,8 @@
 \contentsline {paragraph}{}{55}%
 \contentsline {section}{\numberline {3.1}User flow}{55}%
 \contentsline {paragraph}{}{55}%
-\contentsline {subsection}{\numberline {3.1.1}User logical flow}{56}%
-\contentsline {subsection}{\numberline {3.1.2}User flow with mockups}{57}%
+\contentsline {subsection}{\numberline {3.1.1}User logical flow}{55}%
+\contentsline {subsection}{\numberline {3.1.2}User flow with mockups}{56}%
 \contentsline {section}{\numberline {3.2}Authority flow}{57}%
 \contentsline {paragraph}{}{57}%
 \contentsline {subsection}{\numberline {3.2.1}Authority logical flow}{57}%
