@@ -96,6 +96,7 @@
 \contentsline {paragraph}{}{30}%
 \contentsline {paragraph}{}{30}%
 \contentsline {paragraph}{}{30}%
+\contentsline {paragraph}{}{30}%
 \contentsline {paragraph}{}{31}%
 \contentsline {paragraph}{}{31}%
 \contentsline {paragraph}{}{31}%
@@ -105,6 +106,7 @@
 \contentsline {paragraph}{}{32}%
 \contentsline {paragraph}{}{32}%
 \contentsline {paragraph}{}{32}%
+\contentsline {paragraph}{}{33}%
 \contentsline {paragraph}{}{33}%
 \contentsline {paragraph}{}{33}%
 \contentsline {paragraph}{}{33}%
@@ -196,8 +198,8 @@
 \contentsline {subparagraph}{}{46}%
 \contentsline {subparagraph}{}{46}%
 \contentsline {subparagraph}{}{46}%
-\contentsline {subsubsection}{\numberline {2.5.6.7}ManageStatisticsComputation}{46}%
-\contentsline {paragraph}{}{46}%
+\contentsline {subsubsection}{\numberline {2.5.6.7}ManageStatisticsComputation}{47}%
+\contentsline {paragraph}{}{47}%
 \contentsline {subparagraph}{}{47}%
 \contentsline {subparagraph}{}{47}%
 \contentsline {subparagraph}{}{47}%
@@ -215,15 +217,15 @@
 \contentsline {subparagraph}{}{48}%
 \contentsline {paragraph}{}{48}%
 \contentsline {subparagraph}{}{48}%
-\contentsline {paragraph}{}{48}%
-\contentsline {subparagraph}{}{48}%
-\contentsline {subparagraph}{}{48}%
-\contentsline {subparagraph}{}{48}%
-\contentsline {subsubsection}{\numberline {2.5.6.10}AuthorityHandler}{50}%
-\contentsline {paragraph}{}{50}%
-\contentsline {subparagraph}{}{50}%
-\contentsline {subparagraph}{}{50}%
-\contentsline {subparagraph}{}{50}%
+\contentsline {paragraph}{}{49}%
+\contentsline {subparagraph}{}{49}%
+\contentsline {subparagraph}{}{49}%
+\contentsline {subparagraph}{}{49}%
+\contentsline {subsubsection}{\numberline {2.5.6.10}AuthorityHandler}{49}%
+\contentsline {paragraph}{}{49}%
+\contentsline {subparagraph}{}{49}%
+\contentsline {subparagraph}{}{49}%
+\contentsline {subparagraph}{}{49}%
 \contentsline {subsubsection}{\numberline {2.5.6.11}ReportHandler}{50}%
 \contentsline {paragraph}{}{50}%
 \contentsline {subparagraph}{}{50}%
@@ -241,61 +243,67 @@
 \contentsline {paragraph}{}{51}%
 \contentsline {subparagraph}{}{51}%
 \contentsline {subparagraph}{}{51}%
-\contentsline {subparagraph}{}{51}%
+\contentsline {subparagraph}{}{52}%
 \contentsline {subsubsection}{\numberline {2.5.6.12}ImprovementHandler}{52}%
 \contentsline {paragraph}{}{52}%
 \contentsline {subparagraph}{}{52}%
 \contentsline {paragraph}{}{52}%
 \contentsline {subparagraph}{}{52}%
 \contentsline {subparagraph}{}{52}%
-\contentsline {subparagraph}{}{53}%
-\contentsline {paragraph}{}{53}%
-\contentsline {subparagraph}{}{53}%
+\contentsline {subparagraph}{}{52}%
+\contentsline {paragraph}{}{52}%
+\contentsline {subparagraph}{}{52}%
 \contentsline {section}{\numberline {2.6}Selected architectural styles and patterns}{53}%
 \contentsline {paragraph}{}{53}%
-\contentsline {section}{\numberline {2.7}Other design decisions}{54}%
-\contentsline {subsection}{\numberline {2.7.1}Framework selection}{54}%
+\contentsline {section}{\numberline {2.7}Other design decisions}{53}%
+\contentsline {subsection}{\numberline {2.7.1}Framework selection}{53}%
+\contentsline {paragraph}{}{53}%
+\contentsline {paragraph}{}{54}%
+\contentsline {paragraph}{}{54}%
 \contentsline {paragraph}{}{54}%
 \contentsline {subsection}{\numberline {2.7.2}Security}{54}%
 \contentsline {paragraph}{}{54}%
 \contentsline {subsection}{\numberline {2.7.3}Service providers}{54}%
 \contentsline {paragraph}{}{54}%
 \contentsline {chapter}{\numberline {3}User interface design}{55}%
+\contentsline {paragraph}{}{55}%
 \contentsline {section}{\numberline {3.1}User flow}{55}%
-\contentsline {subsection}{\numberline {3.1.1}User simple flow}{55}%
-\contentsline {subsection}{\numberline {3.1.2}User flow with mockups}{55}%
-\contentsline {section}{\numberline {3.2}Authority flow}{56}%
-\contentsline {subsection}{\numberline {3.2.1}Authority simple flow}{56}%
-\contentsline {subsection}{\numberline {3.2.2}Authority flow with mockups}{56}%
-\contentsline {subsection}{\numberline {3.2.3}Municipal Employee flow}{57}%
-\contentsline {subsection}{\numberline {3.2.4}Local Officer flow}{58}%
-\contentsline {chapter}{\numberline {4}Requirement traceability}{59}%
-\contentsline {section}{\numberline {4.1}Sign up}{59}%
-\contentsline {section}{\numberline {4.2}Login}{59}%
-\contentsline {section}{\numberline {4.3}Add report}{59}%
-\contentsline {section}{\numberline {4.4}Get my reports}{61}%
-\contentsline {section}{\numberline {4.5}Get unsafe areas}{61}%
-\contentsline {section}{\numberline {4.6}Mine reports}{61}%
-\contentsline {section}{\numberline {4.7}Validate reports}{62}%
-\contentsline {section}{\numberline {4.8}Retrieve statistics}{62}%
-\contentsline {section}{\numberline {4.9}Get improvements}{62}%
-\contentsline {chapter}{\numberline {5}Implementation, integration and test plan}{64}%
-\contentsline {paragraph}{}{64}%
-\contentsline {paragraph}{}{64}%
-\contentsline {paragraph}{}{64}%
-\contentsline {paragraph}{}{64}%
-\contentsline {paragraph}{}{65}%
-\contentsline {paragraph}{}{65}%
+\contentsline {paragraph}{}{55}%
+\contentsline {subsection}{\numberline {3.1.1}User logical flow}{56}%
+\contentsline {subsection}{\numberline {3.1.2}User flow with mockups}{57}%
+\contentsline {section}{\numberline {3.2}Authority flow}{57}%
+\contentsline {paragraph}{}{57}%
+\contentsline {subsection}{\numberline {3.2.1}Authority logical flow}{57}%
+\contentsline {subsection}{\numberline {3.2.2}Authority flow with mockups}{57}%
+\contentsline {subsection}{\numberline {3.2.3}Municipal Employee flow with mockups}{59}%
+\contentsline {subsection}{\numberline {3.2.4}Local Officer flow with mockups}{60}%
+\contentsline {chapter}{\numberline {4}Requirement traceability}{61}%
+\contentsline {section}{\numberline {4.1}Sign up}{61}%
+\contentsline {section}{\numberline {4.2}Login}{61}%
+\contentsline {section}{\numberline {4.3}Add report}{61}%
+\contentsline {section}{\numberline {4.4}Get my reports}{63}%
+\contentsline {section}{\numberline {4.5}Get unsafe areas}{63}%
+\contentsline {section}{\numberline {4.6}Mine reports}{63}%
+\contentsline {section}{\numberline {4.7}Validate reports}{64}%
+\contentsline {section}{\numberline {4.8}Retrieve statistics}{64}%
+\contentsline {section}{\numberline {4.9}Get improvements}{64}%
+\contentsline {chapter}{\numberline {5}Implementation, integration and test plan}{66}%
+\contentsline {paragraph}{}{66}%
+\contentsline {paragraph}{}{66}%
+\contentsline {paragraph}{}{66}%
+\contentsline {paragraph}{}{66}%
 \contentsline {paragraph}{}{67}%
 \contentsline {paragraph}{}{67}%
-\contentsline {paragraph}{}{67}%
-\contentsline {paragraph}{}{68}%
-\contentsline {paragraph}{}{68}%
 \contentsline {paragraph}{}{69}%
 \contentsline {paragraph}{}{69}%
 \contentsline {paragraph}{}{69}%
 \contentsline {paragraph}{}{70}%
+\contentsline {paragraph}{}{70}%
 \contentsline {paragraph}{}{71}%
 \contentsline {paragraph}{}{71}%
-\contentsline {chapter}{\numberline {6}Effort spent}{72}%
-\contentsline {chapter}{\numberline {7}References}{73}%
+\contentsline {paragraph}{}{71}%
+\contentsline {paragraph}{}{72}%
+\contentsline {paragraph}{}{73}%
+\contentsline {paragraph}{}{73}%
+\contentsline {chapter}{\numberline {6}Effort spent}{74}%
+\contentsline {chapter}{\numberline {7}References}{75}%
