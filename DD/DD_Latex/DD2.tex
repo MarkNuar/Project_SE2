@@ -221,7 +221,7 @@
 						The following table represents the logic structures of the resources of the system and the operation that can be done on them (none of them admits DELETE).
 						\begin{table}[!h]
 							\centering
-							\begin{tabular}{L{0.5\textwidth}ccc}
+							\begin{tabular}{L{0.5\textwidth}cccc}
 								\toprule
 								\textbf{URI}	& \textbf{POST} & \textbf{GET} & \textbf{PUT} \\
 								\midrule
@@ -248,7 +248,7 @@
 						Here a quick description of the resources group:
 						\begin{itemize}
 							\item {\ttfamily /users/*} represents the information related to the users, in particular their account information
-							\item {\ttfamily /reports/default/*} represents the resources accessible by the RU, in particular reports and "pseudo report" for the unsafe areas. These resources will be greatly used by the mobile app.
+							\item {\ttfamily /reports/default/*} represents the resources accessible by the RU, in particular reports and "pseudo report" for the unsafe areas.
 							\item {\ttfamily /reports/notverified/*} contains all the received reports that haven't been immediately discarded by the OCRS but are still on impending evaluation by a LO
 							\item {\ttfamily /reports/valid/*} contains all the received reports that have been judged as valid by a LO
 							\item {\ttfamily /improvements/*} contains the improvements suggested to a municipality that can be retrieved by a ME
@@ -256,15 +256,17 @@
 						\end{itemize}
 				\subsubsection{General request description}
 					\paragraph{}
-						The data that will be transmitted will be composed of XML files.
+						The data that will be transmitted will be encoded in XML.
 						
-						To recognize the user who sent a request to the server, the system will employ tokens. A token is a string that is provided to the user as an answer to the login, it contains information on the user and will always be part of the requests, except the login and sign up.
+						To recognize the user who sent a request to the server, the system will rely on tokens. A token is a string that is provided to the user as an answer to the login, it contains information about the user and will always be part of the requests, except the login and sign up.
 						The contained information will be:
 						\begin{itemize}
 							\item User type information: the different type users (RU, LO and ME) will be identified in different ways to avoid ambiguity. Moreover the identifier for LO and ME will contain an identifier for the Municipality they work for
 							\item User identifier: The single user will be identified to have information on who is making the request and give the correct permission to access data.
-							\item Creation time: The token is a "one time only" use. Its validity is fixed and will generally last at least for a session, this permits to recycle pieces of tokens and avoids the malicious use of old ones to get data.
+							\item Creation time: The token is a "one time only" use. The token lifetime is limited to a session.
 						\end{itemize}
+						
+						In case a request is unsuccessful, a payload will be returned along with a proper HTTP status code. That payload will be an Object containing just one property called "reason", which will contain a brief explanation of the error. 
 				\clearpage
 				\subsubsection{Detailed requests}
 					\begin{figure}[!h]
@@ -309,7 +311,7 @@
 						\begin{table}[!h]
 							\begin{tabular}{L{0.3\textwidth}L{0.62\textwidth}}
 								\toprule
-								\textbf{Field} & \textbf{Description} \\
+								\textbf{Reason} & \textbf{Description} \\
 								\midrule
 								 ExistingUsername & Someone with the same username is already registered \\
 								 DifferentPassword & The second password is different from the first one \\
@@ -328,23 +330,11 @@
 							\textcolor{myBlue}{\textit{\textbf{Parameters}}}
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.15\textwidth}L{0.15\textwidth}L{0.58\textwidth}}
+								\begin{tabular}{L{0.2\textwidth}L{0.15\textwidth}L{0.53\textwidth}}
 									\toprule
-									\textbf{Field} & \textbf{Type} & \textbf{Description} \\
+									\textbf{Parameters} & \textbf{Type} & \textbf{Description} \\
 									\midrule
-								 	id & String & The username of the user who is trying to login \\
-								 	\bottomrule
-								\end{tabular}
-							\end{table}
-						\paragraph{}
-							\textcolor{myBlue}{\textit{\textbf{Fields}}}
-							\vspace{-2mm}
-							\begin{table}[!h]
-								\begin{tabular}{L{0.25\textwidth}L{0.15\textwidth}L{0.48\textwidth}}
-									\toprule
-									\textbf{Field} & \textbf{Type} & \textbf{Description} \\
-									\midrule
-								 	loginInformation & String & The email or username of the user \\
+								 	id & String & The email or username of the user \\
 								 	password & String & The password of the user \\
 								 	\bottomrule
 								\end{tabular}
@@ -369,9 +359,9 @@
 							\begin{table}[!h]
 								\begin{tabular}{L{0.4\textwidth}L{0.52\textwidth}}
 									\toprule
-									\textbf{Field} & \textbf{Description} \\
+									\textbf{Reason} & \textbf{Description} \\
 									\midrule
-								  	WrongUsernameOrPassword & The written username and password does not correspond to any existing user \\
+								  	WrongCredentials & The written credentials does not correspond to any existing user \\
 								 	\bottomrule
 								\end{tabular}
 							\end{table}
@@ -387,24 +377,11 @@
 							\textcolor{myBlue}{\textit{\textbf{Parameters}}}
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.2\textwidth}L{0.2\textwidth}L{0.48\textwidth}}
-									\toprule
-									\textbf{Field} & \textbf{Type} & \textbf{Description} \\
-									\midrule
-								 	id & String & The username of the user who is trying to login \\
-								 	\bottomrule
-								\end{tabular}
-							\end{table}
-						\paragraph{}
-							\vspace{-5mm}
-							\textcolor{myBlue}{\textit{\textbf{Fields}}}
-							\vspace{-2mm}
-							\begin{table}[!h]
 								\begin{tabular}{L{0.25\textwidth}L{0.15\textwidth}L{0.48\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Type} & \textbf{Description} \\
 									\midrule
-								 	loginInformation & String  & The username of the user \\
+								 	id & String  & The username of the user \\
 								 	password & String & The password of the user \\
 								 	workRole & String & This will be 'ME' or 'LO' \\
 								 	\bottomrule
@@ -430,7 +407,7 @@
 							\begin{table}[!h]
 								\begin{tabular}{L{0.4\textwidth}L{0.52\textwidth}}
 									\toprule
-									\textbf{Field} & \textbf{Description} \\
+									\textbf{Reason} & \textbf{Description} \\
 									\midrule
 								  	WrongUsernameOrPassword & The written username and password does not correspond to any existing user \\
 								  	NotCorrespondingRole & The selected work role does not correspond to the user which given login and password corresponds to \\
@@ -461,10 +438,14 @@
 								 	picture & Object & Representation of the image of the vehicle \\
 								 	violation & Object[] & An array of the type of violation \\
 								 	\hspace{2.5mm}$\hookrightarrow$ violationType & String & The type of violation \\
-								 	date & String & The datetime in \newline dd-MM-yyyyThh:mm:ss format \\
+								 	date & String & The datetime in \newline yyyy-MM-ddThh:mm:ss format \\
 								 	highlightVertexes & Object & The coordinates on the picture of where the license plate is located \\
-								 	\hspace{2.5mm}$\hookrightarrow$ vertexOne & Number[] & The coordinates (on the picure) of the top-left vertex \\
-								 	\hspace{2.5mm}$\hookrightarrow$ vertexTwo & Number[] & The coordinates (on the picture) of the bottom-right vertex \\
+								 	\hspace{2.5mm}$\hookrightarrow$ vertexOne & Object & The coordinates (on the picure) of the top-left vertex \\
+								 	\hspace{6.5mm}$\hookrightarrow$ x & Number & The x coordinate of the vertex \\
+								 	\hspace{6.5mm}$\hookrightarrow$ y & Number & The y coordinate of the vertex \\
+								 	\hspace{2.5mm}$\hookrightarrow$ vertexTwo & Object & The coordinates (on the picture) of the bottom-right vertex \\
+								 	\hspace{6.5mm}$\hookrightarrow$ x & Number & The x coordinate of the vertex \\
+								 	\hspace{6.5mm}$\hookrightarrow$ y & Number & The y coordinate of the vertex \\
 								 	\bottomrule
 								\end{tabular}
 							\end{table}
@@ -476,7 +457,7 @@
 									\toprule
 									\textbf{Field} & \textbf{Type} & \textbf{Description} \\
 									\midrule
-									id & String & The id that the system has assigned to the sent report. This id will uniquely identify the report and will also contain information about the user which sent it\\
+									id & String & The id that the system has assigned to the sent report. This id will uniquely identify the report\\
 								 	\bottomrule
 								\end{tabular}
 							\end{table}
@@ -487,7 +468,7 @@
 						\end{figure}
 						\paragraph{}
 						\vspace{-7.5mm}
-						This request retrieves a report form the system.
+						This request retrieves a report from the system.
 						\paragraph{}
 							\textcolor{myBlue}{\textbf{\textit{Parameters}}}
 							\vspace{-2mm}
@@ -516,22 +497,27 @@
 								 	picture & Object & Representation of the image of the vehicle \\
 								 	violation & Object[] & An array of the type of violation \\
 								 	\hspace{2.5mm}$\hookrightarrow$violationType & String & The type of violation \\
-								 	date & String & The datetime in \newline dd-MM-yyyyThh:mm:ss format \\
+								 	date & String & The datetime in \newline yyyy-MM-ddThh:mm:ss format \\
 								 	highlightVertexes & Object & The coordinates on the picture of where the license plate is located \\
-								 	\hspace{2.5mm}$\hookrightarrow$vertexOne & Number[] & The coordinates (on the picure) of the top-left vertex \\
-								 	\hspace{2.5mm}$\hookrightarrow$vertexTwo & Number[] & The coordinates (on the picture) of the bottom-right vertex \\
+								 	\hspace{2.5mm}$\hookrightarrow$vertexOne & Object & The coordinates (on the picure) of the top-left vertex \\
+								 	\hspace{6.5mm}$\hookrightarrow$ x & Number & The x coordinate of the vertex \\
+								 	\hspace{6.5mm}$\hookrightarrow$ y & Number & The y coordinate of the vertex \\
+								 	\hspace{2.5mm}$\hookrightarrow$vertexTwo & Object & The coordinates (on the picture) of the bottom-right vertex \\
+								 	\hspace{6.5mm}$\hookrightarrow$ x & Number & The x coordinate of the vertex \\
+								 	\hspace{6.5mm}$\hookrightarrow$ y & Number & The y coordinate of the vertex \\
+								 	status & String & The status of the report \\
 								 	\bottomrule
 								\end{tabular}
 							\end{table}
 						\paragraph{}
-							\textcolor{myRed}{\textit{\textbf{Error 403}}} (Forbidden)
+							\textcolor{myRed}{\textit{\textbf{Error 404}}} (Not Found)
 							\vspace{-2mm}
 							\begin{table}[!h]
 								\begin{tabular}{L{0.35\textwidth}L{0.57\textwidth}}
 									\toprule
-									\textbf{Field} & \textbf{Description} \\
+									\textbf{Reason} & \textbf{Description} \\
 									\midrule
-								  	 NoReportError & The requested resource caused an error on the database, this could both mean that the resource was not found on the database or that the database had internal error or an error on the connection \\
+								  	 NoReportError & The requested was not found on the server \\
 								 	\bottomrule
 								\end{tabular}
 							\end{table}
@@ -544,7 +530,7 @@
 						\vspace{-7.5mm}
 						This request retrieves the type of violations in certain area.
 						\paragraph{}
-							\textcolor{myBlue}{\textit{\textbf{Fields}}}
+							\textcolor{myBlue}{\textit{\textbf{Parameters}}}
 							\vspace{-2mm}
 							\begin{table}[!h]
 								\begin{tabular}{L{0.2\textwidth}L{0.13\textwidth}L{0.56\textwidth}}
@@ -565,7 +551,7 @@
 									\toprule
 									\textbf{Field} & \textbf{Type} & \textbf{Description} \\
 									\midrule
-									pseudoReport & Object[] & The list of partial reports that can be seen bya a RU \\
+									pseudoReport & Object[] & The list of partial reports that can be seen by a RU \\
 									\hspace{2.5mm}$\hookrightarrow$position & Object & The position, expressed in DMS, of the vehicle when the report was submitted  \\
 									\hspace{6.5mm}$\hookrightarrow$latitude & String & The latitude where the vehicle was recorded to be \\
 									\hspace{6.5mm}$\hookrightarrow$longitude & String & The longitude where the vehicle was recorded to be \\
@@ -580,9 +566,9 @@
 							\begin{table}[!h]
 								\begin{tabular}{L{0.3\textwidth}L{0.62\textwidth}}
 									\toprule
-									\textbf{Field} & \textbf{Description} \\
+									\textbf{Reason} & \textbf{Description} \\
 									\midrule
-								  	 NoReportError & The requested resource caused an error on the database, this could both mean that the resource was not found on the database or that the database had internal error or an error on the connection \\
+								  	 NoReportError & The requested resource was not found on the server \\
 								 	\bottomrule
 								\end{tabular}
 							\end{table}
@@ -624,7 +610,7 @@
 									\hspace{2.5mm}$\hookrightarrow$picture & Object & Representation of the image of the vehicle \\
 									\hspace{2.5mm}$\hookrightarrow$violation & Object[] & An array of the type of violation \\
 									\hspace{6.5mm}$\hookrightarrow$violationType & String & The type of violation \\
-									\hspace{2.5mm}$\hookrightarrow$date & String & The datetime in \newline dd-MM-yyyyThh:mm:ss format \\
+									\hspace{2.5mm}$\hookrightarrow$date & String & The datetime in \newline yyyy-MM-ddThh:mm:ss format \\
 								 	\bottomrule
 								\end{tabular}
 							\end{table}
@@ -634,7 +620,7 @@
 							\begin{table}[!h]
 								\begin{tabular}{L{0.3\textwidth}L{0.62\textwidth}}
 									\toprule
-									\textbf{Field} & \textbf{Description} \\
+									\textbf{Reason} & \textbf{Description} \\
 									\midrule
 								  	UserNotAuthorized & The id of the municipality and the token of the user have been analyzed. It was found that the user was not an LO or the LO's municipality was not the one of the reports requested \\
 								 	\bottomrule
@@ -656,7 +642,7 @@
 									\toprule
 									\textbf{Field} & \textbf{Type} & \textbf{Description} \\
 									\midrule
-								 	id & String & The id that uniquely identifies the municipality which the LO works for \\
+								 	id & String & The id of the report \\
 								 	\bottomrule
 								\end{tabular}
 							\end{table}
@@ -665,12 +651,11 @@
 							\textcolor{myBlue}{\textit{\textbf{Fields}}}
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.2\textwidth}L{0.15\textwidth}L{0.53\textwidth}}
+								\begin{tabular}{L{0.3\textwidth}L{0.15\textwidth}L{0.43\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Type} & \textbf{Description} \\
 									\midrule
-								 	id & String & The id of the report \\
-								 	newStatus & String & The result of the validation performed by the LO \\
+								 	status & String & The new status of the report \\
 								 	\bottomrule
 								\end{tabular}
 							\end{table}
@@ -680,9 +665,21 @@
 							\begin{table}[!h]
 								\begin{tabular}{L{0.3\textwidth}L{0.62\textwidth}}
 									\toprule
-									\textbf{Field} & \textbf{Description} \\
+									\textbf{Reason} & \textbf{Description} \\
 									\midrule
 								  	UserNotAuthorized & The id of the municipality and the token of the user have been analyzed. It was found that the user was not an LO or the LO's municipality was not the one of the reports requested \\
+								 	\bottomrule
+								\end{tabular}
+							\end{table}
+						\paragraph{}
+							\textcolor{myRed}{\textit{\textbf{Error 404}}} (Resource not found)
+							\vspace{-2mm}
+							\begin{table}[!h]
+								\begin{tabular}{L{0.3\textwidth}L{0.62\textwidth}}
+									\toprule
+									\textbf{Reason} & \textbf{Description} \\
+									\midrule
+								  	ReportNotFound & The requested report was not found on the server \\
 								 	\bottomrule
 								\end{tabular}
 							\end{table}
@@ -693,79 +690,62 @@
 						\end{figure}
 						\paragraph{}
 						\vspace{-7.5mm}
-						This request gets all the valid reports in a certain municipality.
+						This request gets all the valid reports. Items prefixed with a "?" are optional.
 						\paragraph{}
+							\vspace{-2mm}
 							\textcolor{myBlue}{\textit{\textbf{Parameters}}}
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.1\textwidth}L{0.15\textwidth}L{0.63\textwidth}}
+								\begin{tabular}{L{0.3\textwidth}L{0.11\textwidth}L{0.47\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Type} & \textbf{Description} \\
 									\midrule
-								 	id & String & The id that uniquely identifies the municipality which the LO works for \\
-								 	\bottomrule
-								\end{tabular}
-							\end{table}
-						\vspace{-5mm}
-						\paragraph{}
-							\textcolor{myBlue}{\textit{\textbf{Fields}}}
-							\vspace{-2mm}
-							\begin{table}[!h]
-								\begin{tabular}{L{0.2\textwidth}L{0.15\textwidth}L{0.53\textwidth}}
-									\toprule
-									\textbf{Field} & \textbf{Type} & \textbf{Description} \\
-									\midrule
-								 	requestType & String & The type of request issued (i.e. "by area") \\
-								 	requestField & String & The field that contains precise information on the request \\
+								 	requestType & String & The type of request issued \\
+								 	requestField & Object & The field that contains precise information on the request \\
+								 	\hspace{2.5mm}$\hookrightarrow$?position & Object & The requested position \\
+								 	\hspace{6.5mm}$\hookrightarrow$latitude & String & The requested latitude in DMS \\
+								 	\hspace{6.5mm}$\hookrightarrow$longitude & Object & The requested longitude in DMS \\
+								 	\hspace{2.5mm}$\hookrightarrow$?radius & Number & The requested radius (m) \\
+								 	\hspace{2.5mm}$\hookrightarrow$?violationType & String & The requested violation type \\
+								 	\hspace{2.5mm}$\hookrightarrow$?date & String & The requested date (yyyy-MM-dd) \\
+								 	\hspace{2.5mm}$\hookrightarrow$?time & String & The requested time slice expressed as its initial hour formatted as hh:00 \\
 								 	\bottomrule
 								\end{tabular}
 							\end{table}
 						\paragraph{}
+							\vspace{-5mm}
 							\textcolor{myGreen}{\textit{\textbf{Success 200}}} (request ok)
 							\vspace{-2mm}
 							\begin{table}[!h]
-								\begin{tabular}{L{0.3\textwidth}L{0.15\textwidth}L{0.43\textwidth}}
+								\begin{tabular}{L{0.3\textwidth}L{0.12\textwidth}L{0.46\textwidth}}
 									\toprule
 									\textbf{Field} & \textbf{Type} & \textbf{Description} \\
 									\midrule
 									reports & Object[] & A list of the valid reports of a certain municipality \\
 									\hspace{2.5mm}$\hookrightarrow$reportId & String & The string that uniquely identifies a report \\
 									\hspace{2.5mm}$\hookrightarrow$vehicle & Object & The vehicle information \\
-									\hspace{5mm}licensePlate & String & The license plate of the vehicle \\
+									\hspace{6.5mm}$\hookrightarrow$licensePlate & String & The license plate of the vehicle \\
 									\hspace{2.5mm}$\hookrightarrow$position & Object & The position, expressed in DMS, of the vehicle when the report was submitted  \\
 									\hspace{6.5mm}$\hookrightarrow$latitude & String & The latitude where the vehicle was recorded to be \\
 									\hspace{6.5mm}$\hookrightarrow$longitude & String & The longitude where the vehicle was recorded to be \\
 									\hspace{2.5mm}$\hookrightarrow$picture & Object & Representation of the image of the vehicle \\
 									\hspace{2.5mm}$\hookrightarrow$violation & Object[] & An array of the type of violation \\
 									\hspace{6.5mm}$\hookrightarrow$violationType & String & The type of violation \\
-									\hspace{2.5mm}$\hookrightarrow$date & String & The datetime in \newline dd-MM-yyyyThh:mm:ss format \\
+									\hspace{2.5mm}$\hookrightarrow$date & String & The datetime in \newline yyyy-MM-ddThh:mm:ss format \\
 								 	\bottomrule
 								\end{tabular}
 							\end{table}
-						\clearpage
+						
 						\paragraph{}
-						\vspace{-5mm}
-							\textcolor{myRed}{\textit{\textbf{Error 403}}} (Forbidden)
 							\vspace{-2mm}
-							\begin{table}[!h]
-								\begin{tabular}{L{0.3\textwidth}L{0.62\textwidth}}
-									\toprule
-									\textbf{Field} & \textbf{Description} \\
-									\midrule
-								  	UserNotAuthorized & The id of the municipality and the token of the user have been analyzed. It was found that the user was not an LO or the LO's  municipality was not the one of the reports requested  \\
-								 	\bottomrule
-								\end{tabular}
-							\end{table}
-						\vspace{-5mm}
-						\paragraph{}
 							\textcolor{myRed}{\textit{\textbf{Error 404}}} (Resource not found)
 							\vspace{-2mm}
 							\begin{table}[!h]
 								\begin{tabular}{L{0.25\textwidth}L{0.67\textwidth}}
 									\toprule
-									\textbf{Field} & \textbf{Description} \\
+									\textbf{Reason} & \textbf{Description} \\
 									\midrule
-								  	 NoReportError & The requested resource caused an error on the database, this could both mean that the resource was not found on the database or that the database had internal error or an error on the connection \\ 
+								  	 NoReportError & The requested resource was not found on the server \\ 
 								 	\bottomrule
 								\end{tabular}
 							\end{table}
@@ -814,7 +794,7 @@
 							\begin{table}[!h]
 								\begin{tabular}{L{0.3\textwidth}L{0.62\textwidth}}
 									\toprule
-									\textbf{Field} & \textbf{Description} \\
+									\textbf{Reason} & \textbf{Description} \\
 									\midrule
 								  	UserNotAuthorized & The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's  municipality was not the one of the reports requested  \\
 								 	\bottomrule
@@ -827,7 +807,7 @@
 							\begin{table}[!h]
 								\begin{tabular}{L{0.3\textwidth}L{0.62\textwidth}}
 									\toprule
-									\textbf{Field} & \textbf{Description} \\
+									\textbf{Reason} & \textbf{Description} \\
 									\midrule
 								  	NotEnoughReportError & The requested improvements could not be found on the database and the available information on the Municipality is not enough to compute correct suggestions \\
 								 	\bottomrule
@@ -872,13 +852,24 @@
 							\begin{table}[!h]
 								\begin{tabular}{L{0.3\textwidth}L{0.62\textwidth}}
 									\toprule
-									\textbf{Field} & \textbf{Description} \\
+									\textbf{Reason} & \textbf{Description} \\
 									\midrule
 								  	UserNotAuthorized & The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's municipality was not the one of the reports requested \\
 								 	\bottomrule
 								\end{tabular}
 							\end{table}
-							
+						\paragraph{}
+							\textcolor{myRed}{\textit{\textbf{Error 404}}} (Resource not found)
+							\vspace{-2mm}
+							\begin{table}[!h]
+								\begin{tabular}{L{0.3\textwidth}L{0.62\textwidth}}
+									\toprule
+									\textbf{Reason} & \textbf{Description} \\
+									\midrule
+								  	NoImprovementError & The requested improvement was not found on the server \\
+								 	\bottomrule
+								\end{tabular}
+							\end{table}
 						\clearpage
 						\begin{figure}[!h]
 							\includegraphics[width=\textwidth]{images/Restful/GetStatistics}
@@ -909,8 +900,9 @@
 									statistics & Object[] & The various statistics \\
 									\hspace{2.5mm}$\hookrightarrow$firstFieldName & String & The name of the first field of the graph \\
 									\hspace{2.5mm}$\hookrightarrow$secondFieldName & String & The name of the second field of the graph \\
-									\hspace{2.5mm}$\hookrightarrow$firstFieldValues & Number[] & The values of the first field \\
-									\hspace{2.5mm}$\hookrightarrow$secondFieldValues & Number[] & The value of the second field \\
+									\hspace{2.5mm}$\hookrightarrow$points & Object[] & The values of the statistic \\
+									\hspace{6.5mm}$\hookrightarrow$x & Number & The value of the first field of the statistic \\
+									\hspace{6.5mm}$\hookrightarrow$y & Number & The value of the second field of the statistic \\
 								 	\bottomrule
 								\end{tabular}
 							\end{table}
@@ -921,7 +913,7 @@
 							\begin{table}[!h]
 								\begin{tabular}{L{0.3\textwidth}L{0.62\textwidth}}
 									\toprule
-									\textbf{Field} & \textbf{Description} \\
+									\textbf{Reason} & \textbf{Description} \\
 									\midrule
 								  	UserNotAuthorized & The id of the municipality and the token of the user have been analyzed. It was found that the user was not an ME or the ME's  municipality was not the one of the reports requested  \\
 								 	\bottomrule
@@ -934,7 +926,7 @@
 							\begin{table}[!h]
 								\begin{tabular}{L{0.3\textwidth}L{0.62\textwidth}}
 									\toprule
-									\textbf{Field} & \textbf{Description} \\
+									\textbf{Reason} & \textbf{Description} \\
 									\midrule
 								  	NotEnoughReportError & The requested statistics could not be found on the database and the available information on the Municipality is not enough to compute accurate statistics \\
 								 	\bottomrule
@@ -963,15 +955,8 @@
 						\paragraph{}
 							\textcolor{myGreen}{\textit{\textbf{Success 200}}} (request ok)
 							\vspace{-2mm}
-							\begin{table}[!h]
-								\begin{tabular}{L{0.15\textwidth}L{0.15\textwidth}L{0.58\textwidth}}
-									\toprule
-									\textbf{Field} & \textbf{Type} & \textbf{Description} \\
-									\midrule
-									url & String & The url where the ME can download the pdf file \\
-								 	\bottomrule
-								\end{tabular}
-							\end{table}
+							\paragraph{}
+								The requested file is attached as payload to the response
 						\paragraph{}
 							\vspace{-5mm}
 							\textcolor{myRed}{\textit{\textbf{Error 403}}} (Forbidden)
